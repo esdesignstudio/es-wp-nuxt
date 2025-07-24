@@ -16,16 +16,27 @@
 
     $off_text = fs_text_x_inline( 'Off', 'as turned off' );
     $on_text  = fs_text_x_inline( 'On', 'as turned on' );
+
+    // For some reason css was missing
+    fs_enqueue_local_style( 'fs_common', '/admin/common.css' );
+
+    $has_any_active_clone = false;
+
+    $is_multisite = is_multisite();
+
+    $auto_off_timestamp = wp_next_scheduled( 'fs_debug_turn_off_logging_hook' ) * 1000;
 ?>
 <h1><?php echo fs_text_inline( 'Freemius Debug' ) . ' - ' . fs_text_inline( 'SDK' ) . ' v.' . $fs_active_plugins->newest->version ?></h1>
 <div>
     <!-- Debugging Switch -->
-    <?php //$debug_mode = get_option( 'fs_debug_mode', null ) ?>
     <span class="fs-switch-label"><?php fs_esc_html_echo_x_inline( 'Debugging', 'as code debugging' ) ?></span>
 
     <div class="fs-switch fs-round <?php echo WP_FS__DEBUG_SDK ? 'fs-on' : 'fs-off' ?>">
         <div class="fs-toggle"></div>
     </div>
+
+    <span class="auto-off-debug-countdown hidden"><?php echo fs_esc_html_echo_x_inline( 'Auto off in:', 'timer for auto-disabling debug' ); ?> <span class="time">23:59:59</span>
+
     <script type="text/javascript">
         (function ($) {
             $(document).ready(function () {
@@ -35,18 +46,70 @@
                         .toggleClass( 'fs-on' )
                         .toggleClass( 'fs-off' );
 
-                    $.post( ajaxurl, {
+                    var is_on = ($(this).hasClass( 'fs-on' ) ? 1 : 0);
+
+                    $.post( <?php echo Freemius::ajax_url() ?>, {
                         action: 'fs_toggle_debug_mode',
                         // As such we don't need to use `wp_json_encode` method but using it to follow wp.org guideline.
                         _wpnonce   : <?php echo wp_json_encode( wp_create_nonce( 'fs_toggle_debug_mode' ) ); ?>,
-                        is_on : ($(this).hasClass( 'fs-on' ) ? 1 : 0)
-                    }, function ( response ) {
+                        is_on
+                    }, function (response) {
+                        if (is_on) {
+                            startCountdownManually();
+                        } else {
+                            stopCountdownManually();
+                        }
+
                         if ( 1 == response ) {
                             // Refresh page on success.
                             location.reload();
                         }
                     });
                 });
+
+                // Countdown
+                var countdownElement = document.querySelector('.auto-off-debug-countdown');
+                var timeElement = countdownElement.querySelector('.time');
+                var targetTime = <?php echo wp_json_encode( $auto_off_timestamp ); ?>;
+                var countdownTimeout;
+
+                function updateCountdown() {
+                    var currentTime = new Date().getTime();
+                    var remainingTimeInMs = targetTime - currentTime;
+                    var hours = Math.floor((remainingTimeInMs % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                    var minutes = Math.floor((remainingTimeInMs % (1000 * 60 * 60)) / (1000 * 60));
+                    var seconds = Math.floor((remainingTimeInMs % (1000 * 60)) / 1000);
+
+
+                    if (remainingTimeInMs < 1000) {
+                        countdownElement.classList.add('hidden');
+                        countdownTimeout = null;
+                    } else {
+                        timeElement.innerHTML = hours + ":"
+                            + minutes.toString().padStart(2, '0') + ":"
+                            + seconds.toString().padStart(2, '0');
+                        countdownElement.classList.remove('hidden');
+
+                        if (countdownTimeout) {
+                            clearTimeout(countdownTimeout);
+                        }
+                        countdownTimeout = setTimeout(updateCountdown, 1000);
+                    }
+                }
+
+                function startCountdownManually() {
+                    targetTime = ( new Date().getTime() ) + (24 * 60 * 60 * 1000) - 1;
+                    updateCountdown();
+                }
+
+                function stopCountdownManually() {
+                    targetTime = new Date().getTime();
+                    updateCountdown();
+                }
+
+                updateCountdown();
+                // End countdown
+
             });
         }(jQuery));
     </script>
@@ -112,6 +175,15 @@
         <td>
             <button id="fs_set_db_option" class="button"><?php fs_esc_html_echo_inline( 'Set DB Option' ) ?></button>
         </td>
+        <td>
+            <?php
+                $fs_debug_page_url = 'admin.php?page=freemius&fs_action=allow_clone_resolution_notice';
+                $fs_debug_page_url = fs_is_network_admin() ?
+                    network_admin_url( $fs_debug_page_url ) :
+                    admin_url( $fs_debug_page_url );
+            ?>
+            <a href="<?php echo wp_nonce_url( $fs_debug_page_url, 'fs_allow_clone_resolution_notice' ) ?>" class="button button-primary">Resolve Clone(s)</a>
+        </td>
     </tr>
     </tbody>
 </table>
@@ -121,7 +193,7 @@
             var optionName = prompt('Please enter the option name:');
 
             if (optionName) {
-                $.post(ajaxurl, {
+                $.post(<?php echo Freemius::ajax_url() ?>, {
                     action     : 'fs_get_db_option',
                     // As such we don't need to use `wp_json_encode` method but using it to follow wp.org guideline.
                     _wpnonce   : <?php echo wp_json_encode( wp_create_nonce( 'fs_get_db_option' ) ); ?>,
@@ -142,7 +214,7 @@
                 var optionValue = prompt('Please enter the option value:');
 
                 if (optionValue) {
-                    $.post(ajaxurl, {
+                    $.post(<?php echo Freemius::ajax_url() ?>, {
                         action      : 'fs_set_db_option',
                         // As such we don't need to use `wp_json_encode` method but using it to follow wp.org guideline.
                         _wpnonce    : <?php echo wp_json_encode( wp_create_nonce( 'fs_set_db_option' ) ); ?>,
@@ -184,6 +256,10 @@
         array(
             'key' => 'WP_FS__DIR',
             'val' => WP_FS__DIR,
+        ),
+        array(
+            'key' => 'wp_using_ext_object_cache()',
+            'val' => wp_using_ext_object_cache() ? 'true' : 'false',
         ),
     )
 ?>
@@ -239,7 +315,7 @@
         WP_FS__MODULE_TYPE_THEME
     );
 ?>
-
+<?php $active_modules_by_id = array() ?>
 <?php foreach ( $module_types as $module_type ) : ?>
     <?php $modules = fs_get_entities( $fs_options->get_option( $module_type . 's' ), FS_Plugin::get_class_name() ) ?>
     <?php if ( is_array( $modules ) && count( $modules ) > 0 ) : ?>
@@ -255,7 +331,7 @@
                 <th><?php fs_esc_html_echo_inline( 'Freemius State' ) ?></th>
                 <th><?php fs_esc_html_echo_inline( 'Module Path' ) ?></th>
                 <th><?php fs_esc_html_echo_inline( 'Public Key' ) ?></th>
-                <?php if ( is_multisite() ) : ?>
+                <?php if ( $is_multisite ) : ?>
                     <th><?php fs_esc_html_echo_inline( 'Network Blog' ) ?></th>
                     <th><?php fs_esc_html_echo_inline( 'Network User' ) ?></th>
                 <?php endif ?>
@@ -278,9 +354,18 @@
                     }
                 }
                 ?>
-                <?php $fs = $is_active ? freemius( $data->id ) : null ?>
+                <?php
+                    $fs = null;
+                    if ( $is_active ) {
+                        $fs = freemius( $data->id );
+
+                        $active_modules_by_id[ $data->id ] = true;
+                    }
+                ?>
                 <tr<?php if ( $is_active ) {
-                    if ( $fs->has_api_connectivity() && $fs->is_on() ) {
+                    $has_api_connectivity = $fs->has_api_connectivity();
+
+                    if ( true === $has_api_connectivity && $fs->is_on() ) {
                         echo ' style="background: #E6FFE6; font-weight: bold"';
                     } else {
                         echo ' style="background: #ffd0d0; font-weight: bold"';
@@ -290,12 +375,14 @@
                     <td><?php echo $slug ?></td>
                     <td><?php echo $data->version ?></td>
                     <td><?php echo $data->title ?></td>
-                    <td<?php if ( $is_active && ! $fs->has_api_connectivity() ) {
+                    <td<?php if ( $is_active && true !== $has_api_connectivity ) {
                         echo ' style="color: red; text-transform: uppercase;"';
                     } ?>><?php if ( $is_active ) {
-                            echo esc_html( $fs->has_api_connectivity() ?
+                            echo esc_html( true === $has_api_connectivity ?
                                 fs_text_x_inline( 'Connected', 'as connection was successful' ) :
-                                fs_text_x_inline( 'Blocked', 'as connection blocked' )
+                                ( false === $has_api_connectivity ?
+                                    fs_text_x_inline( 'Blocked', 'as connection blocked' ) :
+                                    fs_text_x_inline( 'Unknown', 'API connectivity state is unknown' ) )
                             );
                         } ?></td>
                     <td<?php if ( $is_active && ! $fs->is_on() ) {
@@ -308,7 +395,7 @@
                         } ?></td>
                     <td><?php echo $data->file ?></td>
                     <td><?php echo $data->public_key ?></td>
-                    <?php if ( is_multisite() ) : ?>
+                    <?php if ( $is_multisite ) : ?>
                         <?php
                         $network_blog_id = null;
                         $network_user    = null;
@@ -362,8 +449,7 @@
      */
     $sites_map = $VARS[ $module_type . '_sites' ];
 
-    $is_multisite = is_multisite();
-    $all_plans    = false;
+    $all_plans = false;
     ?>
     <?php if ( is_array( $sites_map ) && count( $sites_map ) > 0 ) : ?>
         <h2><?php echo esc_html( sprintf(
@@ -389,12 +475,37 @@
             </tr>
             </thead>
             <tbody>
+            <?php $site_url = null ?>
             <?php foreach ( $sites_map as $slug => $sites ) : ?>
                 <?php foreach ( $sites as $site ) : ?>
+                    <?php
+                        $blog_id = $is_multisite ?
+                            $site->blog_id :
+                            null;
+
+                        if ( is_null( $site_url ) || $is_multisite ) {
+                            $site_url = Freemius::get_unfiltered_site_url(
+                                $blog_id,
+                                true,
+                                true
+                            );
+                        }
+
+                        $is_active_clone = ( $site->is_clone( $site_url ) && isset( $active_modules_by_id[ $site->plugin_id ] ) );
+
+                        if ( $is_active_clone ) {
+                            $has_any_active_clone = true;
+                        }
+                    ?>
                     <tr>
-                        <td><?php echo $site->id ?></td>
+                        <td>
+                            <?php echo $site->id ?>
+                            <?php if ( $is_active_clone ) : ?>
+                            <label class="fs-tag fs-warn">Clone</label>
+                            <?php endif ?>
+                        </td>
                         <?php if ( $is_multisite ) : ?>
-                            <td><?php echo $site->blog_id ?></td>
+                            <td><?php echo $blog_id ?></td>
                             <td><?php echo fs_strip_url_protocol( $site->url ) ?></td>
                         <?php endif ?>
                         <td><?php echo $slug ?></td>
@@ -740,7 +851,7 @@
                     offset = 0;
                 }
 
-                $.post(ajaxurl, {
+                $.post(<?php echo Freemius::ajax_url() ?>, {
                     action : 'fs_get_debug_log',
                     // As such we don't need to use `wp_json_encode` method but using it to follow wp.org guideline.
                     _wpnonce : <?php echo wp_json_encode( wp_create_nonce( 'fs_get_debug_log' ) ); ?>,

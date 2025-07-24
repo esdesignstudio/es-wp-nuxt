@@ -3,23 +3,21 @@
 // 替換入口 logo
 function new_login_logo() {                                                             /* 自訂登入畫面LOGO */ 
     echo '<style type="text/css">
-    .login h1 a { background-image:url('.get_template_directory_uri().'/asset/imgs/company-logo.png) !important; background-size: 270px 110px!important; width:270px!important; height:110px !important; }</style>';
+    .login h1 a { background-image:url('.get_template_directory_uri().'/asset/imgs/company-logo.png) !important; background-size: 270px 110px!important; width:270px!important; height:110px !important; }
+    body {background-image:url('.get_template_directory_uri().'/screenshot.png); background-size: cover; background-position: center; background-repeat: no-repeat;}</style>';
 }
 add_action('login_head', 'new_login_logo' );
-
-// 變更自訂登入畫面上LOGO的連結
-function custom_loginlogo_url($url) { return get_bloginfo('url'); }                     
-add_filter('login_headerurl', 'custom_loginlogo_url' );
 
 // 移除控制台左上角WP-LOGO
 function remove_wp_logo( $wp_admin_bar ) { $wp_admin_bar->remove_node( 'wp-logo' ); } 
 add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
 
 // 修改後台底下的wordpress文字宣告
-function custom_dashboard_footer () {
-    echo '網站設計單位 : <a href="https://e-s.tw" target="_blank">ES Design</a>，技術採用：開源程式<a href="https://wordpress.org/" target="_blank">Wordpress CMS</a>'; 
+function custom_dashboard_footer ($text) {
+    // 確保返回非空字串，避免與其他插件衝突
+    return '網站設計單位 : <a href="https://e-s.tw" target="_blank">ES Design</a>，技術採用：開源程式<a href="https://wordpress.org/" target="_blank">Wordpress CMS</a>'; 
 }
-add_filter('admin_footer_text', 'custom_dashboard_footer');
+add_filter('admin_footer_text', 'custom_dashboard_footer', 20);
 
 // 隱藏後台右下角wp版本號
 function change_footer_version() {return 'Design is a relationship';}
@@ -27,6 +25,7 @@ add_filter( 'update_footer', 'change_footer_version', 9999);
 
 //登入用的css
 function eslogin_style() {
+    wp_enqueue_style('admin-styles', get_template_directory_uri().'/asset/custom.css');
     wp_enqueue_style( 'custom-login', get_stylesheet_directory_uri() . '/asset/login.css' );
     wp_enqueue_script( 'custom-login', get_stylesheet_directory_uri() . '/asset/login.css' );
 }
@@ -92,5 +91,45 @@ add_action('admin_menu', function () {
 add_action('init', function () {
     if (is_admin_bar_showing()) {
         remove_action('admin_bar_menu', 'wp_admin_bar_comments_menu', 60);
+    }
+});
+
+// 停用所有自動更新
+add_filter('automatic_updater_disabled', '__return_true');
+add_filter('auto_update_core', '__return_false');
+add_filter('auto_update_plugin', '__return_false');
+// add_filter('auto_update_theme', '__return_false');
+// add_filter('auto_update_translation', '__return_false');
+add_filter('allow_minor_auto_core_updates', '__return_false');
+add_filter('allow_major_auto_core_updates', '__return_false');
+
+// 移除更新通知
+// add_filter('pre_site_transient_update_core', '__return_null');
+// add_filter('pre_site_transient_update_plugins', '__return_null');
+// add_filter('pre_site_transient_update_themes', '__return_null');
+
+// 針對非管理員隱藏特定後台選單
+add_action('admin_menu', function() {
+    if (!current_user_can('administrator')) {
+        // 移除工具頁面
+        remove_menu_page('tools.php');
+        
+        // 移除設定頁面
+        remove_menu_page('options-general.php');
+        
+        // 移除 ACF 欄位群組頁面
+        remove_menu_page('edit.php?post_type=acf-field-group');
+        
+        // 移除佈景主題頁面
+        remove_menu_page('themes.php');
+        
+        // 移除外掛頁面
+        remove_menu_page('plugins.php');
+        
+        // 移除 ACF 選項頁面
+        remove_menu_page('acf-options');
+        
+        // 移除 Polylang 設定頁面
+        remove_menu_page('mlang');
     }
 });

@@ -6,6 +6,12 @@
  * @package WordPress
  */
 
+// 停用預設文章 post type
+function disable_default_post_type() {
+    remove_menu_page('edit.php');
+}
+add_action('admin_menu', 'disable_default_post_type');
+
 add_filter( 'acf/settings/rest_api_format', function () {
     return 'standard';
 });
@@ -18,9 +24,9 @@ function add_allowed_origins( $origins ) {
 };
 
 // 引入
-// include_once "setting/cpt.php"; 
-include_once "setting/tools.php"; 
 include_once "setting/acf.php"; 
 include_once "setting/dashboard.php"; 
 include_once "setting/admin.php"; 
+include_once "setting/custom-login.php"; 
+include_once "setting/custom-cache.php"; 
 include_once "api/index.php"; 

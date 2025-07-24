@@ -1,49 +1,43 @@
 <template>
     <div class="page-index">
         <div class="container">
-            <div class="page-index__content">
-                <h1
-                    v-inview
-                    v-parallax="-0.4"
-                >細節不單只是細節，它們成就了設計<br>我們追求那小小會心一驚的設計<br>The details are not the details. They make the design.</h1>
-                <pre>{{ pageData }}</pre>
-            </div>
+            HOME
         </div>
         <Footer />
     </div>
 </template>
 <script setup>
-
-    const { data: pageData } = await useAsyncData(
-        'get_page_home',
-        () => $fetch( useRuntimeConfig().apiUrl + '/get_page_custom', {
-            method: 'POST',
-            body: {
-                id: 47,
-                // locale: locale.value 多國語言要自帶
-            }
-        })
-    )
-
     const pageloaded = usePageLoaded()
-    if (pageData.value) {
-        pageloaded.value = true
-    } else {
-        navigateTo('/404')
-    }
+    const route = useRoute()
+    const { global, page } = usePageData().value
+    // const pageData = page[26]
 
+    // if (!pageData) {
+    //     throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true })
+    // } else {
+    //     pageloaded.value = true
+    //     console.log('pageData', pageData);
+    // }
 
-    // console.log('pageData', pageData.value)
+    useHead({
+        // title: pageData.meta_title ? pageData.meta_title : pageData.og_title,
+        // meta: useMetaReturn({
+        //     title: pageData.meta_title ? pageData.meta_title : pageData.og_title,
+        //     description: pageData.meta_description,
+        //     image: pageData.og_image?.url,
+        //     url: useRuntimeConfig().public.siteUrl + route.path
+        // }),
+        // script: [
+        //     {
+        //         type: 'application/ld+json',
+        //         children: useBreadcrumb()
+        //     }
+        // ]
+    })
 </script>
 <style lang="scss">
     $class-name: page-index;
     .#{$class-name} {
-        &__content {
-            h1 {
-                @include typo('head', 1);
 
-                padding: 5rem 0;
-            }
-        }
     }
 </style>

@@ -58,8 +58,8 @@ body .medium-editor-toolbar {
     margin-bottom: -15px
 }
 
-.acf-fields>.acf-field-clone.acfe-field-clone-layout-block.acfe-no-label.acfe-seamless-style:not([data-acfe-clone-modal="1"])>.acf-input,
-.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-no-label.acfe-seamless-style:not([data-acfe-clone-modal="1"])>.acf-input {
+.acf-fields>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style.acfe-no-label:not([data-acfe-clone-modal="1"])>.acf-input,
+.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style.acfe-no-label:not([data-acfe-clone-modal="1"])>.acf-input {
     margin-top: -15px
 }
 
@@ -68,7 +68,7 @@ body .medium-editor-toolbar {
     margin-bottom: 15px
 }
 
-.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-no-label.acfe-seamless-style>.acf-input>.acf-fields {
+.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style.acfe-no-label>.acf-input>.acf-fields {
     border-width: 0
 }
 
@@ -82,12 +82,24 @@ body .medium-editor-toolbar {
     border-width: 0
 }
 
+.acf-fields>.acf-field-clone[data-acfe-clone-modal="1"]>.acf-input>.acfe-modal>.acfe-modal-wrapper>.acfe-modal-content>.acf-fields,
+.acf-fields>.acf-field-clone[data-acfe-clone-modal="1"]>.acf-input>.acfe-modal>.acfe-modal-wrapper>.acfe-modal-content>.acf-table {
+    border-width: 0
+}
+
 .acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style>.acf-input {
     margin: 0
 }
 
 .acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style>.acf-input>.acf-fields {
     border-width: 1px
+}
+
+.acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style>.acf-input>.acf-fields,
+.acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style>.acf-input>.acf-table,
+.acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-input>.acf-fields,
+.acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-input>.acf-table {
+    border-width: 0
 }
 
 .acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style:not([data-acfe-clone-modal="1"])>.acf-input,
@@ -100,25 +112,27 @@ body .medium-editor-toolbar {
     margin-right: 0
 }
 
-.acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style>.acf-input>.acf-fields,
-.acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-input>.acf-table {
-    border-width: 0
-}
-
-.acf-fields>.acf-field-clone[data-acfe-clone-modal="1"]>.acf-input>.acfe-modal>.acfe-modal-wrapper>.acfe-modal-content>.acf-fields,
-.acf-fields>.acf-field-clone[data-acfe-clone-modal="1"]>.acf-input>.acfe-modal>.acfe-modal-wrapper>.acfe-modal-content>.acf-table {
-    border-width: 0
-}
-
 .acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style>.acf-input,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style>.acf-table,
 .acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style>.acf-input,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style>.acf-table,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-input,
 .acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-table {
     margin: 0
 }
 
 .acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style>.acf-input>.acf-fields,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style>.acf-input>.acf-table,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style>.acf-table>.acf-fields,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-block.acfe-seamless-style>.acf-table>.acf-table,
 .acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style>.acf-input>.acf-fields,
-.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-input>.acf-table {
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style>.acf-input>.acf-table,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style>.acf-table>.acf-fields,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style>.acf-table>.acf-table,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-input>.acf-fields,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-input>.acf-table,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-table>.acf-fields,
+.acf-postbox.seamless>.acf-fields>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-table>.acf-table {
     border-width: 1px
 }
 
@@ -126,6 +140,20 @@ body .medium-editor-toolbar {
 .acf-postbox.seamless>.acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-row.acfe-seamless-style>.acf-input,
 .acf-postbox.seamless>.acf-fields.-left>.acf-field-clone.acfe-field-clone-layout-table.acfe-seamless-style>.acf-input {
     padding: 0 12px
+}
+
+td.acf-field-clone.acfe-seamless-style {
+    padding: 0
+}
+
+td.acf-field-clone.acfe-seamless-style>.acf-input>.acf-fields,
+td.acf-field-clone.acfe-seamless-style>.acf-input>.acf-table {
+    border: 0
+}
+
+td[data-acfe-clone-modal="1"]>.acf-input>.acfe-modal>.acfe-modal-wrapper>.acfe-modal-content>.acf-fields,
+td[data-acfe-clone-modal="1"]>.acf-input>.acfe-modal>.acfe-modal-wrapper>.acfe-modal-content>.acf-table {
+    border: 0
 }
 
 tr.acf-field.acf-field-clone.acfe-seamless-style>td.acf-input>.acf-fields {
@@ -352,6 +380,24 @@ body:not(.acf-admin-5-3) .acf-field-acfe-code-editor>.acf-input>.acf-input-wrap>
 
 .acf-repeater .acf-row.-collapsed>.acf-fields.acfe-column-wrapper>.acf-field.acf-field-acfe-column.-collapsed-target {
     width: 100%
+}
+
+.acf-repeater .acf-row.ui-sortable-helper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex
+}
+
+.acf-repeater .acf-row.ui-sortable-helper>td.acf-row-handle {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center
 }
 
 .acf-postbox.seamless>.inside.acfe-column-wrapper {
@@ -780,7 +826,7 @@ body:not(.acf-admin-5-3) .layout>.acfe-fc-placeholder>a span {
 }
 
 .layout>.acfe-fc-placeholder.acfe-fc-preview>.acfe-flexible-placeholder {
-    min-height: 55px;
+    min-height: 24px;
     height: auto
 }
 
@@ -794,7 +840,7 @@ body:not(.acf-admin-5-3) .layout>.acfe-fc-placeholder>a span {
 
 .layout>.acfe-fc-placeholder.acfe-fc-preview.-loading {
     background: #f9f9f9;
-    min-height: 110px
+    min-height: 24px
 }
 
 .layout>.acfe-fc-placeholder.acfe-fc-preview.-loading>.acfe-flexible-placeholder>.spinner {
@@ -934,6 +980,10 @@ body:not(.acf-admin-5-3) .layout>.acfe-fc-placeholder>a span {
     text-align: center
 }
 
+.acf-field.acf-field-flexible-content>.acf-input>.acf-flexible-content>.acfe-flexible-stylised-button>.acf-actions .acf-button {
+    float: none
+}
+
 .acf-field.acf-field-flexible-content>.acf-input>.acf-flexible-content .acf-actions .acf-button .dashicons {
     width: auto;
     height: auto;
@@ -965,7 +1015,6 @@ body:not(.acf-admin-5-3) .layout>.acfe-fc-placeholder>a span {
 }
 
 .acf-flexible-content .layout .acf-icon.acfe-flexible-icon.dashicons.dashicons-admin-generic:before {
-    margin-left: 1px;
     line-height: .9
 }
 
@@ -1035,11 +1084,15 @@ input.acfe-flexible-control-title {
     position: relative
 }
 
-.layout.acfe-flexible-layout-hidden>.acf-fc-layout-controls,
 .layout.acfe-flexible-layout-hidden>.acf-fc-layout-handle,
-.layout.acfe-flexible-layout-hidden>.acf-fields,
 .layout.acfe-flexible-layout-hidden>.acfe-fc-placeholder {
     opacity: .5
+}
+
+.layout.acfe-flexible-layout-hidden>.acf-fc-layout-controls>.acfe-flexible-icon.dashicons-hidden {
+    background: #2c3338;
+    border-color: #111;
+    color: #fff
 }
 
 .acf-field-flexible-content[data-acfe-flexible-modal-edition="1"]>.acf-input>.acf-flexible-content>.values>.layout>.acf-fc-layout-controls>a.-collapse {
@@ -1047,7 +1100,7 @@ input.acfe-flexible-control-title {
 }
 
 .acf-range-wrap input[type=number] {
-    min-width: 3.5em
+    min-width: 4.5em
 }
 
 .acf-fields>.acf-field-group.acfe-field-group-layout-block.acfe-seamless-style:not([data-acfe-group-modal="1"])>.acf-input,
@@ -1138,6 +1191,20 @@ input.acfe-flexible-control-title {
 .acf-postbox.seamless>.acf-fields.-left>.acf-field-group.acfe-field-group-layout-row.acfe-seamless-style>.acf-input,
 .acf-postbox.seamless>.acf-fields.-left>.acf-field-group.acfe-field-group-layout-table.acfe-seamless-style>.acf-input {
     padding: 0 12px
+}
+
+td.acf-field-group.acfe-seamless-style {
+    padding: 0
+}
+
+td.acf-field-group.acfe-seamless-style>.acf-input>.acf-fields,
+td.acf-field-group.acfe-seamless-style>.acf-input>.acf-table {
+    border: 0
+}
+
+td[data-acfe-group-modal="1"]>.acf-input>.acfe-modal>.acfe-modal-wrapper>.acfe-modal-content>.acf-fields,
+td[data-acfe-group-modal="1"]>.acf-input>.acfe-modal>.acfe-modal-wrapper>.acfe-modal-content>.acf-table {
+    border: 0
 }
 
 tr.acf-field.acf-field-group.acfe-seamless-style>td.acf-input>.acf-fields {
@@ -1265,6 +1332,10 @@ body:not(.acf-admin-5-3) .acf-repeater.-row>table>tbody>tr>td:last-of-type {
     vertical-align: text-top
 }
 
+.acf-tab-wrap {
+    overflow: unset
+}
+
 .acf-field-textarea[data-acfe-textarea-code="1"]>.acf-input>textarea {
     font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
     font-size: 1em
@@ -1288,15 +1359,7 @@ body:not(.acf-admin-5-3) .acf-repeater.-row>table>tbody>tr>td:last-of-type {
     color: #aaa
 }
 
-form.acfe-form.is-valid[data-hide-revalidation="1"]>.acf-notice.-success {
-    display: none
-}
-
-form.acfe-form.is-invalid[data-hide-error="1"]>.acf-error-message.-dismiss {
-    display: none
-}
-
-form.acfe-form.is-invalid[data-errors-position=below] .acf-field .acf-notice {
+.acfe-form .acf-field .acf-notice.-below {
     margin: 15px 0 0
 }
 
@@ -1305,7 +1368,6 @@ form.acfe-form.is-invalid[data-errors-position=below] .acf-field .acf-notice {
 .acf-media-modal .ui-helper-hidden-accessible {
     border: 0;
     clip: rect(1px, 1px, 1px, 1px);
-    -webkit-clip-path: inset(50%);
     clip-path: inset(50%);
     height: 1px;
     margin: -1px;

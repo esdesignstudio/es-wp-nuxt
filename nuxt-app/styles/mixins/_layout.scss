@@ -1,0 +1,63 @@
+
+@mixin make-row() {
+    display: flex;
+    margin-right: calc(-1 * $grid-gutter-width / 2);
+    margin-left: calc(-1 *  $grid-gutter-width / 2);
+    flex-wrap: wrap;
+}
+
+
+@mixin make-col($size, $columns: $grid-columns) {
+    flex: 0 0 auto;
+    width: percentage(calc($size / $columns));
+}
+
+
+@mixin grid-system() {
+    .row {
+        @include make-row();
+
+        > * {
+            @include make-col-ready();
+        }
+    }
+}
+
+@mixin set-col($size, $columns: $grid-columns, $addon-gutters) {
+    flex: 0 0 auto;
+    width: calc(#{$size} * ((#{map-get($container-max-widths, desktop)} - ((#{$columns} - 1) * #{$grid-gutter-width})) / #{$columns}) + ((#{$size} - 1) * #{$grid-gutter-width}) + (#{$addon-gutters} * #{$grid-gutter-width}));
+
+    @media screen and (max-width: map-get($breakpoints, desktop)) {
+        width: calc(#{$size} * (((100vw - 2 * #{map-get($container-margin, tablet)}) - ((#{$columns} - 1) * #{$grid-gutter-width})) / #{$columns}) + ((#{$size} - 1) * #{$grid-gutter-width}) + (#{$addon-gutters} * #{$grid-gutter-width}));
+    }
+
+    @media screen and (max-width: map-get($breakpoints, tablet)) {
+        width: calc(#{$size} * (((100vw - 2 * #{map-get($container-margin, mobile)}) - ((#{$columns} - 1) * #{$grid-gutter-width})) / #{$columns}) + ((#{$size} - 1) * #{$grid-gutter-width}) + (#{$addon-gutters} * #{$grid-gutter-width}));
+    }
+}
+
+@mixin set-col-offset($size, $columns: $grid-columns, $addon-gutters, $direction:'left') {
+    @if ($direction == 'left') {
+        margin-left: calc(#{$size} * ((#{map-get($container-max-widths, desktop)} - ((#{$columns} - 1) * #{$grid-gutter-width})) / #{$columns}) + ((#{$size} - 1) * #{$grid-gutter-width}) + (#{$addon-gutters} * #{$grid-gutter-width}));
+
+        @media screen and (max-width: map-get($breakpoints, desktop)) {
+            margin-left: calc(#{$size} * (((100vw - 2 * #{map-get($container-margin, tablet)}) - ((#{$columns} - 1) * #{$grid-gutter-width})) / #{$columns}) + ((#{$size} - 1) * #{$grid-gutter-width}) + (#{$addon-gutters} * #{$grid-gutter-width}));
+        }
+
+        @media screen and (max-width: map-get($breakpoints, tablet)) {
+            margin-left: calc(#{$size} * (((100vw - 2 * #{map-get($container-margin, mobile)}) - ((#{$columns} - 1) * #{$grid-gutter-width})) / #{$columns}) + ((#{$size} - 1) * #{$grid-gutter-width}) + (#{$addon-gutters} * #{$grid-gutter-width}));
+        }
+    }
+
+    @else {
+        margin-right: calc(#{$size} * ((#{map-get($container-max-widths, desktop)} - ((#{$columns} - 1) * #{$grid-gutter-width})) / #{$columns}) + ((#{$size} - 1) * #{$grid-gutter-width}) + (#{$addon-gutters} * #{$grid-gutter-width}));
+
+        @media screen and (max-width: map-get($breakpoints, desktop)) {
+            margin-right: calc(#{$size} * (((100vw - 2 * #{map-get($container-margin, tablet)}) - ((#{$columns} - 1) * #{$grid-gutter-width})) / #{$columns}) + ((#{$size} - 1) * #{$grid-gutter-width}) + (#{$addon-gutters} * #{$grid-gutter-width}));
+        }
+
+        @media screen and (max-width: map-get($breakpoints, tablet)) {
+            margin-right: calc(#{$size} * (((100vw - 2 * #{map-get($container-margin, mobile)}) - ((#{$columns} - 1) * #{$grid-gutter-width})) / #{$columns}) + ((#{$size} - 1) * #{$grid-gutter-width}) + (#{$addon-gutters} * #{$grid-gutter-width}));
+        }
+    }
+}

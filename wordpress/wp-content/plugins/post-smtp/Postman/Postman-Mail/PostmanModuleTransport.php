@@ -350,7 +350,15 @@ abstract class PostmanAbstractModuleTransport implements PostmanModuleTransport 
 		return PostmanUtils::endsWith ( $hostname, 'live.com' );
 	}
 	public function isServiceProviderYahoo($hostname) {
+	    
+	    if( $hostname == null ) {
+	        
+	        return false;
+	        
+	    } 
+	    
 		return strpos ( $hostname, 'yahoo' );
+		
 	}
 	
 	/*
@@ -706,22 +714,21 @@ abstract class PostmanAbstractZendModuleTransport extends PostmanAbstractModuleT
 	
 	/**
 	 * 
-	 * @since 2.0.27 OAuth 2.0 will be selected by default as Google is disabling less secure Apps.
-	 * @version 1.1
+	 * @version 1.0
 	 */
 	public function createOverrideMenu(PostmanWizardSocket $socket, $winningRecommendation, $userSocketOverride, $userAuthOverride) {
 		$overrideItem = parent::createOverrideMenu ( $socket, $winningRecommendation, $userSocketOverride, $userAuthOverride );
 		$selected = $overrideItem ['selected'];
 		$password_field = __( 'Password', 'post-smtp' );
 
-		if( $winningRecommendation['hostname'] == 'smtp.gmail.com' ) {
-			$password_field = sprintf(
-				'%s <a href="%s" target="_blank">%s</a>',
-				__( 'App Password', 'post-smtp' ),
-				esc_url( 'https://postmansmtp.com/documentation/#setting-up-an-app-password-in-your-google-account' ),
-				__( 'How to Setup an App Password', 'post-smtp' )
-			);
-		}
+        if( $winningRecommendation['hostname'] == 'smtp.gmail.com' ) {
+            $password_field = sprintf(
+                '%s <a href="%s" target="_blank">%s</a>',
+                __( 'App Password', 'post-smtp' ),
+                esc_url( 'https://postmansmtp.com/documentation/#setting-up-an-app-password-in-your-google-account' ),
+                __( 'How to Setup an App Password', 'post-smtp' )
+            );
+        }
 		
 		// only smtp can have multiple auth options
 		$overrideAuthItems = array ();
@@ -737,28 +744,27 @@ abstract class PostmanAbstractZendModuleTransport extends PostmanAbstractModuleT
 				$noAuthMode = true;
 			}
 		} else {
-			if ($winningRecommendation ['display_auth'] == 'password') {
+			if ( isset( $winningRecommendation ['display_auth'] ) && $winningRecommendation ['display_auth'] == 'password') {
 				$passwordMode = true;
-			} elseif ($winningRecommendation ['display_auth'] == 'oauth2') {
+			} elseif ( isset( $winningRecommendation ['display_auth'] ) && $winningRecommendation ['display_auth'] == 'oauth2') {
 				$oauth2Mode = true;
 			} else {
 				$noAuthMode = true;
 			}
 		}
-
 		if ($selected) {
+			if ($socket->auth_crammd5 || $socket->auth_login || $socket->authPlain) {
+				array_push ( $overrideAuthItems, array (
+						'selected'	=> $passwordMode,
+						'name' 		=> $password_field,
+						'value'		=> 'password'
+				) );
+			}
 			if ($socket->auth_xoauth || $winningRecommendation ['auth'] == 'oauth2') {
 				array_push ( $overrideAuthItems, array (
 						'selected' => $oauth2Mode,
 						'name' => __ ( 'OAuth 2.0 (requires Client ID and Client Secret)', 'post-smtp' ),
 						'value' => 'oauth2' 
-				) );
-			}
-			if ($socket->auth_crammd5 || $socket->auth_login || $socket->authPlain) {
-				array_push ( $overrideAuthItems, array (
-						'selected' => $passwordMode,
-						'name' => $password_field,
-						'value' => 'password' 
 				) );
 			}
 			if ($socket->auth_none) {

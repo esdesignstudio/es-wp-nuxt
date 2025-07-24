@@ -14,10 +14,12 @@ class acfe_compatibility{
     function __construct(){
         
         // global
-        add_action('acf/init',                                      array($this, 'init'), 98);
+        add_action('acf/init',                                      array($this, 'acf_init'), 98);
+        add_action('acfe/init',                                     array($this, 'acfe_init'), 99);
     
         // fields
         add_filter('acf/validate_field_group',                      array($this, 'field_group_location_list'), 20);
+        add_filter('acf/validate_field_group',                      array($this, 'field_group_instruction_tooltip'), 20);
         add_filter('acf/validate_field',                            array($this, 'field_acfe_update'), 20);
         add_filter('acf/validate_field/type=group',                 array($this, 'field_seamless_style'), 20);
         add_filter('acf/validate_field/type=clone',                 array($this, 'field_seamless_style'), 20);
@@ -25,17 +27,16 @@ class acfe_compatibility{
         add_filter('acf/validate_field/type=acfe_column',           array($this, 'field_column'), 20);
         add_filter('acf/validate_field/type=image',                 array($this, 'field_image'), 20);
         add_filter('acf/validate_field/type=file',                  array($this, 'field_image'), 20);
+        add_filter('acf/validate_field/type=acfe_forms',            array($this, 'field_forms'), 20);
+        add_filter('acf/validate_field/type=acfe_code_editor',      array($this, 'field_code_editor'), 20);
         add_filter('acfe/load_fields/type=flexible_content',        array($this, 'field_flexible_settings_title'), 20, 2);
         add_filter('acf/prepare_field/name=acfe_flexible_category', array($this, 'field_flexible_layout_categories'), 10, 2);
-        
-        // modules
-        add_filter('acfe/form/import_args',                         array($this, 'acfe_form_import'), 10, 3);
         
     }
     
     
     /**
-     * init
+     * acf_init
      *
      * acf/init:98
      *
@@ -43,7 +44,19 @@ class acfe_compatibility{
      *
      * @since 0.8 (20/10/2019)
      */
-    function init(){
+    function acf_init(){
+        
+        /**
+         * acfe/flexible/render/template
+         *
+         * Remove temporary fix for preview get_row() usage provided for ACFE 0.9.0.8
+         */
+        remove_filter('acfe/flexible/render/template', 'acfe_fix_flexible_content_preview_get_row', 0);
+        
+        /***
+         * admin_body_class
+         */
+        add_filter('admin_body_class',  array($this, 'admin_body_class'));
     
         // settings list
         $settings = array(
@@ -60,9 +73,71 @@ class acfe_compatibility{
         
         // loop settings
         foreach($settings as $old => $new){
+            
+            // get old setting 'acfe_php'
+            $value = acf_get_setting($old);
     
-            if(acf_get_setting($old) !== null){
-                acf_update_setting($new, acf_get_setting($old));
+            if($value !== null){
+                
+                // deprecated notice
+                acfe_deprecated_setting($old, '0.8', $new);
+                
+                // update setting
+                acf_update_setting($new, $value);
+                
+            }
+            
+        }
+        
+    }
+    
+    
+    /**
+     * admin_body_class
+     *
+     * Add class to admin body to fix acf postbox cog icon breaking line-height in WP 5.5
+     *
+     * @param $classes
+     *
+     * @return mixed|string
+     */
+    function admin_body_class($classes){
+        
+        if(!is_string($classes)){
+            return $classes;
+        }
+        
+        $version = (float) get_bloginfo('version');
+        if(acf_version_compare($version, '>=', '6.5')){
+            $classes .= ' acfe-fix-postboxes';
+        }
+        
+        return $classes;
+        
+    }
+    
+    
+    
+    /**
+     * acfe_init
+     *
+     * acfe/init:99
+     *
+     * @since 0.8.9.3 (03/2023)
+     */
+    function acfe_init(){
+    
+        // get old setting
+        $setting = acf_get_setting('acfe/modules/single_meta');
+        
+        if($setting !== null){
+    
+            // deprecated notice
+            acfe_deprecated_setting('acfe/modules/single_meta', '0.8.9.3', 'acfe/modules/performance');
+            
+            // update setting
+            if($setting){
+                acf_update_setting('acfe/modules/performance', 'ultra');
             }
             
         }
@@ -93,16 +168,16 @@ class acfe_compatibility{
                     continue;
                 }
                 
-                // Post Type List
+                // post type list
+                // replace old 'my-post-type_archive'
                 if($and['param'] === 'post_type' && acfe_ends_with($and['value'], '_archive')){
                     
                     $and['param'] = 'post_type_list';
                     $and['value'] = substr_replace($and['value'], '', -8);
-                    
-                }
-                
-                // Taxonomy List
-                elseif($and['param'] === 'taxonomy' && acfe_ends_with($and['value'], '_archive')){
+    
+                // taxonomy list
+                // replace old 'my-taxonomy_archive'
+                }elseif($and['param'] === 'taxonomy' && acfe_ends_with($and['value'], '_archive')){
                     
                     $and['param'] = 'taxonomy_list';
                     $and['value'] = substr_replace($and['value'], '', -8);
@@ -113,6 +188,27 @@ class acfe_compatibility{
             
         }
         
+        return $field_group;
+        
+    }
+    
+    /**
+     * field_group_instruction_tooltip
+     *
+     * Tooltip old parameter name compatibility
+     *
+     * @param $field_group
+     *
+     * @since 0.8.7.5 (11/12/2020)
+     *
+     * @return mixed
+     */
+    function field_group_instruction_tooltip($field_group){
+        
+        if(acf_maybe_get($field_group, 'instruction_placement') === 'acfe_instructions_tooltip'){
+            $field_group['instruction_placement'] = 'tooltip';
+        }
+    
         return $field_group;
         
     }
@@ -152,6 +248,7 @@ class acfe_compatibility{
         
         if($seamless = acf_maybe_get($field, 'acfe_seemless_style', false)){
             $field['acfe_seamless_style'] = $seamless;
+            unset($field['acfe_seemless_style']);
         }
         
         return $field;
@@ -256,6 +353,82 @@ class acfe_compatibility{
     
     
     /**
+     * field_forms
+     *
+     * acf/validate_field/type=forms:20
+     *
+     * 'forms' argument should return names and not id anymore
+     *
+     * @since 0.9 (07/02/2024)
+     */
+    function field_forms($field){
+        
+        if(!is_array($field['forms']) || empty($field['forms']) || !is_numeric($field['forms'][0])){
+            return $field;
+        }
+        
+        // loop allowed forms
+        foreach(array_keys($field['forms']) as $k){
+            
+            // value
+            $value = $field['forms'][ $k ];
+            
+            // deprecated return form id
+            // we need to return form name
+            if(is_numeric($value)){
+                
+                // get item
+                $item = acfe_get_module('form')->get_item($value);
+                
+                // found item by ID
+                // return name
+                if($item){
+                    $field['forms'][ $k ] = $item['name'];
+                    
+                    // not found
+                    // remove
+                }else{
+                    unset($field['forms'][ $k ]);
+                }
+                
+            }
+            
+        }
+        
+        return $field;
+        
+    }
+    
+    
+    /**
+     * field_code_editor
+     *
+     * acf/validate_field/type=acfe_code_editor:20
+     *
+     * Renamed 'return_entities' to 'return_format' for code editor
+     *
+     * @since 0.8.9.1
+     *
+     * @param $field
+     */
+    function field_code_editor($field){
+        
+        if(acf_maybe_get($field, 'return_entities')){
+            
+            if(!in_array('htmlentities', $field['return_format'])){
+                $field['return_format'][] = 'htmlentities';
+            }
+            
+            unset($field['return_entities']);
+        
+        }
+        
+        return $field;
+        
+    }
+    
+    
+    /**
      * field_flexible_settings_title
      *
      * acfe/load_fields/type=flexible_content:20
@@ -327,251 +500,6 @@ class acfe_compatibility{
         }
         
         return $field;
-        
-    }
-    
-    
-    /**
-     * acfe_form_import
-     *
-     * acfe/form/import_args
-     *
-     * Module Dynamic Forms: Upgrade previous versions
-     *
-     * @since 0.8.5 (15/03/2020)
-     */
-    function acfe_form_import($args, $name, $post_id){
-        
-        // ACF Extended: 0.8.5 Compatibility - Step 1
-        // Groups upgrade
-        $has_upgraded = false;
-        
-        $rules = array(
-            
-            // Post: title
-            array(
-                'group'             => 'field_acfe_form_post_save_post_title_group',
-                'sub_field'         => 'field_acfe_form_post_save_post_title',
-                'sub_field_custom'  => 'field_acfe_form_post_save_post_title_custom',
-            ),
-            
-            // Post: name
-            array(
-                'group'             => 'field_acfe_form_post_save_post_name_group',
-                'sub_field'         => 'field_acfe_form_post_save_post_name',
-                'sub_field_custom'  => 'field_acfe_form_post_save_post_name_custom',
-            ),
-            
-            // Term: name
-            array(
-                'group'             => 'field_acfe_form_term_save_name_group',
-                'sub_field'         => 'field_acfe_form_term_save_name',
-                'sub_field_custom'  => 'field_acfe_form_term_save_name_custom',
-            ),
-            
-            // Term: slug
-            array(
-                'group'             => 'field_acfe_form_term_save_slug_group',
-                'sub_field'         => 'field_acfe_form_term_save_slug',
-                'sub_field_custom'  => 'field_acfe_form_term_save_slug_custom',
-            ),
-            
-            // User: e-mail
-            array(
-                'group'             => 'field_acfe_form_user_save_email_group',
-                'sub_field'         => 'field_acfe_form_user_save_email',
-                'sub_field_custom'  => 'field_acfe_form_user_save_email_custom',
-            ),
-            
-            // User: username
-            array(
-                'group'             => 'field_acfe_form_user_save_username_group',
-                'sub_field'         => 'field_acfe_form_user_save_username',
-                'sub_field_custom'  => 'field_acfe_form_user_save_username_custom',
-            ),
-            
-            // User: password
-            array(
-                'group'             => 'field_acfe_form_user_save_password_group',
-                'sub_field'         => 'field_acfe_form_user_save_password',
-                'sub_field_custom'  => 'field_acfe_form_user_save_password_custom',
-            ),
-            
-            // User: first name
-            array(
-                'group'             => 'field_acfe_form_user_save_first_name_group',
-                'sub_field'         => 'field_acfe_form_user_save_first_name',
-                'sub_field_custom'  => 'field_acfe_form_user_save_first_name_custom',
-            ),
-            
-            // User: last name
-            array(
-                'group'             => 'field_acfe_form_user_save_last_name_group',
-                'sub_field'         => 'field_acfe_form_user_save_last_name',
-                'sub_field_custom'  => 'field_acfe_form_user_save_last_name_custom',
-            ),
-            
-            // User: nickname
-            array(
-                'group'             => 'field_acfe_form_user_save_nickname_group',
-                'sub_field'         => 'field_acfe_form_user_save_nickname',
-                'sub_field_custom'  => 'field_acfe_form_user_save_nickname_custom',
-            ),
-            
-            // User: display name
-            array(
-                'group'             => 'field_acfe_form_user_save_display_name_group',
-                'sub_field'         => 'field_acfe_form_user_save_display_name',
-                'sub_field_custom'  => 'field_acfe_form_user_save_display_name_custom',
-            ),
-            
-            // User: website
-            array(
-                'group'             => 'field_acfe_form_user_save_website_group',
-                'sub_field'         => 'field_acfe_form_user_save_website',
-                'sub_field_custom'  => 'field_acfe_form_user_save_website_custom',
-            ),
-        
-        );
-        
-        foreach($args['acfe_form_actions'] as &$row){
-            
-            foreach($rules as $rule){
-                
-                if(!acf_maybe_get($row, $rule['group'])){
-                    continue;
-                }
-                
-                $value = null;
-                $group = $row[$rule['group']];
-                
-                if(acf_maybe_get($group, $rule['sub_field']) === 'custom'){
-                    $value = acf_maybe_get($group, $rule['sub_field_custom']);
-                    
-                }else{
-                    $value = acf_maybe_get($group, $rule['sub_field']);
-                }
-                
-                unset($row[$rule['group']]);
-                
-                $row[ $rule['sub_field'] ] = $value;
-                
-                $has_upgraded = true;
-                
-            }
-            
-        }
-        
-        // ACF Extended: 0.8.5 Compatibility - Step 2
-        // Field mapping upgrade
-        if($has_upgraded){
-            
-            // Rules
-            $rules = array(
-                
-                array(
-                    'load_values' => 'field_acfe_form_post_load_values',
-                    'fields' => array(
-                        'field_acfe_form_post_map_post_type'       => 'field_acfe_form_post_save_post_type',
-                        'field_acfe_form_post_map_post_status'     => 'field_acfe_form_post_save_post_status',
-                        'field_acfe_form_post_map_post_title'      => 'field_acfe_form_post_save_post_title',
-                        'field_acfe_form_post_map_post_name'       => 'field_acfe_form_post_save_post_name',
-                        'field_acfe_form_post_map_post_content'    => 'field_acfe_form_post_save_post_content',
-                        'field_acfe_form_post_map_post_author'     => 'field_acfe_form_post_save_post_author',
-                        'field_acfe_form_post_map_post_parent'     => 'field_acfe_form_post_save_post_parent',
-                        'field_acfe_form_post_map_post_terms'      => 'field_acfe_form_post_save_post_terms',
-                    )
-                ),
-                
-                array(
-                    'load_values' => 'field_acfe_form_term_load_values',
-                    'fields' => array(
-                        'field_acfe_form_term_map_name'            => 'field_acfe_form_term_save_name',
-                        'field_acfe_form_term_map_slug'            => 'field_acfe_form_term_save_slug',
-                        'field_acfe_form_term_map_taxonomy'        => 'field_acfe_form_term_save_taxonomy',
-                        'field_acfe_form_term_map_parent'          => 'field_acfe_form_term_save_parent',
-                        'field_acfe_form_term_map_description'     => 'field_acfe_form_term_save_description',
-                    )
-                ),
-                
-                array(
-                    'load_values' => 'field_acfe_form_user_load_values',
-                    'fields' => array(
-                        'field_acfe_form_user_map_email'        => 'field_acfe_form_user_save_email',
-                        'field_acfe_form_user_map_username'     => 'field_acfe_form_user_save_username',
-                        'field_acfe_form_user_map_password'     => 'field_acfe_form_user_save_password',
-                        'field_acfe_form_user_map_first_name'   => 'field_acfe_form_user_save_first_name',
-                        'field_acfe_form_user_map_last_name'    => 'field_acfe_form_user_save_last_name',
-                        'field_acfe_form_user_map_nickname'     => 'field_acfe_form_user_save_nickname',
-                        'field_acfe_form_user_map_display_name' => 'field_acfe_form_user_save_display_name',
-                        'field_acfe_form_user_map_website'      => 'field_acfe_form_user_save_website',
-                        'field_acfe_form_user_map_description'  => 'field_acfe_form_user_save_description',
-                        'field_acfe_form_user_map_role'         => 'field_acfe_form_user_save_role',
-                    )
-                ),
-            
-            );
-            
-            foreach($args['acfe_form_actions'] as &$row){
-                
-                foreach($rules as $rule){
-                    
-                    $load_values = acf_maybe_get($row, $rule['load_values']);
-                    $fields = $rule['fields'];
-                    
-                    if(!empty($load_values)){
-                        continue;
-                    }
-                    
-                    foreach($fields as $map => $save){
-                        
-                        $map_value = acf_maybe_get($row, $map);
-                        
-                        if(empty($map_value)){
-                            continue;
-                        }
-                        
-                        switch($save){
-                            
-                            case 'field_acfe_form_post_save_post_content': {
-    
-                                $row['field_acfe_form_post_save_post_content_group'][ $save ] = $map_value;
-                                break;
-                                
-                            }
-                            
-                            case 'field_acfe_form_term_save_description': {
-    
-                                $row['field_acfe_form_term_save_description_group'][ $save ] = $map_value;
-                                break;
-                                
-                            }
-                            
-                            case 'field_acfe_form_user_save_description': {
-    
-                                $row['field_acfe_form_user_save_description_group'][ $save ] = $map_value;
-                                break;
-                                
-                            }
-                            
-                            default: {
-    
-                                $row[ $save ] = $map_value;
-                                break;
-                                
-                            }
-                            
-                        }
-                        
-                    }
-                    
-                }
-                
-            }
-            
-        }
-        
-        return $args;
         
     }
     

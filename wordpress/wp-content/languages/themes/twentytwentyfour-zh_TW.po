@@ -1,0 +1,1589 @@
+# Translation of Themes - Twenty Twenty-Four in Chinese (Taiwan)
+# This file is distributed under the same license as the Themes - Twenty Twenty-Four package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2024-04-03 07:05:44+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: zh_TW\n"
+"Project-Id-Version: Themes - Twenty Twenty-Four\n"
+
+#. Description of the theme
+#: style.css
+#, gp-priority: high
+msgid "Twenty Twenty-Four is designed to be flexible, versatile and applicable to any website. Its collection of templates and patterns tailor to different needs, such as presenting a business, blogging and writing or showcasing work. A multitude of possibilities open up with just a few adjustments to color and typography. Twenty Twenty-Four comes with style variations and full page designs to help speed up the site building process, is fully compatible with the site editor, and takes advantage of new design tools introduced in WordPress 6.4."
+msgstr "Twenty Twenty-Four 的設計目的在於靈活、多功能，並且能適用於任何網站。使用者可以不同依據，例如宣傳業務、撰寫部落格文章或展示作品，自訂它所內建的範本及區塊版面配置；僅需對色彩配置及排版樣式進行些許調整，便能開啟多種可能性。使用網站編輯器及 WordPress 6.4 導入的全新設計工具，搭配 Twenty Twenty-Four 內建的樣式變化及完整頁面設計，便能加速網站建置程序。"
+
+#. Theme Name of the theme
+#: style.css
+#, gp-priority: high
+msgid "Twenty Twenty-Four"
+msgstr "Twenty Twenty-Four"
+
+#: patterns/footer.php:95
+msgid "Twitter/X"
+msgstr "Twitter/X"
+
+#: patterns/footer.php:73
+msgid "Contact Us"
+msgstr "聯絡資訊"
+
+#: patterns/footer.php:72
+msgid "Terms and Conditions"
+msgstr "條款及條件"
+
+#: patterns/footer.php:71
+msgid "Privacy Policy"
+msgstr "隱私權政策"
+
+#: patterns/footer.php:50
+msgid "Careers"
+msgstr "職涯發展"
+
+#: patterns/footer.php:49
+msgid "History"
+msgstr "發展沿革"
+
+#: patterns/footer.php:48
+msgid "Team"
+msgstr "團隊介紹"
+
+#: patterns/posts-list.php
+msgctxt "Pattern title"
+msgid "List of posts without images, 1 column"
+msgstr "不包含圖片的 1 欄式內容清單"
+
+#: patterns/hidden-portfolio-hero.php:16
+msgid "I’m <em>Leia Acosta</em>, a passionate photographer who finds inspiration in capturing the fleeting beauty of life."
+msgstr "我是<strong>高雷亞</strong>，一個充滿熱情的攝影師，擅長捕捉生活中轉瞬即逝的美好靈感。"
+
+#: functions.php:200
+msgid "A collection of full page layouts."
+msgstr "完整頁面版面配置集合。"
+
+#: functions.php:199
+msgctxt "Block pattern category"
+msgid "Pages"
+msgstr "頁面"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Single with Sidebar"
+msgstr "包含資訊欄的單篇內容"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page with Wide Image"
+msgstr "包含寬幅寬度圖片的頁面"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page with Sidebar"
+msgstr "包含資訊欄的頁面"
+
+#: theme.json
+msgctxt "Custom template name"
+msgid "Page No Title"
+msgstr "沒有標題的頁面"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Post Meta"
+msgstr "文章中繼資料"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Sidebar"
+msgstr "資訊欄"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Footer"
+msgstr "頁尾"
+
+#: theme.json
+msgctxt "Template part name"
+msgid "Header"
+msgstr "頁首"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "6"
+msgstr "6"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "5"
+msgstr "5"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "4"
+msgstr "4"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "3"
+msgstr "3"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "2"
+msgstr "2"
+
+#: theme.json
+msgctxt "Space size name"
+msgid "1"
+msgstr "1"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical hard pewter to white"
+msgstr "白鑞色直向固化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical hard mint to white"
+msgstr "薄荷綠直向固化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical hard sage to white"
+msgstr "灰綠色直向固化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical hard rust to white"
+msgstr "鐵鏽色直向固化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical hard sandstone to white"
+msgstr "灰紅色直向固化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical hard beige to white"
+msgstr "米黃色直向固化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical soft pewter to white"
+msgstr "白鑞色直向柔化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical soft mint to white"
+msgstr "薄荷綠直向柔化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical soft sage to white"
+msgstr "灰綠色直向柔化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical soft rust to white"
+msgstr "鐵鏽色直向柔化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical soft sandstone to white"
+msgstr "灰紅色直向柔化至白色"
+
+#: theme.json
+msgctxt "Gradient name"
+msgid "Vertical soft beige to white"
+msgstr "米黃色直向柔化至白色"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Black and pastel blue"
+msgstr "黑色及淺藍色"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Black and sage"
+msgstr "黑色及灰綠色"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Black and rust"
+msgstr "黑色及鐵鏽色"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Black and sandstone"
+msgstr "黑色及灰紅色"
+
+#: theme.json
+msgctxt "Duotone name"
+msgid "Black and white"
+msgstr "黑色及白色"
+
+#: styles/rust.json
+msgctxt "Color name"
+msgid "Base / 2"
+msgstr "基準色 2"
+
+#: styles/rust.json
+msgctxt "Gradient name"
+msgid "Vertical hard rust to beige"
+msgstr "鐵鏽色直向固化至米黃色"
+
+#: styles/rust.json
+msgctxt "Gradient name"
+msgid "Vertical rust to beige"
+msgstr "鐵鏽色直向至米黃色"
+
+#: styles/rust.json
+msgctxt "Gradient name"
+msgid "Vertical hard transparent rust to beige"
+msgstr "鐵鏽色直向固化透明至米黃色"
+
+#: styles/rust.json
+msgctxt "Gradient name"
+msgid "Vertical transparent rust to beige"
+msgstr "鐵鏽色直向透明至米黃色"
+
+#: styles/rust.json
+msgctxt "Duotone name"
+msgid "Dark rust to beige"
+msgstr "深鐵鏽色至米黃色"
+
+#: styles/rust.json
+msgctxt "Style variation name"
+msgid "Rust"
+msgstr "斑斑鏽跡"
+
+#: styles/onyx.json theme.json
+msgctxt "Color name"
+msgid "Accent / Five"
+msgstr "強調色 5"
+
+#: styles/onyx.json theme.json
+msgctxt "Color name"
+msgid "Accent / Four"
+msgstr "強調色 4"
+
+#: styles/onyx.json theme.json
+msgctxt "Color name"
+msgid "Accent / Three"
+msgstr "強調色 3"
+
+#: styles/onyx.json theme.json
+msgctxt "Color name"
+msgid "Accent / Two"
+msgstr "強調色 2"
+
+#: styles/onyx.json theme.json
+msgctxt "Color name"
+msgid "Accent"
+msgstr "強調色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical hard pewter to dark gray"
+msgstr "白鑞色直向固化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical hard steel to dark gray"
+msgstr "鋼色直向固化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical hard olive to dark gray"
+msgstr "橄欖綠直向固化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical hard cinnamon to dark gray"
+msgstr "肉桂色直向固化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical hard walnut to dark gray"
+msgstr "胡桃色直向固化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical hard beige to dark gray"
+msgstr "米黃色直向固化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical soft pewter to dark gray"
+msgstr "白鑞色直向柔化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical soft steel to dark gray"
+msgstr "鋼色直向柔化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical soft olive to dark gray"
+msgstr "橄欖綠直向柔化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical soft cinnamon to dark gray"
+msgstr "肉桂色直向柔化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical soft walnut to dark gray"
+msgstr "胡桃色直向柔化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Gradient name"
+msgid "Vertical soft driftwood to dark gray"
+msgstr "浮木色直向柔化至深灰色"
+
+#: styles/onyx.json
+msgctxt "Duotone name"
+msgid "Dark gray and steel"
+msgstr "深灰色及鋼色"
+
+#: styles/onyx.json
+msgctxt "Duotone name"
+msgid "Dark gray and olive"
+msgstr "深灰色及橄欖色"
+
+#: styles/onyx.json
+msgctxt "Duotone name"
+msgid "Dark gray and cinnamon"
+msgstr "深灰色及肉桂色"
+
+#: styles/onyx.json
+msgctxt "Duotone name"
+msgid "Dark gray and walnut"
+msgstr "深灰色及胡桃色"
+
+#: styles/onyx.json
+msgctxt "Duotone name"
+msgid "Dark gray and white"
+msgstr "深灰色及白色"
+
+#: styles/onyx.json
+msgctxt "Style variation name"
+msgid "Onyx"
+msgstr "神秘瑪瑙"
+
+#: styles/mint.json
+msgctxt "Style variation name"
+msgid "Mint"
+msgstr "清新薄荷"
+
+#: styles/maelstrom.json
+msgctxt "Color name"
+msgid "Contrast / 3"
+msgstr "對比色彩 / 3"
+
+#: styles/maelstrom.json
+msgctxt "Style variation name"
+msgid "Maelstrom"
+msgstr "無盡漩渦"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical hard ink to ocean"
+msgstr "墨黑色直向固化至海洋藍"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical hard ocean to slate"
+msgstr "海洋藍直向固化至石版灰"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical hard ink to ice"
+msgstr "墨黑色直向固化至冰藍色"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical hard ocean to ice"
+msgstr "海洋藍直向固化至冰藍色"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical hard slate to ice"
+msgstr "石版灰直向固化至冰藍色"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical hard ice to azure"
+msgstr "冰藍色直向固化至天藍色"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical ink to ocean"
+msgstr "墨黑色直向至海洋藍"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical ocean to slate"
+msgstr "海洋藍直向至石版灰"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical ink to ice"
+msgstr "墨黑色直向至冰藍色"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical ocean to ice"
+msgstr "海洋藍直向至冰藍色"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical slate to ice"
+msgstr "石版灰直向至冰藍色"
+
+#: styles/ice.json
+msgctxt "Gradient name"
+msgid "Vertical azure to ice"
+msgstr "天藍色直向至冰藍色"
+
+#: styles/ice.json
+msgctxt "Style variation name"
+msgid "Ice"
+msgstr "凜冬將至"
+
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
+msgctxt "Font size name"
+msgid "Extra Extra Large"
+msgstr "超巨大型"
+
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
+msgctxt "Font size name"
+msgid "Extra Large"
+msgstr "超大型"
+
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
+msgctxt "Font size name"
+msgid "Large"
+msgstr "大型"
+
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
+msgctxt "Font size name"
+msgid "Medium"
+msgstr "中型"
+
+#: styles/fossil.json styles/ice.json styles/maelstrom.json theme.json
+msgctxt "Font size name"
+msgid "Small"
+msgstr "小型"
+
+#: styles/fossil.json styles/maelstrom.json theme.json
+msgctxt "Font family name"
+msgid "Cardo"
+msgstr "Cardo"
+
+#: styles/fossil.json styles/ice.json theme.json
+msgctxt "Font family name"
+msgid "Inter"
+msgstr "Inter"
+
+#: styles/fossil.json styles/ice.json styles/mint.json styles/onyx.json
+#: theme.json
+msgctxt "Color name"
+msgid "Contrast / Three"
+msgstr "對比色彩 3"
+
+#: styles/fossil.json styles/ice.json styles/mint.json styles/onyx.json
+#: theme.json
+msgctxt "Color name"
+msgid "Contrast / Two"
+msgstr "對比色彩 2"
+
+#: styles/fossil.json
+msgctxt "Style variation name"
+msgid "Fossil"
+msgstr "堅若磐石"
+
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json theme.json
+msgctxt "Font family name"
+msgid "System Serif"
+msgstr "系統有襯線字型"
+
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json theme.json
+msgctxt "Font family name"
+msgid "System Sans-serif"
+msgstr "系統無襯線字型"
+
+#: styles/ember.json styles/ice.json styles/maelstrom.json styles/mint.json
+msgctxt "Font family name"
+msgid "Jost"
+msgstr "Jost"
+
+#: styles/ember.json styles/mint.json
+msgctxt "Font family name"
+msgid "Instrument Sans"
+msgstr "Instrument Sans"
+
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json styles/onyx.json theme.json
+msgctxt "Color name"
+msgid "Base / Two"
+msgstr "基準色 2"
+
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json styles/onyx.json styles/rust.json theme.json
+msgctxt "Color name"
+msgid "Contrast"
+msgstr "對比色彩"
+
+#: styles/ember.json styles/maelstrom.json
+msgctxt "Color name"
+msgid "Contrast / 2"
+msgstr "對比色彩 / 2"
+
+#: styles/ember.json styles/fossil.json styles/ice.json styles/maelstrom.json
+#: styles/mint.json styles/onyx.json styles/rust.json theme.json
+msgctxt "Color name"
+msgid "Base"
+msgstr "基準色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical hard ebony to sable"
+msgstr "黑檀色直向固化至深紫色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical hard sable to taupe"
+msgstr "深紫色直向固化至灰褐色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical hard ebony to beige"
+msgstr "黑檀色直向固化至米黃色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical hard sable to beige"
+msgstr "深紫色直向固化至米黃色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical hard taupe to beige"
+msgstr "灰褐色直向固化至米黃色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical hard beige to linen"
+msgstr "米黃色直向固化至亞麻色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical ebony to sable"
+msgstr "黑檀色直向至灰褐色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical ebony to beige"
+msgstr "黑檀色直向至米黃色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical sable to beige"
+msgstr "深紫色直向至米黃色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical taupe to beige"
+msgstr "灰褐色直向至米黃色"
+
+#: styles/ember.json styles/fossil.json
+msgctxt "Gradient name"
+msgid "Vertical linen to beige"
+msgstr "亞麻色直向至米黃色"
+
+#: styles/ember.json
+msgctxt "Duotone name"
+msgid "Orange and white"
+msgstr "橘色及白色"
+
+#: styles/ember.json
+msgctxt "Style variation name"
+msgid "Ember"
+msgstr "餘焰微光"
+
+#: patterns/text-title-left-image-right.php:34
+msgctxt "Call to Action button text"
+msgid "About us"
+msgstr "關於我們"
+
+#: patterns/text-title-left-image-right.php:27
+msgctxt "Description for the About pattern"
+msgid "Leaving an indelible mark on the landscape of tomorrow."
+msgstr "在未來的景色中留下深刻的印記。"
+
+#: patterns/text-title-left-image-right.php:20
+msgctxt "Headline for the About pattern"
+msgid "Études offers comprehensive consulting, management, design, and research solutions. Every architectural endeavor is an opportunity to shape the future."
+msgstr "Études 提供全方位的諮詢、管理、設計及研究解決方案。為每座建築付出的努力，都是一次次型塑未來的機會。"
+
+#: patterns/text-title-left-image-right.php
+msgctxt "Pattern title"
+msgid "Title text and button on left with image on right"
+msgstr "包含右方圖片的標題文字及按鈕"
+
+#: patterns/text-project-details.php:34 patterns/text-project-details.php:42
+msgctxt "Descriptive text for the feature area"
+msgid "The revitalized Art Gallery is set to redefine the cultural landscape of Toronto, serving as a nexus of artistic expression, community engagement, and architectural marvel. The expansion and renovation project pay homage to the Art Gallery's rich history while embracing the future, ensuring that the gallery remains a beacon of inspiration."
+msgstr "煥然一新的美術館將重新定義多倫多的文化景觀，成為藝術表達、社區參與及建築景觀的結合。擴建及翻新專案在向美術館的豐富歷史致敬之際，同時也擁抱未來，讓美術館繼續成為靈感之源。"
+
+#: patterns/text-project-details.php:26
+msgctxt "Descriptive title for the feature area"
+msgid "With meticulous attention to detail and a commitment to excellence, we create spaces that inspire, elevate, and enrich the lives of those who inhabit them."
+msgstr "憑藉著對細節的一絲不苟及追求卓越的精神，我們創造出能激發、提升和豐富住戶生活的建築空間。"
+
+#: patterns/text-project-details.php:17
+msgctxt "Title text for the feature area"
+msgid "The revitalized art gallery is set to redefine cultural landscape."
+msgstr "煥然一新的美術館會重新定義文化景觀。"
+
+#: patterns/text-project-details.php
+msgctxt "Pattern title"
+msgid "Project details"
+msgstr "專案詳細資料"
+
+#: patterns/text-feature-grid-3-col.php:111
+msgctxt "Sample content"
+msgid "Experience the fusion of imagination and expertise with Études Architectural Solutions."
+msgstr "體驗 Études Architectural Solutions 創造力及專業知識的融合。"
+
+#: patterns/text-feature-grid-3-col.php:107
+msgctxt "Sample heading"
+msgid "Architectural Solutions"
+msgstr "建築解決方案"
+
+#: patterns/text-feature-grid-3-col.php:95
+msgctxt "Sample feature heading"
+msgid "Project Management"
+msgstr "專案管理"
+
+#: patterns/text-feature-grid-3-col.php:83
+msgctxt "Sample feature heading"
+msgid "Consulting"
+msgstr "諮詢服務"
+
+#: patterns/text-feature-grid-3-col.php:62
+msgctxt "Sample feature heading"
+msgid "App Access"
+msgstr "有 App 可供使用"
+
+#: patterns/text-feature-grid-3-col.php:50
+msgctxt "Sample feature heading"
+msgid "Continuous Support"
+msgstr "持續支援"
+
+#: patterns/text-feature-grid-3-col.php:42
+#: patterns/text-feature-grid-3-col.php:54
+#: patterns/text-feature-grid-3-col.php:66
+#: patterns/text-feature-grid-3-col.php:87
+#: patterns/text-feature-grid-3-col.php:99
+msgctxt "Sample feature content"
+msgid "Experience the fusion of imagination and expertise with Études Architectural Solutions."
+msgstr "體驗 Études Architectural Solutions 創造力及專業知識的融合。"
+
+#: patterns/text-feature-grid-3-col.php:38
+msgctxt "Sample feature heading"
+msgid "Renovation and restoration"
+msgstr "翻新及修復"
+
+#: patterns/text-feature-grid-3-col.php:23
+msgctxt "Sub-heading of the features"
+msgid "Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers."
+msgstr "我們全方位的專業服務組合可以配合從屋主到商業開發商等不同客戶。"
+
+#: patterns/text-feature-grid-3-col.php:15
+msgctxt "Heading of the features"
+msgid "A passion for creating spaces"
+msgstr "對空間創造的熱情"
+
+#: patterns/text-feature-grid-3-col.php
+msgctxt "Pattern title"
+msgid "Feature grid, 3 columns"
+msgstr "3 欄式格狀排列重點內容"
+
+#: patterns/text-faq.php:52
+msgctxt "Question on the details block"
+msgid "Can I apply to be a part of the team or work as a contractor?"
+msgstr "我可以申請成為貴團隊的一員，或成為承包商嗎？"
+
+#: patterns/text-faq.php:43
+msgctxt "Question on the details block"
+msgid "I'd like to get to meet fellow architects, how can I do that?"
+msgstr "我想認識其他建築師，該如何進行？"
+
+#: patterns/text-faq.php:34
+msgctxt "Question on the details block"
+msgid "Who is behind Études?"
+msgstr "Études 的幕後推手"
+
+#: patterns/text-faq.php:27 patterns/text-faq.php:36 patterns/text-faq.php:45
+#: patterns/text-faq.php:54
+msgctxt "Hidden answer on the details block"
+msgid "Études offers comprehensive consulting, management, design, and research solutions. Our vision is to be at the forefront of architectural innovation, fostering a global community of architects and enthusiasts united by a passion for creating spaces. Every architectural endeavor is an opportunity to shape the future."
+msgstr "Études 提供全方位的諮詢、管理、設計及研究解決方案。我們的院警示走在建築創新的最尖端，並培養出遊建築師及建築愛好者組成的全球性社群。為每座建築付出的努力，都是一次次型塑未來的機會。"
+
+#: patterns/text-faq.php:25
+msgctxt "Question on the details block"
+msgid "What is your process working in smaller projects?"
+msgstr "Études在小型專案中的工作流程為何？"
+
+#: patterns/text-faq.php:14
+msgctxt "Heading of the FAQs"
+msgid "FAQs"
+msgstr "常見問題集"
+
+#: patterns/text-faq.php:11
+msgctxt "Name of the FAQ pattern"
+msgid "FAQs"
+msgstr "常見問題集"
+
+#: patterns/text-faq.php
+msgctxt "Pattern title"
+msgid "FAQ"
+msgstr "常見問題集"
+
+#: patterns/text-centered-statement.php:20
+msgid "<em>Études</em> is not confined to the past—we are passionate about the cutting edge designs shaping our world today."
+msgstr "<strong>Études</strong> 不拘泥於過往，而是全情投入塑造當今的頂尖設計。"
+
+#: patterns/text-centered-statement.php
+msgctxt "Pattern title"
+msgid "Centered statement"
+msgstr "置中的聲明"
+
+#. Translators: About text placeholder
+#: patterns/text-centered-statement-small.php:22
+msgid "I write about finance, management and economy, my book “%1$s” is out now."
+msgstr "我撰寫財經、管理及經濟相關領域的書籍，新書《%1$s》業已出版。"
+
+#. Translators: About link placeholder
+#: patterns/text-centered-statement-small.php:19
+msgid "Money Studies"
+msgstr "貨幣研究"
+
+#: patterns/text-centered-statement-small.php
+msgctxt "Pattern title"
+msgid "Centered statement, small"
+msgstr "小型置中的聲明"
+
+#: patterns/text-alternating-images.php:104
+msgctxt "Sample list item"
+msgid "Exclusive access to design insights."
+msgstr "獨家訪問設計深入解析案例。"
+
+#: patterns/text-alternating-images.php:100
+msgctxt "Sample list item"
+msgid "Case studies that celebrate architecture."
+msgstr "值得探討的建築案例研究。"
+
+#: patterns/text-alternating-images.php:96
+msgctxt "Sample list item"
+msgid "A world of thought-provoking articles."
+msgstr "發人深省的世界級內容。"
+
+#: patterns/text-alternating-images.php:90
+msgctxt "Sample heading"
+msgid "Études Newsletter"
+msgstr "Études 電子報"
+
+#: patterns/text-alternating-images.php:81
+msgid "Windows of a building in Nuremberg, Germany"
+msgstr "德國紐倫堡一棟建築的窗戶"
+
+#: patterns/text-alternating-images.php:63
+msgid "Tourist taking photo of a building"
+msgstr "遊客拍攝建築物的照片"
+
+#: patterns/text-alternating-images.php:36
+msgctxt "Sample list heading"
+msgid "Études Architect App"
+msgstr "Études Architect 行動 App"
+
+#: patterns/text-alternating-images.php:22
+msgctxt "Sample subheading content"
+msgid "Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers."
+msgstr "我們全方位的專業服務組合可以配合從屋主到商業開發商等不同客戶。"
+
+#: patterns/text-alternating-images.php:18
+msgctxt "Sample heading content"
+msgid "An array of resources"
+msgstr "系列資源"
+
+#: patterns/text-alternating-images.php
+msgctxt "Pattern title"
+msgid "Text with alternating images"
+msgstr "包含替代圖片的文字"
+
+#: patterns/testimonial-centered.php:38
+msgctxt "Designation of Person Provided Testimonial"
+msgid "CEO, Greenprint"
+msgstr "Greenprint CEO"
+
+#: patterns/testimonial-centered.php:34
+msgctxt "Name of Person Provided the Testimonial"
+msgid "Annie Steiner"
+msgstr "施安霓"
+
+#: patterns/testimonial-centered.php:25
+msgctxt "Name of testimonial citation group"
+msgid "Testimonial source"
+msgstr "證言內容來源"
+
+#: patterns/testimonial-centered.php:17
+msgctxt "Testimonial Text or Review Text Got From the Person"
+msgid "“Études has saved us thousands of hours of work and has unlocked insights we never thought possible.”"
+msgstr "“Études 為我們節省了數千小時的工作時間，並啟發了我們從未想過的深入解析。”"
+
+#: patterns/testimonial-centered.php:11
+msgctxt "Name of testimonal pattern"
+msgid "Testimonial"
+msgstr "證言內容"
+
+#: patterns/testimonial-centered.php
+msgctxt "Pattern title"
+msgid "Centered testimonial"
+msgstr "置中的證言內容"
+
+#: patterns/template-single-portfolio.php
+msgctxt "Pattern title"
+msgid "Portfolio single post template"
+msgstr "作品集單篇內容範本"
+
+#: patterns/template-search-blogging.php
+msgctxt "Pattern title"
+msgid "Blogging search template"
+msgstr "部落格搜尋範本"
+
+#: patterns/template-search-portfolio.php
+msgctxt "Pattern title"
+msgid "Portfolio search template"
+msgstr "作品集搜尋範本"
+
+#: patterns/template-index-portfolio.php
+msgctxt "Pattern title"
+msgid "Portfolio index template"
+msgstr "作品集索引範本"
+
+#: patterns/template-index-blogging.php
+msgctxt "Pattern title"
+msgid "Blogging index template"
+msgstr "部落格索引範本"
+
+#: patterns/template-home-portfolio.php
+msgctxt "Pattern title"
+msgid "Portfolio home template with post featured images"
+msgstr "包含內容精選圖片的作品集首頁範本"
+
+#: patterns/template-home-business.php
+msgctxt "Pattern title"
+msgid "Business home template"
+msgstr "商務首頁範本"
+
+#: patterns/template-home-blogging.php
+msgctxt "Pattern title"
+msgid "Blogging home template"
+msgstr "部落格首頁範本"
+
+#: patterns/template-archive-portfolio.php
+msgctxt "Pattern title"
+msgid "Portfolio archive template"
+msgstr "作品集彙整頁面範本"
+
+#: patterns/template-archive-blogging.php
+msgctxt "Pattern title"
+msgid "Blogging archive template"
+msgstr "部落格彙整頁面範本"
+
+#: patterns/team-4-col.php:120
+msgctxt "Sample role of a team member"
+msgid "Project Manager"
+msgstr "專案經理"
+
+#: patterns/team-4-col.php:115
+msgctxt "Sample name of a team member"
+msgid "Ivan Lawrence"
+msgstr "羅倫范"
+
+#: patterns/team-4-col.php:96
+msgctxt "Sample role of a team member"
+msgid "Architect"
+msgstr "建築師"
+
+#: patterns/team-4-col.php:91
+msgctxt "Sample name of a team member"
+msgid "Helga Steiner"
+msgstr "施泰爾"
+
+#: patterns/team-4-col.php:72
+msgctxt "Sample role of a team member"
+msgid "Engineering Manager"
+msgstr "工程經理"
+
+#: patterns/team-4-col.php:67
+msgctxt "Sample name of a team member"
+msgid "Rhye Moore"
+msgstr "莫飛易"
+
+#: patterns/team-4-col.php:48
+msgctxt "Sample role of a team member"
+msgid "Founder, CEO & Architect"
+msgstr "創辦人、CEO 兼建築師"
+
+#: patterns/team-4-col.php:43
+msgctxt "Sample name of a team member"
+msgid "Francesca Piovani"
+msgstr "皮凡卡"
+
+#: patterns/team-4-col.php:19
+msgctxt "Sample descriptive text of the team pattern"
+msgid "Our comprehensive suite of professionals caters to a diverse team, ranging from seasoned architects to renowned engineers."
+msgstr "從經驗豐富的建築師到知名的工程師，我們全方位的專業成員組成了多元化的團隊。"
+
+#: patterns/team-4-col.php:15
+msgctxt "Sample heading for the team pattern"
+msgid "Meet our team"
+msgstr "認識團隊"
+
+#: patterns/team-4-col.php:10
+msgctxt "Name of team pattern"
+msgid "Team members"
+msgstr "團隊成員"
+
+#: patterns/team-4-col.php
+msgctxt "Pattern title"
+msgid "Team members, 4 columns"
+msgstr "4 欄式團隊成員"
+
+#: patterns/posts-images-only-offset-4-col.php
+msgctxt "Pattern title"
+msgid "Offset posts with featured images only, 4 columns"
+msgstr "僅顯示精選圖片的 4 欄式交錯內容"
+
+#: patterns/posts-images-only-3-col.php
+msgctxt "Pattern title"
+msgid "Posts with featured images only, 3 columns"
+msgstr "僅顯示精選圖片的 3 欄式內容"
+
+#: patterns/posts-grid-2-col.php:13 patterns/posts-list.php:13
+#: patterns/template-index-blogging.php:16
+msgid "Watch, Read, Listen"
+msgstr "觀看、閱讀、聆聽"
+
+#: patterns/posts-grid-2-col.php
+msgctxt "Pattern title"
+msgid "Grid of posts featuring the first post, 2 columns"
+msgstr "強調第一篇內容的 2 欄式格狀排列內容"
+
+#: patterns/posts-3-col.php
+msgctxt "Pattern title"
+msgid "List of posts, 3 columns"
+msgstr "3 欄式內容清單"
+
+#: patterns/posts-1-col.php
+msgctxt "Pattern title"
+msgid "List of posts, 1 column"
+msgstr "1 欄式內容清單"
+
+#: patterns/page-rsvp-landing.php:48
+msgid "Green staircase at Western University, London, Canada"
+msgstr "加拿大倫敦西安大略大學的綠色階梯"
+
+#: patterns/page-rsvp-landing.php:13
+msgctxt "Name of RSVP landing page pattern"
+msgid "RSVP Landing Page"
+msgstr "邀請回覆到達網頁"
+
+#: patterns/page-rsvp-landing.php
+msgctxt "Pattern title"
+msgid "RSVP landing"
+msgstr "邀請回覆到達網頁"
+
+#: patterns/page-portfolio-overview.php
+msgctxt "Pattern title"
+msgid "Portfolio project overview"
+msgstr "作品集專案概觀"
+
+#: patterns/page-newsletter-landing.php:39
+msgctxt "Sample content for newsletter subscribe button"
+msgid "Sign up"
+msgstr "註冊"
+
+#: patterns/page-newsletter-landing.php:28
+msgctxt "sample content for newsletter subscription"
+msgid "Subscribe to the newsletter and stay connected with our community"
+msgstr "訂閱電子報並與我們的社群保持聯繫"
+
+#: patterns/page-newsletter-landing.php
+msgctxt "Pattern title"
+msgid "Newsletter landing"
+msgstr "電子報到達網頁"
+
+#: patterns/page-home-portfolio.php
+msgctxt "Pattern title"
+msgid "Portfolio home with post featured images"
+msgstr "包含文章精選圖片的作品集首頁"
+
+#: patterns/page-home-portfolio-gallery.php
+msgctxt "Pattern title"
+msgid "Portfolio home image gallery"
+msgstr "作品集首頁圖庫"
+
+#: patterns/page-home-business.php
+msgctxt "Pattern title"
+msgid "Business home"
+msgstr "商務首頁"
+
+#: patterns/page-home-blogging.php
+msgctxt "Pattern title"
+msgid "Blogging home"
+msgstr "部落格首頁"
+
+#: patterns/page-about-business.php
+msgctxt "Pattern title"
+msgid "About"
+msgstr "相關資訊"
+
+#: patterns/hidden-sidebar.php:75
+msgctxt "search form placeholder"
+msgid "Search..."
+msgstr "搜尋..."
+
+#: patterns/hidden-sidebar.php:72
+msgid "Search the website"
+msgstr "搜尋這個網站"
+
+#: patterns/hidden-sidebar.php:60
+msgid "Financial apps for families"
+msgstr "適合全家使用的財經 App"
+
+#: patterns/hidden-sidebar.php:59
+msgid "Latest inflation report"
+msgstr "最新通貨膨脹報告"
+
+#: patterns/hidden-sidebar.php:53
+msgid "Links I found useful and wanted to share."
+msgstr "實用、並想分享給大家的連結。"
+
+#: patterns/hidden-sidebar.php:49
+msgid "Useful Links"
+msgstr "實用連結"
+
+#: patterns/hidden-sidebar.php:33
+msgid "Popular Categories"
+msgstr "熱門分類"
+
+#: patterns/hidden-sidebar.php:17
+msgid "About the author"
+msgstr "關於作者"
+
+#: patterns/hidden-sidebar.php
+msgctxt "Pattern title"
+msgid "Sidebar"
+msgstr "資訊欄"
+
+#: patterns/hidden-search.php:9
+msgctxt "search button text"
+msgid "Search"
+msgstr "搜尋"
+
+#: patterns/hidden-search.php:9 patterns/hidden-sidebar.php:75
+msgctxt "search form label"
+msgid "Search"
+msgstr "搜尋"
+
+#: patterns/hidden-search.php
+msgctxt "Pattern title"
+msgid "Search"
+msgstr "搜尋"
+
+#: patterns/hidden-post-navigation.php:12
+msgctxt "Label before the title of the next post. There is a space after the colon."
+msgid "Next: "
+msgstr "下一篇: "
+
+#: patterns/hidden-post-navigation.php:11
+msgctxt "Label before the title of the previous post. There is a space after the colon."
+msgid "Previous: "
+msgstr "上一篇: "
+
+#: patterns/hidden-post-navigation.php:9 patterns/hidden-post-navigation.php:10
+#: patterns/template-index-portfolio.php:16
+msgid "Posts"
+msgstr "文章"
+
+#: patterns/hidden-post-navigation.php
+msgctxt "Pattern title"
+msgid "Post navigation"
+msgstr "文章導覽"
+
+#: patterns/hidden-post-meta.php:25
+msgctxt "Prefix for the post category block: in category name"
+msgid "in "
+msgstr "分類: "
+
+#: patterns/hidden-post-meta.php:20
+msgctxt "Prefix for the post author block: By author name"
+msgid "by"
+msgstr "作者:"
+
+#: patterns/hidden-post-meta.php
+msgctxt "Pattern title"
+msgid "Post meta"
+msgstr "文章中繼資料"
+
+#: patterns/hidden-portfolio-hero.php
+msgctxt "Pattern title"
+msgid "Portfolio hero"
+msgstr "作品集宣傳內容"
+
+#: patterns/hidden-no-results.php:9
+msgctxt "Message explaining that there are no results returned from a search"
+msgid "No posts were found."
+msgstr "找不到符合條件的內容。"
+
+#: patterns/hidden-no-results.php
+msgctxt "Pattern title"
+msgid "No results"
+msgstr "找不到符合條件的結果"
+
+#: patterns/hidden-comments.php:12
+msgid "Comments"
+msgstr "留言"
+
+#: patterns/hidden-comments.php
+msgctxt "Pattern title"
+msgid "Comments"
+msgstr "留言"
+
+#: patterns/hidden-404.php:13
+msgctxt "Message to convey that a webpage could not be found"
+msgid "The page you are looking for does not exist, or it has been moved. Please try searching using the form below."
+msgstr "尋找的頁面不存在或已遭移除。請使用下方搜尋功能進行搜尋。"
+
+#: patterns/hidden-404.php:10
+msgctxt "Heading for a webpage that is not found"
+msgid "Page Not Found"
+msgstr "找不到符合條件的頁面"
+
+#: patterns/hidden-404.php
+msgctxt "Pattern title"
+msgid "404"
+msgstr "404 錯誤"
+
+#: patterns/gallery-project-layout.php:53
+msgid "Art Gallery of Ontario, Toronto, Canada"
+msgstr "加拿大多倫多安大略美術館"
+
+#: patterns/gallery-project-layout.php:48
+msgctxt "Sample text for the feature area"
+msgid "2. Case studies that celebrate the artistry can fuel curiosity and ignite inspiration."
+msgstr "2. 推廣藝術性的案例研究可以激發好奇心並觸發靈感。"
+
+#: patterns/gallery-project-layout.php:37
+msgctxt "Sample text for the feature area"
+msgid "Our comprehensive suite of professional services caters to a diverse clientele, ranging from homeowners to commercial developers. With a commitment to innovation and sustainability, Études is the bridge that transforms architectural dreams into remarkable built realities."
+msgstr "我們全方位的專業服務組合可以配合從屋主到商業開發商等不同客戶，Études 致力於創新及永續發展，因為這兩項是將建築夢想轉化為實際卓越建築的橋樑。"
+
+#: patterns/gallery-project-layout.php:25
+msgctxt "Sample text for the feature area"
+msgid "1. Through Études, we aspire to redefine architectural boundaries and usher in a new era of design excellence that leaves an indelible mark on the built environment."
+msgstr "1. 透過 Études，我們渴望重新定義建築界限，並開創一個卓越設計的新時代，以便在建築界留下深刻的印記。"
+
+#: patterns/gallery-project-layout.php:20
+msgid "An empty staircase under an angular roof in Darling Harbour, Sydney, Australia"
+msgstr "澳大利亞雪梨達令港稜角分明屋頂下的空樓梯"
+
+#: patterns/gallery-project-layout.php
+msgctxt "Pattern title"
+msgid "Project layout"
+msgstr "專案版面配置"
+
+#: patterns/gallery-offset-images-grid-4-col.php
+msgctxt "Pattern title"
+msgid "Offset gallery, 4 columns"
+msgstr "4 欄式交錯圖庫"
+
+#: patterns/gallery-offset-images-grid-3-col.php
+msgctxt "Pattern title"
+msgid "Offset gallery, 3 columns"
+msgstr "3 欄式交錯圖庫"
+
+#: patterns/gallery-offset-images-grid-2-col.php
+msgctxt "Pattern title"
+msgid "Offset gallery, 2 columns"
+msgstr "2 欄式交錯圖庫"
+
+#: patterns/gallery-full-screen-image.php
+msgctxt "Pattern title"
+msgid "Full screen image"
+msgstr "全螢幕圖片"
+
+#: patterns/footer.php:91
+msgid "Social Media"
+msgstr "社交網路服務"
+
+#: patterns/footer.php:85
+msgid "Social"
+msgstr "社交網路服務"
+
+#: patterns/footer.php:63 patterns/footer.php:69
+msgid "Privacy"
+msgstr "隱私權"
+
+#: patterns/footer.php:40 patterns/footer.php:46
+msgid "About"
+msgstr "關於"
+
+#: patterns/footer.php
+msgctxt "Pattern title"
+msgid "Footer with colophon, 4 columns"
+msgstr "包含版權宣告的 4 欄式頁尾"
+
+#: patterns/footer-colophon-3-col.php:81
+msgid "&copy;"
+msgstr "&copy;"
+
+#: patterns/footer-colophon-3-col.php:59 patterns/footer.php:93
+msgid "Facebook"
+msgstr "Facebook"
+
+#: patterns/footer-colophon-3-col.php:59 patterns/footer.php:94
+msgid "Instagram"
+msgstr "Instagram"
+
+#: patterns/footer-colophon-3-col.php:56
+msgid "Follow"
+msgstr "追蹤"
+
+#: patterns/footer-colophon-3-col.php:41
+msgctxt "Example email in site footer"
+msgid "info@example.com"
+msgstr "info@example.com"
+
+#: patterns/footer-colophon-3-col.php:38
+msgid "Contact"
+msgstr "聯絡資訊"
+
+#: patterns/footer-colophon-3-col.php:29
+msgid "Keep up, get in touch."
+msgstr "持續關注，保持聯絡"
+
+#: patterns/footer-colophon-3-col.php
+msgctxt "Pattern title"
+msgid "Footer with colophon, 3 columns"
+msgstr "包含版權宣告的 3 欄式頁尾"
+
+#. Translators: Designed with WordPress
+#: patterns/footer-centered-logo-nav.php:24
+#: patterns/footer-colophon-3-col.php:93 patterns/footer.php:119
+msgid "Designed with %1$s"
+msgstr "本站採用 %1$s 設計"
+
+#: patterns/footer-centered-logo-nav.php
+msgctxt "Pattern title"
+msgid "Footer with centered logo and navigation"
+msgstr "包含置中標誌及導覽列的頁尾"
+
+#: patterns/cta-subscribe-centered.php:30
+msgctxt "Sample text for Sign Up Button"
+msgid "Sign up"
+msgstr "註冊"
+
+#: patterns/cta-subscribe-centered.php:23
+msgctxt "Sample text for Subscriber Description"
+msgid "Stay in the loop with everything you need to know."
+msgstr "隨時能獲知你想要了解的一切。"
+
+#: patterns/cta-subscribe-centered.php:19
+msgctxt "Sample text for Subscriber Heading with numbers"
+msgid "Join 900+ subscribers"
+msgstr "加入超過 900 位訂閱者的行列"
+
+#: patterns/cta-subscribe-centered.php
+msgctxt "Pattern title"
+msgid "Centered call to action"
+msgstr "置中的行動號召"
+
+#: patterns/cta-services-image-left.php:38
+msgctxt "Sample button text to view the services"
+msgid "Our services"
+msgstr "我們的服務項目"
+
+#: patterns/cta-services-image-left.php:31
+msgctxt "Sample description of the services pattern"
+msgid "Experience the fusion of imagination and expertise with Études—the catalyst for architectural transformations that enrich the world around us."
+msgstr "體驗 Études 創造力及專業知識的融合，以豐富我們周遭世界的方式催化建築的轉型。"
+
+#: patterns/cta-services-image-left.php:27
+msgctxt "Sample heading of the services pattern"
+msgid "Guiding your business through the project"
+msgstr "透過專案引導相關業務"
+
+#: patterns/cta-services-image-left.php
+msgctxt "Pattern title"
+msgid "Services call to action with image on left"
+msgstr "包含左方圖片的服務行動號召"
+
+#: patterns/cta-rsvp.php:49 patterns/text-title-left-image-right.php:50
+msgid "A ramp along a curved wall in the Kiasma Museu, Helsinki, Finland"
+msgstr "芬蘭赫爾辛基基亞斯瑪當代藝術博物館曲面牆的坡道"
+
+#: patterns/cta-rsvp.php:33 patterns/page-rsvp-landing.php:33
+msgctxt "Call to action button text for the reservation button"
+msgid "Reserve your spot"
+msgstr "保留專屬席位"
+
+#: patterns/cta-rsvp.php:26 patterns/page-rsvp-landing.php:27
+msgctxt "RSVP call to action description"
+msgid "Experience the fusion of imagination and expertise with Études Arch Summit, February 2025."
+msgstr "誠摯邀請參加 2025 年 2 月的 Études Arch 峰會，體驗創造力及專業知識的融合。"
+
+#: patterns/cta-rsvp.php:20 patterns/page-rsvp-landing.php:22
+msgctxt "Initials for ´please respond´"
+msgid "RSVP"
+msgstr "邀請回覆"
+
+#: patterns/cta-rsvp.php:10
+msgctxt "Name of RSVP pattern"
+msgid "RSVP"
+msgstr "邀請回覆"
+
+#: patterns/cta-rsvp.php
+msgctxt "Pattern title"
+msgid "RSVP"
+msgstr "邀請回覆"
+
+#: patterns/cta-pricing.php:202
+msgctxt "Button text for the third pricing level"
+msgid "Subscribe"
+msgstr "訂閱"
+
+#: patterns/cta-pricing.php:188
+msgctxt "Feature for pricing level"
+msgid "Exclusive access to the <em>Études</em> app for iOS and Android"
+msgstr "獨家 iOS 及 Android 版 <strong>Études</strong> 行動 App 使用授權。"
+
+#: patterns/cta-pricing.php:172
+msgctxt "Feature for pricing level"
+msgid "Exclusive, unlimited access to <em>Études Articles</em>."
+msgstr "無限暢讀獨家 <strong>Études 專文</strong>。"
+
+#: patterns/cta-pricing.php:161
+msgctxt "Sample price for the third pricing level"
+msgid "$28"
+msgstr "NTD 1000"
+
+#: patterns/cta-pricing.php:156
+msgctxt "Sample heading for the third pricing level"
+msgid "Expert"
+msgstr "專家方案"
+
+#: patterns/cta-pricing.php:144
+msgctxt "Button text for the second pricing level"
+msgid "Subscribe"
+msgstr "訂閱"
+
+#: patterns/cta-pricing.php:114
+msgctxt "Feature for pricing level"
+msgid "Access to 20 exclusive <em>Études Articles</em> per month."
+msgstr "每個月可閱讀 20 篇獨家 <strong>Études 專文</strong>。"
+
+#: patterns/cta-pricing.php:103
+msgctxt "Sample price for the second pricing level"
+msgid "$12"
+msgstr "NTD 500"
+
+#: patterns/cta-pricing.php:98
+msgctxt "Sample heading for the second pricing level"
+msgid "Connoisseur"
+msgstr "品味方案"
+
+#: patterns/cta-pricing.php:86
+msgctxt "Button text for the first pricing level"
+msgid "Subscribe"
+msgstr "訂閱"
+
+#: patterns/cta-pricing.php:71 patterns/cta-pricing.php:130
+msgctxt "Feature for pricing level"
+msgid "Exclusive access to the <em>Études</em> app for iOS and Android."
+msgstr "獨家 iOS 及 Android 版 <strong>Études</strong> 行動 App 使用授權。"
+
+#: patterns/cta-pricing.php:61 patterns/cta-pricing.php:122
+#: patterns/cta-pricing.php:180
+msgctxt "Feature for pricing level"
+msgid "Weekly print edition."
+msgstr "每週寄送印刷版本。"
+
+#: patterns/cta-pricing.php:52
+msgctxt "Feature for pricing level"
+msgid "Access to 5 exclusive <em>Études Articles</em> per month."
+msgstr "每個月可閱讀 5 篇獨家 <strong>Études 專文</strong>。"
+
+#: patterns/cta-pricing.php:41
+msgctxt "Sample price for the first pricing level"
+msgid "$0"
+msgstr "NTD 0"
+
+#: patterns/cta-pricing.php:36
+msgctxt "Sample heading for the first pricing level"
+msgid "Free"
+msgstr "免費方案"
+
+#: patterns/cta-pricing.php:21
+msgctxt "Sample description for a pricing table"
+msgid "We offer flexible options, which you can adapt to the different needs of each project."
+msgstr "我們提供可依據每個專案不同需求調整的彈性方案。"
+
+#: patterns/cta-pricing.php:17
+msgctxt "Sample heading for pricing pattern"
+msgid "Our Services"
+msgstr "我們的服務項目"
+
+#: patterns/cta-pricing.php:10
+msgctxt "Name for the pricing pattern"
+msgid "Pricing Table"
+msgstr "價目表"
+
+#: patterns/cta-pricing.php
+msgctxt "Pattern title"
+msgid "Pricing"
+msgstr "價目表"
+
+#: patterns/cta-content-image-on-right.php:58
+#: patterns/cta-services-image-left.php:18
+msgid "White abstract geometric artwork from Dresden, Germany"
+msgstr "來自德國德累斯頓的白色抽象幾何藝術品"
+
+#: patterns/cta-content-image-on-right.php:46
+msgctxt "Button text of this section"
+msgid "How it works"
+msgstr "運作方式"
+
+#: patterns/cta-content-image-on-right.php:40
+msgctxt "Button text of this section"
+msgid "Download app"
+msgstr "下載 App"
+
+#: patterns/cta-content-image-on-right.php:31
+#: patterns/text-alternating-images.php:51
+msgctxt "Sample list item"
+msgid "Experience the world of architecture."
+msgstr "體驗建築世界的點點滴滴。"
+
+#: patterns/cta-content-image-on-right.php:27
+#: patterns/text-alternating-images.php:47
+msgctxt "Sample list item"
+msgid "Showcase your projects."
+msgstr "展示自己的相關專案。"
+
+#: patterns/cta-content-image-on-right.php:23
+#: patterns/text-alternating-images.php:43
+msgctxt "Sample list item"
+msgid "Collaborate with fellow architects."
+msgstr "與其他建築師協同合作。"
+
+#: patterns/cta-content-image-on-right.php:17
+msgctxt "Sample heading"
+msgid "Enhance your architectural journey with the Études Architect app."
+msgstr "使用 Études Architect 行動 App 強化客戶的建築之旅"
+
+#: patterns/cta-content-image-on-right.php
+msgctxt "Pattern title"
+msgid "Call to action with image on right"
+msgstr "包含右方圖片的行動號召"
+
+#: patterns/banner-project-description.php:40
+msgid "Hyatt Regency San Francisco, San Francisco, United States"
+msgstr "美國舊金山凱悅飯店"
+
+#: patterns/banner-project-description.php:25
+msgctxt "Sample descriptive text for a project or post."
+msgid "This transformative project seeks to enhance the gallery's infrastructure, accessibility, and exhibition spaces while preserving its rich cultural heritage."
+msgstr "這個革命性的專案主要在於加強畫廊的基礎設施、無障礙設施及展覽空間，同時保護其豐富的文化遺產。"
+
+#: patterns/banner-project-description.php:16
+msgctxt "Sample title for a project or post"
+msgid "Art Gallery — Overview"
+msgstr "美術館概觀"
+
+#: patterns/banner-project-description.php
+msgctxt "Pattern title"
+msgid "Project description"
+msgstr "專案內容說明"
+
+#: patterns/banner-hero.php:51
+msgid "Building exterior in Toronto, Canada"
+msgstr "加拿大多倫多的建築外觀"
+
+#: patterns/banner-hero.php:36
+msgctxt "Button text of the hero section"
+msgid "About us"
+msgstr "關於我們"
+
+#: patterns/banner-hero.php:25
+msgctxt "Content of the hero section"
+msgid "Études is a pioneering firm that seamlessly merges creativity and functionality to redefine architectural excellence."
+msgstr "Études 是一間將創造力及功能性緊密整合、具備開創性的公司，並重新定義了卓越的建築。"
+
+#: patterns/banner-hero.php:17
+msgctxt "Heading of the hero section"
+msgid "A commitment to innovation and sustainability"
+msgstr "對創新及永續發展的承諾"
+
+#: patterns/banner-hero.php
+msgctxt "Pattern title"
+msgid "Hero"
+msgstr "宣傳內容"
+
+#: functions.php:111
+msgid "With asterisk"
+msgstr "包含星號"
+
+#: functions.php:93
+msgid "With arrow"
+msgstr "包含箭號"
+
+#: functions.php:74
+msgid "Checkmark"
+msgstr "核取記號"
+
+#: functions.php:51
+msgid "Pill"
+msgstr "膠囊形狀"
+
+#: functions.php:28
+msgid "Arrow icon"
+msgstr "箭號圖示"
+
+#. Author URI of the theme
+#. Translators: WordPress link.
+#: style.css patterns/footer-centered-logo-nav.php:21
+#: patterns/footer-colophon-3-col.php:90 patterns/footer.php:116
+msgid "https://wordpress.org"
+msgstr "https://tw.wordpress.org"
+
+#. Author of the theme
+#: style.css
+#, gp-priority: low
+msgid "the WordPress team"
+msgstr "WordPress 團隊"
+
+#. Theme URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://wordpress.org/themes/twentytwentyfour/"
+msgstr "https://tw.wordpress.org/themes/twentytwentyfour/"

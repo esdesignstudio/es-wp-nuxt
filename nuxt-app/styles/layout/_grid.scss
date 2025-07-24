@@ -1,0 +1,105 @@
+@use '../settings/config' as *;
+@use '../mixins/breakpoint' as *;
+
+// > Grid columns
+// > Help: https://css-tricks.com/snippets/css/complete-guide-grid/
+// > ------------------------------------------------------------------------
+// > Grid layout system by locomotive
+// > Modifyied by ES Design
+
+// > Example
+/* html
+    <div class="grid">
+        <div class="cols-1-3-mobile cols-2-8-tablet">
+            <p>Hello</p>
+        </div>
+    </div>
+*/
+
+$colsMax: map-get($grid-columns, desktop) + 1;
+@each $break, $breakpoint in $breakpoints {
+    @include media-breakpoint-up($break) {
+        @for $startIndex from 1 through $colsMax {
+            @for $endIndex from 1 through $colsMax {
+
+                .col-#{$startIndex}-#{$endIndex}-#{$break} {
+                    grid-column-start: #{$startIndex};
+                    grid-column-end: #{$endIndex};
+                    @media (min-width: #{$breakpoint}) {
+                        grid-column-start: #{$startIndex};
+                        grid-column-end: #{$endIndex};
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+// > Grid helper
+// > ------------------------------------------------------------------------
+
+ .grid {
+    display: grid;
+    width: 100%;
+
+    @each $break, $breakpoint in $breakpoints {
+        @include media-breakpoint-up($break) {
+            grid-template-columns: repeat(map-get($grid-columns, $break), 1fr);
+            gap: map-get($gutter, $break);
+            column-gap:  map-get($gutter, $break);
+        }
+    }
+
+    &:is(ul, ol) {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+
+    // > Cols
+    @each $break, $breakpoint in $breakpoints {
+        @for $cols from 1 through $colsMax {
+            @include media-breakpoint-up($break) {
+                &.-cols-#{$cols}-#{$break} {
+                    grid-template-columns: repeat(#{$cols}, 1fr);
+                }
+            }
+        }
+    }
+
+    // > Modifiers
+    &.-full-height {
+        height: 100%;
+    }
+
+    // > Aligns
+    // > Items inside cells
+    &.-align-top {
+        align-items: start;
+    }
+    &.-align-right {
+        justify-items: end;
+    }
+    &.-align-bottom {
+        align-items: end;
+    }
+    &.-align-left {
+        justify-items: start;
+    }
+    &.-align-center {
+        align-items: center;
+        justify-items: center;
+    }
+    &.-align-center-x {
+        justify-items: center;
+    }
+    &.-align-center-y {
+        align-items: center;
+    }
+    &.-align-stretch-items {
+        align-items: stretch;
+        justify-items: stretch;
+    }
+}

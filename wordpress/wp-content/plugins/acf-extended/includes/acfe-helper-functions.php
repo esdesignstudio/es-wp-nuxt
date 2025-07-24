@@ -17,7 +17,7 @@ if(!defined('ABSPATH')){
  */
 function acfe_array_get($array, $key, $default = null){
     
-    if(empty($key)){
+    if(empty($key) && !is_numeric($key)){
         return $array;
     }
     
@@ -50,18 +50,20 @@ function acfe_array_get($array, $key, $default = null){
  * acfe_array_set
  *
  * @param $array
- * @param $key
+ * @param $keys
  * @param $value
  *
  * @return array|mixed
  */
-function acfe_array_set(&$array, $key, $value){
+function acfe_array_set(&$array, $keys, $value = null){
     
-    if (is_null($key)){
-        return $array = $value;
+    if(func_num_args() === 2){
+        return $array = $keys;
     }
     
-    $keys = explode('.', $key);
+    if(!is_array($keys)){
+        $keys = explode('.', $keys);
+    }
     
     foreach($keys as $i => $key){
         
@@ -74,19 +76,87 @@ function acfe_array_set(&$array, $key, $value){
         // If the key doesn't exist at this depth, we will just create an empty array
         // to hold the next value, allowing us to create the arrays to hold final
         // values at the correct depth. Then we'll keep digging into the array.
-        if (!isset($array[ $key ]) || !is_array($array[ $key ])) {
-            $array[$key] = array();
+        if(!isset($array[ $key ]) || !is_array($array[ $key ])){
+            
+            if(empty($key) && acf_is_sequential_array($array)){
+                $array[] = array();
+                $key = key(array_slice($array, -1, 1, true));
+                
+            }else{
+                $array[ $key ] = array();
+            }
+            
         }
         
         $array = &$array[ $key ];
         
     }
     
-    $array[ array_shift($keys) ] = $value;
+    // if segment finish with "."
+    $final = array_shift($keys);
+    
+    if(empty($final) && !is_numeric($final) && acf_is_sequential_array($array)){
+        $array[] = $value;
+    }else{
+        $array[ $final ] = $value;
+    }
     
     return $array;
     
 }
+
+
+/**
+ * acfe_array_unset
+ *
+ * @param $array
+ * @param $keys
+ *
+ * @return array|mixed
+ */
+function acfe_array_unset(&$array, $keys){
+    
+    $original = &$array;
+    
+    $keys = (array) $keys;
+    
+    if(count($keys) === 0){
+        return $array;
+    }
+    
+    foreach($keys as $key){
+        
+        // if the exact key exists in the top-level, remove it
+        if(array_key_exists($key, $array)){
+            unset($array[ $key ]);
+            continue;
+        }
+        
+        $parts = explode('.', $key);
+        
+        // clean up before each pass
+        $array = &$original;
+        
+        while(count($parts) > 1){
+            
+            $part = array_shift($parts);
+            
+            if (isset($array[$part]) && is_array($array[$part])) {
+                $array = &$array[$part];
+            } else {
+                continue 2;
+            }
+            
+        }
+        
+        unset($array[ array_shift($parts) ]);
+        
+    }
+    
+    return $array;
+    
+}
+
 
 /**
  * acfe_maybe_get
@@ -109,6 +179,7 @@ function acfe_maybe_get($array = array(), $key = 0, $default = null){
     
 }
 
+
 /**
  * acfe_maybe_get_REQUEST
  *
@@ -122,6 +193,7 @@ function acfe_maybe_get($array = array(), $key = 0, $default = null){
 function acfe_maybe_get_REQUEST($key = '', $default = null){
     return isset($_REQUEST[ $key ]) ? $_REQUEST[ $key ] : $default;
 }
+
 
 /**
  * acfe_is_json
@@ -198,6 +270,12 @@ function acfe_array_keys_r($array){
  * @return bool
  */
 function acfe_starts_with($haystack, $needle){
+    
+    // make sure $haystack is a string
+    // substr deprecated non-string since php 8.0
+    if(!is_string($haystack)){
+        return false;
+    }
         
     $length = strlen($needle);
     return substr($haystack, 0, $length) === $needle;
@@ -220,6 +298,12 @@ function acfe_ends_with($haystack, $needle){
     
     if($length === 0){
         return true;
+    }
+    
+    // make sure $haystack is a string
+    // substr deprecated non-string since php 8.0
+    if(!is_string($haystack)){
+        return false;
     }
 
     return substr($haystack, -$length) === $needle;
@@ -326,6 +410,186 @@ function acfe_unprefix_array_keys($array, $prefix, $ignore = array(), $recursive
     return $array2;
     
 }
+
+
+/**
+ * acfe_map_array_keys
+ *
+ * Map array keys recursively, allowing to update a row key.
+ * Return false in callback to remove the row.
+ *
+ * @param $array
+ * @param $func
+ *
+ * @return array|false
+ */
+function acfe_map_array_keys($array, $func){
+    
+    // validate array
+    if(!is_array($array)){
+        return $array;
+    }
+    
+    // vars
+    $array2 = false;
+    
+    // loop
+    foreach($array as $k => $v){
+        
+        // callback
+        $k2 = call_user_func($func, $k, $v);
+        
+        // remove the row
+        if($k2 === false){
+            continue;
+            
+        // allow row and don't process sub array
+        }elseif($k2 === true){
+            
+            $array2 = acf_get_array($array2);
+            $array2[ $k ] = $v;
+            
+        // allow row and process sub array
+        }else{
+            
+            $array2 = acf_get_array($array2);
+            $array2[ $k2 ] = $v;
+            
+            // recursive sub array
+            if(is_array($array2[ $k2 ])){
+                
+                $array2[ $k2 ] = acfe_map_array_keys($array2[ $k2 ], $func);
+                
+                if($array2[ $k2 ] === false){
+                    unset($array2[ $k2 ]);
+                }
+                
+                if(is_array($array2) && empty($array2)){
+                    $array2 = false;
+                }
+                
+            }
+            
+        }
+        
+    }
+    
+    // return
+    return $array2;
+    
+}
+
+
+/**
+ * acfe_filter_acf_values_by_keys
+ *
+ * @param $acf
+ * @param $field_keys
+ *
+ * @return array|false
+ */
+function acfe_filter_acf_values_by_keys($acf, $field_keys){
+    
+    $acf = acf_get_array($acf);
+    $field_keys = acf_get_array($field_keys);
+    $filtered_keys = $field_keys;
+    
+    foreach($field_keys as $field_key){
+        
+        $field = acf_get_field($field_key);
+        
+        if($field && $field['type'] === 'clone' && $field['display'] === 'seamless' && $field['sub_fields']){
+            
+            $sub_fields = $field['sub_fields'];
+            $sub_fields = wp_list_pluck($sub_fields, 'key');
+            
+            if($sub_fields){
+                $filtered_keys = array_merge($filtered_keys, $sub_fields);
+            }
+            
+        }
+        
+    }
+    
+    $acf = acfe_map_array_keys($acf, function($key, $value) use($filtered_keys){
+        
+        // top level key found
+        // allow row and ignore sub array
+        if(in_array($key, $filtered_keys, true)){
+            return true;
+        }
+        
+        // sub array key not found and value is not array (so no sub array available)
+        // do not allow row and ignore sub array
+        if(!is_array($value) && !in_array($key, $filtered_keys, true)){
+            return false;
+        }
+        
+        // process sub array
+        return $key;
+        
+    });
+    
+    return $acf;
+    
+}
+
+
+/**
+ * acfe_get_value_from_acf_values_by_key
+ *
+ * @param $acf
+ * @param $field_key
+ *
+ * @return mixed|null
+ */
+function acfe_get_value_from_acf_values_by_key($acf, $field_key){
+    
+    // vars
+    $value = null;
+    $acf = acf_get_array($acf);
+    
+    // seamless clone rule
+    $field = acf_get_field($field_key);
+    $is_seamless = false;
+    
+    if($field && $field['type'] === 'clone' && $field['display'] === 'seamless'){
+        $value = array();
+        $is_seamless = true;
+    }
+    
+    // loop values
+    acfe_map_array_keys($acf, function($k, $v) use($field_key, $is_seamless, &$value){
+        
+        if($is_seamless){
+            
+            if(acfe_starts_with($k, "{$field_key}_")){
+                $value[ $k ] = $v;
+            }
+            
+        }else{
+            
+            // found key
+            if($k === $field_key){
+                $value = $v;
+            }
+            
+        }
+        
+        // continue loop
+        return $k;
+        
+    });
+    
+    if($is_seamless && empty($value)){
+        $value = null;
+    }
+    
+    // return
+    return $value;
+    
+}
+
 
 /**
  * acfe_array_insert_before
@@ -476,10 +740,10 @@ function acfe_parse_args_r(&$a, $b){
     
     foreach($a as $k => &$v){
         
-        if(is_array($v) && isset($r[ $k ])){
-            $r[$k] = acfe_parse_args_r($v, $r[ $k ]);
+        if(is_array($v) && isset($r[ $k ]) && is_array($r[ $k ]) && acf_is_associative_array($r[ $k ])){
+            $r[ $k ] = acfe_parse_args_r($v, $r[ $k ]);
         }else{
-            $r[$k] = $v;
+            $r[ $k ] = $v;
         }
         
     }
@@ -637,8 +901,8 @@ function acfe_is_dev(){
     
     // deprecated
     if(defined('ACFE_dev')){
-    
-        _deprecated_function('ACF Extended: "ACFE_dev" constant', '0.8.8.7', 'the constant "ACFE_DEV"');
+        
+        acfe_deprecated_constant('ACFE_dev', '0.8.8.7', 'ACFE_DEV');
         return ACFE_dev;
         
     }
@@ -658,8 +922,8 @@ function acfe_is_super_dev(){
     
     // deprecated
     if(defined('ACFE_super_dev')){
-        
-        _deprecated_function('ACF Extended: "ACFE_super_dev" constant', '0.8.8.7', 'the constant "ACFE_SUPER_DEV"');
+    
+        acfe_deprecated_constant('ACFE_super_dev', '0.8.8.7', 'ACFE_SUPER_DEV');
         return ACFE_super_dev;
         
     }
@@ -818,6 +1082,7 @@ function acfe_unarray($val){
 
 /**
  * acfe_get_ip
+ *
  * @return mixed
  */
 function acfe_get_ip(){
@@ -1008,5 +1273,91 @@ function acfe_unparse_types($v, $filters = array('int', 'bool', 'null')){
     
     // return
     return $v;
+    
+}
+
+
+/**
+ * acfe_redirect
+ *
+ * @param $location
+ * @param $status
+ *
+ * @return void
+ */
+function acfe_redirect($location, $status = 302){
+    
+    // filter
+    $location = apply_filters('acfe/redirect', $location, $status);
+    
+    // do not redirect
+    if($location === false){
+        return;
+    }
+    
+    // sanitize
+    $location = trim($location);
+    
+    // empty location
+    // redirect to 'current page'
+    if(empty($location)){
+        
+        global $wp;
+        if(!isset($wp->request)){
+            return;
+        }
+        
+        $location = home_url($wp->request);
+        
+    }
+    
+    wp_redirect($location);
+    exit;
+    
+}
+
+
+/**
+ * acfe_doing_action
+ *
+ * Returns the current priority of a running action.
+ * From acf_doing_action(), but also works with ACF 5.8
+ *
+ * @param $action
+ *
+ * @return false|int
+ */
+function acfe_doing_action($action){
+    global $wp_filter;
+    if(isset($wp_filter[ $action ])){
+        return $wp_filter[ $action ]->current_priority();
+    }
+    return false;
+}
+
+
+/**
+ * acfe_str_replace_first
+ *
+ * @param $search
+ * @param $replace
+ * @param $subject
+ * @param $delete  bool Should delete the other occurrences of the search string
+ *
+ * @return array|mixed|string|string[]
+ */
+function acfe_str_replace_first($search, $replace, $subject, $delete = false){
+    
+    $pos = strpos($subject, $search);
+    
+    if($pos !== false){
+        $subject = substr_replace($subject, $replace, $pos, strlen($search));
+        
+        if($delete){
+            $subject = str_replace($search, '', $subject);
+        }
+    }
+    
+    return $subject;
     
 }

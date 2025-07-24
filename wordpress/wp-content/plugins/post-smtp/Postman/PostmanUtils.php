@@ -94,10 +94,25 @@ class PostmanUtils {
 		if ( $length == 0 ) {
 			return true;
 		}
+		
+		if( $haystack == null ) {
+		    
+		    return false;
+		    
+		}
+		
 		return (substr( $haystack, - $length ) === $needle);
 	}
 	public static function obfuscatePassword( $password ) {
+
+		if( empty( $password ) ) {
+
+			return '';
+
+		}
+
 		return str_repeat( '*', strlen( $password ) );
+
 	}
 	/**
 	 * Detect if the host is NOT a domain name
@@ -189,6 +204,7 @@ class PostmanUtils {
 	 * @return string
 	 */
 	static function roundBytes( $size ) {
+		$size = intval( $size );
 		$unit = array(
 				'B',
 				'KiB',
@@ -197,7 +213,13 @@ class PostmanUtils {
 				'TiB',
 				'PiB',
 		);
-		return @round( $size / pow( 1024, ($i = floor( log( $size, 1024 ) )) ), 2 ) . ' ' . $unit [ $i ];
+		
+		$log = log( $size, 1024 );
+		$unit_key = floor( $log );
+		$pow = pow( 1024, $unit_key );
+		$pow = floor( $pow );
+
+		return @round( $size / $pow, 2 ) . ' ' . $unit[$unit_key];
 	}
 
 	/**
@@ -450,7 +472,7 @@ class PostmanUtils {
 	public static function getRequestParameter( $parameterName ) {
 		$logger = PostmanUtils::$logger;
 		if ( isset( $_POST [ $parameterName ] ) ) {
-			$value = filter_var( $_POST [ $parameterName ], FILTER_SANITIZE_STRING );
+			$value = sanitize_text_field( $_POST [ $parameterName ] );
 			if ( $logger->isTrace() ) {
 				$logger->trace( sprintf( 'Found parameter "%s"', $parameterName ) );
 				$logger->trace( $value );

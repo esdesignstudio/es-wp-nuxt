@@ -8,25 +8,46 @@ if(!class_exists('acfe_module_import')):
 
 class acfe_module_import extends ACF_Admin_Tool{
     
-    public $hook;
-    public $description;
-    public $instance;
-    public $messages = array();
+    // vars
+    public $module;
     
+    /**
+     * construct
+     *
+     * @param $module
+     */
+    function __construct($module){
+        
+        // module
+        $this->module = $module;
+    
+        // vars
+        $this->name = $this->module->get_import_tool();
+        $this->title = $this->module->get_message('import_title');
+        
+        parent::__construct();
+        
+    }
+    
+    
+    /**
+     * html
+     *
+     * @return void
+     */
     function html(){
         
         ?>
-    
         <?php if(acfe_is_acf_6()): ?>
 
             <div class="acf-postbox-header">
-                <h2 class="acf-postbox-title"><?php echo $this->description; ?></h2>
+                <h2 class="acf-postbox-title"><?php echo $this->module->get_message('import_description'); ?></h2>
             </div>
             <div class="acf-postbox-inner">
     
         <?php else: ?>
 
-            <p><?php echo $this->description; ?></p>
+            <p><?php echo $this->module->get_message('import_description'); ?></p>
     
         <?php endif; ?>
         
@@ -45,9 +66,9 @@ class acfe_module_import extends ACF_Admin_Tool{
         </div>
         
         <p class="acf-submit">
-            <button type="submit" name="action" class="button button-primary"><?php _e('Import File'); ?></button>
+            <button type="submit" name="action" class="button button-primary"><?php _e('Import File', 'acf'); ?></button>
         </p>
-    
+        
         <?php if(acfe_is_acf_6()): ?>
             </div>
         <?php endif; ?>
@@ -56,43 +77,63 @@ class acfe_module_import extends ACF_Admin_Tool{
         
     }
     
+    
+    /**
+     * submit
+     *
+     * @return void
+     */
     function submit(){
     
         // Validate
         $json = $this->validate_file();
         
-        if(!$json)
+        if(!$json){
             return;
+        }
         
         $ids = array();
         
         // Loop over json
-        foreach($json as $name => $args){
-        
-            // Import
-            $post_id = $this->instance->import($name, $args);
+        foreach($json as $key => $item){
             
-            // Insert error
-            if(is_wp_error($post_id)){
+            // prior 0.9
+            // old import had name as key
+            if(!is_numeric($key) && !isset($item['name'])){
+                $item['name'] = $key;
+            }
+    
+            // validate
+            // todo: remove
+            //$item = $this->module->validate_item($item);
+            //$item = $this->module->prepare_item_for_import($item);
             
-                acf_add_admin_notice($post_id->get_error_message(), 'warning');
-                continue;
-            
+            // search database for existing item
+            $post = $this->module->get_item_post($item['name']);
+            if($post){
+                $item['ID'] = $post->ID;
             }
             
+            // import item
+            $item = $this->module->import_item($item);
+            
             // append message
-            $ids[] = $post_id;
+            $ids[] = $item['ID'];
             
         }
         
-        if(empty($ids))
+        if(empty($ids)){
             return;
+        }
         
         // Count total
         $total = count($ids);
-        
-        // Generate text
-        $text = sprintf(_n($this->messages['success_single'], $this->messages['success_multiple'], $total, 'acf'), $total);
+    
+        $text = $this->module->get_message('import_success_single');
+    
+        if($total > 1){
+            $text = sprintf($this->module->get_message('import_success_multiple'), $total);
+        }
         
         // Add links to text
         $links = array();
@@ -105,17 +146,20 @@ class acfe_module_import extends ACF_Admin_Tool{
         // Add notice
         acf_add_admin_notice($text, 'success');
         
-        // Do Action
-        do_action("acfe/{$this->hook}/import", $ids, $json);
-        
     }
     
+    
+    /**
+     * validate_file
+     *
+     * @return array|false
+     */
     function validate_file(){
         
         // Check file size.
         if(empty($_FILES['acf_import_file']['size'])){
             
-            acf_add_admin_notice(__("No file selected", 'acf'), 'warning');
+            acf_add_admin_notice(__('No file selected', 'acf'), 'warning');
             return false;
             
         }
@@ -126,7 +170,7 @@ class acfe_module_import extends ACF_Admin_Tool{
         // Check errors.
         if($file['error']){
             
-            acf_add_admin_notice(__("Error uploading file. Please try again", 'acf'), 'warning');
+            acf_add_admin_notice(__('Error uploading file. Please try again', 'acf'), 'warning');
             return false;
             
         }
@@ -134,7 +178,7 @@ class acfe_module_import extends ACF_Admin_Tool{
         // Check file type.
         if(pathinfo($file['name'], PATHINFO_EXTENSION) !== 'json'){
             
-            acf_add_admin_notice(__("Incorrect file type", 'acf'), 'warning');
+            acf_add_admin_notice(__('Incorrect file type', 'acf'), 'warning');
             return false;
             
         }
@@ -146,7 +190,7 @@ class acfe_module_import extends ACF_Admin_Tool{
         // Check if empty.
         if(!$json || !is_array($json)){
             
-            acf_add_admin_notice(__("Import file empty", 'acf'), 'warning');
+            acf_add_admin_notice(__('Import file empty', 'acf'), 'warning');
             return false;
             
         }

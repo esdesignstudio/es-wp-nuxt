@@ -1,0 +1,1472 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: FileBird\n"
+"POT-Creation-Date: 2023-06-19 15:19+0700\n"
+"PO-Revision-Date: 2023-07-07 17:04+0200\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.3.2\n"
+"X-Poedit-Basepath: ../..\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: filebird.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.min.js\n"
+"X-Poedit-SearchPathExcluded-1: apps\n"
+"X-Poedit-SearchPathExcluded-2: *.css\n"
+"X-Poedit-SearchPathExcluded-3: *.js\n"
+"X-Poedit-SearchPathExcluded-4: blocks/filebird-gallery/node_modules\n"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "FileBird Gallery"
+msgstr "FileBird Galerij"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Display folder images in a rich gallery."
+msgstr "Geef folder afbeeldingen weer als galerij."
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "filebird-gallery"
+msgstr "filebird-galerij"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Attachment Page"
+msgstr "Bijlage Pagina"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Media File"
+msgstr "Media Bestand"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "None"
+msgstr "Geen"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Ascending"
+msgstr "Oplopend"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Descending"
+msgstr "Aflopend"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Flex"
+msgstr "Flex"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Masonry"
+msgstr "Masonry"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Grid"
+msgstr "Grid"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Please choose folder in the block settings."
+msgstr "Kies aub een map in de block instellingen."
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "This folder has no images, please choose another one."
+msgstr "Deze map heeft geen afbeeldingen, kies aub een andere map."
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Gallery Settings"
+msgstr "Galerij Instellingen"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+#: includes/Addons/PostType/Classes/MetaBox.php:23
+#: includes/Addons/PostType/Init.php:54 includes/I18n.php:47
+msgid "Folder"
+msgstr "Map"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Columns"
+msgstr "Kolommen"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Crop Images"
+msgstr "Bijsnijden Afbeeldingen"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Thumbnails are cropped to align."
+msgstr "Miniaturen zijn bijgesneden om uit te lijnen."
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Caption"
+msgstr "Ondertiteling"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Display image caption"
+msgstr "Geef afbeeldingstitel weer"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Add Lightbox"
+msgstr "Lightbox toevoegen"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Layout"
+msgstr "Lay-out"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Space Around Image"
+msgstr "Ruimte Rondom Afbeelding"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Image Min Width"
+msgstr "Minimale breedte afbeelding"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Link To"
+msgstr "Link naar"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Sort By"
+msgstr "Sorteer op"
+
+#: blocks/filebird-gallery/dist/blocks.build.js:1
+msgid "Sort Type"
+msgstr "Sorteer wijze"
+
+#: includes/Addons/PostType/Controllers/Main.php:82
+msgid "Could not edit this folder (author error)"
+msgstr "Kan deze map niet wijzigen (auteur fout)"
+
+#: includes/Addons/PostType/Controllers/Main.php:97
+msgid "Could not edit this folder"
+msgstr "Kan deze map niet wijzigen"
+
+#: includes/Addons/PostType/Controllers/Main.php:120
+#: includes/Addons/PostType/Controllers/Main.php:191
+#: includes/Classes/Convert.php:161
+msgid "Success"
+msgstr "Succes"
+
+#: includes/Addons/PostType/Controllers/Main.php:124
+#: includes/Controller/Folder.php:604
+msgid "Can't delete folder, please try again later"
+msgstr "Kan map niet verwijderen, probeer het later opnieuw"
+
+#: includes/Addons/PostType/Controllers/Main.php:137
+msgid "Author Error"
+msgstr "Auteur Fout"
+
+#: includes/Addons/PostType/Controllers/Main.php:156
+#: includes/Controller/Api.php:202 includes/Controller/Folder.php:549
+#: includes/Controller/Folder.php:620 includes/Controller/Folder.php:639
+msgid "Validation failed"
+msgstr "Validatie is mislukt"
+
+#: includes/Addons/PostType/Controllers/Main.php:195
+msgid "Post Type not enabled."
+msgstr "Post type niet ingeschakeld."
+
+#: includes/Addons/PostType/Init.php:44 includes/I18n.php:29
+#: includes/I18n.php:49
+msgid "Folders"
+msgstr "Mappen"
+
+#: includes/Addons/PostType/Init.php:45
+msgid "Filebird Folder"
+msgstr "Filebird map"
+
+#: includes/Addons/PostType/Init.php:46
+msgid "Search Folders"
+msgstr "Zoekmap"
+
+#: includes/Addons/PostType/Init.php:47 includes/Controller/Folder.php:370
+#: includes/Model/Folder.php:38
+msgid "All Folders"
+msgstr "Alle mappen"
+
+#: includes/Addons/PostType/Init.php:48
+msgid "Parent Folder"
+msgstr "Bovenliggende map"
+
+#: includes/Addons/PostType/Init.php:49
+msgid "Parent Folder:"
+msgstr "Bovenliggende map:"
+
+#: includes/Addons/PostType/Init.php:50
+msgid "Edit Folder"
+msgstr "Bewerk Map"
+
+#: includes/Addons/PostType/Init.php:51
+msgid "Update Folder"
+msgstr "Map Bijwerken"
+
+#: includes/Addons/PostType/Init.php:52
+msgid "Add New Folder"
+msgstr "Nieuwe map toevoegen"
+
+#: includes/Addons/PostType/Init.php:53
+msgid "New Folder Name"
+msgstr "Nieuwe mapnaam"
+
+#: includes/Addons/PostType/Init.php:83 includes/Controller/Folder.php:374
+#: includes/Controller/Folder.php:817 includes/I18n.php:60
+#: includes/Model/Folder.php:42
+msgid "Uncategorized"
+msgstr "Geen categorie"
+
+#: includes/Addons/PostType/Init.php:84 includes/I18n.php:166
+msgid "All folders"
+msgstr "Alle mappen"
+
+#: includes/Admin/Settings.php:25 includes/Admin/Settings.php:26
+msgid "FileBird"
+msgstr "FileBird (FileBird)"
+
+#: includes/Admin/Settings.php:40
+msgid "Documentation"
+msgstr "Documentatie"
+
+#: includes/Admin/Settings.php:85 includes/Admin/Settings.php:98
+msgid "Settings saved!"
+msgstr "Instellingen opgeslagen!"
+
+#: includes/Classes/ActivePro.php:97
+msgid "Activate your license for automatic updates"
+msgstr "Activeer uw licentie voor automatische updates"
+
+#: includes/Classes/ActivePro.php:103
+msgid ""
+"Validation failed (Nonce Errors), please try again later. Or you can <a "
+"href=\"https://ninjateam.org/support\" target=\"_blank\"><strong>contact "
+"support</strong></a>."
+msgstr ""
+"Validatie mislukt (Nonce Errors), probeer het later opnieuw. Of neem contact "
+"op met <a href=\"https://ninjateam.org/support\" "
+"target=\"_blank\"><strong>contact support</strong></a>."
+
+#: includes/Classes/ActivePro.php:220
+msgid "Please active license to update."
+msgstr "Gelieve actieve licentie bij te werken."
+
+#: includes/Classes/ActivePro.php:221
+msgid "Deactivating license"
+msgstr "Deactiveer licentie"
+
+#: includes/Classes/ActivePro.php:222
+msgid ""
+"Are you sure to deactivate the current license key? You will not get regular "
+"updates or any support for this site."
+msgstr ""
+"Weet u zeker dat u de licentie wil deactiveren? U krijgt dan geen updates of "
+"support voor deze website."
+
+#: includes/Classes/ActivePro.php:223
+msgid "Please try again later!"
+msgstr "Probeer het later nogmaals!"
+
+#: includes/Classes/ActivePro.php:224
+msgid ""
+"Update failed: Your current FileBird license is being used on another site: "
+"{site}. To get this update, please deactivate the license on the other site "
+"first."
+msgstr ""
+"Bijwerken mislukt: Uw huidige Filebird Licentie is gebruikt op een ander "
+"domein: {site}. Om Filebird bij te werken zult u eerst de licentie  op de "
+"andere website moeten deactiveren."
+
+#: includes/Classes/Convert.php:97
+msgid "success"
+msgstr "succes"
+
+#: includes/Classes/Convert.php:99
+msgid "validation failed"
+msgstr "validatie is mislukt"
+
+#: includes/Classes/Convert.php:117
+msgid "Successfully wiped."
+msgstr "Met succes gewist."
+
+#: includes/Classes/Convert.php:133
+msgid "Successfully cleared!"
+msgstr "Succesvol gewist!"
+
+#: includes/Classes/Convert.php:139 includes/I18n.php:162
+msgid "Please try again."
+msgstr "Probeer het nog een keer."
+
+#: includes/Classes/Review.php:61
+msgid "Give FileBird a review"
+msgstr "FileBird een review geven"
+
+#: includes/Classes/Review.php:63
+msgid ""
+"Thank you for choosing FileBird. We hope you love it. Could you take a "
+"couple of seconds posting a nice review to share your happy experience?"
+msgstr ""
+"Bedankt voor het kiezen van FileBird. We hopen dat je het geweldig vindt. u "
+"een paar seconden het plaatsen van een mooie review om uw gelukkige ervaring "
+"te delen?"
+
+#: includes/Classes/Review.php:66
+msgid "We will be forever grateful. Thank you in advance ;)"
+msgstr "We zullen je eeuwig dankbaar zijn. Alvast bedankt ;)"
+
+#: includes/Classes/Review.php:70
+msgid "Rate now"
+msgstr "Beoordeel nu"
+
+#: includes/Classes/Review.php:71
+msgid "Later"
+msgstr "Later"
+
+#: includes/Classes/Review.php:72 includes/I18n.php:154
+msgid "No, thanks"
+msgstr "Nee, dank je"
+
+#: includes/Controller/Api.php:106
+msgid "Invalid action"
+msgstr "Ongeldige actie"
+
+#: includes/Controller/Api.php:136 includes/Controller/Api.php:167
+msgid "folder_id is missing."
+msgstr "folder_id wordt vermist."
+
+#: includes/Controller/Api.php:181
+msgid "Required fields are missing."
+msgstr "Vereiste velden ontbreken."
+
+#: includes/Controller/Attachment/SizeMeta.php:109
+msgid "File Size"
+msgstr "Bestandgrootte"
+
+#: includes/Controller/Folder.php:322
+msgid "Your request can't be processed."
+msgstr "Uw aanvraag kan niet worden verwerkt."
+
+#: includes/Controller/Folder.php:510
+msgid "Please choose folder"
+msgstr "Kies map"
+
+#: includes/Controller/Folder.php:544 includes/Controller/Folder.php:567
+msgid "A folder with this name already exists. Please choose another one."
+msgstr "Er bestaat al een map met deze naam. Kies een andere."
+
+#: includes/Controller/Folder.php:633
+msgid "Folder tree has been updated."
+msgstr "Mapstructuur is bijgewerkt."
+
+#: includes/Controller/Folder.php:821
+msgid "FileBird folder:"
+msgstr "FileBird map:"
+
+#: includes/Controller/Folder.php:822
+msgid "Click on the button to move this file to another folder"
+msgstr "Klik op de knop om dit bestand naar een andere map te verplaatsen"
+
+#: includes/Controller/Folder.php:980
+#: includes/Controller/Import/Methods/ImportMethod.php:53
+#, php-format
+msgid ""
+"Congratulations! We imported successfully %d folders into <strong>FileBird.</"
+"strong>"
+msgstr ""
+"Gefeliciteerd! We hebben met succes mappen van %1$d in <strong>FileBird "
+"geïmporteerd.</strong>"
+
+#: includes/Controller/Folder.php:1027
+msgid "The uploaded file was not generated by FileBird. Please check again."
+msgstr ""
+"Het geüploade bestand is niet gemaakt met Filebird. Controleer opnieuw."
+
+#: includes/Controller/Folder.php:1060
+msgid "folders"
+msgstr "mappen"
+
+#: includes/Controller/Import/ImportController.php:101
+#, php-format
+msgid ""
+"We found you have %1$s categories you created from %2$s plugin. Would you "
+"like to import it to %3$s?"
+msgstr ""
+"We hebben ontdekt dat je %1$s categorieën hebt die je hebt gemaakt met "
+"de<strong> %2$s </strong> plugin. Wilt u importeren naar %3$s?"
+
+#: includes/Fallback.php:11
+msgid ""
+"It looks like you have another FileBird version installed, please delete it "
+"before activating this new version. All of the settings and data are still "
+"preserved."
+msgstr ""
+"Het lijkt erop dat u een andere FileBird versie heeft geïnstalleerd. "
+"Verwijder deze eerst voordat u de nieuwe versie activeert. Alle instellingen "
+"en gegevens blijven behouden."
+
+#: includes/Fallback.php:13
+msgid "Read more details."
+msgstr "Lees meer details."
+
+#: includes/I18n.php:26
+msgid "No media files found."
+msgstr "Geen mediabestanden gevonden."
+
+#: includes/I18n.php:27
+msgid "New Folder"
+msgstr "Nieuwe map"
+
+#: includes/I18n.php:28
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: includes/I18n.php:30
+msgid "Ok"
+msgstr "OK"
+
+#: includes/I18n.php:31
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: includes/I18n.php:32
+msgid "Close"
+msgstr "Sluiten"
+
+#: includes/I18n.php:33
+msgid "Cut"
+msgstr "Knippen"
+
+#: includes/I18n.php:34
+msgid "Paste"
+msgstr "Plakken"
+
+#: includes/I18n.php:35
+msgid "Download"
+msgstr "Download"
+
+#: includes/I18n.php:36
+msgid "Download (Pro version)"
+msgstr "Downloaden (Pro-versie)"
+
+#: includes/I18n.php:37
+msgid "Loading"
+msgstr "Laden"
+
+#: includes/I18n.php:38
+msgid "Generating download link..."
+msgstr "Downloadlink wordt gegenereerd..."
+
+#: includes/I18n.php:39
+msgid "Successfully moved"
+msgstr "Met succes verplaatst"
+
+#: includes/I18n.php:40
+msgid "Unsuccessfully moved"
+msgstr "Tevergeefs verplaatst"
+
+#: includes/I18n.php:41
+msgid "Successfully updated!"
+msgstr "Succesvol bijgewerkt!"
+
+#: includes/I18n.php:42
+msgid "Unsuccessfully updated!"
+msgstr "Bijwerken mislukt!"
+
+#: includes/I18n.php:43
+msgid "Successfully deleted!"
+msgstr "Verwijderd!"
+
+#: includes/I18n.php:44
+msgid "Can't delete!"
+msgstr "Kan niet verwijderen!"
+
+#: includes/I18n.php:45
+msgid "Change Color"
+msgstr "Wijzig Kleur"
+
+#: includes/I18n.php:46
+msgid "Save"
+msgstr "Opslaan"
+
+#: includes/I18n.php:48
+msgid "Folder name..."
+msgstr "Mapnaam..."
+
+#: includes/I18n.php:50
+msgid "Enter folder name..."
+msgstr "Voer de naam van de map in..."
+
+#: includes/I18n.php:51
+msgid "Are you sure you want to delete"
+msgstr "Weet je zeker dat je dit wilt verwijderen"
+
+#: includes/I18n.php:52
+msgid "Are you sure?"
+msgstr "Weet je het zeker?"
+
+#: includes/I18n.php:53
+msgid "Those files will be moved to <strong>Uncategorized</strong> folder."
+msgstr ""
+"Deze bestanden worden verplaatst naar de map <strong>Niet-gecategoriseerd</"
+"strong>."
+
+#: includes/I18n.php:54
+msgid "You are editing another folder! Please complete the task first!"
+msgstr "U bewerkt een andere map! Voltooi de taak eerst!"
+
+#: includes/I18n.php:55
+msgid "Sort Folders"
+msgstr "Mappen sorteren"
+
+#: includes/I18n.php:56
+msgid "Delete Folder"
+msgstr "Folder verwijderen"
+
+#: includes/I18n.php:57
+msgid "Sort Files"
+msgstr "Bestanden sorteren"
+
+#: includes/I18n.php:58
+msgid "Bulk Select"
+msgstr "Bulk selecteer"
+
+#: includes/I18n.php:59
+msgid "All Files"
+msgstr "Alle bestanden"
+
+#: includes/I18n.php:61
+msgid "Previous folder selected"
+msgstr "Vorige map geselecteerd"
+
+#: includes/I18n.php:62
+msgid "Rename"
+msgstr "Hernoem"
+
+#: includes/I18n.php:63
+msgid ""
+"Are you sure you want to delete this folder? Those files will be moved to "
+"<strong>Uncategorized</strong> folder."
+msgstr ""
+"Weet u zeker dat u deze map wilt verwijderen? Deze bestanden worden "
+"verplaatst naar de map <strong>Niet-gecategoriseerd</strong>."
+
+#: includes/I18n.php:64
+msgid "Sort Ascending"
+msgstr "Oplopend sorteren"
+
+#: includes/I18n.php:65
+msgid "Sort Descending"
+msgstr "Aflopend sorteren"
+
+#: includes/I18n.php:66
+msgid "Reset"
+msgstr "Reset"
+
+#: includes/I18n.php:67
+msgid "By Name"
+msgstr "Op naam"
+
+#: includes/I18n.php:68
+msgid "Name Ascending"
+msgstr "Naam (Oplopend)"
+
+#: includes/I18n.php:69
+msgid "Name Descending"
+msgstr "Naam (Aflopend)"
+
+#: includes/I18n.php:70
+msgid "By Date"
+msgstr "Datum"
+
+#: includes/I18n.php:71
+msgid "Date Ascending"
+msgstr "Datum Oplopend"
+
+#: includes/I18n.php:72
+msgid "Date Descending"
+msgstr "Datum Aflopend"
+
+#: includes/I18n.php:73
+msgid "By Modified"
+msgstr "Door gewijzigd"
+
+#: includes/I18n.php:74
+msgid "Modified Ascending"
+msgstr "Gewijzigd oplopend"
+
+#: includes/I18n.php:75
+msgid "Modified Descending"
+msgstr "Gewijzigd aflopend"
+
+#: includes/I18n.php:76
+msgid "By Author"
+msgstr "Door auteur"
+
+#: includes/I18n.php:77
+msgid "By File Name"
+msgstr "Op bestandsnaam"
+
+#: includes/I18n.php:78
+msgid "Author Ascending"
+msgstr "Auteur oplopend"
+
+#: includes/I18n.php:79
+msgid "Author Descending"
+msgstr "Auteur aflopend"
+
+#: includes/I18n.php:80
+msgid "By Title"
+msgstr "Op titel"
+
+#: includes/I18n.php:81
+msgid "Title Ascending"
+msgstr "Titel oplopend"
+
+#: includes/I18n.php:82
+msgid "Title Descending"
+msgstr "Titel aflopend"
+
+#: includes/I18n.php:83
+msgid "By Size"
+msgstr "Op Grootte"
+
+#: includes/I18n.php:84
+msgid "Size Ascending"
+msgstr "Grootte  oplopend"
+
+#: includes/I18n.php:85
+msgid "Size Descending"
+msgstr "Groote aflopend"
+
+#: includes/I18n.php:86
+msgid "Skip & Deactivate"
+msgstr "Overslaan & deactiveren"
+
+#: includes/I18n.php:87
+msgid "Deactivate"
+msgstr "Deactiveren"
+
+#: includes/I18n.php:88
+msgid "Thank you so much!"
+msgstr "Dank u wel!"
+
+#: includes/I18n.php:90
+msgid "It doesn't have the features I'm looking for."
+msgstr "Het heeft niet de functies die ik zoek."
+
+#: includes/I18n.php:91
+msgid "Not work with my theme or other plugins."
+msgstr "Niet werken met mijn thema of andere plugins."
+
+#: includes/I18n.php:92
+msgid "Found another plugin that works better."
+msgstr "Vond een andere plugin die beter werkt."
+
+#: includes/I18n.php:93
+msgid "Don't know how to use it."
+msgstr "Ik weet niet hoe ik het moet gebruiken."
+
+#: includes/I18n.php:94
+msgid "This is just temporary, I will use it again."
+msgstr "Dit is slechts tijdelijk, ik zal het opnieuw gebruiken."
+
+#: includes/I18n.php:95
+msgid "Other"
+msgstr "Andere"
+
+#: includes/I18n.php:97
+msgid "Which features please?"
+msgstr "Welke functies alstublieft?"
+
+#: includes/I18n.php:98
+msgid "Please tell us which one"
+msgstr "Vertel ons welke"
+
+#: includes/I18n.php:99
+msgid ""
+"Please read FileBird documentation <a target=\"_blank\" href=\"https://"
+"ninjateam.gitbook.io/filebird/\">here</a> or <a target=\"_blank\" "
+"href=\"https://ninjateam.org/support/\">chat with us</a> if you need help"
+msgstr ""
+"Lees <a target=\"_blank\" href=\"https://ninjateam.gitbook.io/filebird/"
+"\">filebird</a> documentatie hier of <a target=\"_blank\" href=\"https://"
+"ninjateam.org/support/\">chatten met ons</a> als je hulp nodig hebt"
+
+#: includes/I18n.php:100
+msgid ""
+"Please <a target=\"_blank\" href=\"https://ninjateam.org/support/\">ask for "
+"support here</a>, we will fix it for you."
+msgstr ""
+"<a target=\"_blank\" href=\"https://ninjateam.org/support/\">Vraag hier om "
+"ondersteuning,</a>wij repareren het voor u."
+
+#: includes/I18n.php:101
+msgid "Please share your thoughts..."
+msgstr "Deel uw gedachten..."
+
+#: includes/I18n.php:102
+msgid "Want a better FileBird?"
+msgstr "Wil je een betere FileBird?"
+
+#: includes/I18n.php:103
+msgid ""
+"Sorry to see you walk away, please share why you want to deactivate FileBird?"
+msgstr "Sorry dat je wegloopt, deel dan waarom je FileBird wilt deactiveren?"
+
+#: includes/I18n.php:104
+msgid "Folder Limit Reached"
+msgstr "Maplimiet bereikt"
+
+#: includes/I18n.php:106
+msgid ""
+"<p>FileBird Lite version supports up to 10 folders.<br>Please upgrade to "
+"have unlimited folders and other premium features!</p>\n"
+"        <ul class=\"fbv-in_feature\">\n"
+"          <li>Unlimited Folders</li>\n"
+"          <li>Sort Files / Folders</li>\n"
+"          <li>Compatible with Premium Page Builders <span id=\"fbv-"
+"pagebuilder\" class=\"njn-i\"><svg viewBox=\"0 0 192 512\"><path "
+"fill=\"currentColor\" d=\"M20 424.229h20V279.771H20c-11.046 "
+"0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 "
+"20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 "
+"0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 "
+"72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z\"></path></svg></span></"
+"li>\n"
+"          <li>Get Fast Updates</li>\n"
+"          <li>Premium Technical Support</li>\n"
+"          <li>One-time Payment</li>\n"
+"          <li>30-day Refund Guarantee</li>\n"
+"        </ul>"
+msgstr ""
+"<p>FileBird Lite-versie ondersteunt maximaal 10 mappen.<br>Gelieve te "
+"upgraden naar onbeperkte mappen en andere premium functies hebben!</p>\n"
+"        <ul class=\"fbv-in_feature\">\n"
+"          <li>Onbeperkte mappen</li>\n"
+"          <li>Bestanden / mappen sorteren</li>\n"
+"          <li>Compatibel met Premium Page Builders<span id=\"fbv-"
+"pagebuilder\" class=\"njn-i\"><svg viewbox=\"0 0 192 512\"><path "
+"fill=\"currentColor\" d=\"M20 424.229h20V279.771H20c-11.046 "
+"0-20-8.954-20-20V212c0-11.046 8.954-20 20-20h112c11.046 0 20 8.954 20 "
+"20v212.229h20c11.046 0 20 8.954 20 20V492c0 11.046-8.954 20-20 20H20c-11.046 "
+"0-20-8.954-20-20v-47.771c0-11.046 8.954-20 20-20zM96 0C56.235 0 24 32.235 24 "
+"72s32.235 72 72 72 72-32.235 72-72S135.764 0 96 0z\"></path></svg></span></"
+"li>\n"
+"          <li>Snelle updates ontvangen</li>\n"
+"          <li>Premium technische ondersteuning</li>\n"
+"          <li>Eenmalige betaling</li>\n"
+"          <li>30-dagen restitutiegarantie</li>\n"
+"        </ul>"
+
+#: includes/I18n.php:118
+msgid "Including Divi, Fusion, Thrive Architect, WPBakery..."
+msgstr "Inclusief Divi, Fusion, Thrive Architect, WPBakery..."
+
+#: includes/I18n.php:119
+msgid "Upgrade to FileBird Pro now"
+msgstr "Upgrade nu naar FileBird Pro"
+
+#: includes/I18n.php:120
+msgid "Success."
+msgstr "Succes."
+
+#: includes/I18n.php:121
+msgid "Congratulations. Successfully imported!"
+msgstr "Gefeliciteerd. Met succes geïmporteerd!"
+
+#: includes/I18n.php:122
+msgid "Go To Media"
+msgstr "Ga naar media"
+
+#: includes/I18n.php:123 views/notices/html-notice-update-database.php:20
+msgid "FileBird 4 Update Required"
+msgstr "FileBird 4-update vereist"
+
+#: includes/I18n.php:124
+msgid ""
+"You're using the new FileBird 4. Please import database to view your folders "
+"correctly."
+msgstr ""
+"Je gebruikt de nieuwe FileBird 4. Importeer een database om uw mappen "
+"correct weer te geven."
+
+#: includes/I18n.php:125
+msgid "Import now"
+msgstr "Nu importeren"
+
+#: includes/I18n.php:126
+msgid ""
+"Import failed. Please try again or <a href=\"https://ninjateam.org/support\" "
+"target=\"_blank\">contact our support</a>."
+msgstr ""
+"Importeren is mislukt. Probeer het opnieuw of <a href=\"https://ninjateam."
+"org/support\" target=\"_blank\">neem contact op met onze ondersteuning</a>."
+
+#: includes/I18n.php:127
+msgid "Please enter your Purchase Code."
+msgstr "Voer uw aankoopcode in."
+
+#: includes/I18n.php:128
+msgid "Please enter your Personal Access Token or get one."
+msgstr "Voer uw persoonlijke toegangs token in of ontvang er een."
+
+#: includes/I18n.php:129
+msgid "Can not active your License, please try again."
+msgstr "Kan uw licentie niet actief maken, probeer het dan opnieuw."
+
+#: includes/I18n.php:130 views/pages/html-settings.php:32
+msgid "Settings"
+msgstr "Instellingen"
+
+#: includes/I18n.php:131 views/pages/html-settings.php:73
+msgid "FileBird Settings"
+msgstr "FileBird-instellingen"
+
+#: includes/I18n.php:132
+msgid "Select a default startup folder:"
+msgstr "Selecteer een standaard opstartmap:"
+
+#: includes/I18n.php:133
+msgid "Auto sort files by:"
+msgstr "Bestanden automatisch sorteren op:"
+
+#: includes/I18n.php:134
+msgid "Default"
+msgstr "Standaard"
+
+#: includes/I18n.php:135
+msgid "Settings saved"
+msgstr "Instellingen zijn opgeslagen"
+
+#: includes/I18n.php:136
+msgid "Failed to save settings. Please try again!"
+msgstr "Kan instellingen niet opslaan. Probeer het opnieuw!"
+
+#: includes/I18n.php:137
+msgid "Unlock new features"
+msgstr "Nieuwe functies ontgrendelen"
+
+#: includes/I18n.php:138
+msgid ""
+"To use FileBird folders with your current page builder/plugin, please "
+"upgrade to PRO version."
+msgstr ""
+"Als u FileBird-mappen wilt gebruiken met uw huidige paginabouwer/plug-in, "
+"moet u upgraden naar de PRO-versie."
+
+#: includes/I18n.php:139
+msgid "Do more with FileBird PRO"
+msgstr "Doe meer met FileBird PRO"
+
+#: includes/I18n.php:140
+msgid ""
+"You're using a third party plugin, which is supported in FileBird PRO. "
+"Please upgrade to browse files faster and get more done."
+msgstr ""
+"U gebruikt een plug-in van derden, die wordt ondersteund in FileBird PRO. "
+"Upgrade om sneller door bestanden te bladeren en meer gedaan te krijgen."
+
+#: includes/I18n.php:141
+msgid "Go Pro"
+msgstr "Stap over naar de Pro-versie"
+
+#: includes/I18n.php:142
+msgid "View details."
+msgstr "Bekijk details."
+
+#: includes/I18n.php:143
+msgid "Turn off for 7 days"
+msgstr "7 dagen uitschakelen"
+
+#: includes/I18n.php:144
+msgid "Collapse"
+msgstr "Inklappen"
+
+#: includes/I18n.php:145
+msgid "Expand"
+msgstr "Uitklappen"
+
+#: includes/I18n.php:146
+msgid "Uploaded"
+msgstr "Geupload"
+
+#: includes/I18n.php:147
+msgid "Less than a min"
+msgstr "Minder dan een minuut"
+
+#: includes/I18n.php:148
+msgid "Total size"
+msgstr "Totale grootte"
+
+#: includes/I18n.php:149
+msgid "Move"
+msgstr "Verplaatsen"
+
+#: includes/I18n.php:150
+msgid "item"
+msgstr "item"
+
+#: includes/I18n.php:151
+msgid "items"
+msgstr "items"
+
+#: includes/I18n.php:152
+msgid "Import folders to FileBird"
+msgstr "Importeer mappen naar FileBird"
+
+#: includes/I18n.php:153
+msgid "Go to import"
+msgstr "Ga naar Importeren"
+
+#: includes/I18n.php:155
+msgid ""
+"You have some folders created by other media plugins. Would you like to "
+"import them?"
+msgstr ""
+"Sommige mappen zijn gemaakt door andere media plugins. Wenst u deze te "
+"importeren?"
+
+#: includes/I18n.php:156
+msgid "Default Tree View"
+msgstr "Standaard boomstructuur"
+
+#: includes/I18n.php:157
+msgid "Flat Tree View"
+msgstr "Platte boomstructuur"
+
+#: includes/I18n.php:158
+msgid "Processing..."
+msgstr "Verwerken..."
+
+#: includes/I18n.php:159
+msgid "Generating..."
+msgstr "Genereren..."
+
+#: includes/I18n.php:160
+msgid "Generated!"
+msgstr "Genereerd!"
+
+#: includes/I18n.php:161
+msgid "Imported!"
+msgstr "Geïmporteerd!"
+
+#: includes/I18n.php:163
+msgid "Successfully exported!"
+msgstr "Succesvol geëxporteerd!"
+
+#: includes/I18n.php:164
+msgid "Successfully imported!"
+msgstr "Succesvol geïmporteerd!"
+
+#: includes/I18n.php:165
+msgid "Please activate FileBird license to use this feature."
+msgstr "Activeer uw licentie om deze mogelijkheid te kunnen gebruiken."
+
+#: includes/I18n.php:167
+msgid "Common folders"
+msgstr "Algemene mappen"
+
+#: includes/I18n.php:168
+msgid "This option imports the common folder tree and user-based folder trees."
+msgstr "Deze optie importeert de algemene en gebruikers mappenstructuur."
+
+#: includes/I18n.php:169
+msgid "This option imports only the common folder tree."
+msgstr "Deze optie importeert de algemene mappenstructuur."
+
+#: includes/I18n.php:170
+msgid "This option imports the folder tree created by"
+msgstr "Deze optie importeert de mappen structuur gemaakt door"
+
+#: includes/Lib/plugin-update-checker/Puc/v4p11/Plugin/Ui.php:54
+msgid "View details"
+msgstr "Bekijk details"
+
+#: includes/Lib/plugin-update-checker/Puc/v4p11/Plugin/Ui.php:77
+#, php-format
+msgid "More information about %s"
+msgstr "Meer informatie over %s"
+
+#: includes/Lib/plugin-update-checker/Puc/v4p11/Plugin/Ui.php:128
+msgid "Check for updates"
+msgstr "Controleer op updates"
+
+#: includes/Lib/plugin-update-checker/Puc/v4p11/Plugin/Ui.php:214
+#, php-format
+msgctxt "the plugin title"
+msgid "The %s plugin is up to date."
+msgstr "De %s plugin is bijgewerkt."
+
+#: includes/Lib/plugin-update-checker/Puc/v4p11/Plugin/Ui.php:216
+#, php-format
+msgctxt "the plugin title"
+msgid "A new version of the %s plugin is available."
+msgstr "Er is een nieuwe versie van de %s plugin beschikbaar."
+
+#: includes/Lib/plugin-update-checker/Puc/v4p11/Plugin/Ui.php:218
+#, php-format
+msgctxt "the plugin title"
+msgid "Could not determine if updates are available for %s."
+msgstr "Kon niet bepalen of updates beschikbaar zijn voor %s."
+
+#: includes/Lib/plugin-update-checker/Puc/v4p11/Plugin/Ui.php:224
+#, php-format
+msgid "Unknown update checker status \"%s\""
+msgstr "Onbekende update checker status \"%s\""
+
+#: includes/Lib/plugin-update-checker/Puc/v4p11/Vcs/PluginUpdateChecker.php:98
+msgid "There is no changelog available."
+msgstr "Er is geen changelog beschikbaar."
+
+#: includes/Support/ACF/acf-field-filebird-v4.php:20
+#: includes/Support/ACF/acf-field-filebird-v5.php:19
+msgid "FileBird Folder"
+msgstr "FileBird Map"
+
+#: includes/Support/DocumentGallery.php:26
+msgid "This folder ID does not exist, please check again."
+msgstr "Deze map-ID bestaat niet, controleer het nogmaals."
+
+#: includes/Support/WPML.php:69
+msgid "Done!"
+msgstr "Klaar!"
+
+#: views/notices/html-notice-first-folder.php:11
+msgid "Create your first folder for media library now."
+msgstr "Maak nu uw eerste map voor mediabibliotheek."
+
+#: views/notices/html-notice-first-folder.php:13
+msgid "Get Started"
+msgstr "Aan de slag"
+
+#: views/notices/html-notice-update-database.php:24
+msgid ""
+"You are using the new FileBird 4. Please update database to view your "
+"folders correctly."
+msgstr ""
+"U gebruikt de nieuwe FileBird 4. Werk de database bij om uw mappen correct "
+"te bekijken."
+
+#: views/notices/html-notice-update-database.php:30
+#: views/pages/settings/tab-tools.php:20
+msgid "Update now"
+msgstr "Nu updaten"
+
+#: views/pages/html-settings.php:27
+msgid "Activation"
+msgstr "Activatie"
+
+#: views/pages/html-settings.php:40
+msgid "Tools"
+msgstr "Gereedschappen"
+
+#: views/pages/html-settings.php:48
+msgid "Import/Export"
+msgstr "Import/Export"
+
+#: views/pages/html-settings.php:58 views/pages/settings/tab-posttype.php:1
+msgid "Post Type"
+msgstr "Posttype"
+
+#: views/pages/settings/tab-activated.php:13
+msgid "Congratulations! 🎉"
+msgstr "Gefeliciteerd! 🎉"
+
+#: views/pages/settings/tab-activated.php:18
+msgid "Your FileBird Pro was activated!"
+msgstr "Uw FileBird Pro is geactiveerd!"
+
+#: views/pages/settings/tab-activated.php:24
+msgid "Your license is: "
+msgstr "Uw licentie is: "
+
+#: views/pages/settings/tab-activated.php:28
+msgid "Deactivate license."
+msgstr "Deactiveer licentie."
+
+#: views/pages/settings/tab-activated.php:34
+msgid "Note:"
+msgstr "Opmerking:"
+
+#: views/pages/settings/tab-activated.php:36
+msgid ""
+"If you're on a development site and you want to activate this license later "
+"on the production domain, please deactivate it from here first. "
+msgstr ""
+"In uw op een ontwerp website werkt en u wenst deze licentie later ook te "
+"gebruiken op de productie website dan zult u deze licentie eerst moeten "
+"deactiveren."
+
+#: views/pages/settings/tab-activated.php:39
+#: views/pages/settings/tab-import.php:95
+msgid "Learn more"
+msgstr "Meer weten"
+
+#: views/pages/settings/tab-activated.php:46
+msgid "Starting a new site?"
+msgstr "Begin een nieuwe website?"
+
+#: views/pages/settings/tab-activated.php:48
+msgid "Buy another license."
+msgstr "Koop nog een licentie."
+
+#: views/pages/settings/tab-active.php:13
+msgid ""
+"To activate FileBird, please sign in to Envato and accept a few permissions."
+msgstr ""
+"Om FileBird te activeren, logt u in bij Envato en accepteert u een paar "
+"machtigingen."
+
+#: views/pages/settings/tab-active.php:16
+msgid "By activating FileBird, you will have:"
+msgstr "Door FileBird te activeren, heb je:"
+
+#: views/pages/settings/tab-active.php:21
+msgid "Auto-update to the latest version"
+msgstr "Automatisch bijwerken naar de nieuwste versie"
+
+#: views/pages/settings/tab-active.php:24
+msgid "Premium Technical Support"
+msgstr "Premium technische ondersteuning"
+
+#: views/pages/settings/tab-active.php:27
+msgid "Live Chat 1-1 on Facebook for any questions"
+msgstr "Live Chat 1-1 op Facebook voor eventuele vragen"
+
+#: views/pages/settings/tab-active.php:30
+msgid "Folder Themes (Windows 11 and Dropbox)"
+msgstr "Map Thema's (Windows 11 en Dropbox)"
+
+#: views/pages/settings/tab-active.php:43
+msgid "Login with Envato"
+msgstr "Login met Envato"
+
+#: views/pages/settings/tab-import.php:3
+msgid "Import"
+msgstr "Importeren"
+
+#: views/pages/settings/tab-import.php:5
+msgid ""
+"Import categories/folders from other plugins. We import virtual folders, "
+"your website will be safe, don't worry ;)"
+msgstr ""
+"Categorieën/mappen importeren uit andere plug-ins. We importeren virtuele "
+"mappen, uw website is veilig, maak je geen zorgen ;)"
+
+#: views/pages/settings/tab-import.php:14
+msgid " by "
+msgstr "door"
+
+#: views/pages/settings/tab-import.php:31
+#: views/pages/settings/tab-import.php:88
+msgid "Import Now"
+msgstr "Importeer Nu"
+
+#: views/pages/settings/tab-import.php:36
+#, php-format
+msgid "We found you have %1$s categories you created from %2$s plugin."
+msgstr ""
+"We hebben ontdekt dat je <strong>( %1$s )</strong> categorieën hebt die je "
+"hebt gemaakt met de %2$s plugin."
+
+#: views/pages/settings/tab-import.php:38
+#, php-format
+msgid " Would you like to import to %1$sFileBird%2$s?"
+msgstr "Wilt u importeren naar %1$sFileBird%2$s?"
+
+#: views/pages/settings/tab-import.php:51
+msgid "Export"
+msgstr "Exporteer"
+
+#: views/pages/settings/tab-import.php:57
+msgid "Export CSV"
+msgstr "Exporteer CSV"
+
+#: views/pages/settings/tab-import.php:64
+msgid "Export Now"
+msgstr "Exporteer Nu"
+
+#: views/pages/settings/tab-import.php:66
+msgid "Download File"
+msgstr "Download Bestand"
+
+#: views/pages/settings/tab-import.php:69
+msgid "The current folder structure will be exported."
+msgstr "De huidige mappenstructuur wordt geëxporteerd."
+
+#: views/pages/settings/tab-import.php:76
+msgid "Import CSV"
+msgstr "Importeer CSV"
+
+#: views/pages/settings/tab-import.php:93
+msgid "Choose FileBird CSV file to import."
+msgstr "Kies FileBird CSV om te importeren."
+
+#: views/pages/settings/tab-import.php:94
+msgid ""
+"(Please check to make sure that there is no duplicated name. The current "
+"folder structure is preserved.)"
+msgstr ""
+"(Aub controleer eerst zodat u zeker weer dat er geen dubbele naam voorkomt. "
+"De huidige mappenstructuur blijft behouden.)"
+
+#: views/pages/settings/tab-posttype.php:5
+msgid "Which Post Types do you want to use with FileBird ?"
+msgstr "Bij welke Posttypes wilt u gebruik maken van FileBird?"
+
+#: views/pages/settings/tab-posttype.php:26
+#: views/pages/settings/tab-settings.php:102
+msgid "Save Changes"
+msgstr "Bewaar wijzigingen"
+
+#: views/pages/settings/tab-settings.php:15
+msgid "Each user has his own folders?"
+msgstr "Elke gebruiker heeft zijn eigen mappen?"
+
+#: views/pages/settings/tab-settings.php:31
+msgid "Show Breadcrumb"
+msgstr "Geef kruimelpad weer"
+
+#: views/pages/settings/tab-settings.php:45
+msgid "Folder Counter"
+msgstr "Aantal Mappen"
+
+#: views/pages/settings/tab-settings.php:51
+msgid "Count files in each folder"
+msgstr "Tel de bestanden in elke map"
+
+#: views/pages/settings/tab-settings.php:55
+msgid "Count files in both parent folder and subfolders"
+msgstr "Tel de bestanden in alle bovenliggende en submappen"
+
+#: views/pages/settings/tab-settings.php:62
+msgid "FileBird Theme"
+msgstr "FileBird Thema"
+
+#: views/pages/settings/tab-settings.php:73
+msgid "FileBird Default"
+msgstr "FileBird Standaard"
+
+#: views/pages/settings/tab-settings.php:83
+msgid "Windows 11"
+msgstr "Windows 11"
+
+#: views/pages/settings/tab-settings.php:93
+msgid "Dropbox"
+msgstr "Dropbox"
+
+#: views/pages/settings/tab-tools.php:16
+msgid "Import from old version"
+msgstr "Importeren uit oude versie"
+
+#: views/pages/settings/tab-tools.php:22
+msgid ""
+"By running this action, all folders created in version 3.9 & earlier "
+"installs will be imported."
+msgstr ""
+"Door deze actie uit te voeren, worden alle mappen die zijn gemaakt in versie "
+"3.9 & eerdere installaties geïmporteerd."
+
+#: views/pages/settings/tab-tools.php:30
+msgid "REST API key"
+msgstr "REST API sleutel"
+
+#: views/pages/settings/tab-tools.php:38 views/pages/settings/tab-tools.php:55
+msgid "Generate"
+msgstr "Genereer"
+
+#: views/pages/settings/tab-tools.php:41
+#, php-format
+msgid "Please see FileBird API for developers %1$shere%2$s."
+msgstr "Aub bekijk de FileBird Api voor ontwikkelaars %1$shier%2$s."
+
+#: views/pages/settings/tab-tools.php:48
+msgid "Attachment Size"
+msgstr "Bijlage grootte"
+
+#: views/pages/settings/tab-tools.php:60
+msgid "Generate attachment size used in \"Sort by size\" function."
+msgstr ""
+"Genereer bijlage grootte zoals die word gebruikt in de \"Sorteer naar "
+"grootte\" functie."
+
+#: views/pages/settings/tab-tools.php:68
+msgid "Sync WPML"
+msgstr "Synchroniseer WPML"
+
+#: views/pages/settings/tab-tools.php:74
+msgid "Sync"
+msgstr "Synchroniseer"
+
+#: views/pages/settings/tab-tools.php:79
+msgid "Assign WPML existing translated media to FileBird folders."
+msgstr "Wijs bestaande vertaalde WPML media toe aan Filebird mappen."
+
+#: views/pages/settings/tab-tools.php:87
+msgid "Danger Zone"
+msgstr "Gevaren Zone"
+
+#: views/pages/settings/tab-tools.php:93
+msgid "Clear all data"
+msgstr "Alle gegevens wissen"
+
+#: views/pages/settings/tab-tools.php:97
+msgid "Clear"
+msgstr "Wissen"
+
+#: views/pages/settings/tab-tools.php:100
+msgid ""
+"This action will delete all FileBird data, FileBird settings and bring you "
+"back to WordPress default media library."
+msgstr ""
+"Met deze actie worden alle FileBird-gegevens, Bestandsbeheer-instellingen "
+"verwijderd en wordt u teruggebracht naar wordpress-standaardmediabibliotheek."
+
+#: views/particle/activation_fail.php:8
+msgid ""
+"It seems you don't have any valid FileBird license. Please <a href=\"https://"
+"ninjateam.org/support\" target=\"_blank\"><strong>contact support</strong></"
+"a> to get help or <a href=\"https://1.envato.market/Get-FileBird\" "
+"target=\"_blank\"><strong>purchase a FileBird license</strong></a>"
+msgstr ""
+"Het lijkt erop dat je geen geldige FileBird-licentie hebt. Neem <a "
+"href=\"https://ninjateam.org/support\" target=\"_blank\">contact op met "
+"ondersteuning</a> voor hulp of <a href=\"https://1.envato.market/Get-"
+"FileBird\" target=\"_blank\">koop een FileBird-licentie</a>"
+
+#: views/particle/activation_fail.php:10
+#, php-format
+msgid ""
+"This license was used with <i>%s</i>, please <a href=\"https://1.envato."
+"market/Get-FileBird\" target=\"_blank\"><strong>purchase another license</"
+"strong></a>, or <a href=\"https://ninjateam.org/support\" "
+"target=\"_blank\"><strong>contact support</strong></a>"
+msgstr ""
+"Deze licentie is gebruikt <i>%s</i>, koop aub <a href=\"https://1.envato."
+"market/Get-FileBird\" target=\"_blank\"><strong>een nieuwe licentie</"
+"strong></a>, of neem contact op <a href=\"https://ninjateam.org/support\" "
+"target=\"_blank\"><strong>Ninja Team Support</strong></a>"
+
+#: views/particle/activation_fail.php:14
+msgid "Oops! Activation failed."
+msgstr "Oeps! Activering is mislukt."
+
+#: views/particle/folder_dropdown.php:2
+msgid "Choose folder: "
+msgstr "Map kiezen: "
+
+#. Plugin Name of the plugin/theme
+msgid "FileBird Pro"
+msgstr "FileBird Pro"
+
+#. Plugin URI of the plugin/theme
+msgid "https://ninjateam.org/wordpress-media-library-folders/"
+msgstr "https://ninjateam.org/wordpress-media-library-folders/"
+
+#. Description of the plugin/theme
+msgid ""
+"Organize thousands of WordPress media files into folders/ categories at ease."
+msgstr ""
+"Organiseer duizenden WordPress-mediabestanden op uw gemak in mappen/ "
+"categorieën."
+
+#. Author of the plugin/theme
+msgid "Ninja Team"
+msgstr "Ninja Team"
+
+#. Author URI of the plugin/theme
+msgid "https://ninjateam.org"
+msgstr "https://ninjateam.org"
+
+#~ msgid "Import categories to FileBird"
+#~ msgstr "Categorieën importeren in FileBird"
+
+#~ msgid "Already Updated"
+#~ msgstr "Al bijgewerkt"
+
+#~ msgid "Already did"
+#~ msgstr "Al gedaan"
+
+#~ msgid "Could not use this purchase code for your domain."
+#~ msgstr "Kan deze inkoopcode niet gebruiken voor uw domein."
+
+#~ msgid "Could not verify your domain."
+#~ msgstr "Kan uw domein niet verifiëren."
+
+#~ msgid "Update Database"
+#~ msgstr "Update database"
+
+#~ msgid "API"
+#~ msgstr "API"
+
+#~ msgid "Uninstall"
+#~ msgstr "Deinstallatie"
+
+#~ msgid ""
+#~ "Starting a new site? <a href=\"https://1.envato.market/Get-FileBird\" "
+#~ "class=\"njt-fb-purchase-more\">Buy another license</a>."
+#~ msgstr ""
+#~ "Een nieuwe site starten? <a href=\"https://1.envato.market/Get-FileBird\" "
+#~ "class=\"njt-fb-purchase-more\">Koop een andere licentie</a>."
+
+#~ msgid "This helps verify your license."
+#~ msgstr "Dit helpt bij het verifiëren van uw licentie."
+
+#~ msgid "An API to run Get folders & Set attachments"
+#~ msgstr "Een API voor het uitvoeren Van mappen & Set-bijlagen"
+
+#~ msgid ""
+#~ "Please see FileBird API for developers <a target=\"_blank\" "
+#~ "href=\"https://ninjateam.gitbook.io/filebird/api\">here</a>."
+#~ msgstr ""
+#~ "Zie FileBird API voor ontwikkelaars <a target=\"_blank\" href=\"https://"
+#~ "ninjateam.gitbook.io/filebird/api\">hier</a>."
+
+#~ msgid "API key"
+#~ msgstr "API key"
+
+#~ msgid "Enhanced Media Library plugin by wpUXsolutions"
+#~ msgstr "Verbeterde mediabibliotheekplug-in door wpUXsolutions"
+
+#, php-format
+#~ msgid ""
+#~ "We found you have <strong>(%1$s)</strong> categories you created from "
+#~ "<strong>Enhanced Media Library</strong> plugin."
+#~ msgstr ""
+#~ "We hebben ontdekt dat je <strong>(%1$s)</strong> categorieën hebt die je "
+#~ "hebt gemaakt met  de  <strong>Enhanced Media Library</strong> plugin."
+
+#~ msgid "WordPress Media Library Folders by Max Foundry"
+#~ msgstr "WordPress Media Library Maps door Max Foundry"
+
+#, php-format
+#~ msgid ""
+#~ "We found you have <strong>(%1$s)</strong> categories you created from "
+#~ "<strong>WordPress Media Library Folders</strong> plugin."
+#~ msgstr ""
+#~ "We hebben ontdekt dat je <strong>(%1$s)</strong> categorieën hebt die je "
+#~ "hebt gemaakt met de <strong>WordPress Media Library Folders</strong> "
+#~ "plugin."
+
+#~ msgid "WP Media folder by Joomunited"
+#~ msgstr "WP Media map door Joomunited"
+
+#, php-format
+#~ msgid ""
+#~ "We found you have <strong>(%1$s)</strong> categories you created from "
+#~ "<strong>WP Media folder</strong> plugin."
+#~ msgstr ""
+#~ "We hebben ontdekt dat je <strong>(%1$s)</strong> categorieën hebt die je "
+#~ "hebt gemaakt met de <strong>WP Media map</strong> plugin."
+
+#~ msgid "WP Real Media Library by devowl.io GmbH"
+#~ msgstr "WP Real Media Library door devowl.io GmbH"
+
+#, php-format
+#~ msgid ""
+#~ "We found you have <strong>(%1$s)</strong> categories you created from "
+#~ "<strong>WP Real Media Library</strong> plugin."
+#~ msgstr ""
+#~ "We hebben ontdekt dat je <strong>(%1$s)</strong> categorieën hebt gemaakt "
+#~ "met de <strong>WP Real Media Library.</strong> plugin."
+
+#~ msgid "HappyFiles by Codeer"
+#~ msgstr "HappyFiles door Codeer"

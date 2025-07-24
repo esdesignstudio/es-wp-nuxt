@@ -54,11 +54,21 @@ if ( ! class_exists( 'PostmanInputSanitizer' ) ) {
 			$this->sanitizeString( 'Client ID', PostmanOptions::CLIENT_ID, $input, $new_input );
 			$this->sanitizeString( 'Client Secret', PostmanOptions::CLIENT_SECRET, $input, $new_input );
 			$this->sanitizeString( 'Username', PostmanOptions::BASIC_AUTH_USERNAME, $input, $new_input );
+			$this->sanitizeString( 'SendGrid Region', PostmanOptions::SENDGRID_REGION, $input, $new_input, $this->options->getSendGridRegion() );
 			$this->sanitizePassword( 'Password', PostmanOptions::BASIC_AUTH_PASSWORD, $input, $new_input, $this->options->getPassword() );
 			$this->sanitizePassword( 'Mandrill API Key', PostmanOptions::MANDRILL_API_KEY, $input, $new_input, $this->options->getMandrillApiKey() );
 			$this->sanitizePassword( 'SendGrid API Key', PostmanOptions::SENDGRID_API_KEY, $input, $new_input, $this->options->getSendGridApiKey() );
-			$this->sanitizePassword( 'Sendinblue API Key', PostmanOptions::SENDINBLUE_API_KEY, $input, $new_input, $this->options->getSendinblueApiKey() );
+			$this->sanitizePassword( 'MailerSend API Key', PostmanOptions::MAILERSEND_API_KEY, $input, $new_input, $this->options->getMailerSendApiKey() );
+			$this->sanitizePassword( 'Brevo API Key', PostmanOptions::SENDINBLUE_API_KEY, $input, $new_input, $this->options->getSendinblueApiKey() );
+			$this->sanitizePassword( 'Mailjet API Key', PostmanOptions::MAILJET_API_KEY, $input, $new_input, $this->options->getMailjetApiKey() );
+			$this->sanitizePassword( 'Mailjet Secret Key', PostmanOptions::MAILJET_SECRET_KEY, $input, $new_input, $this->options->getMailjetSecretKey() );
+			$this->sanitizePassword( 'Sendpulse API Key', PostmanOptions::SENDPULSE_API_KEY, $input, $new_input, $this->options->getSendpulseApiKey() );
+			$this->sanitizePassword( 'Sendpulse Secret Key', PostmanOptions::SENDPULSE_SECRET_KEY, $input, $new_input, $this->options->getSendpulseSecretKey() );
+			$this->sanitizePassword( 'Postmark API Key', PostmanOptions::POSTMARK_API_KEY, $input, $new_input, $this->options->getPostmarkApiKey() );
+			$this->sanitizePassword( 'SparkPost API Key', PostmanOptions::SPARKPOST_API_KEY, $input, $new_input, $this->options->getSparkPostApiKey() );
 			$this->sanitizePassword( 'Mailgun API Key', PostmanOptions::MAILGUN_API_KEY, $input, $new_input, $this->options->getMailgunApiKey() );
+			$this->sanitizePassword( 'ElasticEmail API Key', PostmanOptions::ELASTICEMAIL_API_KEY, $input, $new_input, $this->options->getElasticEmailApiKey() );
+			$this->sanitizePassword( 'Smtp2go Api Key', PostmanOptions::SMTP2GO_API_KEY, $input, $new_input, $this->options->getSmtp2goApiKey() );
 			$this->sanitizeString( 'Mailgun Domain Name', PostmanOptions::MAILGUN_DOMAIN_NAME, $input, $new_input );
 			$this->sanitizeString( 'Reply-To', PostmanOptions::REPLY_TO, $input, $new_input );
 			$this->sanitizeString( 'From Name Override', PostmanOptions::PREVENT_MESSAGE_SENDER_NAME_OVERRIDE, $input, $new_input );
@@ -68,7 +78,7 @@ if ( ! class_exists( 'PostmanInputSanitizer' ) ) {
 			$this->sanitizeString( 'Forced To Recipients', PostmanOptions::FORCED_TO_RECIPIENTS, $input, $new_input );
 			$this->sanitizeString( 'Forced CC Recipients', PostmanOptions::FORCED_CC_RECIPIENTS, $input, $new_input );
 			$this->sanitizeString( 'Forced BCC Recipients', PostmanOptions::FORCED_BCC_RECIPIENTS, $input, $new_input );
-			$this->sanitizeString( 'Additional Headers', PostmanOptions::ADDITIONAL_HEADERS, $input, $new_input );
+			$this->sanitizeTextarea( 'Additional Headers', PostmanOptions::ADDITIONAL_HEADERS, $input, $new_input );
 			$this->sanitizeInt( 'Read Timeout', PostmanOptions::READ_TIMEOUT, $input, $new_input );
 			$this->sanitizeInt( 'Conenction Timeout', PostmanOptions::CONNECTION_TIMEOUT, $input, $new_input );
 			$this->sanitizeInt( 'Log Level', PostmanOptions::LOG_LEVEL, $input, $new_input );
@@ -76,6 +86,7 @@ if ( ! class_exists( 'PostmanInputSanitizer' ) ) {
 			$this->sanitizeLogMax( 'Email Log Max Entries', PostmanOptions::MAIL_LOG_MAX_ENTRIES, $input, $new_input );
 			$this->sanitizeString( 'Run Mode', PostmanOptions::RUN_MODE, $input, $new_input );
 			$this->sanitizeString( 'Stealth Mode', PostmanOptions::STEALTH_MODE, $input, $new_input );
+			$this->sanitizeString( 'Broken Email Fix', PostmanOptions::INCOMPATIBLE_PHP_VERSION, $input, $new_input );
 			$this->sanitizeInt( 'Transcript Size', PostmanOptions::TRANSCRIPT_SIZE, $input, $new_input );
 			$this->sanitizeString( 'Temporary Directory', PostmanOptions::TEMPORARY_DIRECTORY, $input, $new_input );
 
@@ -90,6 +101,7 @@ if ( ! class_exists( 'PostmanInputSanitizer' ) ) {
             $this->sanitizePassword( 'Fallback password', PostmanOptions::FALLBACK_SMTP_PASSWORD, $input, $new_input, $this->options->getFallbackPassword() );
 
             $new_input = apply_filters( 'post_smtp_sanitize', $new_input, $input, $this );
+			delete_transient( 'sendpulse_token' );
 
 			if ( $new_input [ PostmanOptions::CLIENT_ID ] != $this->options->getClientId() || $new_input [ PostmanOptions::CLIENT_SECRET ] != $this->options->getClientSecret() || $new_input [ PostmanOptions::HOSTNAME ] != $this->options->getHostname() ) {
 				$this->logger->debug( 'Recognized new Client ID' );
@@ -98,12 +110,16 @@ if ( ! class_exists( 'PostmanInputSanitizer' ) ) {
 			}
 
 			// can we create a tmp file? - this code is duplicated in ActivationHandler
-			PostmanUtils::deleteLockFile( $new_input [ PostmanOptions::TEMPORARY_DIRECTORY ] );
-			$lockSuccess = PostmanUtils::createLockFile( $new_input [ PostmanOptions::TEMPORARY_DIRECTORY ] );
-			// &= does not work as expected in my PHP
-			$lockSuccess = $lockSuccess && PostmanUtils::deleteLockFile( $new_input [ PostmanOptions::TEMPORARY_DIRECTORY ] );
-			$this->logger->debug( 'FileLocking=' . $lockSuccess );
-			PostmanState::getInstance()->setFileLockingEnabled( $lockSuccess );
+			if( isset( $new_input [ PostmanOptions::TEMPORARY_DIRECTORY ] ) ) {
+				
+				PostmanUtils::deleteLockFile( $new_input [ PostmanOptions::TEMPORARY_DIRECTORY ] );
+				$lockSuccess = PostmanUtils::createLockFile( $new_input [ PostmanOptions::TEMPORARY_DIRECTORY ] );
+				// &= does not work as expected in my PHP
+				$lockSuccess = $lockSuccess && PostmanUtils::deleteLockFile( $new_input [ PostmanOptions::TEMPORARY_DIRECTORY ] );
+				$this->logger->debug( 'FileLocking=' . $lockSuccess );
+				PostmanState::getInstance()->setFileLockingEnabled( $lockSuccess );
+
+			}
 
 			if ( $success ) {
 				PostmanSession::getInstance()->setAction( self::VALIDATION_SUCCESS );
@@ -118,6 +134,13 @@ if ( ! class_exists( 'PostmanInputSanitizer' ) ) {
 			if ( isset( $input [ $key ] ) ) {
 				$this->logSanitize( $desc, $input [ $key ] );
 				$new_input [ $key ] = sanitize_text_field( trim( $input [ $key ] ) );
+			}
+		}
+
+		public function sanitizeTextarea( $desc, $key, $input, &$new_input ) {
+			if ( isset( $input [ $key ] ) ) {
+				$this->logSanitize( $desc, $input [ $key ] );
+				$new_input [ $key ] = sanitize_textarea_field( trim( $input [ $key ] ) );
 			}
 		}
 
@@ -137,7 +160,7 @@ if ( ! class_exists( 'PostmanInputSanitizer' ) ) {
 			// if $action is not empty, then sanitize has already run
 			if ( ! empty( $action ) ) {
 				// use the already encoded password in the $input
-				$new_input [ $key ] = $input [ $key ];
+				$new_input[$key] = isset( $input[$key] ) ? $input[$key] : '';
 				// log it
 				$this->logger->debug( 'Warning, second sanitizePassword attempt detected' );
 			} else if ( isset( $input [ $key ] ) ) {
@@ -152,8 +175,9 @@ if ( ! class_exists( 'PostmanInputSanitizer' ) ) {
 				$this->logSanitize( $desc, $new_input [ $key ] );
 				// base-64 scramble password
 				$new_input [ $key ] = base64_encode( $new_input [ $key ] );
+
+				$this->logger->debug( sprintf( 'Encoding %s as %s', $desc, $new_input [ $key ] ) );
 			}
-			$this->logger->debug( sprintf( 'Encoding %s as %s', $desc, $new_input [ $key ] ) );
 		}
 
 		private function sanitizeLogMax( $desc, $key, $input, &$new_input ) {
@@ -167,6 +191,31 @@ if ( ! class_exists( 'PostmanInputSanitizer' ) ) {
 					$this->logSanitize( $desc, $input [ $key ] );
 					$new_input [ $key ] = absint($value);
 				}
+			}
+		}
+
+		/**
+		 * Sanitizes a URL field in an input array and stores the sanitized value in the output array.
+		 *
+		 * This function checks if the specified key exists in the input array and is not empty. 
+		 * If it does, it logs the original value for debugging or audit purposes, 
+		 * trims any leading or trailing whitespace, and sanitizes the URL.
+		 * The sanitized URL is then stored in the output array under the specified key.
+		 *
+		 * @param string $desc       Description or label of the field for logging purposes.
+		 * @param string $key        The key in the input array that corresponds to the URL field to be sanitized.
+		 * @param array  $input      The input array containing the data to be sanitized.
+		 * @param array  &$new_input The output array where the sanitized data will be stored by reference.
+		 *
+		 * @return void
+		 */
+		public function sanitizeUrl( $desc, $key, $input, &$new_input ) { 
+			if ( isset( $input[ $key ] ) && ! empty( $input[ $key ] ) ) {
+				// Log the sanitization process with the original value for auditing.
+				$this->logSanitize( $desc, $input[ $key ] );
+				
+				// Sanitize the URL by trimming whitespace and ensuring it is in a valid URL format.
+				$new_input[ $key ] = esc_url_raw( trim( $input[ $key ] ) );
 			}
 		}
 

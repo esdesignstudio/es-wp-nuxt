@@ -1,7 +1,0 @@
-@mixin aspect($ratio) {
-    &::before {
-        content: '';
-        display: block;
-        padding-bottom: percentage($ratio);
-    }
-}

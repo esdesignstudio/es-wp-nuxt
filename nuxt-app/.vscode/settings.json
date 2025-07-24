@@ -1,0 +1,55 @@
+{
+    "search.exclude": {
+        "wordpress/wp-content/plugins/": true,
+        "wordpress/wp-include/": true,
+        "wordpress/wp-admin/": true,
+    },
+    "editor.insertSpaces": true, // 強制輸入空白
+    "editor.detectIndentation": false, // 關閉縮排偵測
+    "editor.tabSize": 4, // 編輯器字體大小
+    "editor.formatOnSave": false,
+    
+    // > ----- eslint, stylelint 設定 -----
+    "eslint.options": {
+        "extensions": [".html", ".js", ".vue"]
+    },
+    "eslint.workingDirectories": [
+        // 指定 ESLint 執行的工作目錄
+        "."
+    ],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": "explicit",
+        "source.fixAll.stylelint": "explicit"
+    },
+    "css.validate": false,
+    "less.validate": false,
+    "scss.validate": false,
+
+    // > ----- Better comments 設定 -----
+    "better-comments.tags": [
+        { // 重要提示
+          "tag": "!",
+          "color": "#ffffff",
+          "strikethrough": false,
+          "underline": false,
+          "backgroundColor": "#d9444a",
+          "bold": true,
+          "italic": false
+        },
+        { // 標題
+          "tag": ">",
+          "color": "#AE47FF",
+          "strikethrough": false,
+          "backgroundColor": "transparent"
+        },
+        { // 沒用卻要備份的程式碼
+          "tag": "-",
+          "color": "#474747",
+          "strikethrough": true,
+          "underline": false,
+          "backgroundColor": "transparent",
+          "bold": false,
+          "italic": false
+        },
+      ],
+}

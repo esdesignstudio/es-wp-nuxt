@@ -1,4 +1,3 @@
-version: '3.7'
 services:
     nginx:
         container_name: ${COMPOSE_PROJECT_NAME}_nginx
@@ -12,10 +11,9 @@ services:
             - wordpress
         networks:
             - nuxt-network
-
     wordpress:
         container_name: ${COMPOSE_PROJECT_NAME}_wordpress
-        image: wordpress:6.4.3-php8.1
+        image: wordpress:6.4.3-php8.1-fpm
         volumes:
             - ./wordpress:/var/www/html
         depends_on:
@@ -26,12 +24,14 @@ services:
             WORDPRESS_DB_PASSWORD: $WP_MYSQL_PASSWORD
             WORDPRESS_DB_NAME: $WP_MYSQL_DATABASE
             WORDPRESS_DEBUG: $WP_DEBUG
-            WORDPRESS_CONFIG_EXTRA:
+            WORDPRESS_CONFIG_EXTRA: 
                 define('WP_SITEURL', '$WP_URL');
                 define('WP_HOME', '$WP_URL');
+                define('WP_MEMORY_LIMIT', '256M');
+                define('WP_MAX_MEMORY_LIMIT', '256M');
+                define('FS_METHOD', 'direct');
         networks:
             - nuxt-network
-
     phpmyadmin:
         container_name: ${COMPOSE_PROJECT_NAME}_phpmyadmin
         image: phpmyadmin/phpmyadmin
@@ -45,12 +45,14 @@ services:
             - $WP_PORT_PHP_MY_ADMIN:80
         networks:
             - nuxt-network
-
     mysql:
         container_name: ${COMPOSE_PROJECT_NAME}_mysql-maria
         image: mariadb:10.5
         volumes: 
             - ./db/dev:/docker-entrypoint-initdb.d
+            #   uat及production用，本機開發請註解掉
+            # - /db/${COMPOSE_PROJECT_NAME}/data:/var/lib/mysql 
+            # - /db/${COMPOSE_PROJECT_NAME}/log:/var/log/mysql
         environment:
             MYSQL_ALLOW_EMPTY_PASSWORD: 'false'  # 不允許空密碼
             MYSQL_ROOT_PASSWORD: $WP_MYSQL_ROOT_PASSWORD
@@ -59,5 +61,13 @@ services:
             MYSQL_PASSWORD: $WP_MYSQL_PASSWORD # 指定新使用者的密碼
         networks:
             - nuxt-network
+    # nuxt-app:
+    #     container_name: ${COMPOSE_PROJECT_NAME}_app
+    #     build: ./nuxt-app
+    #     image: ${COMPOSE_PROJECT_NAME}
+    #     depends_on:
+    #         - nginx
+    #     networks:
+    #         - nuxt-network
 networks:
     nuxt-network:

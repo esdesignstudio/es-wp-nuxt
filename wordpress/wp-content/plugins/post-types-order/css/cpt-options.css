@@ -1,0 +1,19 @@
+#form_data td {vertical-align: top; padding-top: 20px}
+#cpto #cpt_info_box {padding: 0 10px; border: 1px dashed #6aadcc; background-color: #FFF; margin-top: 10px;-webkit-box-shadow: 1px 1px 7px rgba(50, 50, 50, 0.17);-moz-box-shadow:    1px 1px 7px rgba(50, 50, 50, 0.17);box-shadow:         1px 1px 7px rgba(50, 50, 50, 0.17);}
+#cpto #cpt_info_box a {text-decoration: none}
+#cpto #cpt_info_box #donate_form { padding: 20px 0 17px;    text-align: center;    width: 100%;}
+#form_data .pt-list {display:flex; flex-wrap: wrap;}
+#form_data .pt-item {flex-basis: calc(25% - 10px);  flex-grow: 0;  margin: 5px;}
+#form_data .pt-list::after {  content: "";  flex-basis: calc(25% - 10px);  flex-grow: 1;  margin: 5px;}
+@media screen and (max-width: 1350px) {
+  #form_data .pt-item {flex-basis: calc(33% - 10px);}
+  #form_data .pt-list::after { flex-basis: calc(33% - 10px);}
+}
+@media screen and (max-width: 1100px) {
+  #form_data .pt-item {flex-basis: calc(50% - 10px);}
+  #form_data .pt-list::after { flex-basis: calc(50% - 10px);}
+}
+@media screen and (max-width: 782px) {
+  #form_data .pt-item {flex-basis: calc(100% - 10px);}
+  #form_data .pt-list::after { flex-basis: calc(100% - 10px);}
+}

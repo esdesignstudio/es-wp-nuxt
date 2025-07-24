@@ -238,7 +238,7 @@
                 $latest = $this->_fs->_fetch_latest_version(
                     $selected_addon->id,
                     true,
-                    WP_FS__TIME_24_HOURS_IN_SEC,
+                    FS_Plugin_Updater::UPDATES_CHECK_CACHE_EXPIRATION,
                     $current_addon_version
                 );
 
@@ -311,6 +311,7 @@
                     $data->version      = $latest->version;
                     $data->last_updated = $latest->created;
                     $data->requires     = $latest->requires_platform_version;
+                    $data->requires_php = $latest->requires_programming_language_version;
                     $data->tested       = $latest->tested_up_to_version;
                 } else if ( ! empty( $current_addon_version ) ) {
                     $data->version = $current_addon_version;
@@ -837,12 +838,8 @@
                 'install-plugin' :
                 'upgrade-plugin';
 
-            $query = parse_url( $network_status_url, PHP_URL_QUERY );
-            if ( empty( $query ) ) {
-                return $network_status_url;
-            }
+            $url_params = fs_parse_url_params( $network_status_url, true );
 
-            parse_str( html_entity_decode( $query ), $url_params );
             if ( empty( $url_params ) || ! isset( $url_params['plugin'] ) ) {
                 return $network_status_url;
             }
@@ -1344,7 +1341,10 @@
                                 ?>
                                 <li>
                                     <strong><?php fs_esc_html_echo_inline( 'Requires WordPress Version', 'requires-wordpress-version', $api->slug ) ?>
-                                        :</strong> <?php echo esc_html( sprintf( fs_text_inline( '%s or higher', 'x-or-higher', $api->slug ), $api->requires ) ) ?>
+                                        :</strong> <?php echo esc_html( sprintf(
+                                            /* translators: %s: Version number. */
+                                            fs_text_inline( '%s or higher', 'x-or-higher', $api->slug ), $api->requires )
+                                    ) ?>
                                 </li>
                                 <?php
                             }
@@ -1353,6 +1353,19 @@
                                 <li>
                                     <strong><?php fs_esc_html_echo_inline( 'Compatible up to', 'compatible-up-to', $api->slug ); ?>
                                         :</strong> <?php echo $api->tested; ?>
+                                </li>
+                                <?php
+                            }
+                            if ( ! empty( $api->requires_php ) ) {
+                                ?>
+                                <li>
+                                    <strong><?php fs_esc_html_echo_inline( 'Requires PHP Version', 'requires-php-version', $api->slug ); ?>:</strong>
+                                    <?php
+                                        echo esc_html( sprintf(
+                                            /* translators: %s: Version number. */
+                                            fs_text_inline( '%s or higher', 'x-or-higher', $api->slug ), $api->requires_php )
+                                        );
+                                    ?>
                                 </li>
                                 <?php
                             }
@@ -1485,9 +1498,43 @@
             </div>
             <div id="section-holder" class="wrap">
             <?php
-            if ( ! empty( $api->tested ) && version_compare( substr( $GLOBALS['wp_version'], 0, strlen( $api->tested ) ), $api->tested, '>' ) ) {
+            $requires_php = isset( $api->requires_php ) ? $api->requires_php : null;
+            $requires_wp  = isset( $api->requires ) ? $api->requires : null;
+
+            $compatible_php = empty( $requires_php ) || version_compare( PHP_VERSION, $requires_php, '>=' );
+
+            // Strip off any -alpha, -RC, -beta, -src suffixes.
+            list( $wp_version ) = explode( '-', $GLOBALS['wp_version'] );
+
+            $compatible_wp  = empty( $requires_wp ) || version_compare( $wp_version, $requires_wp, '>=' );
+            $tested_wp      = ( empty( $api->tested ) || version_compare( $wp_version, $api->tested, '<=' ) );
+
+            if ( ! $compatible_php ) {
+                echo '<div class="notice notice-error notice-alt"><p><strong>' . fs_text_inline( 'Error', 'error', $api->slug ) . ':</strong> ' . fs_text_inline( 'This plugin requires a newer version of PHP.', 'newer-php-required-error', $api->slug );
+
+                if ( current_user_can( 'update_php' ) ) {
+                    $wp_get_update_php_url = function_exists( 'wp_get_update_php_url' ) ?
+                        wp_get_update_php_url() :
+                        'https://wordpress.org/support/update-php/';
+
+                    printf(
+                    /* translators: %s: URL to Update PHP page. */
+                        ' ' . fs_text_inline( '<a href="%s" target="_blank">Click here to learn more about updating PHP</a>.', 'php-update-learn-more-link', $api->slug ),
+                        esc_url( $wp_get_update_php_url )
+                    );
+
+                    if ( function_exists( 'wp_update_php_annotation' ) ) {
+                        wp_update_php_annotation( '</p><p><em>', '</em>' );
+                    }
+                } else {
+                    echo '</p>';
+                }
+                echo '</div>';
+            }
+
+            if ( ! $tested_wp ) {
                 echo '<div class="notice notice-warning"><p>' . '<strong>' . fs_text_inline( 'Warning', 'warning', $api->slug ) . ':</strong> ' . fs_text_inline( 'This plugin has not been tested with your current version of WordPress.', 'not-tested-warning', $api->slug ) . '</p></div>';
-            } else if ( ! empty( $api->requires ) && version_compare( substr( $GLOBALS['wp_version'], 0, strlen( $api->requires ) ), $api->requires, '<' ) ) {
+            } else if ( ! $compatible_wp ) {
                 echo '<div class="notice notice-warning"><p>' . '<strong>' . fs_text_inline( 'Warning', 'warning', $api->slug ) . ':</strong> ' . fs_text_inline( 'This plugin has not been marked as compatible with your version of WordPress.', 'not-compatible-warning', $api->slug ) . '</p></div>';
             }
 

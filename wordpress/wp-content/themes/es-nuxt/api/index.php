@@ -1,9 +1,8 @@
 <?php
 require_once 'router/get_page_custom.php';
 require_once 'router/get_global.php';
-
-require_once 'router/get_archive_blog.php';
-require_once 'router/get_single_blog.php';
+// sitemap
+require_once 'router/get_sitemap.php';
 
 /**
  * origin api
@@ -19,18 +18,13 @@ add_action('rest_api_init', function () {
     ));
     
     register_rest_route('api', '/get_page_custom', array(
-        'methods' => 'POST',
+        'methods' => 'GET',
         'callback' => 'get_page_custom'
     ));
-    
-    register_rest_route('api', '/get_archive_blog', array(
-        'methods' => 'POST',
-        'callback' => 'get_archive_blog'
+
+    // sitemap
+    register_rest_route('api', '/get_sitemap', array(
+        'methods' => 'GET',
+        'callback' => 'get_sitemap'
     ));
-    
-    register_rest_route('api', '/get_single_blog', array(
-        'methods' => 'POST',
-        'callback' => 'get_single_blog'
-    ));
-    
 });

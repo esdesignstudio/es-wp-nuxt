@@ -1,352 +1,988 @@
-# Translation of Plugins - Post SMTP Mailer/Email Log &#8211; Best Mail SMTP For WP - Stable (latest release) in Chinese (Taiwan)
-# This file is distributed under the same license as the Plugins - Post SMTP Mailer/Email Log &#8211; Best Mail SMTP For WP - Stable (latest release) package.
+# Translation of Plugins - Post SMTP &#8211; WP SMTP Plugin with Email Logs and Mobile App for Failure Notifications &#8211; Gmail SMTP, Office 365, Brevo, Mailgun, Amazon SES and more - Stable (latest release) in Chinese (Taiwan)
+# This file is distributed under the same license as the Plugins - Post SMTP &#8211; WP SMTP Plugin with Email Logs and Mobile App for Failure Notifications &#8211; Gmail SMTP, Office 365, Brevo, Mailgun, Amazon SES and more - Stable (latest release) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-10-27 07:33:44+0000\n"
+"PO-Revision-Date: 2025-05-29 07:47:28+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/4.0.0-alpha.3\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: zh_TW\n"
-"Project-Id-Version: Plugins - Post SMTP Mailer/Email Log &#8211; Best Mail SMTP For WP - Stable (latest release)\n"
+"Project-Id-Version: Plugins - Post SMTP &#8211; WP SMTP Plugin with Email Logs and Mobile App for Failure Notifications &#8211; Gmail SMTP, Office 365, Brevo, Mailgun, Amazon SES and more - Stable (latest release)\n"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:559
-msgid "Note: You may have delivery problems if you continue using the default outgoing mail server hostname."
-msgstr "注意: 如果這個網站繼續使用預設的外寄郵件伺服器主機名稱，可能會遇到傳送問題。"
+#: Postman/Postman-Suggest-Pro/PostmanSuggestProSocket.php:187
+msgid "Get"
+msgstr "取得"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:544
+#: Postman/Postman-Suggest-Pro/PostmanSuggestProSocket.php:188
+msgid "Pro Bundle"
+msgstr "Pro 版套件組合"
+
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:118
+msgid "Mailjet"
+msgstr "Mailjet"
+
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:197
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:281
+#: Postman/Postman-Mail/PostmanSendpulseTransport.php:199
+msgid "Secret Key"
+msgstr "秘密金鑰"
+
+#: Postman/Postman-Mail/PostmanSendinblueTransport.php:117
+msgid "Brevo"
+msgstr "Brevo"
+
+#: Postman/Wizard/NewWizard.php:167
+msgid "complete mailer guide"
+msgstr "郵件程式完全指南"
+
+#: Postman/Wizard/NewWizard.php:302
+msgid "Did we miss out What you are looking for?"
+msgstr "如果在這個頁面找不到要使用的郵件程式，"
+
+#: Postman/Wizard/NewWizard.php:304
+msgid "Suggest your Mailer"
+msgstr "請提出郵件程式功能需求"
+
+#: Postman/Wizard/NewWizard.php:456
+msgid "Continue with legacy wizard"
+msgstr "使用舊版精靈繼續"
+
+#: Postman/Wizard/NewWizard.php:457
+msgid "Go back to dashboard"
+msgstr "返回控制台"
+
+#: Postman/Wizard/NewWizard.php:458
+msgid "Switch to settings section"
+msgstr "切換至設定區段"
+
+#: Postman/Wizard/NewWizard.php:481
+msgid "Finish"
+msgstr "完成"
+
+#: Postman/Wizard/NewWizard.php:556 Postman/Wizard/NewWizard.php:580
+msgid "Plugins"
+msgstr "外掛"
+
+#: Postman/Wizard/NewWizard.php:558 Postman/Wizard/NewWizard.php:582
+msgid "Themes"
+msgstr "佈景主題"
+
+#: Postman/Wizard/NewWizard.php:578
+msgid "From Name"
+msgstr "寄件者名稱"
+
+#: Postman/Wizard/NewWizard.php:691
+msgid "SMTP Documentation"
+msgstr "SMTP 說明文件"
+
+#: Postman/Wizard/NewWizard.php:698
+msgid "Please enter Host Name."
+msgstr "請輸入主機名稱。"
+
+#: Postman/Wizard/NewWizard.php:718
+msgid "Please enter Username."
+msgstr "請輸入使用者名稱。"
+
+#: Postman/Wizard/NewWizard.php:728
+msgid "Please enter Password."
+msgstr "請輸入密碼。"
+
+#: Postman/Wizard/NewWizard.php:730
+msgid "Password or App Password."
+msgstr "密碼或應用程式密碼。"
+
+#: Postman/Wizard/NewWizard.php:920 Postman/Wizard/NewWizard.php:965
+#: Postman/Wizard/NewWizard.php:1023 Postman/Wizard/NewWizard.php:1401
+#: Postman/Wizard/NewWizard.php:1647
+msgid "Let’s get started with our"
+msgstr "請使用我們提供的文件:"
+
+#: Postman/Wizard/NewWizard.php:838 Postman/Wizard/NewWizard.php:1590
+msgid "Please enter Client ID."
+msgstr "請輸入用戶端 ID。"
+
+#: Postman/Wizard/NewWizard.php:863 Postman/Wizard/NewWizard.php:888
+#: Postman/Wizard/NewWizard.php:1521 Postman/Wizard/NewWizard.php:1628
+msgid "Authorization (Required)"
+msgstr "授權 (必要)"
+
+#: Postman/Wizard/NewWizard.php:918
+msgid "Mandrill"
+msgstr "Mandrill"
+
+#: Postman/Wizard/NewWizard.php:922
+msgid "Mandrill Documentation"
+msgstr "Mandrill 說明文件"
+
+#: Postman/Wizard/NewWizard.php:928 Postman/Wizard/NewWizard.php:975
+#: Postman/Wizard/NewWizard.php:1031 Postman/Wizard/NewWizard.php:1116
+#: Postman/Wizard/NewWizard.php:1161 Postman/Wizard/NewWizard.php:1206
+#: Postman/Wizard/NewWizard.php:1249 Postman/Wizard/NewWizard.php:1294
+#: Postman/Wizard/NewWizard.php:1346 Postman/Wizard/NewWizard.php:1654
+msgid "Please enter API Key."
+msgstr "請輸入 API 金鑰。"
+
+#: Postman/Wizard/NewWizard.php:934 Postman/Wizard/NewWizard.php:981
+#: Postman/Wizard/NewWizard.php:1037 Postman/Wizard/NewWizard.php:1122
+#: Postman/Wizard/NewWizard.php:1167 Postman/Wizard/NewWizard.php:1212
+#: Postman/Wizard/NewWizard.php:1255 Postman/Wizard/NewWizard.php:1306
+#: Postman/Wizard/NewWizard.php:1420 Postman/Wizard/NewWizard.php:1601
+#: Postman/Wizard/NewWizard.php:1657
+msgid "Create an account at"
+msgstr "建立帳號:"
+
+#: Postman/Wizard/NewWizard.php:963
+msgid "SendGrid"
+msgstr "SendGrid"
+
+#: Postman/Wizard/NewWizard.php:967
+msgid "SendGrid Documentation"
+msgstr "SendGrid 說明文件"
+
+#: Postman/Wizard/NewWizard.php:1021
+msgid "Mailgun"
+msgstr "Mailgun"
+
+#: Postman/Wizard/NewWizard.php:1025
+msgid "Mailgun Documentation"
+msgstr "Mailgun 說明文件"
+
+#: Postman/Wizard/NewWizard.php:1051
+msgid "Please Domain Name."
+msgstr "請輸入網域名稱。"
+
+#: Postman/Wizard/NewWizard.php:1081
+msgid "More information"
+msgstr "進一步了解"
+
+#: Postman/Wizard/NewWizard.php:1082
+msgid "about Mailgun."
+msgstr "Mailgun 相關資訊。"
+
+#: Postman/Wizard/NewWizard.php:1108 Postman/Wizard/NewWizard.php:1153
+#: Postman/Wizard/NewWizard.php:1198 Postman/Wizard/NewWizard.php:1241
+#: Postman/Wizard/NewWizard.php:1285 Postman/Wizard/NewWizard.php:1567
+msgid "Let's get started with our"
+msgstr "請使用我們提供的文件:"
+
+#: Postman/Wizard/NewWizard.php:1110
+msgid "Brevo Documentation"
+msgstr "Brevo 說明文件"
+
+#: Postman/Wizard/NewWizard.php:1151
+msgid "Postmark"
+msgstr "Postmark"
+
+#: Postman/Wizard/NewWizard.php:1155
+msgid "PostMark Documentation"
+msgstr "Postmark 說明文件"
+
+#: Postman/Wizard/NewWizard.php:1200
+msgid "SparkPost Documentation"
+msgstr "SparkPost 說明文件"
+
+#: Postman/Wizard/NewWizard.php:1243
+msgid "Elastic Email Documentation"
+msgstr "Elastic Email 說明文件"
+
+#: Postman/Wizard/NewWizard.php:1287
+msgid "Mailjet Documentation"
+msgstr "Mailjet 說明文件"
+
+#: Postman/Wizard/NewWizard.php:1300 Postman/Wizard/NewWizard.php:1366
+msgid "Please enter Secret Key."
+msgstr "請輸入秘密金鑰。"
+
+#: Postman/Wizard/NewWizard.php:1403
+msgid "Amazon SES Documentation"
+msgstr "Amazon SES 說明文件"
+
+#: Postman/Wizard/NewWizard.php:1409
+msgid "Please enter Access Key ID"
+msgstr "請輸入存取金鑰 ID。"
+
+#: Postman/Wizard/NewWizard.php:1414
+msgid "Please enter Access Key Secret"
+msgstr "請輸入存取金鑰密鑰。"
+
+#: Postman/Wizard/NewWizard.php:1434
+msgid "Please enter SES Region"
+msgstr "請輸入 SES 地區。"
+
+#: Postman/Wizard/NewWizard.php:1459
+msgid "Office 365"
+msgstr "Microsoft 365"
+
+#: Postman/Wizard/NewWizard.php:1462
+msgid "Read how to setup Office 365"
+msgstr "進一步了解設定 Microsoft 365 的方式"
+
+#: Postman/Wizard/NewWizard.php:1467
+msgid "Application (Client) ID"
+msgstr "應用程式 (用戶端) ID"
+
+#: Postman/Wizard/NewWizard.php:1468
+msgid "Please enter Application (Client) ID."
+msgstr "請輸入應用程式 (用戶端) ID。"
+
+#: Postman/Wizard/NewWizard.php:1476 Postman/Wizard/NewWizard.php:1494
+#: Postman/Wizard/NewWizard.php:1513
+msgid "Follow this link"
+msgstr "前往這個連結"
+
+#: Postman/Wizard/NewWizard.php:1477
+msgid "to get Application (Client) ID for Office 365"
+msgstr "以取得 Microsoft 365 的應用程式 (用戶端) ID"
+
+#: Postman/Wizard/NewWizard.php:1504
+msgid "Redirect URI"
+msgstr "重新導向 URI"
+
+#: Postman/Wizard/NewWizard.php:1522
+msgid "Before continuing, you'll need to allow this plugin to send emails using your Office 365 account."
+msgstr "繼續操作前，必須允許這個外掛使用 Microsoft 365 帳號傳送電子郵件。"
+
+#: Postman/Wizard/NewWizard.php:1540
+msgid "United States (US)"
+msgstr "美國 (US)"
+
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:228
+#: Postman/Wizard/NewWizard.php:996 Postman/Wizard/NewWizard.php:1541
+msgid "Europe (EU)"
+msgstr "歐洲 (EU)"
+
+#: Postman/Wizard/NewWizard.php:1542
+msgid "India (IN)"
+msgstr "印度 (IN)"
+
+#: Postman/Wizard/NewWizard.php:1543
+msgid "China (CN)"
+msgstr "中國 (CN)"
+
+#: Postman/Wizard/NewWizard.php:1544
+msgid "Australia (AU)"
+msgstr "澳大利亞 (AU)"
+
+#: Postman/Wizard/NewWizard.php:1545
+msgid "Japan (JP)"
+msgstr "日本 (JP)"
+
+#: Postman/Wizard/NewWizard.php:1557
+msgid "Zoho"
+msgstr "Zoho"
+
+#: Postman/Wizard/NewWizard.php:1569
+msgid "Zoho Mail Documentation"
+msgstr "Zoho Mail 說明文件"
+
+#: Postman/Postman-Suggest-Pro/PostmanSuggestProSocket.php:265
+#: Postman/PostmanViewController.php:432 Postman/Wizard/NewWizard.php:1603
+msgid "Zoho Mail"
+msgstr "Zoho Mail"
+
+#: Postman/Wizard/NewWizard.php:1611
+msgid "Zoho API Credentials"
+msgstr "Zoho API 授權憑證"
+
+#: Postman/Wizard/NewWizard.php:1622
+msgid "Please copy this URL into the \"Redirect URL\" field of your Zoho account settings."
+msgstr "請將這個網址複製至 Zoho 帳號設定的 [Redirect URL] (重新導向網址) 欄位。"
+
+#: Postman/Wizard/NewWizard.php:165
+msgid "Which mailer would you like to use to send emails? Not sure which mailer to choose? Check out our "
+msgstr "請選取用於傳送電子郵件的郵件程式。如果不確定要使用哪個郵件程式，請參考我們的"
+
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:192
+#: Postman/Wizard/NewWizard.php:333
+msgid "This step allows you to send an email message for testing. If there is a problem, Post SMTP will give up after 60 seconds."
+msgstr "這個步驟能讓網站管理員傳送測試用電子郵件。如果發生問題，Post SMTP 會在 60 秒後停止傳送作業。"
+
+#: Postman/Wizard/NewWizard.php:428
+msgid "I'll send a test email later."
+msgstr "稍後才傳送測試用電子郵件"
+
+#: Postman/Wizard/NewWizard.php:478 Postman/Wizard/NewWizard.php:540
+msgid "Please enter From Email."
+msgstr "請輸入寄件者電子郵件地址。"
+
+#: Postman/Wizard/NewWizard.php:479
+msgid "Please try again, something went wrong."
+msgstr "執行時發生錯誤，請再試一次。"
+
+#: Postman/Wizard/NewWizard.php:480
+msgid "Please enter recipient email address."
+msgstr "請輸入收件者電子郵件地址。"
+
+#: Postman/Wizard/NewWizard.php:537
+msgid "This address, like the letterhead printed on a letter, identifies the sender to the recipient. Change this when you are sending on behalf of someone else."
+msgstr "這個電子郵件地址就如同印在信紙上的信頭一樣，用於識別寄給收件者的是哪一位寄件者。當你需要代表其他人傳送電子郵件時，就必須變更這項設定。"
+
+#: Postman/Wizard/NewWizard.php:542
+msgid "Please note that other plugins may override this field, to prevent this use the setting below."
+msgstr "請注意，其他外掛可能會覆寫這個欄位的設定；如需避免這個問題，請使用下方的設定。"
+
+#: Postman/Wizard/NewWizard.php:553 Postman/Wizard/NewWizard.php:577
+msgid "Check this to prevent changes on the"
+msgstr "啟用這項設定後，"
+
+#: Postman/Wizard/NewWizard.php:555 Postman/Wizard/NewWizard.php:579
+msgid "field by other"
+msgstr "欄位便不會遭到變更→"
+
+#: Postman/Wizard/NewWizard.php:565
+msgid "Please enter From Name."
+msgstr "請輸入寄件者名稱。"
+
+#: Postman/Wizard/NewWizard.php:439 Postman/Wizard/NewWizard.php:557
+#: Postman/Wizard/NewWizard.php:581
+msgid "and"
+msgstr "及"
+
+#: Postman/Wizard/NewWizard.php:350
+msgid "Share Your Feedback"
+msgstr "分享意見反應"
+
+#: Postman/Wizard/NewWizard.php:357
+msgid "We value your opinion on your experience with Post SMTP and would appreciate your feedback. "
+msgstr "我們非常重視你的 Post SMTP 使用者體驗意見，並十分感謝你的意見回應。"
+
+#: Postman/Wizard/NewWizard.php:359
+msgid "Leave a review here."
+msgstr "點擊以撰寫評論"
+
+#: Postman/Wizard/NewWizard.php:432
+msgid "Great you are all done!"
+msgstr "太好了，大功告成。"
+
+#: Postman/Wizard/NewWizard.php:437
+msgid "Visit settings to setup"
+msgstr "前往設定頁面以設定"
+
+#: Postman/Wizard/NewWizard.php:440
+msgid "Fallback SMTP"
+msgstr "後援 SMTP"
+
+#: Postman/Wizard/NewWizard.php:441
+msgid "options."
+msgstr "選項。"
+
+#: Postman/Wizard/NewWizard.php:446
+msgid "View logs section"
+msgstr "檢視記錄區段"
+
+#: Postman/Wizard/NewWizard.php:447
+msgid "Skip to dashboard"
+msgstr "前往 Post SMTP 的 [控制台]"
+
+#: Postman/Wizard/NewWizard.php:541
+msgid "The email address that emails are sent from."
+msgstr "請設定用於傳送電子郵件的電子郵件地址。"
+
+#: Postman/Wizard/NewWizard.php:477
+msgid "Select a socket type to continue."
+msgstr "請選取通訊端類型以繼續。"
+
+#: Postman/Wizard/NewWizard.php:686
+msgid "The SMTP option lets you send emails directly through an SMTP server instead of using a SMTP Server provider's API. This is easy and convenient, but it's less secure than the other mailers."
+msgstr "SMTP 選項讓網站管理員透過 SMTP 伺服器直接傳送電子郵件，而不是使用 SMTP 伺服器服務提供商的 API 傳送電子郵件。這種方式簡單方便，但是與其他郵件程式相比，安全性較低。"
+
+#: Postman/Wizard/NewWizard.php:708
+msgid "Please enter Port."
+msgstr "請輸入通訊埠號碼。"
+
+#: Postman/Wizard/NewWizard.php:791
+msgid "Gmail mailer"
+msgstr "Gmail 郵件程式"
+
+#: Postman/Wizard/NewWizard.php:168
+msgid " for details on each option."
+msgstr "，以進一步了解每個選項的詳細資料。"
+
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:212
+msgid "Create an account at <a href=\"%1$s\" target=\"_blank\">%2$s </a> and enter <a href=\"%3$s\" target=\"_blank\">an API key and Secret Key</a> below."
+msgstr "請先在 <a href=\"%1$s\" target=\"_blank\">%2$s</a> 建立帳號，並在下方輸入 <a href=\"%3$s\" target=\"_blank\">API 金鑰及秘密金鑰</a>。"
+
+#: Postman/Wizard/NewWizard.php:689
+msgid "Let's get started with our "
+msgstr "請參考我們提供的文件: "
+
+#: Postman/Wizard/NewWizard.php:864 Postman/Wizard/NewWizard.php:889
+msgid "Before continuing, you'll need to allow this plugin to send emails using Gmail API."
+msgstr "繼續操作前，必須允許這個外掛使用 Gmail API 傳送電子郵件。"
+
+#: Postman/Wizard/NewWizard.php:1078
+msgid "Define your endpoint to send messages."
+msgstr "定義這個網站要傳送訊息的端點。"
+
+#: Postman/Wizard/NewWizard.php:1562
+msgid "Zoho Mail offers free email accounts as well as domain-specific email accounts. You can use Zoho Mail's API to help emails from your WordPress site deliver reliably."
+msgstr "Zoho Mail 提供免費的電子郵件帳號及可以指定網域名稱的電子郵件帳號。網站管理員可以使用 Zoho Mail 的 API 讓這個 WordPress 網站的電子郵件能可靠的傳送。"
+
+#: Postman/Wizard/NewWizard.php:1629
+msgid "Before continuing, you'll need to allow this plugin to send emails using Zoho."
+msgstr "繼續操作前，必須允許這個外掛使用 Zoho 傳送電子郵件。"
+
+#: Postman/Wizard/NewWizard.php:795
+msgid "The configuration steps are more technical than other options, so our detailed guide will walk you through the whole process."
+msgstr "組態步驟比其他選項更需要了解其背後的技術性資訊，因此我們提供的詳細指南會引導網站管理員完成全部流程。"
+
+#: Postman/Wizard/NewWizard.php:1558
+msgid "is a well-known provider of cloud-based business software and services. Zoho Corporation offers Zoho Mail, a leading email hosting and collaboration solution."
+msgstr "是知名的雲端商業軟體及服務提供商。Zoho 公司提供電子郵件代管領導品牌 Zoho Mail，以及協同作業解決方案。"
+
+#: Postman/Wizard/NewWizard.php:919
+msgid "is an email infrastructure service offered as an add-on for MailChimp that you can use to send personalized, one-to-one e-commerce emails, or automated transactional emails.You can easily send WordPress emails from your Mandrill account."
+msgstr "是一家電子郵件基礎結構服務提供商，它提供 MailChimp 附加元件，能讓使用者傳送個人化、一對一的電子商務電子郵件或自動化的觸發式電子郵件。網站管理員可以使用自己的 Mandrill 帳號傳送 WordPress 電子郵件。"
+
+#: Postman/Wizard/NewWizard.php:964
+msgid "is a popular transactional email provider that sends more than 35 billion emails every month. If you're just starting out, the free plan allows you to send up to 100 emails each day without entering your credit card details."
+msgstr "是一家頗受歡迎、每個月傳送超過 3500 萬封電子郵件的觸發式電子郵件服務提供商。網站管理員可以先使用它的免費方案，不需輸入信用卡資料便能每天傳送 100 封電子郵件。"
+
+#: Postman/Wizard/NewWizard.php:1022
+msgid "is a transactional email provider that offers a generous 3-month free trial. After that, it offers a 'Pay As You Grow' plan that allows you to pay for what you use without committing to a fixed monthly rate."
+msgstr "是一家提供 3 個月免費試用期的觸發式電子郵件服務提供商。試用期過後，使用者可以使用它提供的 [Pay As You Grow] (按需付費) 方案，在不需承諾固定月費率的狀況下，僅為當前的使用量付費。"
+
+#: Postman/Wizard/NewWizard.php:1106
+msgid "is one of our recommended mailers. It's a transactional email provider with scalable price plans, so it's suitable for any size of business."
+msgstr "是其中一個我們推薦的郵件程式。它是具備可彈性調整價格方案的觸發式電子郵件，因此適合不同規模的企業使用。"
+
+#: Postman/Wizard/NewWizard.php:1152
+msgid "is a transactional email provider that offers great deliverability and accessible pricing for any business. You can start out with the free trial that allows you to send 100 test emails each month via its secure API."
+msgstr "是一家能為不同規模的企業提供出色的寄達率及合理價格的觸發式電子郵件服務提供商。網站管理員可以先使用它的免費試用方案，透過它提供的安全 API 便能每個月傳送 100 封測試用電子郵件。"
+
+#: Postman/Wizard/NewWizard.php:1197
+msgid "is a transactional email provider that's trusted by big brands and small businesses. It sends more than 4 trillion emails each year and reports 99.9% uptime. You can get started with the free test account that lets you send up to 500 emails per month."
+msgstr "是一家深受大型品牌及中小企業信任的觸發式電子郵件服務提供商。它每年傳送 4 兆封電子郵件，並維持 99.9% 的運作時間。網站管理員可以先使用它的免費測試帳號，便能每個月傳送 500 封電子郵件。"
+
+#: Postman/Wizard/NewWizard.php:1240
+msgid "is a powerful transactional email platform designed to deliver exceptional performance and affordability for businesses of all sizes. which grants you the ability to send 100 test emails every month through our secure API."
+msgstr "是一家能為不同規模的企業提供優秀效能及合理方案價格的觸發式電子郵件平台，並能讓使用者透過它提供的安全 API 便能每個月傳送 100 封測試用電子郵件。"
+
+#: Postman/Wizard/NewWizard.php:1284
+msgid "is a leading email service provider that delivers a complete set of email marketing and transactional email solutions."
+msgstr "是一家位居領先地位、提供完整電子郵件行銷及觸發式電子郵件解決方案的電子郵件服務提供商。"
+
+#: Postman/Wizard/NewWizard.php:1399
+msgid "a cloud-based email platform was developed by AWS to make sending and receiving emails at scale simple and effective. They also offer tools to create and send out marketing emails."
+msgstr "是由 AWS 開發的雲端電子郵件平台，它能讓大量傳送及接收電子郵件變的簡單有效率。他們也提供可建立及傳送行銷電子郵件的工具。"
+
+#: Postman/Wizard/NewWizard.php:1460
+msgid "is a popular transactional email provider that sends more than 35 billion emails every month. If you're just starting out, the free plan allows you to send up to 100 emails each day without entering your credit card details"
+msgstr "是一家頗受歡迎、每個月傳送超過 350 億封電子郵件的觸發式電子郵件服務提供商。如果網站才剛起步，它的免費方案不需輸入信用卡資料，便能每天傳送最多 100 封電子郵件。"
+
+#: Postman/Wizard/NewWizard.php:1107
+msgid "If you're just starting out, you can use Brevo's free plan to send up to 300 emails a day. You don't need to use a credit card to try it out. When you're ready, you can upgrade to a higher plan to increase your sending limits."
+msgstr "如果才剛開始使用，使用 Brevo 的免費方案，不需輸入任何信用卡資訊，便能每天傳送最多 300 封電子郵件。當使用量高於免費方案提供的額度時，可以升級至使用量更高的方案以符合需求。"
+
+#: Postman/Wizard/NewWizard.php:937 Postman/Wizard/NewWizard.php:984
+#: Postman/Wizard/NewWizard.php:1040 Postman/Wizard/NewWizard.php:1125
+#: Postman/Wizard/NewWizard.php:1170 Postman/Wizard/NewWizard.php:1215
+#: Postman/Wizard/NewWizard.php:1258 Postman/Wizard/NewWizard.php:1309
+#: Postman/Wizard/NewWizard.php:1423 Postman/Wizard/NewWizard.php:1609
+#: Postman/Wizard/NewWizard.php:1660
+msgid "If you are already logged in follow this link to get an"
+msgstr "如果已完成登入，請點擊連結以取得"
+
+#: Postman/Wizard/NewWizard.php:1058
+msgid " Follow this link to get the Mailgun"
+msgstr "依照這個連結的指示以取得 Mailgun"
+
+#: Postman/Wizard/NewWizard.php:1079
+msgid "If you are operating under EU laws then check the above button."
+msgstr "如果網站的營運必須遵守歐盟法律，請點擊上方的按鈕。"
+
+#: Postman/Wizard/NewWizard.php:1288
+msgid "Mailjet’s platform enables you to create, send, and track email marketing campaigns, transactional email messages, and email performance metrics."
+msgstr "Mailjet 平台可以讓網站管理員建立、傳送並追蹤電子郵件行銷廣告活動、觸發式電子郵件訊息及電子郵件效能指標。"
+
+#: Postman/Wizard/NewWizard.php:1400
+msgid "To use Amazon SES for your wordpress site, you must have an SSL certificate installed on your WordPress site."
+msgstr "如需在 WordPress 網站上使用 Amazon SES，必須先為 WordPress 網站安裝 SSL 憑證。"
+
+#: Postman/Wizard/NewWizard.php:844 Postman/Wizard/NewWizard.php:1597
+msgid "Please enter Client Secret."
+msgstr "請輸入用戶端密鑰。"
+
+#: Postman/Wizard/NewWizard.php:1485
+msgid "Client Secret (Value)"
+msgstr "用戶端密鑰 (值)"
+
+#: Postman/Wizard/NewWizard.php:1486
+msgid "Please enter Client Secret (Value)."
+msgstr "請輸入用戶端密鑰 (值)。"
+
+#: Postman/Wizard/NewWizard.php:1495
+msgid "to get Client Secret (Value) for Office 365"
+msgstr "以取得 Microsoft 365 的用戶端密鑰 (值)"
+
+#: Postman/Wizard/NewWizard.php:858
+msgid "Please copy this URL into the \"Authorized redirect URL\" field of your Gmail account settings."
+msgstr "請將這個網址複製至 Gmail 帳號設定的 [已授權的重新導向 URI] 欄位。"
+
+#: Postman/Wizard/NewWizard.php:792
+msgid "works with any Gmail or Google Workspace account via the Google API. You can send WordPress emails from your main email address and it's more secure than directly connecting to Gmail using SMTP credentials."
+msgstr "透過 Google API，能與任何 Gmail 或 Google Workspace 帳戶搭配使用。網站管理員可以從你的主要電子郵件地址傳送 WordPress 電子郵件，這會比使用 SMTP 授權憑證直接連線至 Gmail 更加安全。"
+
+#: Postman/Wizard/NewWizard.php:1514
+msgid "to get Redirect URI for Office 365"
+msgstr "以取得 Microsoft 365 的重新導向 URI"
+
+#: Postman/Mobile/mobile.php:271
+msgid "Your server does not have GD Library Installed/ Enabled, talk to your host provider to enable to enjoy Post SMTP Mobile Application"
+msgstr "這個網站的伺服器沒有安裝或啟用 GD 程式庫，請洽詢網站主機代管服務商要求啟用相關功能以使用 Post SMTP 行動裝置 App。"
+
+#: Postman/Mobile/mobile.php:273
+msgid "learn more."
+msgstr "進一步了解"
+
+#: Postman/PostmanViewController.php:577 Postman/Wizard/NewWizard.php:363
+msgid "Introducing NEW Post SMTP Mobile App"
+msgstr "隆重推出全新 Post SMTP 行動裝置 App"
+
+#: Postman/Mobile/mobile.php:109 Postman/Mobile/mobile.php:193
+#: Postman/Mobile/mobile.php:267
+msgid "Mobile Application"
+msgstr "行動裝置應用程式"
+
+#: Postman/Mobile/mobile.php:93 Postman/Mobile/mobile.php:101
+#: Postman/Mobile/mobile.php:127 Postman/Dashboard/assets/js/app.js:2
+msgid "Mobile App"
+msgstr "行動裝置 App"
+
+#: Postman/Mobile/mobile.php:102
+msgid "New"
+msgstr "全新"
+
+#: Postman/Mobile/mobile.php:228
+msgid "Regenerate QR Code"
+msgstr "重新產生 QR 圖碼"
+
+#: Postman/Mobile/mobile.php:248
+msgid "Send failed email notification"
+msgstr "傳送失敗電子郵件通知"
+
+#: Postman/Extensions/MainWP-Child/includes/psmwp-init.php:121
+msgid "Post SMTP is being used by MainWP Dashboard Site."
+msgstr "Post SMTP 已由 MainWP 控制台網站使用。"
+
+#: Postman/Postman-Mail/PostmanElasticEmailTransport.php:117
+msgid "Elastic Email"
+msgstr "Elastic Email"
+
+#: Postman/PostmanViewController.php:733
+msgid "Preserve my email logs"
+msgstr "保留這個網站的電子郵件記錄"
+
+#: Postman/Postman-Mail/PostmanSendinblueTransport.php:203
+msgid "Create an account at <a href=\"%1$s\" target=\"_blank\">%2$s (formely Sendinblue)</a> and enter <a href=\"%3$s\" target=\"_blank\">an API key</a> below."
+msgstr "請先在 <a href=\"%1$s\" target=\"_blank\">%2$s (之前的 Sendinblue)</a> 建立帳號，並在下方輸入 <a href=\"%3$s\" target=\"_blank\">API 金鑰</a>。"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogMigration.php:182
+msgid "Great! You have successfully migrated to new logs."
+msgstr "大功告成！已成功移轉至新記錄。"
+
+#: Postman/Dashboard/includes/rest-api/v1/class-psd-rest-api.php:273
+#: Postman/PostmanEmailLogs.php:815
+msgid "Error Resending Email"
+msgstr "重新傳送電子郵件時發生錯誤。"
+
+#: Postman/PostmanEmailLogs.php:707
+msgid "Error Viewing"
+msgstr "檢視時發生錯誤。"
+
+#: Postman/PostmanEmailLogs.php:530
+msgid "Error deleting logs"
+msgstr "刪除記錄時發生錯誤。"
+
+#: Postman/PostmanEmailLogs.php:521
+msgid "Logs deleted successfully"
+msgstr "記錄已成功刪除。"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogMigration.php:169
+#: Postman/Postman-Email-Log/PostmanEmailLogMigration.php:193
+msgid "Post SMTP is migrating logs to new system."
+msgstr "Post SMTP 正在將電子郵件記錄移轉至新系統。"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogMigration.php:159
+msgid "Post SMTP has been updated! To keep things running smoothly, we have to update your database to the newest version, migrate email logs to new system. The database update process runs in the background and may take a little while, so please be patient."
+msgstr "Post SMTP 已更新。為了保持外掛的順暢執行，外掛必須將對應的資料表更新至最新版本，並將電子郵件記錄移轉至新系統。資料庫更新程序會在背景執行且需要一點時間，請耐心等候。"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogMigration.php:157
+msgid "Post SMTP database update required"
+msgstr "Post SMTP 資料庫必須更新。"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:191
+msgid "Broken Email Fix"
+msgstr "修正損毀的電子郵件"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:490
+msgid "Only enable this option, if the email's header or body seems broken."
+msgstr "僅有電子郵件標頭或內文損毀時，才需要啟用這項設定"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:386
+msgid "Admin Email"
+msgstr "網站管理員電子郵件地址"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:514
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:765
+msgid "You can also get notifications in chrome for Post SMTP in case of email delivery failure."
+msgstr "網站管理員還能在 Chrome 中接收 Post SMTP 的通知，以防電子郵件傳送失敗。"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:517
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:768
+msgid "Download Chrome extension"
+msgstr "下載 Chrome 擴充功能"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:673
+msgid "Select notification service"
+msgstr "選取通知服務"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:764
+msgid "Setup Chrome extension (optional)"
+msgstr "設定 Chrome 擴充功能 (選用)"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:775
+msgid "Enable chrome extension"
+msgstr "啟用 Chrome 擴充功能"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:786
+msgid "Your UID"
+msgstr "專屬 UID"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:519
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:770
+msgid "Detailed Documentation."
+msgstr "詳細說明文件"
+
+#: Postman/Postman-Mail/PostmanSparkPostTransport.php:199
+msgid "Create an account at <a href=\"%1$s\" target=\"_blank\">%2$s</a> and enter <a href=\"%3$s\" target=\"_blank\">an API Key</a> below."
+msgstr "請先在 <a href=\"%1$s\" target=\"_blank\">%2$s</a> 建立帳號，並在下方輸入 <a href=\"%3$s\" target=\"_blank\">API 金鑰</a>。"
+
+#: Postman/Postman-Mail/PostmanSparkPostTransport.php:113
+#: Postman/Wizard/NewWizard.php:1196
+msgid "SparkPost"
+msgstr "SparkPost"
+
+#: Postman/Postman-Mail/PostmanPostmarkTransport.php:199
+msgid "Create an account at <a href=\"%1$s\" target=\"_blank\">%2$s</a> and enter <a href=\"%3$s\" target=\"_blank\">an API Token</a> below."
+msgstr "請先在 <a href=\"%1$s\" target=\"_blank\">%2$s</a> 建立帳號，並在下方輸入 <a href=\"%3$s\" target=\"_blank\">API 權杖</a>。"
+
+#: Postman/Postman-Mail/PostmanPostmarkTransport.php:184
+#: Postman/Postman-Mail/PostmanSparkPostTransport.php:184
+msgid "API Token"
+msgstr "API 權杖"
+
+#: Postman/Postman-Mail/PostmanPostmarkTransport.php:113
+msgid "PostMark"
+msgstr "PostMark"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:436
+msgid "No Action"
+msgstr "不執行任何動作"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:435
+msgid "Log only"
+msgstr "僅記錄電子郵件"
+
+#: postman-smtp.php:83
+msgid "Receive our plugin's alert in case of critical security and feature updates and allow non-sensitive diagnostic tracking."
+msgstr "接收這個外掛的重大安全性及功能更新通知，並允許非敏感性診斷追蹤。"
+
+#: postman-smtp.php:82
+msgid "Stay on the safe side"
+msgstr "常保網站安全"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:651
 msgid "If you want to use SendinBlue, Mandrill, Mailgun, SendGrid or other (API), You can skip this step by pressing next."
 msgstr "如果這個網站要使用 SendinBlue、Mandrill、Mailgun、SendGrid 或其他呼叫 API 傳送電子郵件的服務，請點擊 [下一步] 略過這個步驟。"
 
-#: Postman/PostmanViewController.php:730
-msgid "option to continue.\t"
-msgstr "選項以繼續使用。"
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:666
+msgid "Note: You may have delivery problems if you continue using the default outgoing mail server hostname."
+msgstr "注意: 如果這個網站繼續使用預設的外寄郵件伺服器主機名稱，可能會遇到傳送問題。"
 
-#: Postman/PostmanViewController.php:727
-msgid "alternative or use your "
-msgstr "或使用"
-
-#: Postman/PostmanViewController.php:726
-msgid "switch to the Auth 2.0"
-msgstr "切換至 Auth 2.0 選項"
-
-#: Postman/PostmanViewController.php:724
-msgid "To help keep your account secure, Google will no longer support using third-party apps to sign in to your Google Account using only your username and primary password. You can "
-msgstr "為保護使用者的帳戶安全，​​如果第三方應用程式或裝置只要求使用者以使用者名稱和密碼登入 Google 帳戶，Google 不再支援這些第三方應用程式或裝置。網站管理員可以"
-
-#: Postman/Postman-Mail/PostmanModuleTransport.php:722
-msgid "How to Setup an App Password"
-msgstr "應用程式密碼的設定方式"
-
-#: Postman/Postman-Mail/PostmanModuleTransport.php:720
-#: Postman/PostmanViewController.php:729
-msgid "App Password"
-msgstr "應用程式密碼"
-
-#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:301
+#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:345
 msgid " You are just a step away to get started"
 msgstr "只差一步便可開始使用"
 
-#: Postman/PostmanViewController.php:733
+#: Postman/Postman-Mail/PostmanModuleTransport.php:727
+#: Postman/PostmanViewController.php:764
+msgid "App Password"
+msgstr "應用程式密碼"
+
+#: Postman/Postman-Mail/PostmanModuleTransport.php:729
+msgid "How to Setup an App Password"
+msgstr "應用程式密碼的設定方式"
+
+#: Postman/PostmanViewController.php:759
+msgid "To help keep your account secure, Google will no longer support using third-party apps to sign in to your Google Account using only your username and primary password. You can "
+msgstr "為保護使用者的帳戶安全，​​如果第三方應用程式或裝置只要求使用者以使用者名稱和密碼登入 Google 帳戶，Google 不再支援這些第三方應用程式或裝置。網站管理員可以"
+
+#: Postman/PostmanViewController.php:761
+msgid "switch to the Auth 2.0"
+msgstr "切換至 Auth 2.0 選項"
+
+#: Postman/PostmanViewController.php:762
+msgid "alternative or use your "
+msgstr "或使用"
+
+#: Postman/PostmanViewController.php:765
+msgid "option to continue.\t"
+msgstr "選項以繼續使用。"
+
+#: Postman/PostmanViewController.php:768
 msgid "I understand and would like to discard this notice"
 msgstr "了解並關閉這項通知"
 
-#: Postman/PostmanViewController.php:278
+#: Postman/PostmanViewController.php:290
 msgid "Get Started by Setup Wizard!"
-msgstr "使用設定精靈進行設定！"
-
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:192
-msgid "post it on-line, it may contain your account password."
-msgstr "公開發佈這些內容，因為其中可能包含了郵件帳號的密碼。"
-
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:191
-msgid "DO NOT"
-msgstr "不要"
-
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:190
-msgid "This is the conversation between Postman and the mail server. It can be useful for diagnosing problems."
-msgstr "這是 Post SMTP 與電子郵件伺服器間的交談內容，對於診斷問題相當有幫助。"
-
-#: Postman/PostmanViewController.php:538
-msgid " Fallback - setup a second delivery method when the first one is failing"
-msgstr "備援服務 - 設定次要電子郵件傳送方式作為首要方式傳送失敗時的備援。"
-
-#: Postman/PostmanViewController.php:537
-msgid "New for v1.9.8!"
-msgstr "1.9.8 版新功能！"
-
-#: Postman/PostmanViewController.php:528
-msgid "%1$s Postman needs translators! Please take a moment to %2$s translate a few sentences on-line %3$s"
-msgstr "%1$s 需要各位的協助以完成本地化！請利用些許時間在%2$s在線上翻譯待譯譯文%3$s"
-
-#: Postman/PostmanViewController.php:522
-msgid "leaving a review"
-msgstr "撰寫評價"
-
-#: Postman/PostmanViewController.php:520
-msgid "Please consider"
-msgstr "請為外掛"
-
-#: Postman/PostmanViewController.php:417
-msgid "Troubleshooting"
-msgstr "疑難排解"
-
-#: Postman/PostmanViewController.php:307
-msgid "Actions"
-msgstr "可用操作"
-
-#: Postman/PostmanViewController.php:296
-msgid "OR"
-msgstr "或"
-
-#: Postman/PostmanViewController.php:206
-msgid "Post SMTP Setup"
-msgstr "Post SMTP 設定"
-
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:139
-msgid "Send Test Email"
-msgstr "傳送測試用電子郵件"
-
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:103
-msgid "Postman SMTP Setup"
-msgstr "Post SMTP 設定"
-
-#: Postman/Postman-Mail/PostmanSendinblueTransport.php:117
-msgid "Sendinblue"
-msgstr "Sendinblue"
-
-#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:302
-msgid "ERROR: The expected rate limit is exceeded. Status code is %1$s"
-msgstr "錯誤: 超過執行週期的呼叫上限。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:299
-msgid "ERROR: The value of contentType for PUT or POST request in request headers is not application/json. Make sure the value is application/json only and not empty. Status code is %1$s"
-msgstr "錯誤: 要求標頭中的 PUT 或 POST 的 contentType 值不是 application/json，這個值必須為 application/json 且不可留空。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:296
-msgid "ERROR: The verb you're using is not allowed for this endpoint. Make sure you're using the correct method (GET, POST, PUT, DELETE). Status code is %1$s"
-msgstr "錯誤: 這個端點不允許使用這個指令動詞，請使用正確的方法 (GET、POST、PUT、DELETE)。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:293
-msgid "ERROR: Make sure your calling an existing endpoint and that the parameters (object id etc.) in the path are correct. Status code is %1$s"
-msgstr "錯誤: 請確認呼叫的是現有端點，且其在路徑中的參數 (物件 ID 等項目) 正確無誤。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:290
-msgid "ERROR: You do not have the rights to access the resource. Status code is %1$s"
-msgstr "錯誤: 目前登入的帳號沒有存取這個資源的權限。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:287
-msgid "ERROR: Make sure you're account is activated and that you've sufficient credits. Status code is %1$s"
-msgstr "錯誤: 請確認帳號已啟用，且擁有足夠使用額度。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:284
-msgid "ERROR: You have not been authenticated. Make sure the provided api-key is correct. Status code is %1$s"
-msgstr "錯誤: 尚未完成認證。請確保提供的 API 金鑰正確無誤。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:281
-msgid "ERROR: Request is invalid. Check the error code in JSON. Status code is %1$s"
-msgstr "錯誤: 無效的要求。請檢查 JSON 檔案中的錯誤代碼。狀態碼為 %1$s"
+msgstr "使用設定精靈進行設定"
 
 #: Postman/Postman-Configuration/PostmanConfigurationController.php:543
-msgid "let you send from an email address other than the one you authenticate with."
-msgstr "讓使用者透過未認證帳號的電子郵件地址傳送郵件。"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:542
-msgid "not"
-msgstr "不會"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:541
-msgid "Please note that to prevent abuse, many email services will "
-msgstr "請注意，為防止濫發電子郵件，多數電子郵件服務"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:481
 msgid "No other SMTP plugin configuration has been detected in your installation. You can skip this step."
 msgstr "系統並未偵測到這個網站有其他 SMTP 外掛的組態，請略過這個步驟。"
 
-#: Postman/PostmanViewController.php:732
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:604
+msgid "Please note that to prevent abuse, many email services will "
+msgstr "請注意，為防止濫發電子郵件，多數電子郵件服務"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:605
+msgid "not"
+msgstr "不會"
+
+#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:294
+msgid "ERROR: Make sure your calling an existing endpoint and that the parameters (object id etc.) in the path are correct. Status code is %1$s"
+msgstr "錯誤: 請確認呼叫的是現有端點，且其在路徑中的參數 (物件 ID 等項目) 正確無誤。狀態碼為 %1$s"
+
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:114
+msgid "Postman SMTP Setup"
+msgstr "Post SMTP 設定"
+
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:177
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:221
+#: Postman/Wizard/NewWizard.php:149 Postman/Wizard/NewWizard.php:341
+msgid "Send Test Email"
+msgstr "傳送測試用電子郵件"
+
+#: Postman/PostmanViewController.php:208
+msgid "Post SMTP Setup"
+msgstr "Post SMTP 設定"
+
+#: Postman/PostmanViewController.php:317
+msgid "OR"
+msgstr "或"
+
+#: Postman/PostmanViewController.php:328
+msgid "Actions"
+msgstr "可用操作"
+
+#: Postman/PostmanViewController.php:439 Postman/Dashboard/assets/js/app.js:2
+msgid "Troubleshooting"
+msgstr "疑難排解"
+
+#: Postman/PostmanViewController.php:549
+msgid "Please consider"
+msgstr "請為外掛"
+
+#: Postman/PostmanViewController.php:551
+msgid "leaving a review"
+msgstr "撰寫評價"
+
+#: Postman/PostmanViewController.php:566
+msgid "New for v1.9.8!"
+msgstr "1.9.8 版新功能！"
+
+#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:282
+msgid "ERROR: Request is invalid. Check the error code in JSON. Status code is %1$s"
+msgstr "錯誤: 無效的要求。請檢查 JSON 檔案中的錯誤代碼。狀態代碼為 %1$s"
+
+#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:285
+msgid "ERROR: You have not been authenticated. Make sure the provided api-key is correct. Status code is %1$s"
+msgstr "錯誤: 尚未完成認證。請確保提供的 API 金鑰正確無誤。狀態代碼為 %1$s"
+
+#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:288
+msgid "ERROR: Make sure you're account is activated and that you've sufficient credits. Status code is %1$s"
+msgstr "錯誤: 請確認帳號已啟用，且擁有足夠使用額度。狀態代碼為 %1$s"
+
+#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:291
+msgid "ERROR: You do not have the rights to access the resource. Status code is %1$s"
+msgstr "錯誤: 目前登入的帳號沒有存取這個資源的權限。狀態代碼為 %1$s"
+
+#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:297
+msgid "ERROR: The verb you're using is not allowed for this endpoint. Make sure you're using the correct method (GET, POST, PUT, DELETE). Status code is %1$s"
+msgstr "錯誤: 這個端點不允許使用這個指令動詞，請使用正確的方法 (GET、POST、PUT、DELETE)。狀態代碼為 %1$s"
+
+#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:300
+msgid "ERROR: The value of contentType for PUT or POST request in request headers is not application/json. Make sure the value is application/json only and not empty. Status code is %1$s"
+msgstr "錯誤: 要求標頭中的 PUT 或 POST 的 contentType 值不是 application/json，這個值必須為 application/json 且不可留空。狀態代碼為 %1$s"
+
+#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:303
+msgid "ERROR: The expected rate limit is exceeded. Status code is %1$s"
+msgstr "錯誤: 超過執行週期的呼叫上限。狀態代碼為 %1$s"
+
+#: Postman/PostmanViewController.php:557
+msgid "%1$s Postman needs translators! Please take a moment to %2$s translate a few sentences on-line %3$s"
+msgstr "%1$s 需要各位的協助以完成本地化！請利用些許時間%2$s在線上翻譯待譯譯文%3$s"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:606
+msgid "let you send from an email address other than the one you authenticate with."
+msgstr "讓使用者透過未認證帳號的電子郵件地址傳送電子郵件。"
+
+#: Postman/PostmanViewController.php:567
+msgid " Fallback - setup a second delivery method when the first one is failing"
+msgstr "後援服務 - 設定次要電子郵件傳送方式作為首要方式傳送失敗時的後援。"
+
+#: Postman/PostmanViewController.php:767
 msgid "Click here for more info"
 msgstr "點擊這裡以進一步了解"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:658
-msgid "You can download the chrome extension here (if link not available, check later)."
-msgstr "點擊這裡以下載 Chrome 擴充功能 (如果點擊連結沒有作用，請稍後再試)"
+#: Postman/PostmanViewController.php:444
+msgid "Need help setup everything? (paid)"
+msgstr "付費取得外掛組態設定服務"
 
 #: Postman/Postman-Email-Log/PostmanEmailLogView.php:173
 msgid "Solution"
 msgstr "解決方案"
 
-#: Postman/Postman.php:370
+#: Postman/Postman.php:403
 msgid "<strong>ONLY</strong> if the default mailer type is not working for you."
 msgstr "<strong>僅有</strong>預設郵件程式類型無法在這個網站執行才進行變更。"
 
-#: Postman/Extensions/License/PostmanLicenseHandler.php:453
-msgid "%s has invalid or expired license key for Post SMTP."
-msgstr "Post SMTP 的 %s 授權金鑰已失效或到期。"
+#: Postman/PostmanViewController.php:474
+msgid "Facebook Group"
+msgstr "Facebook 社團"
 
-#: Postman/Extensions/License/PostmanLicenseHandler.php:274
-msgid "Nonce verification failed"
-msgstr "單次隨機碼驗證失敗"
-
-#: Postman/Extensions/License/PostmanLicenseHandler.php:157
-msgid "Enter your extension license keys here to receive updates for purchased extensions. If your license key has expired, please <a href=\"%s\" target=\"_blank\">renew your license</a>."
-msgstr "如已購買擴充功能，請在這裡輸入擴充功能授權金鑰以便接收更新通知。如果這個網站的授權金鑰已到期，請<a href=\"%s\" target=\"_blank\">續訂授權金鑰</a>。"
-
-#: Postman/Extensions/License/EDD_SL_Plugin_Updater.php:487
-msgid "You do not have permission to install plugin updates"
-msgstr "目前的登入身分沒有安裝外掛更新的權限。"
-
-#: Postman/Extensions/License/EDD_SL_Plugin_Updater.php:244
-msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s or %5$supdate now%6$s."
-msgstr "%1$s 已有新版本可供更新。請檢視 %3$s 版的%2$s詳細資料%4$s或%5$s立即更新%6$s。"
-
-#: Postman/Extensions/License/EDD_SL_Plugin_Updater.php:236
-msgid "There is a new version of %1$s available. %2$sView version %3$s details%4$s."
-msgstr "%1$s 已有新版本可供更新。請檢視 %3$s 版的%2$s詳細資料%4$s。"
-
-#: Postman/Extensions/Admin/PostmanAdmin.php:20
-#: Postman/Extensions/Admin/PostmanAdmin.php:21
-#: Postman/PostmanViewController.php:381
+#: Postman/Postman-Suggest-Pro/PostmanSuggestProSocket.php:227
+#: Postman/Postman-Suggest-Pro/PostmanSuggestProSocket.php:234
+#: Postman/Postman-Suggest-Pro/PostmanSuggestProSocket.php:240
+#: Postman/PostmanViewController.php:405
 msgid "Extensions"
 msgstr "擴充功能"
 
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:487
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:68
 msgid "Export To CSV"
 msgstr "匯出為 CSV 檔案"
 
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:134
-msgid "WP Admin Email"
-msgstr "網站管理員電子郵件地址"
-
-#: Postman/Postman-Mail/PostmanModuleTransport.php:535
+#: Postman/Postman-Mail/PostmanModuleTransport.php:543
 msgid "Sendmail (server default - not SMTP)"
 msgstr "Sendmail (伺服器預設值 - 不使用 SMTP)"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:274
-msgid "Beta Feature: ONLY change this to <strong>PHPMailer</strong> only if you see <code>wp_mail</code> conflict message, conflicts when another plugin is activated, and <strong><u>sometimes</u></strong> your mail marked as spam."
-msgstr "Beta 版功能: 請注意，僅有在網站管理員看到 <code>wp_mail</code> 衝突訊息、與其他外掛產生衝突及<strong>不時</strong>發生垃圾訊息問題之後，才需要將設定變更為 <strong>PHPMailer</strong>。"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:45
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:47
 msgid "Mailer Type"
 msgstr "郵件程式類型"
 
-#: Postman/Postman.php:374
-msgid "click to enlarge image."
-msgstr "點擊以放大圖片"
-
-#: Postman/Postman.php:369
-msgid "I recommend to change it and <strong>TEST</strong> Post SMTP with the value <code>PHPMailer</code>."
-msgstr "強烈建議變更這些設定，並以更有效率的 <code>PHPMailer</code> <strong>測試</strong> Post SMTP。"
-
-#: Postman/Postman.php:368
+#: Postman/Postman.php:401
 msgid "Post SMTP v2 includes and new feature called: <b>Mailer Type</b>."
 msgstr "Post SMTP v2 包含的新功能稱為 <b>[郵件程式類型]</b>。"
 
-#: Postman/PostmanViewController.php:540
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:281
+msgid "Beta Feature: ONLY change this to <strong>PHPMailer</strong> only if you see <code>wp_mail</code> conflict message, conflicts when another plugin is activated, and <strong><u>sometimes</u></strong> your mail marked as spam."
+msgstr "Beta 版功能: 請注意，僅有在網站管理員看到 <code>wp_mail</code> 衝突訊息、與其他外掛產生衝突及<strong>不時</strong>發生垃圾訊息問題之後，才需要將設定變更為 <strong>PHPMailer</strong>。"
+
+#: Postman/Postman.php:402
+msgid "I recommend to change it and <strong>TEST</strong> Post SMTP with the value <code>PHPMailer</code>."
+msgstr "強烈建議變更這些設定，並以更有效率的 <code>PHPMailer</code> <strong>測試</strong> Post SMTP。"
+
+#: Postman/Postman.php:407
+msgid "click to enlarge image."
+msgstr "點擊以放大圖片"
+
+#: Postman/PostmanViewController.php:569
 msgid "Check the detailes here"
 msgstr "點擊這裡以進一步了解"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:345
-msgid "Use allowed email, for example: If you are using Gmail, type your Gmail adress."
-msgstr "使用其他以註冊並可以使用的電子郵件服務。舉例來說，如果可以使用個人的 Gmail，請在這個欄位輸入 Gmail 電子郵件地址。"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:338
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:392
+#: Postman/Wizard/NewWizard.php:554
 msgid "From Email"
 msgstr "寄件者電子郵件地址"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:367
-msgid "User name"
-msgstr "使用者名稱"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:399
+msgid "Use allowed email, for example: If you are using Gmail, type your Gmail adress."
+msgstr "使用其他已註冊並可以使用的電子郵件服務。舉例來說，如果可以使用個人的 Gmail，請在這個欄位輸入 Gmail 電子郵件地址。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:350
-msgid "Use SMTP Authentication?"
-msgstr "使用 SMTP 驗證"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:320
-msgid "TLS"
-msgstr "TLS"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:319
-msgid "SSL"
-msgstr "SSL"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:315
-msgid "Security"
-msgstr "安全性"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:306
-msgid "Mail Server Port"
-msgstr "外寄郵件伺服器通訊埠"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:297
-msgid "Outgoing Mail Server"
-msgstr "外寄郵件伺服器"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:279
-msgid "Use Fallback?"
-msgstr "使用後援服務"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:276
-msgid "By enable this option, if your email is fail to send Post SMTP will try to use the SMTP service you define here."
-msgstr "啟用這項設定後，當使用 Post SMTP 傳送電子郵件失敗時，會改以在這個頁面設定的 SMTP 服務傳送郵件。"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:275
-msgid "Failed emails fallback"
-msgstr "電子郵件傳送失敗時的後援服務"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:211
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:246
+#: Postman/Dashboard/assets/js/app.js:2
 msgid "Fallback"
 msgstr "後援服務"
 
-#: Postman/PostmanAdminController.php:189
-msgid "Allow user to load saved options"
-msgstr "允許使用者載入已儲存的設定"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:329
+msgid "Failed emails fallback"
+msgstr "電子郵件傳送失敗時的後援服務"
 
-#: Postman/PostmanAdminController.php:182
-msgid "Same settings as the main site/blog (id:1)"
-msgstr "與主要網站相同的設定 (ID:1)"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:333
+msgid "Use Fallback?"
+msgstr "使用後援服務"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:351
+msgid "Outgoing Mail Server"
+msgstr "外寄郵件伺服器"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:369
+msgid "Security"
+msgstr "安全性"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:373
+msgid "SSL"
+msgstr "SSL"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:374
+msgid "TLS"
+msgstr "TLS"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:404
+msgid "Use SMTP Authentication?"
+msgstr "使用 SMTP 驗證"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:421
+msgid "User name"
+msgstr "使用者名稱"
+
+#: Postman/PostmanAdminController.php:167
+msgid "Post SMTP Settings"
+msgstr "Post SMTP 設定"
 
 #: Postman/PostmanAdminController.php:171
 msgid "Enable global settings"
 msgstr "啟用全域設定"
 
-#: Postman/PostmanAdminController.php:167
-msgid "Post SMTP Settings"
-msgstr "Post SMTP 設定"
+#: Postman/PostmanAdminController.php:182
+msgid "Same settings as the main site/blog (id:1)"
+msgstr "與主要網站相同的設定 (ID:1)"
+
+#: Postman/PostmanAdminController.php:189
+msgid "Allow user to load saved options"
+msgstr "允許使用者載入已儲存的設定"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:360
+msgid "Mail Server Port"
+msgstr "外寄郵件伺服器通訊埠"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:330
+msgid "By enable this option, if your email is fail to send Post SMTP will try to use the SMTP service you define here."
+msgstr "啟用這項設定後，當使用 Post SMTP 傳送電子郵件失敗時，會改為使用在這個頁面設定的 SMTP 服務傳送電子郵件。"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:205
+msgctxt "Configuration Input Field"
+msgid "Push to chrome extension"
+msgstr "推送至 Chrome 擴充功能"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:216
+msgctxt "Configuration Input Field"
+msgid "Chrome Extension UID"
+msgstr "Chrome 擴充功能 UID"
 
 #: Postman/Postman-Controller/PostmanDashboardWidgetController.php:150
 msgid "%s "
 msgid_plural "%s "
 msgstr[0] "%s "
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:663
-msgid "Your UID as you see in the extension."
-msgstr "輸入擴充功能提供的 UID"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:654
-msgid "This is an extra notification to the selection above"
-msgstr "這是除了在上方已選取的方式外的額外通知方式"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:650
-msgid "Push To Chrome Extension"
-msgstr "推送至 Chrome 擴充功能"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:117
-msgctxt "Configuration Input Field"
-msgid "Chrome Extension UID"
-msgstr "Chrome 擴充功能 UID"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:112
-msgctxt "Configuration Input Field"
-msgid "Push to chrome extension"
-msgstr "推送至 Chrome 擴充功能"
-
 #: Postman/PostmanConfigTextHelper.php:36
 msgid "Check this article how to configure Gmail/Gsuite OAuth:<a href=\"%1$s\" target=\"_blank\">Read Here</a>"
 msgstr "請參閱關於如何設定 Gmail/G Suite OAuth 的文章: <a href=\"%1$s\" target=\"_blank\">點擊閱讀</a>"
 
 #: Postman/Postman-Mail/PostmanMailgunTransport.php:208
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:264
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:266
 msgid "Mailgun Europe Region?"
 msgstr "Mailgun 歐盟地區"
 
@@ -358,149 +994,116 @@ msgstr "<strong>不支援</strong> <code>PostmanMessage</code> 物件的 <code>%
 msgid "<code>%1$s</code> property of a <code>PostmanMessage</code> object is <strong>not supported</strong>. For now all of this class properties are private."
 msgstr "<strong>不支援</strong> <code>PostmanMessage</code> 物件的 <code>%1$s</code> 屬性。目前這個類別的全部屬性都是私有屬性。"
 
-#: Postman/Postman-Mail/PostmanSendGridMailEngine.php:221
-msgid "ERROR: No recipient supplied. Status code is %1$s"
-msgstr "錯誤: 未提供收件者。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendGridMailEngine.php:218
-msgid "ERROR: The SendGrid v3 Web API is not available. Status code is %1$s"
-msgstr "錯誤: 無法使用 SendGrid v3 Web API。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendGridMailEngine.php:215
-msgid "ERROR: An error occurred on a SendGrid server. Status code is %1$s"
-msgstr "錯誤: SendGrid 伺服器發生錯誤。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendGridMailEngine.php:212
-msgid "ERROR: The number of requests you have made exceeds SendGrid rate limitations. Status code is %1$s"
-msgstr "錯誤: 目前執行的要求數量超過 SendGrid 執行週期的呼叫上限。狀態碼為 %1$s"
-
-#: Postman/Postman-Mail/PostmanSendGridMailEngine.php:209
-msgid "ERROR: The JSON payload you have included in your request is too large. Status code is %1$s"
-msgstr "錯誤: 目前要求中包含的 JSON 驗證承載長度太長。狀態碼為 %1$s"
-
 #: Postman/PostmanViewController.php:80
 msgid "Success, try to send test email."
 msgstr "處理成功，請嘗試傳送測試用電子郵件。"
 
-#: Postman/Postman-Mail/PostmanSendGridMailEngine.php:224
-#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:305
+#: Postman/Postman-Mail/PostmanSendinblueMailEngine.php:306
 msgid "ERROR: Status code is %1$s"
-msgstr "錯誤: 狀態碼為 %1$s"
+msgstr "錯誤: 狀態代碼為 %1$s"
 
-#: Postman/PostmanViewController.php:80
-msgid "Failed, try again."
-msgstr "處理失敗，請再試一次。"
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:105
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:666
+#: Postman/Wizard/NewWizard.php:438
+msgid "Notifications"
+msgstr "通知"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:729
+msgid "Pushover Credentials"
+msgstr "Pushover 授權憑證"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:733
+msgid "Pushover User Key"
+msgstr "Pushover 使用者金鑰 (User Key)"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:739
+msgid "Pushover App Token"
+msgstr "Pushover 應用程式權杖 (App Token)"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:748
+msgid "Slack Credentials"
+msgstr "Slack 授權憑證"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:752
+msgid "Slack webhook"
+msgstr "Slack Webhook"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:756
+msgid "Get your webhook URL here."
+msgstr "點擊這個連結以取得 Webhook 網址"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:114
+msgctxt "Configuration Section Title"
+msgid "Notifications Settings"
+msgstr "通知設定"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:125
+msgctxt "Configuration Section Title"
+msgid "Pushover Credentials"
+msgstr "Pushover 授權憑證"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:135
+msgctxt "Configuration Input Field"
+msgid "Pushover User Key"
+msgstr "Pushover 使用者金鑰 (User Key)"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:146
+msgctxt "Configuration Input Field"
+msgid "Pushover App Token"
+msgstr "Pushover 應用程式權杖 (App Token)"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:158
+msgctxt "Configuration Section Title"
+msgid "Slack Credentials"
+msgstr "Slack 授權憑證"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:168
+msgctxt "Configuration Input Field"
+msgid "Slack Webhook"
+msgstr "Slack Webhook"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:388
+msgid "Pushover"
+msgstr "Pushover"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:387
+msgid "Slack"
+msgstr "Slack"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:252
+msgid "Get your webhook URL here"
+msgstr "點擊這個連結以取得 Webhook 網址"
 
 #: Postman/PostmanViewController.php:76
 msgid "No lock file found."
 msgstr "沒有遭到鎖定的檔案。"
 
+#: Postman/PostmanViewController.php:80
+msgid "Failed, try again."
+msgstr "處理失敗，請再試一次。"
+
+#: Postman/PostmanViewController.php:462
+msgid "Release Lock File Error"
+msgstr "解除「鎖定檔案」錯誤"
+
 #: Postman/Postman-Mail/PostmanWooCommerce.php:37
 msgid "This is override by the account configured on Post SMTP plugin configuration."
 msgstr "這項設定會由 Post SMTP 外掛設定中的寄件者電子郵件地址所覆寫。"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:297
+msgid "For the domain: %1$s"
+msgstr "電子郵件寄件者的網域：%1$s"
+
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:298
+msgid "The log to paste when you open a support issue:"
+msgstr "發佈技術支援問題時請附上外掛測試記錄："
 
 #: Postman/Postman-Mail/PostmanWooCommerce.php:36
 msgid "\"From\" address"
 msgstr "寄件者電子郵件地址"
 
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:182
-msgid "The log to paste when you open a support issue:"
-msgstr "發佈技術支援問題時請附上外掛測試記錄："
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:181
-msgid "For the domain: %1$s"
-msgstr "電子郵件寄件者的網域：%1$s"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:168
-msgid "Get your webhook URL here"
-msgstr "點擊這個連結以取得 Webhook 網址"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:136
-msgid "Slack"
-msgstr "Slack"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:135
-msgid "Pushover"
-msgstr "Pushover"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:130
-msgid "Select the notification service you want to recieve alerts about failed emails."
-msgstr "選取接收寄件失敗訊息的通知服務。"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:107
-msgctxt "Configuration Input Field"
-msgid "Slack Webhook"
-msgstr "Slack Webhook"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:102
-msgctxt "Configuration Section Title"
-msgid "Slack Credentials"
-msgstr "Slack 授權憑證"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:96
-msgctxt "Configuration Input Field"
-msgid "Pushover App Token"
-msgstr "Pushover 應用程式權杖 (App Token)"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:91
-msgctxt "Configuration Input Field"
-msgid "Pushover User Key"
-msgstr "Pushover 使用者金鑰 (User Key)"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:86
-msgctxt "Configuration Section Title"
-msgid "Pushover Credentials"
-msgstr "Pushover 授權憑證"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:80
-msgctxt "Configuration Input Field"
-msgid "Notification Service"
-msgstr "通知服務"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:75
-msgctxt "Configuration Section Title"
-msgid "Notifications Settings"
-msgstr "通知設定"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:641
-msgid "Get your webhook URL here."
-msgstr "點擊這個連結以取得 Webhook 網址"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:637
-msgid "Slack webhook"
-msgstr "Slack Webhook"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:633
-msgid "Slack Credentials"
-msgstr "Slack 授權憑證"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:624
-msgid "Pushover App Token"
-msgstr "Pushover 應用程式權杖 (App Token)"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:618
-msgid "Pushover User Key"
-msgstr "Pushover 使用者金鑰 (User Key)"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:614
-msgid "Pushover Credentials"
-msgstr "Pushover 授權憑證"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:605
-msgid "Select a notify service to notify you when an email is failed to delivered."
-msgstr "選取接收寄件失敗訊息的通知服務。"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:68
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:603
-msgid "Notifications"
-msgstr "通知"
-
-#: Postman/PostmanPluginFeedback.php:116
-msgid "I have no time for this"
-msgstr "沒時間進行回報"
-
 #: Postman/Postman-Mail/PostmanMailgunTransport.php:203
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:260
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:262
 msgid "Domain Name"
 msgstr "網域名稱"
 
@@ -508,34 +1111,17 @@ msgstr "網域名稱"
 msgid "Domain Name can not be empty"
 msgstr "網域名稱不能留空"
 
-#. translators: where (1) is the secure icon and (2) is the transport name
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:85
-msgid "Post SMTP will send mail via the <b>%1$s %2$s</b>."
-msgstr "Post SMTP 會以 <b>%1$s %2$s</b> 傳送郵件。"
-
 #: Postman/Postman-Mail/PostmanMailgunTransport.php:43
 msgid "Mailgun API"
 msgstr "Mailgun API"
 
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:171
-msgid "Sent To"
-msgstr "收件者"
+#: Postman/PostmanPluginFeedback.php:116
+msgid "I have no time for this"
+msgstr "沒時間進行回報"
 
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:491
-msgid "Trash All"
-msgstr "將全部記錄移至回收桶"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:483
-msgid "Filter/Search"
-msgstr "篩選/搜尋"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:471
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:52
 msgid "Records per page"
 msgstr "每頁記錄顯示數量"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:200
-msgid "Here I will list top users that help Post SMTP grow (bugs, features, etc...)"
-msgstr "我會將協助 Post SMTP 改進的最佳使用者列於此處 (回報錯誤或新功能等等)"
 
 #: Postman/Postman-Controller/PostmanWelcomeController.php:199
 msgid "Top Community Members"
@@ -553,6 +1139,89 @@ msgstr "專案負責人"
 msgid "Post SMTP started by Jason Hendriks, Jason left the project and Yehuda Hassine (me) continue his work."
 msgstr "Post SMTP 最初由 Jason Hendriks 所開發，Jason 不再開發後，由 Yehuda Hassine (志願開發者) 接手開發。"
 
+#: Postman/Postman-Controller/PostmanWelcomeController.php:143
+msgid "Full Transcripts, Connectivity Test, Diagnostic Test."
+msgstr "完整文字記錄、連線測試、診斷測試。"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:142
+msgid "The best debugging tools."
+msgstr "最佳偵錯工具。"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:137
+msgid "Continues email delivery"
+msgstr "持續傳送電子郵件"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:132
+msgid "Email log HTML preview"
+msgstr "以 HTML 方式預覽電子郵件記錄"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:115
+msgid "The best delivery experience"
+msgstr "最佳電子郵件傳送體驗"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:105
+msgid "Multiple emails resend"
+msgstr "重新傳送多封電子郵件"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:93
+msgid "Email Log"
+msgstr "電子郵件記錄"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:86
+#: Postman/Postman-Controller/PostmanWelcomeController.php:182
+msgid "What&#8217;s New"
+msgstr "新增功能"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:82
+#: Postman/Postman-Controller/PostmanWelcomeController.php:178
+msgid "Version %s"
+msgstr "%s 版"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:78
+#: Postman/Postman-Controller/PostmanWelcomeController.php:176
+msgid "Welcome to Post SMTP %s"
+msgstr "歡迎使用 Post SMTP %s 版"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:34
+#: Postman/Postman-Controller/PostmanWelcomeController.php:35
+#: Postman/Postman-Controller/PostmanWelcomeController.php:88
+#: Postman/Postman-Controller/PostmanWelcomeController.php:184
+msgid "Credits"
+msgstr "貢獻人員名單"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:25
+#: Postman/Postman-Controller/PostmanWelcomeController.php:26
+msgid "Welcome"
+msgstr "歡迎使用"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:97
+msgid "Email log filter"
+msgstr "電子郵件記錄篩選程式"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:64
+msgid "Filter/Search"
+msgstr "篩選/搜尋"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:171
+msgid "Sent To"
+msgstr "收件者"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:79
+msgid "Thank you for updating! Post SMTP %s is bundled up and ready to take your SMTP needs to the next level!"
+msgstr "感謝配合完成更新！Post SMTP %s 版已整備完畢，並準備將這個網站的 SMTP 需求提昇至新的水準。"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:99
+msgid "You can easily filter by dates and search in your log."
+msgstr "網站管理員可以很方便的透過日期進行篩選並搜尋電子郵件記錄。"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:133
+msgid "You can now see sent emails as HTML."
+msgstr "網站管理員可以以 HTML 方式檢視已傳送的電子郵件。"
+
+#: Postman/Postman-Controller/PostmanWelcomeController.php:138
+msgid "if email fail to sent you will get notified using the local mail system."
+msgstr "如果電子郵件傳送失敗，網站管理員會透過本地電子郵件系統收到通知。"
+
 #: Postman/Postman-Controller/PostmanWelcomeController.php:177
 msgid "Thank you for updating! bbPress %s is waxed, polished, and ready for you to take it for a lap or two around the block!"
 msgstr "感謝配合完成更新！bbPress %s 版已整備完畢，並準備好迎接這個網站的社群使用者。"
@@ -562,29 +1231,13 @@ msgstr "感謝配合完成更新！bbPress %s 版已整備完畢，並準備好�
 msgid "Go to Post SMTP Settings"
 msgstr "前往 [Post SMTP 設定]"
 
-#: Postman/Postman-Controller/PostmanWelcomeController.php:143
-msgid "Full Transcripts, Connectivity Test, Diagnostic Test."
-msgstr "完整文字記錄、連線測試、診斷測試。"
+#: Postman/Postman-Controller/PostmanWelcomeController.php:107
+msgid "Resend any email to the original recipient or any other emails you choose."
+msgstr "重新傳送電子郵件至原始收件者、或網站管理員選取的任何電子郵件。"
 
-#: Postman/Postman-Controller/PostmanWelcomeController.php:142
-msgid "The best debugging tools."
-msgstr "最佳偵錯工具。"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:138
-msgid "if email fail to sent you will get notified using the local mail system."
-msgstr "如果電子郵件傳送失敗，網站管理員會透過本地電子郵件系統收到通知。"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:137
-msgid "Continues email delivery"
-msgstr "持續傳送電子郵件"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:133
-msgid "You can now see sent emails as HTML."
-msgstr "網站管理員可以以 HTML 方式檢視已傳送的電子郵件。"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:132
-msgid "Email log HTML preview"
-msgstr "以 HTML 方式預覽電子郵件記錄"
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:72
+msgid "Trash All"
+msgstr "將全部記錄移至回收桶"
 
 #: Postman/Postman-Controller/PostmanWelcomeController.php:119
 msgid ""
@@ -606,62 +1259,16 @@ msgstr ""
 "\t\t\t\t\t\t支援安全性傳輸: SMTPS 以及 STARTTLS (SSL/TLS)。\n"
 "\t\t\t\t\t\t可將設定複製至其他 Post SMTP 執行實體。"
 
-#: Postman/Postman-Controller/PostmanWelcomeController.php:115
-msgid "The best delivery experience"
-msgstr "最佳電子郵件傳送體驗"
+#. translators: where (1) is the secure icon and (2) is the transport name
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:85
+msgid "Post SMTP will send mail via the <b>%1$s %2$s</b>."
+msgstr "Post SMTP 會以 <b>%1$s %2$s</b> 傳送電子郵件。"
 
-#: Postman/Postman-Controller/PostmanWelcomeController.php:107
-msgid "Resend any email to the original recipient or any other emails you choose."
-msgstr "重新傳送電子郵件至原始收件者、或網站管理員選取的任何電子郵件。"
+#: Postman/Postman-Controller/PostmanWelcomeController.php:200
+msgid "Here I will list top users that help Post SMTP grow (bugs, features, etc...)"
+msgstr "我會將協助 Post SMTP 改進的最佳使用者列於這裡 (回報錯誤或新功能等等)"
 
-#: Postman/Postman-Controller/PostmanWelcomeController.php:105
-msgid "Multiple emails resend"
-msgstr "重新傳送多封電子郵件"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:99
-msgid "You can easily filter by dates and search in your log."
-msgstr "網站管理員可以很方便的透過日期進行篩選並搜尋電子郵件記錄。"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:97
-msgid "Email log filter"
-msgstr "電子郵件記錄篩選程式"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:93
-msgid "Email Log"
-msgstr "電子郵件記錄"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:86
-#: Postman/Postman-Controller/PostmanWelcomeController.php:182
-msgid "What&#8217;s New"
-msgstr "新增功能"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:82
-#: Postman/Postman-Controller/PostmanWelcomeController.php:178
-msgid "Version %s"
-msgstr "%s 版"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:79
-msgid "Thank you for updating! Post SMTP %s is bundled up and ready to take your SMTP needs to the next level!"
-msgstr "感謝配合完成更新！Post SMTP %s 版已整備完畢，並準備將這個網站的 SMTP 需求提昇至新的水準。"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:78
-#: Postman/Postman-Controller/PostmanWelcomeController.php:176
-msgid "Welcome to Post SMTP %s"
-msgstr "歡迎使用 Post SMTP %s 版"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:34
-#: Postman/Postman-Controller/PostmanWelcomeController.php:35
-#: Postman/Postman-Controller/PostmanWelcomeController.php:88
-#: Postman/Postman-Controller/PostmanWelcomeController.php:184
-msgid "Credits"
-msgstr "貢獻人員名單"
-
-#: Postman/Postman-Controller/PostmanWelcomeController.php:25
-#: Postman/Postman-Controller/PostmanWelcomeController.php:26
-msgid "Welcome"
-msgstr "歡迎使用"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:180
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:296
 msgid "You getting this message because an error detected while delivered your email."
 msgstr "會收到這個訊息，是因為在傳送電子郵件時偵測到錯誤。"
 
@@ -669,294 +1276,801 @@ msgstr "會收到這個訊息，是因為在傳送電子郵件時偵測到錯誤
 msgid "comma-separated for multiple emails"
 msgstr "以逗號分隔多個電子郵件地址"
 
-#: Postman/PostmanPluginFeedback.php:140
-msgid "Open A support ticket for me"
-msgstr "為我建立支援需求"
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:44
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:45
+msgid "To Date"
+msgstr "結束日期"
 
-#: Postman/PostmanPluginFeedback.php:134
-msgid "Other Reason"
-msgstr "其他原因"
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:48
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:49
+msgid "Search"
+msgstr "搜尋"
 
-#: Postman/PostmanPluginFeedback.php:128
-msgid "The plugin didn't work"
-msgstr "外掛無法正常運作"
+#: Postman/Postman.php:348
+msgid "Deactivate"
+msgstr "停用"
 
 #: Postman/PostmanPluginFeedback.php:122
 msgid "Found a better plugin"
 msgstr "找到更好的外掛"
 
-#: Postman/Postman.php:315
-msgid "Deactivate"
-msgstr "停用"
+#: Postman/PostmanPluginFeedback.php:128
+msgid "The plugin didn't work"
+msgstr "外掛無法正常運作"
 
-#: Postman/Postman.php:315
+#: Postman/PostmanPluginFeedback.php:134
+msgid "Other Reason"
+msgstr "其他原因"
+
+#: Postman/PostmanPluginFeedback.php:140
+msgid "Open A support ticket for me"
+msgstr "為我建立支援需求"
+
+#: Postman/PostmanViewController.php:480
+msgid "Guides"
+msgstr "操作指南"
+
+#: Postman/Postman.php:348
 msgctxt "plugin"
 msgid "Deactivate %s"
 msgstr "停用 %s"
 
-#: Postman/Extensions/Core/Notifications/PostmanMailNotify.php:12
+#: Postman/Extensions/Core/Notifications/PostmanMailNotify.php:24
 msgid "Post SMTP email error"
 msgstr "Post SMTP 電子郵件錯誤"
 
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:467
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:468
-msgid "Search"
-msgstr "搜尋"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:463
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:464
-msgid "To Date"
-msgstr "結束日期"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:459
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:460
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:40
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:41
 msgid "From Date"
-msgstr "起始日期"
+msgstr "開始日期"
 
-#. Author URI of the plugin
-msgid "https://postmansmtp.com"
-msgstr "https://postmansmtp.com"
+#: Postman/Localize.php:2
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:647
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:421
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:99
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:124
+#: Postman/Postman-Email-Log/PostmanEmailLogService.php:109
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:659
+#: Postman/PostmanViewController.php:704
+msgid "Warning"
+msgstr "警告"
 
-#. Description of the plugin
-msgid "Email not reliable? Post SMTP is the first and only WordPress SMTP plugin to implement OAuth 2.0 for Gmail, Hotmail and Yahoo Mail. Setup is a breeze with the Configuration Wizard and integrated Port Tester. Enjoy worry-free delivery even if your password changes!"
-msgstr "傳送電子郵件總是時靈時不靈？Post SMTP 是 WordPress 上第一個也是唯一一個實作 Gmail、Hotmail 以及 Yahoo 郵件 OAuth 2.0 驗證的外掛。透過 [設定精靈] 及整合而來的通訊埠測試程式，讓外掛設定變的相當簡易。即使日後密碼有了變更，依舊可保有無須煩心的郵件傳送功能！"
+#. translators: where %s is the name of the SMTP server
+#: Postman/Localize.php:6
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:124
+msgid "connected to %1$s instead of %2$s."
+msgstr "實際上是連線至 %1$s，而非 %2$s。"
 
-#. Plugin URI of the plugin
-msgid "https://wordpress.org/plugins/post-smtp/"
-msgstr "https://tw.wordpress.org/plugins/post-smtp/"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:143
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:174
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:83
+#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:83
+#: Postman/PostmanViewController.php:119 Postman/PostmanViewController.php:146
+#: Postman/PostmanViewController.php:639
+msgid "%s Setup"
+msgstr "%s 設定"
 
-#. Plugin Name of the plugin
-#. Author of the plugin
-#. Translators where (%s) is the name of the plugin
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:381
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:434
-#: Postman/PostmanViewController.php:119 Postman/PostmanViewController.php:120
-#: Postman/PostmanViewController.php:146 Postman/PostmanViewController.php:609
-msgid "Post SMTP"
-msgstr "Post SMTP"
-
-#: Postman/PostmanViewController.php:300
-msgid "Show All Settings"
-msgstr "顯示全部設定"
-
-#: Postman/PostmanViewController.php:280 Postman/PostmanViewController.php:295
-msgid "Start the Wizard"
-msgstr "設定精靈"
-
-#: Postman/PostmanViewController.php:292
-msgid "Configuration"
+#. Translators where %s is the name of the page
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:144
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:242
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:85
+#: Postman/Postman-Mail/PostmanMyMailConnector.php:202
+#: Postman/Postman-Mail/PostmanMyMailConnector.php:218 Postman/Postman.php:438
+#: Postman/PostmanAdminController.php:305
+msgid "Settings"
 msgstr "設定"
 
-#: Postman/PostmanViewController.php:698
-msgid "Are you sure?"
-msgstr "確定要繼續操作嗎？"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:247
+#: Postman/Dashboard/assets/js/app.js:2
+msgid "Message"
+msgstr "訊息"
 
-#: Postman/PostmanViewController.php:697
-msgid "This will purge all of Postman's settings, including account credentials and the email log."
-msgstr "這項操作會清除全部 Post SMTP 的設定，包含帳號認證及電子郵件記錄。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:248
+#: Postman/Dashboard/assets/js/app.js:2
+msgid "Logging"
+msgstr "記錄"
 
-#: Postman/PostmanViewController.php:675
-msgid "Using the same OAuth 2.0 Client ID and Client Secret from this site at the same time as another site will cause failures."
-msgstr "在不同的網站間同時使用相同的 OAuth 2.0 用戶端 ID 及用戶端密碼，會導致驗證失敗。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:249
+#: Postman/Dashboard/assets/js/app.js:2
+msgid "Advanced"
+msgstr "進階設定"
 
-#: Postman/PostmanViewController.php:671
-msgid "Paste data from another instance of Postman here to duplicate the configuration."
-msgstr "在此貼上從另一個 Post SMTP 執行個體取得的資料，便能以相同參數完成設定。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:525
+msgctxt "Wizard Step Title"
+msgid "Import Configuration"
+msgstr "匯入設定"
 
-#: Postman/PostmanViewController.php:641
-msgid "Copy this data into another instance of Postman to duplicate the configuration."
-msgstr "將以下資料複製至另一個 Post SMTP 執行個體，便能以相同參數完成設定。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:527
+msgctxt "Wizard Step Title"
+msgid "Import configuration from another plugin?"
+msgstr "從其他外掛匯入設定？"
 
-#: Postman/PostmanViewController.php:365 Postman/PostmanViewController.php:635
-msgid "Reset Plugin"
-msgstr "重設外掛"
+#: Postman/Extensions/Core/Notifications/PostmanNotify.php:385
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:372
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:562
+#: Postman/Postman-Mail/PostmanModuleTransport.php:773
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:446
+msgid "None"
+msgstr "無"
 
-#: Postman/PostmanViewController.php:364 Postman/PostmanViewController.php:634
-msgid "Export"
-msgstr "匯出"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:597
+msgctxt "Wizard Step Title"
+msgid "Sender Details"
+msgstr "寄件者詳細資料"
 
-#: Postman/PostmanViewController.php:363 Postman/PostmanViewController.php:633
-#: Postman/PostmanViewController.php:683
-msgid "Import"
-msgstr "匯入"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:599
+msgctxt "Wizard Step Title"
+msgid "Who is the mail coming from?"
+msgstr "要將哪個帳號設定為寄件者？"
 
-#: Postman/PostmanViewController.php:618
-msgctxt "Return to main menu link"
-msgid "Back To Main Menu"
-msgstr "返回主選單"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:615
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:58
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:123
+#: Postman/Dashboard/assets/js/app.js:2
+msgid "Email Address"
+msgstr "電子郵件地址"
 
-#: Postman/PostmanViewController.php:483
-msgid "The last %1$d email attempts are recorded <a href=\"%2$s\">in the log</a>."
-msgstr "目前設定為最新的 %1$d 筆電子郵件傳送嘗試會予以<a href=\"%2$s\">記錄</a>。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:610
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:68
+msgid "Name"
+msgstr "顯示名稱"
 
-#: Postman/PostmanViewController.php:473
-msgid "Postman has delivered <span style=\"color:green\">%d</span> email."
-msgid_plural "Postman has delivered <span style=\"color:green\">%d</span> emails."
-msgstr[0] "Post SMTP 已傳送 <span style=\"color:green\">%d</span> 封電子郵件。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:624
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:156
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:335
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:656
+#: Postman/Wizard/NewWizard.php:700
+msgid "Outgoing Mail Server Hostname"
+msgstr "外寄郵件伺服器主機名稱"
 
-#: Postman/PostmanViewController.php:214
-msgid "Postman is unable to run. Email delivery is being handled by WordPress (or another plugin)."
-msgstr "Post SMTP 無法執行。目前電子郵件傳送正由 WordPress 或其他外掛處理。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:632
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:636
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:148
+#: Postman/PostmanViewController.php:450
+msgid "Connectivity Test"
+msgstr "連線測試"
 
-#: Postman/Localize.php:26
-msgctxt "Press this button to go to the previous step"
-msgid "Previous"
-msgstr "上一步"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:636
+msgctxt "TCP Port Test Status"
+msgid "Ready"
+msgstr "準備就緒"
 
-#: Postman/Localize.php:25
-msgctxt "Press this button to go to the next step"
-msgid "Next"
-msgstr "下一步"
+#. Translators: Where %1$s is the socket identifier and %2$s is the
+#. authentication type
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:644
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
+msgctxt "A socket is the network term for host and port together"
+msgid "Socket"
+msgstr "通訊端"
 
-#: Postman/Localize.php:24
-msgctxt "Press this button to Finish this task"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:648
+msgid "This configuration option will send your authorization credentials in the clear."
+msgstr "這項設定會以明文傳送授權憑證。"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:800
+msgctxt "The final step of the Wizard"
 msgid "Finish"
 msgstr "完成"
 
-#: Postman/PostmanViewController.php:185
-msgid "Unexpected PHP messages corrupted the Ajax response"
-msgstr "意外的 PHP 訊息損毀 AJAX 回應"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:802
+msgctxt "Wizard Step Title"
+msgid "You're Done!"
+msgstr "大功告成！"
 
-#: Postman/PostmanViewController.php:184
-msgid "An unexpected error occurred"
-msgstr "發生未知錯誤"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:645
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:657
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
+#: Postman/Postman-Mail/PostmanElasticEmailTransport.php:181
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:193
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:182
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:229
+#: Postman/Postman-Mail/PostmanPostmarkTransport.php:177
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:183
+#: Postman/Postman-Mail/PostmanSendinblueTransport.php:181
+#: Postman/Postman-Mail/PostmanSendpulseTransport.php:184
+#: Postman/Postman-Mail/PostmanSmtp2GoTransport.php:134
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:355
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:360
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:376
+#: Postman/Postman-Mail/PostmanSparkPostTransport.php:177
+msgid "Authentication"
+msgstr "驗證方式"
 
-#: Postman/PostmanInputSanitizer.php:165
-msgid "must be greater than 0"
-msgstr "必須大於 0"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:37
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
+msgid "Transport"
+msgstr "傳輸方式"
 
-#: Postman/PostmanConfigTextHelper.php:305
-msgid "Grant OAuth 2.0 Permission"
-msgstr "授予 OAuth 2.0 權限"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:42
+msgctxt "(i.e.) What kind is it?"
+msgid "Type"
+msgstr "類型"
 
-#: Postman/PostmanConfigTextHelper.php:281
-msgctxt "Name of the Application Callback Domain"
-msgid "Website Domain"
-msgstr "網站網域"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:79
+msgid "Additional Email Addresses"
+msgstr "其他電子郵件地址"
 
-#: Postman/PostmanConfigTextHelper.php:278
-msgctxt "Name of the Application Callback URI"
-msgid "Redirect URI"
-msgstr "重新導向 URI"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:84
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:355
+msgid "Reply-To"
+msgstr "回覆至"
 
-#: Postman/PostmanConfigTextHelper.php:262
-msgid "Enter an Outgoing Mail Server with OAuth2 capabilities."
-msgstr "輸入具備 OAuth 驗證功能的外寄郵件伺服器名稱。"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:89
+msgid "To Recipient(s)"
+msgstr "收件者 (to)"
 
-#. Translators: This description is specific to Yahoo
-#: Postman/PostmanConfigTextHelper.php:233
-msgctxt "Name of the email service portal"
-msgid "Yahoo Developer Network"
-msgstr "Yahoo Developer Network"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:94
+msgid "Carbon Copy Recipient(s)"
+msgstr "副本 (cc) 收件者"
 
-#. Translators: This description is specific to Yahoo
-#: Postman/PostmanConfigTextHelper.php:225
-msgctxt "Name of the email service"
-msgid "Yahoo Mail"
-msgstr "Yahoo Mail (電子郵件)"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:99
+msgid "Blind Carbon Copy Recipient(s)"
+msgstr "密件副本 (bcc) 收件者"
 
-#. Translators: This description is specific to Yahoo
-#: Postman/PostmanConfigTextHelper.php:221
-msgctxt "Name of the email service owner"
-msgid "Yahoo"
-msgstr "Yahoo"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:105
+msgid "Additional Headers"
+msgstr "其他標頭"
 
-#. Translators: This description is specific to Yahoo
-#: Postman/PostmanConfigTextHelper.php:217
-msgctxt "Name of the Application Callback Domain"
-msgid "Callback Domain"
-msgstr "Callback Domain (回撥網域)"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:110
+msgid "Custom Headers"
+msgstr "自訂標頭"
 
-#. Translators: This description is specific to Yahoo
-#: Postman/PostmanConfigTextHelper.php:213
-msgctxt "Name of the Application Callback URI"
-msgid "Home Page URL"
-msgstr "Home Page URL (首頁網址)"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:118
+msgid "Validation"
+msgstr "驗證"
 
-#. Translators: This description is specific to Microsoft
-#: Postman/PostmanConfigTextHelper.php:171
-msgctxt "Name of the email service portal"
-msgid "Microsoft Developer Center"
-msgstr "Microsoft Developer Center"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:129
+msgid "Email Log Settings"
+msgstr "電子郵件記錄設定"
 
-#. Translators: This description is specific to Microsoft
-#. Translators: This description is specific to Yahoo
-#: Postman/PostmanConfigTextHelper.php:167
-#: Postman/PostmanConfigTextHelper.php:229
-msgctxt "Description of the email service OAuth 2.0 Application"
-msgid "an Application"
-msgstr "應用程式"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:134
+msgid "Enable Logging"
+msgstr "啟用記錄"
 
-#. Translators: This description is specific to Microsoft
-#: Postman/PostmanConfigTextHelper.php:163
-msgctxt "Name of the email service"
-msgid "Outlook.com"
-msgstr "Outlook.com"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:139
+#: Postman/PostmanInputSanitizer.php:188
+msgid "Maximum Log Entries"
+msgstr "最大記錄項目數"
 
-#. Translators: This description is specific to Microsoft
-#: Postman/PostmanConfigTextHelper.php:159
-msgctxt "Name of the email service owner"
-msgid "Microsoft"
-msgstr "Microsoft"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:144
+msgid "Maximum Transcript Size"
+msgstr "最大文字記錄大小"
 
-#. Translators: This description is specific to Microsoft
-#: Postman/PostmanConfigTextHelper.php:155
-msgctxt "Name of the Application Callback Domain"
-msgid "Root Domain"
-msgstr "根網域"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:150
+msgid "Network Settings"
+msgstr "網路設定"
 
-#. Translators: This description is specific to Microsoft
-#: Postman/PostmanConfigTextHelper.php:151
-msgctxt "Name of the Application Callback URI"
-msgid "Redirect URL"
-msgstr "重新導向網址"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:155
+msgctxt "Configuration Input Field"
+msgid "TCP Connection Timeout (sec)"
+msgstr "TCP 連線逾時 (秒)"
 
-#. Translators: This description is specific to Google
-#: Postman/PostmanConfigTextHelper.php:109
-msgctxt "Name of the email service portal"
-msgid "Google Developers Console Gmail Wizard"
-msgstr "Google API Console 的 Gmail API"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:160
+msgctxt "Configuration Input Field"
+msgid "TCP Read Timeout (sec)"
+msgstr "TCP 讀取逾時 (秒)"
 
-#. Translators: This description is specific to Google
-#: Postman/PostmanConfigTextHelper.php:105
-msgctxt "Description of the email service OAuth 2.0 Application"
-msgid "a Client ID for web application"
-msgstr "網路應用程式的用戶端 ID"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:166
+msgctxt "Configuration Section Title"
+msgid "Miscellaneous Settings"
+msgstr "其他設定"
 
-#. Translators: This description is specific to Google
-#: Postman/PostmanConfigTextHelper.php:101
-msgctxt "Name of the email service"
-msgid "Gmail"
-msgstr "Gmail"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:171
+msgctxt "Configuration Input Field"
+msgid "PHP Log Level"
+msgstr "PHP 記錄層級"
 
-#. Translators: This description is specific to Google
-#: Postman/PostmanConfigTextHelper.php:97
-msgctxt "Name of the email service owner"
-msgid "Google"
-msgstr "Google"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:176
+msgctxt "Configuration Input Field"
+msgid "Delivery Mode"
+msgstr "傳送模式"
 
-#. Translators: This description is specific to Google
-#: Postman/PostmanConfigTextHelper.php:93
-msgctxt "Name of the Application Callback Domain"
-msgid "Authorized JavaScript origins"
-msgstr "已授權的 JavaScript 來源"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:181
+msgctxt "This mode removes the Postman X-Mailer signature from emails"
+msgid "Stealth Mode"
+msgstr "隱形模式"
 
-#. Translators: This description is specific to Google
-#: Postman/PostmanConfigTextHelper.php:89
-msgctxt "Name of the Application Callback URI"
-msgid "Authorized redirect URI"
-msgstr "已授權的重新導向 URI"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:186
+msgid "Temporary Directory"
+msgstr "暫存目錄"
 
-#. Translators: This description is specific to Google
-#. Translators: This description is specific to Microsoft
-#. Translators: This description is specific to Yahoo
-#: Postman/PostmanConfigTextHelper.php:85
-#: Postman/PostmanConfigTextHelper.php:147
-#: Postman/PostmanConfigTextHelper.php:209
-#: Postman/PostmanConfigTextHelper.php:275
-msgctxt "Name of the OAuth 2.0 Client Secret"
-msgid "Client Secret"
-msgstr "用戶端密碼"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:207
+msgid "Configure the delivery audit log:"
+msgstr "設定傳送稽核記錄:"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:221
+msgid "Separate multiple <b>to</b>/<b>cc</b>/<b>bcc</b> recipients with commas."
+msgstr "請以逗號分隔多位<b>收件者 (to)</b>/<b>副本收件者 (cc)</b>/<b>密件副本收件者 (bcc)</b>。"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:247
+msgid "Specify custom headers (e.g. <code>X-MC-Tags: wordpress-site-A</code>), one per line. Use custom headers with caution as they can negatively affect your Spam score."
+msgstr "每行指定一項如 <code>X-MC-Tags: wordpress-site-A</code> 的自訂標頭。請謹慎使用自訂標頭，濫用自訂標頭可能會對垃圾郵件評等產生負面影響。"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:317
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:322
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:478
+#: Postman/Postman-Mail/PostmanElasticEmailTransport.php:215
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:221
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:227
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:224
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:235
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:250
+#: Postman/Postman-Mail/PostmanPostmarkTransport.php:211
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:210
+#: Postman/Postman-Mail/PostmanSendinblueTransport.php:215
+#: Postman/Postman-Mail/PostmanSendpulseTransport.php:234
+#: Postman/Postman-Mail/PostmanSendpulseTransport.php:246
+#: Postman/Postman-Mail/PostmanSmtp2GoTransport.php:164
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:430
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:437
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:480
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:488
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:496
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:503
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:641
+#: Postman/Postman-Mail/PostmanSparkPostTransport.php:211
+msgid "Required"
+msgstr "必填"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:332
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:642
+msgid "This address, like the <b>return address</b> printed on an envelope, identifies the account owner to the SMTP server."
+msgstr "這個電子郵件地址就如同印在信封上的<b>回郵地址</b>一樣，用於供 SMTP 伺服器識別帳號擁有者。"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:345
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:415
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:353
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:116
+msgid "Yes"
+msgstr "是"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:338
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:409
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:354
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:117
+msgid "No"
+msgstr "否"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:407
+msgid "Disable e-mail validation"
+msgstr "停用電子郵件驗證"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:417
+msgid "Off"
+msgstr "關閉"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:418
+msgid "Trace"
+msgstr "追蹤"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:419
+msgid "Debug"
+msgstr "偵錯"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:420
+msgid "Info"
+msgstr "資訊"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:422
+msgid "Error"
+msgstr "錯誤"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:431
+msgid "Delivery mode offers options useful for developing or testing."
+msgstr "[傳送模式] 提供了對開發或測試相當有幫助的設定選項。"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:434
+msgctxt "When the server is online to the public, this is \"Production\" mode"
+msgid "Log Email and Send"
+msgstr "記錄電子郵件並傳送"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:445
+msgid "Lockfiles are written here to prevent users from triggering an OAuth 2.0 token refresh at the same time."
+msgstr "寫入鎖定檔案以防止多位使用者同時觸發 OAuth 2.0 權杖換發事件。"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:454
+msgid "Valid"
+msgstr "有效"
+
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:456
+msgid "Invalid"
+msgstr "無效"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:114
+msgctxt "The port is open"
+msgid "Open"
+msgstr "開啟"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:115
+msgctxt "The port is closed"
+msgid "Closed"
+msgstr "關閉"
+
+#. translators: where %d is a port number
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:119
+msgid "No outbound route between this site and the Internet on Port %d."
+msgstr "這個網站與網際網路間，並無通訊埠 %d 的出站路由。"
+
+#. translators: where %d is a port number and %s is a hostname
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:121
+msgid "Port %d is open, but not to %s."
+msgstr "通訊埠 %d 已開啟，但並未交由 %s 使用。"
+
+#. translators: where %d is the port number and %s is the hostname
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:123
+msgid "Port %d can be used for SMTP to %s."
+msgstr "通訊埠 %d 可交由 SMTP 通訊協定連線至 %s。"
+
+#. translators: where %d is a port number and %s is the URL for the Postman
+#. Gmail Extension
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:126
+msgid "Port %d can be used with the %s."
+msgstr "通訊埠 %d 可交由 %s 使用。"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:158
+msgctxt "Button Label"
+msgid "Begin Test"
+msgstr "開始測試"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:172
+#: Postman/Dashboard/assets/js/app.js:2
+msgid "Status"
+msgstr "狀態"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
+msgid "Service Available"
+msgstr "服務是否可用"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
+msgid "Server ID"
+msgstr "伺服器 ID"
+
+#. Translators: Meaning "Not Applicable"
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:168
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:402
+msgid "n/a"
+msgstr "不適用"
+
+#. Translators: Where %s is the name of the service providing Internet
+#. connectivity test
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:173
+msgid "According to %s"
+msgstr "測試結果由 %s 提供"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:176
+msgid "Summary"
+msgstr "摘要"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:181
+msgid "A test with <span style=\"color:red\">\"No\"</span> Service Available indicates one or more of these issues:"
+msgstr "[服務是否可用] 的測試結果若為 <span style=\"color:red\">[否]</span>，代表發生了下列一或多項問題:"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:183
+msgid "Your web host has placed a firewall between this site and the Internet"
+msgstr "主機商在網站主機與網際網路之間設置了防火牆，阻擋了郵件通訊埠的通訊。"
+
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:86
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:428
+#: Postman/Postman.php:439
+msgctxt "The log of Emails that have been delivered"
+msgid "Email Log"
+msgstr "電子郵件記錄"
+
+#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:104
+#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:115
+#: Postman/PostmanViewController.php:456
+msgid "Diagnostic Test"
+msgstr "診斷測試"
+
+#: Postman/Dashboard/includes/rest-api/v1/class-psd-rest-api.php:246
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:220
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:372
+#: Postman/PostmanEmailLogs.php:782
+msgid "Your message was delivered (%d ms) to the SMTP server! Congratulations :)"
+msgstr "郵件已在 %d 毫秒內傳送至 SMTP 伺服器！恭喜 :)"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:286
+msgid "Mail Log Entries were deleted."
+msgstr "郵件記錄項目已刪除。"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:309
+msgid "Mail Log Entry was deleted."
+msgstr "郵件記錄項目已刪除。"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:339
+msgctxt "Who is this message From?"
+msgid "From"
+msgstr "寄件者"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:343
+msgctxt "Who is this message To?"
+msgid "To"
+msgstr "收件者"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:347
+msgctxt "Who is this message Cc'd to?"
+msgid "Cc"
+msgstr "副本"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:351
+msgctxt "Who is this message Bcc'd to?"
+msgid "Bcc"
+msgstr "密件副本"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:357
+msgctxt "What is the date today?"
+msgid "Date"
+msgstr "日期"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:358
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:170
+msgctxt "What is the subject of this message?"
+msgid "Subject"
+msgstr "主旨"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:361
+msgctxt "What is the unique URI of the configuration?"
+msgid "Delivery-URI"
+msgstr "傳送 URI"
+
+#. Translators where (%s) is the name of the plugin
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:427
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:15
+msgid "%s Email Log"
+msgstr "%s 電子郵件記錄"
+
+#: Postman/Localize.php:18
+msgid "Email was successfully resent (but without attachments)"
+msgstr "已成功重新傳送電子郵件 (但不含附件)"
+
+#. Translators: Where %s is an error message
+#: Postman/Localize.php:20
+msgid "Email could not be resent. Error: %s"
+msgstr "無法重新傳送電子郵件。錯誤: %s"
+
+#: Postman/Localize.php:21
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:119
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:121
+#: Postman/Dashboard/assets/js/app.js:2
+msgid "Resend"
+msgstr "重新傳送"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogPostType.php:40
+msgctxt "The group of Emails that have been delivered"
+msgid "Sent Emails"
+msgstr "封已傳送的電子郵件"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogPostType.php:41
+msgctxt "An Email that has been delivered"
+msgid "Sent Email"
+msgstr "封已傳送的電子郵件"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogService.php:109
+msgid "An empty subject line can result in delivery failure."
+msgstr "空白主旨行會導致傳送失敗。"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogService.php:356
+msgid ".. +%d more"
+msgstr ".. +%d 更多"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:103
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:234
+msgctxt "Delete an item from the email log"
+msgid "Delete"
+msgstr "刪除"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:104
+msgctxt "View an item from the email log"
+msgid "View"
+msgstr "檢視"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:108
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:110
+msgid "Session Transcript"
+msgstr "工作階段記錄"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:174
+msgctxt "When was this email sent?"
+msgid "Delivery Time"
+msgstr "傳送時間"
+
+#. Translators: where %s indicates the relative time from now
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:371
+msgctxt "A relative time as in \"five days ago\""
+msgid "%s ago"
+msgstr "%s前"
+
+#: Postman/Postman-Email-Log/PostmanEmailLogView.php:389
+msgid "Sent"
+msgstr "已傳送"
+
+#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:149
+msgid "Gmail API"
+msgstr "Gmail API"
+
+#. translators: %1$s is the Client ID label, and %2$s is the Client Secret
+#. label
+#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:213
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:120
+msgid "You have configured OAuth 2.0 authentication, but have not received permission to use it."
+msgstr "目前已完成 OAuth 2.0 驗證的設定，但尚未取得使用權限。"
+
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:48
+msgid "Mandrill API"
+msgstr "Mandrill API"
+
+#: Postman/Postman-Mail/PostmanElasticEmailTransport.php:299
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:109
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:322
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:151
+#: Postman/Postman-Mail/PostmanPostmarkTransport.php:258
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:105
+#: Postman/Postman-Mail/PostmanSendinblueTransport.php:299
+#: Postman/Postman-Mail/PostmanSmtp2GoTransport.php:77
+#: Postman/Postman-Mail/PostmanSparkPostTransport.php:280
+msgid "API Key can not be empty"
+msgstr "API 金鑰不能留空"
+
+#: Postman/Postman-Mail/PostmanElasticEmailTransport.php:148
+#: Postman/Postman-Mail/PostmanElasticEmailTransport.php:188
+#: Postman/Postman-Mail/PostmanElasticEmailTransport.php:258
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:164
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:198
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:259
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:149
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:189
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:278
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:200
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:234
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:277
+#: Postman/Postman-Mail/PostmanPostmarkTransport.php:144
+#: Postman/Postman-Mail/PostmanPostmarkTransport.php:275
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:154
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:188
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:255
+#: Postman/Postman-Mail/PostmanSendinblueTransport.php:148
+#: Postman/Postman-Mail/PostmanSendinblueTransport.php:188
+#: Postman/Postman-Mail/PostmanSendinblueTransport.php:258
+#: Postman/Postman-Mail/PostmanSendpulseTransport.php:151
+#: Postman/Postman-Mail/PostmanSendpulseTransport.php:191
+#: Postman/Postman-Mail/PostmanSmtp2GoTransport.php:141
+#: Postman/Postman-Mail/PostmanSmtp2GoTransport.php:181
+#: Postman/Postman-Mail/PostmanSparkPostTransport.php:144
+#: Postman/Postman-Mail/PostmanSparkPostTransport.php:254
+msgid "API Key"
+msgstr "API 金鑰"
+
+#: Postman/Postman-Mail/PostmanModuleTransport.php:575
+msgctxt "as in \"There is no Spoon\""
+msgid "no"
+msgstr "無密碼"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:431
+#: Postman/Postman-Mail/PostmanModuleTransport.php:594
+#: Postman/Postman-Mail/PostmanModuleTransport.php:722
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:370
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:699
+msgid "Password"
+msgstr "密碼"
+
+#. translators: %1$s is the Client ID label, and %2$s is the Client Secret
+#. label (e.g. Warning: OAuth 2.0 authentication requires an OAuth 2.0-capable
+#. Outgoing Mail Server, Sender Email Address, Client ID, and Client Secret.)
+#: Postman/Postman-Mail/PostmanModuleTransport.php:625
+msgid "OAuth 2.0 authentication requires a %1$s and %2$s."
+msgstr "OAuth 2.0 驗證需要 %1$s 及 %2$s。"
+
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:43
+msgid "SendGrid API"
+msgstr "SendGrid API"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:102
+msgid "Envelope-From Email Address can not be empty"
+msgstr "[郵件資訊的寄件人電子郵件地址] 不能為空。"
+
+#. translators: %1$s is the Client ID label, and %2$s is the Client Secret
+#. label (e.g. Warning: OAuth 2.0 authentication requires an OAuth 2.0-capable
+#. Outgoing Mail Server, Sender Email Address, Client ID, and Client Secret.)
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:112
+msgid "OAuth 2.0 authentication requires a supported OAuth 2.0-capable Outgoing Mail Server."
+msgstr "OAuth 2.0 驗證需要支援 OAuth 2.0 功能的外寄郵件伺服器。"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:330
+msgid "Transport Settings"
+msgstr "傳輸設定"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:340
+#: Postman/Wizard/NewWizard.php:710
+msgid "Outgoing Mail Server Port"
+msgstr "外寄郵件伺服器通訊埠"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:345
+msgid "Envelope-From Email Address"
+msgstr "郵件資訊的寄件人電子郵件地址"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:350
+msgctxt "Configuration Input Field"
+msgid "Security"
+msgstr "安全性"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:365
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:695
+msgid "Username"
+msgstr "使用者名稱"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:478
+#: Postman/Wizard/NewWizard.php:720
+msgid "The Username is usually the same as the Envelope-From Email Address."
+msgstr "使用者名稱通常與 [郵件資訊的寄件人電子郵件地址] 相同。"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:622
+msgid "Error computing your domain root - please enter it manually"
+msgstr "根網域擷取錯誤，請手動輸入根網域"
+
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:650
+msgctxt "Wizard Step Title"
+msgid "Which host will relay the mail?"
+msgstr "要使用哪台主機轉送郵件？"
+
+#: Postman/Postman-Mail/PostmanZendMailEngine.php:227
+msgid "Communication Error [334] - make sure the Envelope From email is the same account used to create the Client ID."
+msgstr "發生通訊錯誤，代碼 334 - 郵件資訊的寄件人電子郵件地址必須與用於建立用戶端 ID 的帳號是同一個帳號。"
+
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:103
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:136
+msgctxt "Email Test Status"
+msgid "In Outbox"
+msgstr "在寄件匣"
+
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:429
+msgid "Image source"
+msgstr "圖片來源"
+
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:430
+msgid "Used with permission"
+msgstr "已獲授權使用"
+
+#: Postman/PostmanAdminController.php:114
+msgctxt "The plugin successfully saved new settings."
+msgid "Settings saved."
+msgstr "設定已儲存。"
+
+#. Translators: where %1$s is the name of the library
+#: Postman/PostmanAdminController.php:257
+msgid "This PHP installation requires the <b>%1$s</b> library."
+msgstr "這項 PHP 安裝需要 <b>%1$s</b> 程式庫。"
+
+#: Postman/PostmanAdminController.php:306
+msgid "Visit us"
+msgstr "造訪外掛官方網站"
+
+#: Postman/PostmanAdminController.php:334
+msgid "There was an error importing the data."
+msgstr "匯入資料時發生錯誤。"
+
+#: Postman/PostmanAdminController.php:371
+msgid "Plugin data was removed."
+msgstr "外掛重設成功。"
+
+#: Postman/PostmanAdminController.php:433
+msgid "The grant code from Google had no accompanying state and may be a forgery"
+msgstr "Google 的授權代碼不具備應有的狀態，可能已遭竄改"
+
+#: Postman/PostmanAdminController.php:448
+msgid "Error authenticating with this Client ID. [%s]"
+msgstr "使用已設定的用戶端 ID 發生驗證錯誤。錯誤訊息: %s"
+
+#: Postman/PostmanConfigTextHelper.php:35
+msgid "Attention"
+msgstr "注意"
+
+#. translators: where %s is the Email Service Owner (e.g. Google, Microsoft or
+#. Yahoo)
+#: Postman/PostmanConfigTextHelper.php:55
+msgctxt "Command to initiate OAuth authentication"
+msgid "Grant permission with %s"
+msgstr "要求 %s 授予權限"
 
 #. Translators: This description is specific to Google
 #. Translators: This description is specific to Microsoft
@@ -969,220 +2083,232 @@ msgctxt "Name of the OAuth 2.0 Client ID"
 msgid "Client ID"
 msgstr "用戶端 ID"
 
-#. translators: where %s is the Email Service Owner (e.g. Google, Microsoft or
-#. Yahoo)
-#: Postman/PostmanConfigTextHelper.php:55
-msgctxt "Command to initiate OAuth authentication"
-msgid "Grant permission with %s"
-msgstr "要求 %s 授予權限"
+#. Translators: This description is specific to Google
+#: Postman/PostmanConfigTextHelper.php:89
+msgctxt "Name of the Application Callback URI"
+msgid "Authorized redirect URI"
+msgstr "已授權的重新導向 URI"
 
-#: Postman/PostmanConfigTextHelper.php:35
-msgid "Attention"
-msgstr "注意"
+#. Translators: This description is specific to Google
+#: Postman/PostmanConfigTextHelper.php:93
+msgctxt "Name of the Application Callback Domain"
+msgid "Authorized JavaScript origins"
+msgstr "已授權的 JavaScript 來源"
 
-#. translators: %s is the error message
-#: Postman/PostmanAdminController.php:400
-msgid "Error authenticating with this Client ID. [%s]"
-msgstr "使用已設定的用戶端 ID 發生驗證錯誤。錯誤訊息: %s"
+#. Translators: This description is specific to Google
+#: Postman/PostmanConfigTextHelper.php:97
+msgctxt "Name of the email service owner"
+msgid "Google"
+msgstr "Google"
 
-#: Postman/PostmanAdminController.php:396
-msgid "The grant code from Google had no accompanying state and may be a forgery"
-msgstr "Google 的授權代碼不具備應有的狀態，可能已遭竄改"
+#. Translators: This description is specific to Google
+#: Postman/PostmanConfigTextHelper.php:101
+msgctxt "Name of the email service"
+msgid "Gmail"
+msgstr "Gmail"
 
-#: Postman/PostmanAdminController.php:393
-msgid "Your email provider did not grant Postman permission. Try again."
-msgstr "電子郵件服務提供商並未授予 Post SMTP 權限。請再試一次。"
+#. Translators: This description is specific to Google
+#: Postman/PostmanConfigTextHelper.php:105
+msgctxt "Description of the email service OAuth 2.0 Application"
+msgid "a Client ID for web application"
+msgstr "網路應用程式的用戶端 ID"
 
-#: Postman/PostmanAdminController.php:391
-msgid "The OAuth 2.0 authorization was successful. Ready to send e-mail."
-msgstr "成功完成 OAuth 2.0 驗證，Postman 已為傳送電子郵件準備就緒。"
+#. Translators: This description is specific to Google
+#: Postman/PostmanConfigTextHelper.php:109
+msgctxt "Name of the email service portal"
+msgid "Google Developers Console Gmail Wizard"
+msgstr "Google API Console 的 Gmail API"
 
-#: Postman/PostmanAdminController.php:359
-msgid "Plugin data was removed."
-msgstr "外掛重設成功。"
+#. Translators: This description is specific to Microsoft
+#: Postman/PostmanConfigTextHelper.php:151
+msgctxt "Name of the Application Callback URI"
+msgid "Redirect URL"
+msgstr "重新導向網址"
 
-#: Postman/PostmanAdminController.php:334
-msgid "There was an error importing the data."
-msgstr "匯入資料時發生錯誤。"
+#. Translators: This description is specific to Microsoft
+#: Postman/PostmanConfigTextHelper.php:155
+msgctxt "Name of the Application Callback Domain"
+msgid "Root Domain"
+msgstr "根網域"
 
-#: Postman/PostmanAdminController.php:306
-msgid "Visit us"
-msgstr "造訪外掛官方網站"
+#. Translators: This description is specific to Microsoft
+#: Postman/PostmanConfigTextHelper.php:159
+msgctxt "Name of the email service owner"
+msgid "Microsoft"
+msgstr "Microsoft"
 
-#. Translators: where %1$s is the name of the library
-#: Postman/PostmanAdminController.php:257
-msgid "This PHP installation requires the <b>%1$s</b> library."
-msgstr "這項 PHP 安裝需要 <b>%1$s</b> 程式庫。"
+#. Translators: This description is specific to Microsoft
+#: Postman/PostmanConfigTextHelper.php:163
+msgctxt "Name of the email service"
+msgid "Outlook.com"
+msgstr "Outlook.com"
 
-#: Postman/PostmanAdminController.php:114
-msgctxt "The plugin successfully saved new settings."
-msgid "Settings saved."
-msgstr "設定已儲存。"
+#. Translators: This description is specific to Microsoft
+#. Translators: This description is specific to Yahoo
+#: Postman/PostmanConfigTextHelper.php:167
+#: Postman/PostmanConfigTextHelper.php:229
+msgctxt "Description of the email service OAuth 2.0 Application"
+msgid "an Application"
+msgstr "應用程式"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:351
-msgid "Used with permission"
-msgstr "已獲授權使用"
+#. Translators: This description is specific to Microsoft
+#: Postman/PostmanConfigTextHelper.php:171
+msgctxt "Name of the email service portal"
+msgid "Microsoft Developer Center"
+msgstr "Microsoft Developer Center"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:350
-msgid "Image source"
-msgstr "圖片來源"
+#. Translators: This description is specific to Yahoo
+#: Postman/PostmanConfigTextHelper.php:213
+msgctxt "Name of the Application Callback URI"
+msgid "Home Page URL"
+msgstr "Home Page URL (首頁網址)"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:349
-msgctxt "Test Email Tagline"
-msgid "Sent by Postman %s"
-msgstr "由 Post SMTP %s 版所傳送"
+#. Translators: This description is specific to Yahoo
+#: Postman/PostmanConfigTextHelper.php:217
+msgctxt "Name of the Application Callback Domain"
+msgid "Callback Domain"
+msgstr "Callback Domain (回撥網域)"
 
-#. translators: where %s is the domain name of the site
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:259
-msgctxt "Test Email Subject"
-msgid "Postman SMTP Test (%s)"
-msgstr "Post SMTP 測試郵件 (來自 %s)"
+#. Translators: This description is specific to Yahoo
+#: Postman/PostmanConfigTextHelper.php:221
+msgctxt "Name of the email service owner"
+msgid "Yahoo"
+msgstr "Yahoo"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:187
-msgid "Examine the Session Transcript if you need to."
-msgstr "如果需要的話，請查看 [工作階段記錄] 的資料。"
+#. Translators: This description is specific to Yahoo
+#: Postman/PostmanConfigTextHelper.php:225
+msgctxt "Name of the email service"
+msgid "Yahoo Mail"
+msgstr "Yahoo Mail (電子郵件)"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:175
-msgid "Sending the message:"
-msgstr "傳送郵件狀態:"
+#. Translators: This description is specific to Yahoo
+#: Postman/PostmanConfigTextHelper.php:233
+msgctxt "Name of the email service portal"
+msgid "Yahoo Developer Network"
+msgstr "Yahoo Developer Network"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:172
-msgid "Send The Message"
-msgstr "傳送郵件"
+#: Postman/PostmanConfigTextHelper.php:278
+msgctxt "Name of the Application Callback URI"
+msgid "Redirect URI"
+msgstr "重新導向 URI"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:167
-msgctxt "Configuration Input Field"
-msgid "Recipient Email Address"
-msgstr "收件者電子郵件地址"
+#: Postman/PostmanConfigTextHelper.php:281
+msgctxt "Name of the Application Callback Domain"
+msgid "Website Domain"
+msgstr "網站網域"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:159
-msgid "If there is a problem, Postman will give up after %d second."
-msgid_plural "If there is a problem, Postman will give up after %d seconds."
-msgstr[0] "如果遇到問題，Post SMTP 會在 %d 秒後停止傳送測試電子郵件。"
+#: Postman/PostmanConfigTextHelper.php:305
+msgid "Grant OAuth 2.0 Permission"
+msgstr "授予 OAuth 2.0 權限"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:152
-msgid "This utility allows you to send an email message for testing."
-msgstr "這項工具能讓網站管理員傳送一封測試用電子郵件。"
+#: Postman/PostmanInputSanitizer.php:188
+msgid "must be greater than 0"
+msgstr "必須大於 0"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:151
-msgid "Who is this message going to?"
-msgstr "測試電子郵件的收件者是哪位？"
+#: Postman/PostmanViewController.php:184
+msgid "An unexpected error occurred"
+msgstr "發生未知錯誤"
 
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:149
-msgid "Specify the Recipient"
-msgstr "指定收件者"
+#: Postman/Localize.php:24
+msgctxt "Press this button to Finish this task"
+msgid "Finish"
+msgstr "完成"
 
-#: Postman/PostmanViewController.php:327 Postman/PostmanViewController.php:336
-msgid "Send a Test Email"
-msgstr "傳送測試電子郵件"
+#: Postman/Localize.php:25
+msgctxt "Press this button to go to the next step"
+msgid "Next"
+msgstr "下一步"
 
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:107
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:130
-msgid "Ajax Error"
-msgstr "Ajax 錯誤"
+#: Postman/Localize.php:26
+msgctxt "Press this button to go to the previous step"
+msgid "Previous"
+msgstr "上一步"
 
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:106
-msgctxt "Email Test Status"
-msgid "Failed"
-msgstr "傳送失敗"
+#: Postman/PostmanViewController.php:648
+msgctxt "Return to main menu link"
+msgid "Back To Main Menu"
+msgstr "返回主選單"
 
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:105
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:127
-msgctxt "Email Test Status"
-msgid "Success"
-msgstr "傳送成功"
+#: Postman/PostmanViewController.php:377 Postman/PostmanViewController.php:663
+#: Postman/PostmanViewController.php:713
+msgid "Import"
+msgstr "匯入"
 
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:104
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:126
-msgctxt "Email Test Status"
-msgid "Sending..."
-msgstr "正在傳送..."
+#: Postman/PostmanViewController.php:378 Postman/PostmanViewController.php:664
+msgid "Export"
+msgstr "匯出"
 
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:103
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:125
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:176
-msgctxt "Email Test Status"
-msgid "In Outbox"
-msgstr "在寄件匣"
+#: Postman/PostmanViewController.php:379 Postman/PostmanViewController.php:665
+msgid "Reset Plugin"
+msgstr "重設外掛"
 
-#: Postman/Postman-Mail/PostmanZendMailEngine.php:213
-msgid "Communication Error [334] - make sure the Envelope From email is the same account used to create the Client ID."
-msgstr "發生通訊錯誤，代碼 334 - 郵件資訊的寄件人電子郵件地址必須與用於建立用戶端 ID 的帳號是同一個帳號。"
+#: Postman/PostmanViewController.php:728
+msgid "Are you sure?"
+msgstr "確定要繼續操作嗎？"
 
-#: Postman/Postman-Mail/PostmanTransportRegistry.php:244
-msgid "Postman is configured."
-msgstr "Post SMTP 已完成設定。"
+#: Postman/PostmanViewController.php:468
+msgid "Online Support"
+msgstr "線上技術支援"
 
-#. Translators: Where (%1$s) is the SPF-info URL and (%2$s) is the name of the
-#. web host
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:558
-msgid "If you own this domain, make sure it has an <a href=\"%1$s\">SPF record authorizing %2$s</a> as a relay, or you will have delivery problems."
-msgstr "如果網站管理員擁有這個網域管理權限，請確認已有一筆<a href=\"%1$s\" target=\"_blank\">授權 %2$s 進行轉送的 SPF 記錄</a>，否則傳送郵件會發生問題。"
+#. Plugin Name of the plugin
+#. Author of the plugin
+#. Translators where (%s) is the name of the plugin
+#: postman-smtp.php Postman/Postman-Email-Log/PostmanEmailLogController.php:427
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:15
+#: Postman/PostmanViewController.php:119 Postman/PostmanViewController.php:120
+#: Postman/PostmanViewController.php:146 Postman/PostmanViewController.php:639
+msgid "Post SMTP"
+msgstr "Post SMTP"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:555
-msgid "If you have access to cPanel, enable the Remote Mail Exchanger."
-msgstr "如果網站管理員具備存取 cPanel 的權限，請啟用遠端郵件交換程式 (Remote Mail Exchanger)。"
+#. Author URI of the plugin
+#: postman-smtp.php
+msgid "https://postmansmtp.com"
+msgstr "https://postmansmtp.com"
 
-#. Translators: Where (%s) is the name of the web host
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:554
-msgid "Your email address <b>requires</b> access to a remote SMTP server blocked by %s."
-msgstr "存取遠端 SMTP 伺服器的<b>必要</b>電子郵件帳號已遭 %s 封鎖。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:143
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:174
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:175
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:83
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:61
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:74
+#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:83
+#: Postman/Postman-Mail/PostmanMyMailConnector.php:178
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:115
+msgid "Postman SMTP"
+msgstr "Post SMTP"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:546
-msgid "Note that many WordPress hosts, such as GoDaddy, Bluehost and Dreamhost, require that you use their mail accounts with their mail servers, and prevent you from using others."
-msgstr "請注意，有些 WordPress 的主機服務商 (例如 GoDaddy、Bluehost 及 Dreamhost)，會要求網站管理員使用他們的電子郵件伺服器所提供的電子郵件帳號傳送電子郵件，並會在使用其他電子郵件服務時進行阻擋。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:806
+msgid "Grant permission with the Email Provider for Postman to send email and"
+msgstr "電子郵件服務提供商授予 Post SMTP 權限以傳送電子郵件，然後..."
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:545
-msgid "This is the Outgoing (SMTP) Mail Server, or Mail Submission Agent (MSA), which Postman delegates mail delivery to. This server is specific to your email account, and if you don't know what to use, ask your email service provider."
-msgstr "以下是受 Post SMTP 所委派、用於郵件傳送的外寄 (SMTP) 郵件伺服器或郵件提交代理程式 (Mail Submission Agent，縮寫為 MSA)。這台伺服器僅能使用指定的電子郵件帳號傳送電子郵件，如果網站管理員不知道該如何進行設定，請洽詢電子郵件服務提供商。"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:441
+msgid "Remove the Postman X-Header signature from messages"
+msgstr "從郵件中移除 Post SMTP 的 X 標頭簽名"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:543
-msgctxt "Wizard Step Title"
-msgid "Which host will relay the mail?"
-msgstr "要使用哪台主機轉送郵件？"
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:151
+msgid "This test determines which well-known ports are available for Postman to use."
+msgstr "這項測試可以確認哪些已知的郵件通訊埠可供 Post SMTP 使用。"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:536
-msgid "For reliable delivery, this domain must specify an <a target=\"_blank\" href=\"%s\">SPF record</a> permitting the use of the SMTP server named above."
-msgstr "為了讓郵件傳送穩定可靠，必須為用於寄件的網域名稱設定一組可用於上述 SMTP 伺服器的正確 <a href=\"%s\" target=\"_blank\">SPF 記錄</a>。"
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:190
+msgid "If the issues above can not be resolved, your last option is to configure Postman to use an email account managed by your web host with an SMTP server managed by your web host."
+msgstr "如果無法解決上述問題，請以可供網站主機使用的 SMTP 伺服器所管理的電子郵件帳戶資訊，為 Post SMTP 進行設定。"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:515
-msgid "Error computing your domain root - please enter it manually"
-msgstr "根網域擷取錯誤，請手動輸入根網域"
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:99
+msgid "Error: Postman is missing a required PHP library."
+msgstr "錯誤: 遺漏了 Post SMTP 必要的 PHP 程式庫。"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:461
-msgid "The Username is usually the same as the Envelope-From Email Address."
-msgstr "使用者名稱通常與 [郵件資訊的寄件人電子郵件地址] 相同。"
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:101
+#: Postman/Postman.php:335
+msgid "Postman: wp_mail has been declared by another plugin or theme, so you won't be able to use Postman until the conflict is resolved."
+msgstr "Post SMTP: wp_mail 函數已由其他外掛或佈景主題所使用，在未解決這項衝突前，將無法使用 Post SMTP 所提供的功能。"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:453
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:587
-msgid "Enter the account credentials."
-msgstr "輸入帳號認證。"
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:120
+msgid "Postman is operating in per-site mode."
+msgstr "Post SMTP 目前以 [個別網站模式] 執行。"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:406
-msgid "Configure the communication with the mail server."
-msgstr "設定與電子郵件伺服器的通訊方式。"
-
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:365
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:588
-msgid "Username"
-msgstr "使用者名稱"
-
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:350
-msgctxt "Configuration Input Field"
-msgid "Security"
-msgstr "安全性"
-
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:345
-msgid "Envelope-From Email Address"
-msgstr "郵件資訊的寄件人電子郵件地址"
-
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:340
-msgid "Outgoing Mail Server Port"
-msgstr "外寄郵件伺服器通訊埠"
-
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:330
-msgid "Transport Settings"
-msgstr "傳輸設定"
+#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:112
+msgid "Are you having issues with Postman?"
+msgstr "使用 Post SMTP 遇到問題嗎？"
 
 #. translators: where %1$s is a description of the transport (eg. SMTPS-SSL),
 #. %2$s is a description of the authentication (eg. Password-CRAMMD5), %3$d is
@@ -1191,405 +2317,84 @@ msgstr "傳輸設定"
 msgid "Postman recommends %1$s with %2$s authentication to host %4$s on port %3$d."
 msgstr "Post SMTP 建議使用 %2$s 驗證方式的 %1$s，它會透過通訊埠 %3$d 與主機 %4$s 進行連線。"
 
-#. translators: %1$s is the Client ID label, and %2$s is the Client Secret
-#. label (e.g. Warning: OAuth 2.0 authentication requires an OAuth 2.0-capable
-#. Outgoing Mail Server, Sender Email Address, Client ID, and Client Secret.)
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:112
-msgid "OAuth 2.0 authentication requires a supported OAuth 2.0-capable Outgoing Mail Server."
-msgstr "OAuth 2.0 驗證需要支援 OAuth 2.0 功能的外寄郵件伺服器。"
+#. translators: where %s is the domain name of the site
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:338
+msgctxt "Test Email Subject"
+msgid "Postman SMTP Test (%s)"
+msgstr "Post SMTP 測試郵件 (來自 %s)"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:106
-msgid "Username and password can not be empty."
-msgstr "使用者名稱及密碼不能為空。"
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:428
+msgctxt "Test Email Tagline"
+msgid "Sent by Postman %s"
+msgstr "由 Post SMTP %s 版所傳送"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:102
-msgid "Envelope-From Email Address can not be empty"
-msgstr "[郵件資訊的寄件人電子郵件地址] 不能為空。"
+#: Postman/PostmanAdminController.php:418
+msgid "Your email provider did not grant Postman permission. Try again."
+msgstr "電子郵件服務提供商並未授予 Post SMTP 權限。請再試一次。"
 
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:98
-msgid "Outgoing Mail Server Hostname and Port can not be empty."
-msgstr "外寄郵件伺服器主機名稱及通訊埠不能為空。"
+#: Postman/PostmanViewController.php:216
+msgid "Postman is unable to run. Email delivery is being handled by WordPress (or another plugin)."
+msgstr "Post SMTP 無法執行。目前電子郵件傳送正由 WordPress 或其他外掛處理。"
 
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:43
-msgid "SendGrid API"
-msgstr "SendGrid API"
+#: Postman/PostmanViewController.php:502
+msgid "Postman has delivered <span style=\"color:green\">%d</span> email."
+msgid_plural "Postman has delivered <span style=\"color:green\">%d</span> emails."
+msgstr[0] "Post SMTP 已傳送 <span style=\"color:green\">%d</span> 封電子郵件。"
 
-#. Translators where %s is the name of the page
-#: Postman/Postman-Mail/PostmanMyMailConnector.php:202
-#: Postman/Postman-Mail/PostmanMyMailConnector.php:218
-msgid "Mailster: Change the delivery method in the %s!"
-msgstr "Mailster: 在 %s 中變更傳送方式！"
+#: Postman/PostmanViewController.php:526
+msgid "Thank-you for choosing Postman!"
+msgstr "感謝採用 Post SMTP！"
 
-#. translators: %1$s is the Client ID label, and %2$s is the Client Secret
-#. label (e.g. Warning: OAuth 2.0 authentication requires an OAuth 2.0-capable
-#. Outgoing Mail Server, Sender Email Address, Client ID, and Client Secret.)
-#: Postman/Postman-Mail/PostmanModuleTransport.php:617
-msgid "OAuth 2.0 authentication requires a %1$s and %2$s."
-msgstr "OAuth 2.0 驗證需要 %1$s 及 %2$s。"
+#: Postman/PostmanViewController.php:671
+msgid "Copy this data into another instance of Postman to duplicate the configuration."
+msgstr "將以下資料複製至另一個 Post SMTP 執行個體，便能以相同參數完成設定。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:377
-#: Postman/Postman-Mail/PostmanModuleTransport.php:586
-#: Postman/Postman-Mail/PostmanModuleTransport.php:715
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:370
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:592
-msgid "Password"
-msgstr "密碼"
-
-#: Postman/Postman-Mail/PostmanModuleTransport.php:567
-msgctxt "as in \"There is no Spoon\""
-msgid "no"
-msgstr "無密碼"
-
-#. translators: where (1) is the transport type, (2) is the host, and (3) is
-#. the Authentication Type (e.g. Postman will send mail via smtp.gmail.com:465
-#. using OAuth 2.0 authentication.)
-#: Postman/Postman-Mail/PostmanModuleTransport.php:539
-msgid "Postman will send mail via %1$s to %2$s using %3$s authentication."
-msgstr "Post SMTP 已通過主機 %2$s 的 \"%3$s\" 驗證，並會以 %1$s 通訊協定傳送郵件。"
-
-#. Translators: Where (1) is the service URL and (2) is the service name and
-#. (3) is a api key URL
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:215
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:244
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:195
-#: Postman/Postman-Mail/PostmanSendinblueTransport.php:203
-msgid "Create an account at <a href=\"%1$s\" target=\"_blank\">%2$s</a> and enter <a href=\"%3$s\" target=\"_blank\">an API key</a> below."
-msgstr "請先在 <a href=\"%1$s\" target=\"_blank\">%2$s</a> 建立帳號，並在下方輸入 <a href=\"%3$s\" target=\"_blank\">API 金鑰</a>。"
-
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:164
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:198
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:257
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:200
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:234
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:277
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:154
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:188
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:228
-#: Postman/Postman-Mail/PostmanSendinblueTransport.php:148
-#: Postman/Postman-Mail/PostmanSendinblueTransport.php:188
-#: Postman/Postman-Mail/PostmanSendinblueTransport.php:258
-msgid "API Key"
-msgstr "API 金鑰"
-
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:119
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:155
-#: Postman/Postman-Mail/PostmanModuleTransport.php:611
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:109
-#: Postman/Postman-Mail/PostmanSendinblueTransport.php:303
-msgid "Message From Address can not be empty"
-msgstr "郵件的寄件者不能留空"
-
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:109
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:151
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:105
-#: Postman/Postman-Mail/PostmanSendinblueTransport.php:299
-msgid "API Key can not be empty"
-msgstr "API 金鑰不能留空"
-
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:48
-msgid "Mandrill API"
-msgstr "Mandrill API"
-
-#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:226
-#: Postman/Postman-Mail/PostmanModuleTransport.php:753
-msgid "OAuth 2.0 (requires Client ID and Client Secret)"
-msgstr "OAuth 2.0 (需要用戶端 ID 及用戶端密碼)"
-
-#. translators: %1$s is the Client ID label, and %2$s is the Client Secret
-#. label
-#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:169
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:120
-msgid "You have configured OAuth 2.0 authentication, but have not received permission to use it."
-msgstr "目前已完成 OAuth 2.0 驗證的設定，但尚未取得使用權限。"
-
-#. translators: where (1) is the secure icon and (2) is the transport name
-#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:155
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:139
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:83
-msgid "Postman will send mail via the <b>%1$s %2$s</b>."
-msgstr "Post SMTP 會以 <b>%1$s %2$s</b> 傳送郵件。"
-
-#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:105
-msgid "Gmail API"
-msgstr "Gmail API"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:804
+msgid "Click Finish to save these settings, then:"
+msgstr "點擊 [完成] 以儲存設定，接下來:"
 
 #: Postman/Postman-Mail/PostmanDefaultModuleTransport.php:109
 msgid "Default"
 msgstr "預設"
 
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:389
-msgid "Sent"
-msgstr "已傳送"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:414
+msgid "Log Level specifies the level of detail written to the <a target=\"_blank\" href=\"%s\">WordPress Debug log</a> - view the log with <a target-\"_new\" href=\"%s\">Debug</a>."
+msgstr "記錄層級會指定寫入 <a href=\"%s\" target=\"_blank\">WordPress 偵錯記錄</a>的詳細程度 - 請以 <a href=\"%s\" target=\"_blank\">Debug</a> 外掛檢視相關記錄。"
 
-#. Translators: where %s indicates the relative time from now
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:371
-msgctxt "A relative time as in \"five days ago\""
-msgid "%s ago"
-msgstr "%s前"
+#. translators: where %d is a port number
+#: Postman/Localize.php:8
+msgid "You are about to configure OAuth 2.0 with an IP address instead of a domain name. This is not permitted. Either assign a real domain name to your site or add a fake one in your local host file."
+msgstr "網站管理員使用了 IP 位址 (而非網域名稱) 為 OAuth 2.0 進行設定，這種設定方式並不正確。請為這個網站指派一個真實的網域名稱，或是在本地主機檔案中新增一筆該 IP 與「假」網域名稱的對應記錄，然後以假網域名稱進行設定。"
 
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:174
-msgctxt "When was this email sent?"
-msgid "Delivery Time"
-msgstr "傳送時間"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:108
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:110
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:185
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:195
-msgid "Session Transcript"
-msgstr "工作階段記錄"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:104
-msgctxt "View an item from the email log"
-msgid "View"
-msgstr "檢視"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:103
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:234
-msgctxt "Delete an item from the email log"
-msgid "Delete"
-msgstr "刪除"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogService.php:255
-msgid ".. +%d more"
-msgstr ".. +%d 更多"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogService.php:104
-msgid "An empty subject line can result in delivery failure."
-msgstr "空白主旨行會導致傳送失敗。"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogPostType.php:41
-msgctxt "An Email that has been delivered"
-msgid "Sent Email"
-msgstr "封已傳送的電子郵件"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogPostType.php:40
-msgctxt "The group of Emails that have been delivered"
-msgid "Sent Emails"
-msgstr "封已傳送的電子郵件"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:441
-msgid "This is a record of deliveries made to the mail server. It does not neccessarily indicate sucessful delivery to the recipient."
-msgstr "以下僅為電子郵件伺服器的傳送記錄，並不代表電子郵件已成功傳送給收件者。"
-
-#: Postman/Localize.php:21
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:119
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:121
-msgid "Resend"
-msgstr "重新傳送"
-
-#. Translators: Where %s is an error message
-#: Postman/Localize.php:20
-msgid "Email could not be resent. Error: %s"
-msgstr "無法重新傳送電子郵件。錯誤: %s"
-
-#: Postman/Localize.php:18
-msgid "Email was successfully resent (but without attachments)"
-msgstr "已成功重新傳送電子郵件 (但不含附件)"
-
-#. Translators where (%s) is the name of the plugin
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:381
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:434
-msgid "%s Email Log"
-msgstr "%s 電子郵件記錄"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:349
-msgid "This is the conversation between Postman and the mail server. It can be useful for diagnosing problems. <b>DO NOT</b> post it on-line, it may contain your account password."
-msgstr "這是 Post SMTP 與電子郵件伺服器間的交談內容，對於診斷問題相當有幫助。請<b>不要</b>公開發佈這些內容，因為其中可能包含了郵件帳號的密碼。"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:315
-msgctxt "What is the unique URI of the configuration?"
-msgid "Delivery-URI"
-msgstr "傳送 URI"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:312
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:170
-msgctxt "What is the subject of this message?"
-msgid "Subject"
-msgstr "主旨"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:311
-msgctxt "What is the date today?"
-msgid "Date"
-msgstr "日期"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:305
-msgctxt "Who is this message Bcc'd to?"
-msgid "Bcc"
-msgstr "密件副本"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:301
-msgctxt "Who is this message Cc'd to?"
-msgid "Cc"
-msgstr "副本"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:297
-msgctxt "Who is this message To?"
-msgid "To"
-msgstr "收件者"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:293
-msgctxt "Who is this message From?"
-msgid "From"
-msgstr "寄件者"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:263
-msgid "Mail Log Entry was deleted."
-msgstr "郵件記錄項目已刪除。"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:240
-msgid "Mail Log Entries were deleted."
-msgstr "郵件記錄項目已刪除。"
-
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:174
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:293
-msgid "Your message was delivered (%d ms) to the SMTP server! Congratulations :)"
-msgstr "郵件已在 %d 毫秒內傳送至 SMTP 伺服器！恭喜 :)"
-
-#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:116
-msgid "If you write for help, please include the following:"
-msgstr "無論網站管理員以哪種方式尋求協助，請在說明內容中加入以下資訊:"
-
-#. translators: where %1$s and %2$s are the URLs to the Troubleshooting and
-#. Support Forums on WordPress.org
-#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:114
-msgid "Please check the <a href=\"%1$s\">troubleshooting and error messages</a> page and the <a href=\"%2$s\">support forum</a>."
-msgstr "請造訪〈<a href=\"%1$s\" target=\"_blank\">疑難排解及錯誤訊息</a>〉頁面及<a href=\"%2$s\" target=\"_blank\">技術支援論壇</a>以取得協助。"
-
-#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:112
-msgid "Are you having issues with Postman?"
-msgstr "使用 Post SMTP 遇到問題嗎？"
-
-#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:104
-#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:115
-msgid "Diagnostic Test"
-msgstr "診斷測試"
-
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:120
-msgid "Postman is operating in per-site mode."
-msgstr "Post SMTP 目前以 [個別網站模式] 執行。"
-
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:108
-#: Postman/Postman-Mail/PostmanTransportRegistry.php:250
-msgid "Postman is <em>not</em> configured and is mimicking out-of-the-box WordPress email delivery."
-msgstr "Post SMTP <strong>尚未</strong>進行設定，目前以模擬 WordPress 預設的電子郵件傳送機制進行運作。"
-
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:106
-msgid "<span style=\"color:green\">Postman is configured</span> and has delivered <span style=\"color:green\">%d</span> email."
-msgid_plural "<span style=\"color:green\">Postman is configured</span> and has delivered <span style=\"color:green\">%d</span> emails."
-msgstr[0] "<span style=\"color:green\">Post SMTP 已完成設定</span>，並傳送了 <span style=\"color:green\">%d</span> 封電子郵件。"
-
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:104
-#: Postman/Postman-Mail/PostmanTransportRegistry.php:239
-msgid "Postman is in <em>non-Production</em> mode and is dumping all emails."
-msgstr "Post SMTP 目前設定為 <strong>[非工作模式]</strong>，並正在傾印全部電子郵件。"
-
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:101
-#: Postman/Postman.php:302
-msgid "Postman: wp_mail has been declared by another plugin or theme, so you won't be able to use Postman until the conflict is resolved."
-msgstr "Post SMTP: wp_mail 函數已由其他外掛或佈景主題所使用，在未解決這項衝突前，將無法使用 Post SMTP 所提供的功能。"
-
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:99
-msgid "Error: Postman is missing a required PHP library."
-msgstr "錯誤: 遺漏了 Post SMTP 必要的 PHP 程式庫。"
-
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:86
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:382
-#: Postman/Postman.php:406
-msgctxt "The log of Emails that have been delivered"
-msgid "Email Log"
-msgstr "電子郵件記錄"
-
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:190
-msgid "If the issues above can not be resolved, your last option is to configure Postman to use an email account managed by your web host with an SMTP server managed by your web host."
-msgstr "如果無法解決上述問題，請以可供網站主機使用的 SMTP 伺服器所管理的電子郵件帳戶資訊，為 Post SMTP 進行設定。"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:364
+msgid "Change this value if you can't see the beginning of the transcript because your messages are too big."
+msgstr "當這個網站因郵件內容太多導致無法看到文字記錄的開頭時，請變更這項設定的值。"
 
 #. translators: where (1) is the URL and (2) is the system
 #: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:186
 msgid "Your <a href=\"%1$s\">%2$s configuration</a> is preventing outbound connections"
 msgstr "這個網站的 <a href=\"%1$s\" target=\"_blank\">%2$s 設定</a>阻擋了出站連線。"
 
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:184
-msgid "The SMTP hostname is wrong or the mail server does not provide service on this port"
-msgstr "SMTP 主機名稱錯誤，或電子郵件伺服器未提供指定通訊埠給 SMTP 服務。"
+#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:116
+msgid "If you write for help, please include the following:"
+msgstr "無論網站管理員以哪種方式尋求協助，請在說明內容中加入以下資訊:"
 
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:183
-msgid "Your web host has placed a firewall between this site and the Internet"
-msgstr "主機商在網站主機與網際網路之間設置了防火牆，阻擋了郵件通訊埠的通訊。"
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:643
+msgid "For reliable delivery, this domain must specify an <a target=\"_blank\" href=\"%s\">SPF record</a> permitting the use of the SMTP server named above."
+msgstr "為了讓郵件傳送穩定可靠，必須為用於寄件的網域名稱設定一組可用於上述 SMTP 伺服器的正確 <a href=\"%s\" target=\"_blank\">SPF 記錄</a>。"
 
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:181
-msgid "A test with <span style=\"color:red\">\"No\"</span> Service Available indicates one or more of these issues:"
-msgstr "[服務是否可用] 的測試結果若為 <span style=\"color:red\">[否]</span>，代表發生了下列一或多項問題:"
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:662
+msgid "If you have access to cPanel, enable the Remote Mail Exchanger."
+msgstr "如果網站管理員具備存取 cPanel 的權限，請啟用遠端郵件交換程式 (Remote Mail Exchanger)。"
 
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:176
-msgid "Summary"
-msgstr "摘要"
+#. Plugin URI of the plugin
+#: postman-smtp.php
+msgid "https://wordpress.org/plugins/post-smtp/"
+msgstr "https://tw.wordpress.org/plugins/post-smtp/"
 
-#. Translators: Where %s is the name of the service providing Internet
-#. connectivity test
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:173
-msgid "According to %s"
-msgstr "測試結果由 %s 提供"
-
-#. Translators: Meaning "Not Applicable"
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:168
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:356
-msgid "n/a"
-msgstr "不適用"
-
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
-msgid "Server ID"
-msgstr "伺服器 ID"
-
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
-msgid "Service Available"
-msgstr "服務是否可用"
-
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
-#: Postman/Postman-Email-Log/PostmanEmailLogView.php:172
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:179
-msgid "Status"
-msgstr "狀態"
-
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:158
-msgctxt "Button Label"
-msgid "Begin Test"
-msgstr "開始測試"
-
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:151
-msgid "This test determines which well-known ports are available for Postman to use."
-msgstr "這項測試可以確認哪些已知的郵件通訊埠可供 Post SMTP 使用。"
-
-#. translators: where %d is a port number and %s is the URL for the Postman
-#. Gmail Extension
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:126
-msgid "Port %d can be used with the %s."
-msgstr "通訊埠 %d 可交由 %s 使用。"
-
-#. translators: where %d is the port number and %s is the hostname
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:123
-msgid "Port %d can be used for SMTP to %s."
-msgstr "通訊埠 %d 可交由 SMTP 通訊協定連線至 %s。"
-
-#. translators: where %d is a port number and %s is a hostname
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:121
-msgid "Port %d is open, but not to %s."
-msgstr "通訊埠 %d 已開啟，但並未交由 %s 使用。"
-
-#. translators: where %d is a port number
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:119
-msgid "No outbound route between this site and the Internet on Port %d."
-msgstr "這個網站與網際網路間，並無通訊埠 %d 的出站路由。"
-
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:115
-msgctxt "The port is closed"
-msgid "Closed"
-msgstr "關閉"
-
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:114
-msgctxt "The port is open"
-msgid "Open"
-msgstr "開啟"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:635
+msgid "Your connection settings depend on what your email service provider offers, and what your WordPress host allows."
+msgstr "請以這個網站要使用的電子郵件服務提供商所提供的資訊進行連線設定，而且用於架設這個 WordPress 網站的主機也要對相關連線予以放行。"
 
 #: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:113
 #: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:117
@@ -1597,443 +2402,262 @@ msgctxt "The \"please wait\" message"
 msgid "Checking.."
 msgstr "正在檢查..."
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:427
-msgid "Invalid"
-msgstr "無效"
+#. Translators: Where (%s) is the name of the web host
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:661
+msgid "Your email address <b>requires</b> access to a remote SMTP server blocked by %s."
+msgstr "存取遠端 SMTP 伺服器的<b>必要</b>電子郵件帳號已遭 %s 封鎖。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:425
-msgid "Valid"
-msgstr "有效"
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:104
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:137
+msgctxt "Email Test Status"
+msgid "Sending..."
+msgstr "正在傳送..."
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:416
-msgid "Lockfiles are written here to prevent users from triggering an OAuth 2.0 token refresh at the same time."
-msgstr "寫入鎖定檔案以防止多位使用者同時觸發 OAuth 2.0 權杖換發事件。"
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:105
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:138
+msgctxt "Email Test Status"
+msgid "Success"
+msgstr "傳送成功"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:412
-msgid "Remove the Postman X-Header signature from messages"
-msgstr "從郵件中移除 Post SMTP 的 X 標頭簽名"
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:106
+msgctxt "Email Test Status"
+msgid "Failed"
+msgstr "傳送失敗"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:407
-msgid "Delete All Emails"
-msgstr "刪除全部電子郵件"
+#: Postman/PostmanViewController.php:351 Postman/PostmanViewController.php:360
+msgid "Send a Test Email"
+msgstr "傳送測試電子郵件"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:406
-msgid "Log Email and Delete"
-msgstr "記錄電子郵件並刪除"
+#: Postman/PostmanViewController.php:185
+msgid "Unexpected PHP messages corrupted the Ajax response"
+msgstr "意外的 PHP 訊息損毀 AJAX 回應"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:405
-msgctxt "When the server is online to the public, this is \"Production\" mode"
-msgid "Log Email and Send"
-msgstr "記錄電子郵件並傳送"
+#. translators: where %1$s and %2$s are the URLs to the Troubleshooting and
+#. Support Forums on WordPress.org
+#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:114
+msgid "Please check the <a href=\"%1$s\">troubleshooting and error messages</a> page and the <a href=\"%2$s\">support forum</a>."
+msgstr "請造訪〈<a href=\"%1$s\" target=\"_blank\">疑難排解及錯誤訊息</a>〉頁面及<a href=\"%2$s\" target=\"_blank\">技術支援論壇</a>以取得協助。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:402
-msgid "Delivery mode offers options useful for developing or testing."
-msgstr "[傳送模式] 提供了對開發或測試相當有幫助的設定選項。"
+#. Translators: Where (1) is the service URL and (2) is the service name and
+#. (3) is a api key URL
+#: Postman/Postman-Mail/PostmanElasticEmailTransport.php:203
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:215
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:244
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:204
+#: Postman/Postman-Mail/PostmanSmtp2GoTransport.php:152
+msgid "Create an account at <a href=\"%1$s\" target=\"_blank\">%2$s</a> and enter <a href=\"%3$s\" target=\"_blank\">an API key</a> below."
+msgstr "請先在 <a href=\"%1$s\" target=\"_blank\">%2$s</a> 建立帳號，並在下方輸入 <a href=\"%3$s\" target=\"_blank\">API 金鑰</a>。"
 
-#: Postman/Extensions/License/EDD_SL_Plugin_Updater.php:487
-#: Postman/Extensions/License/PostmanLicenseHandler.php:274
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:393
-msgid "Error"
-msgstr "錯誤"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:391
-msgid "Info"
-msgstr "資訊"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:390
-msgid "Debug"
-msgstr "偵錯"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:389
-msgid "Trace"
-msgstr "追蹤"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:388
-msgid "Off"
-msgstr "關閉"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:385
-msgid "Log Level specifies the level of detail written to the <a target=\"_blank\" href=\"%s\">WordPress Debug log</a> - view the log with <a target-\"_new\" href=\"%s\">Debug</a>."
-msgstr "記錄層級會指定寫入 <a href=\"%s\" target=\"_blank\">WordPress 偵錯記錄</a>的詳細程度 - 請以 <a href=\"%s\" target=\"_blank\">Debug</a> 外掛檢視相關記錄。"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:378
-msgid "Disable e-mail validation"
-msgstr "停用電子郵件驗證"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:335
-msgid "Change this value if you can't see the beginning of the transcript because your messages are too big."
-msgstr "當這個網站因郵件內容太多導致無法看到文字記錄的開頭時，請變更這項設定的值。"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:284
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:355
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:325
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:117
-msgid "No"
-msgstr "否"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:291
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:361
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:324
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:116
-msgid "Yes"
-msgstr "是"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:303
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:535
-msgid "This address, like the <b>return address</b> printed on an envelope, identifies the account owner to the SMTP server."
-msgstr "這個電子郵件地址就如同印在信封上的<b>回郵地址</b>一樣，用於供 SMTP 伺服器識別帳號擁有者。"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:296
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:449
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:221
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:226
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:250
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:201
-#: Postman/Postman-Mail/PostmanSendinblueTransport.php:215
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:413
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:420
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:463
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:471
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:479
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:486
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:534
-msgid "Required"
-msgstr "必填"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:289
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:311
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:307
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:340
 msgid "Prevent <b>plugins</b> and <b>themes</b> from changing this"
 msgstr "防止<b>外掛</b>及<b>佈景主題</b>變更這項設定"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:247
-msgid "E-mail addresses can be validated before sending e-mail, however this may fail with some newer domains."
-msgstr "電子郵件地址會在傳送郵件前進行驗證，一些較新的網域可能會遇到驗證失敗的狀況。"
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:106
+msgid "Username and password can not be empty."
+msgstr "使用者名稱及密碼不能為空。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:240
-msgid "Specify custom headers (e.g. <code>X-MC-Tags: wordpress-site-A</code>), one per line. Use custom headers with caution as they can negatively affect your Spam score."
-msgstr "每行指定一項如 <code>X-MC-Tags: wordpress-site-A</code> 的自訂標頭。請謹慎使用自訂標頭，濫用自訂標頭可能會對垃圾郵件評等產生負面影響。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:491
+msgid "Setup Wizard"
+msgstr "設定精靈"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:221
-msgid "Increase the timeouts if your host is intermittenly failing to send mail. Be careful, this also correlates to how long your user must wait if the mail server is unreachable."
-msgstr "如果主機會間歇性地無法傳送郵件，請增加逾時設定。請注意，這項變更也會在電子郵件伺服器無法連線時，增加使用者需要等待的時間。"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:528
+msgid "If you had a working configuration with another Plugin, the Setup Wizard can begin with those settings."
+msgstr "如果這個網站有一份來自其他外掛、且可正常執行的設定，[設定精靈] 可以從這份設定開始進行。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:214
-msgid "Separate multiple <b>to</b>/<b>cc</b>/<b>bcc</b> recipients with commas."
-msgstr "請以逗號分隔多位<b>收件者 (to)</b>/<b>副本收件者 (cc)</b>/<b>密件副本收件者 (bcc)</b>。"
+#: Postman/PostmanViewController.php:292 Postman/PostmanViewController.php:316
+msgid "Start the Wizard"
+msgstr "設定精靈"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:207
-msgid "This address, like the <b>letterhead</b> printed on a letter, identifies the sender to the recipient. Change this when you are sending on behalf of someone else, for example to use Google's <a href=\"%s\">Send Mail As</a> feature. Other plugins, especially Contact Forms, may override this field to be your visitor's address."
-msgstr "這個電子郵件地址就如同印在信紙上的<b>信頭</b>一樣，用於識別寄給收件者的是哪一位寄件者。當你需要代表其他人傳送郵件時，就必須變更這項設定，使用方式與 Google 的 [<a href=\"%s\" target=\"_blank\">以這個地址寄送郵件</a>] 功能相同。有些外掛 - 尤其是聯絡表單類外掛，有可能會以填表者的電子郵件地址覆寫這個欄位的設定。"
+#. Description of the plugin
+#: postman-smtp.php
+msgid "Email not reliable? Post SMTP is the first and only WordPress SMTP plugin to implement OAuth 2.0 for Gmail, Hotmail and Yahoo Mail. Setup is a breeze with the Configuration Wizard and integrated Port Tester. Enjoy worry-free delivery even if your password changes!"
+msgstr "傳送電子郵件總是時靈時不靈？Post SMTP 是 WordPress 上第一個也是唯一一個實作 Gmail、Hotmail 以及 Yahoo 郵件 OAuth 2.0 驗證的外掛。透過 [設定精靈] 及整合而來的通訊埠測試程式，讓外掛設定變的相當簡易。即使日後密碼有了變更，依舊可保有無須煩心的郵件傳送功能！"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:200
-msgid "Configure the delivery audit log:"
-msgstr "設定傳送稽核記錄:"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:807
+msgid "Send yourself a Test Email to make sure everything is working!"
+msgstr "記得傳送一封測試用電子郵件，確認全部設定都能正確執行！"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:197
-msgid "Choose SMTP or a vendor-specific API:"
-msgstr "選取 SMTP 或特定電子郵件服務商的 API:"
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:104
+#: Postman/Postman-Mail/PostmanTransportRegistry.php:242
+msgid "Postman is in <em>non-Production</em> mode and is dumping all emails."
+msgstr "Post SMTP 目前設定為 <strong>[非工作模式]</strong>，並正在傾印全部電子郵件。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:184
-msgid "Temporary Directory"
-msgstr "暫存目錄"
+#: Postman/PostmanViewController.php:321
+msgid "Show All Settings"
+msgstr "顯示全部設定"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:179
-msgctxt "This mode removes the Postman X-Mailer signature from emails"
-msgid "Stealth Mode"
-msgstr "隱形模式"
+#: Postman/PostmanViewController.php:512
+msgid "The last %1$d email attempts are recorded <a href=\"%2$s\">in the log</a>."
+msgstr "目前設定為最新的 %1$d 筆電子郵件傳送嘗試會予以<a href=\"%2$s\">記錄</a>。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:174
-msgctxt "Configuration Input Field"
-msgid "Delivery Mode"
-msgstr "傳送模式"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:634
+msgid "How will the connection to the mail server be established?"
+msgstr "與電子郵件伺服器建立連線的方式？"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:169
-msgctxt "Configuration Input Field"
-msgid "PHP Log Level"
-msgstr "PHP 記錄層級"
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:659
+msgid "How will you prove your identity to the mail server?"
+msgstr "如何向電子郵件伺服器證明網站管理員的使用權限？"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:164
-msgctxt "Configuration Section Title"
-msgid "Miscellaneous Settings"
-msgstr "其他設定"
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:184
+msgid "The SMTP hostname is wrong or the mail server does not provide service on this port"
+msgstr "SMTP 主機名稱錯誤，或電子郵件伺服器未提供指定通訊埠給 SMTP 服務。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:158
-msgctxt "Configuration Input Field"
-msgid "TCP Read Timeout (sec)"
-msgstr "TCP 讀取逾時 (秒)"
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:106
+msgid "<span style=\"color:green\">Postman is configured</span> and has delivered <span style=\"color:green\">%d</span> email."
+msgid_plural "<span style=\"color:green\">Postman is configured</span> and has delivered <span style=\"color:green\">%d</span> emails."
+msgstr[0] "<span style=\"color:green\">Post SMTP 已完成設定</span>，並傳送了 <span style=\"color:green\">%d</span> 封電子郵件。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:153
-msgctxt "Configuration Input Field"
-msgid "TCP Connection Timeout (sec)"
-msgstr "TCP 連線逾時 (秒)"
+#: Postman/Postman-Email-Log/PostmanEmailLogController.php:395
+msgid "This is the conversation between Postman and the mail server. It can be useful for diagnosing problems. <b>DO NOT</b> post it on-line, it may contain your account password."
+msgstr "這是 Post SMTP 與電子郵件伺服器間的交談內容，對於診斷問題相當有幫助。請<b>不要</b>公開發佈這些內容，因為其中可能包含了郵件帳號的密碼。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:148
-msgid "Network Settings"
-msgstr "網路設定"
+#: Postman/Postman-Email-Log/PostmanEmailLogLegacy.php:22
+msgid "This is a record of deliveries made to the mail server. It does not neccessarily indicate sucessful delivery to the recipient."
+msgstr "以下僅為電子郵件伺服器的傳送記錄，並不代表電子郵件已成功傳送給收件者。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:142
-msgid "Maximum Transcript Size"
-msgstr "最大文字記錄大小"
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:423
+msgid "Configure the communication with the mail server."
+msgstr "設定與電子郵件伺服器的通訊方式。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:137
-#: Postman/PostmanInputSanitizer.php:165
-msgid "Maximum Log Entries"
-msgstr "最大記錄項目數"
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:652
+msgid "This is the Outgoing (SMTP) Mail Server, or Mail Submission Agent (MSA), which Postman delegates mail delivery to. This server is specific to your email account, and if you don't know what to use, ask your email service provider."
+msgstr "以下是受 Post SMTP 所委派、用於郵件傳送的外寄 (SMTP) 郵件伺服器或郵件提交代理程式 (Mail Submission Agent，縮寫為 MSA)。這台伺服器僅能使用指定的電子郵件帳號傳送電子郵件，如果網站管理員不知道該如何進行設定，請洽詢電子郵件服務提供商。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:132
-msgid "Enable Logging"
-msgstr "啟用記錄"
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:653
+msgid "Note that many WordPress hosts, such as GoDaddy, Bluehost and Dreamhost, require that you use their mail accounts with their mail servers, and prevent you from using others."
+msgstr "請注意，有些 WordPress 的主機服務商 (例如 GoDaddy、Bluehost 及 Dreamhost)，會要求網站管理員使用他們的電子郵件伺服器所提供的電子郵件帳號傳送電子郵件，並會在使用其他電子郵件服務時進行阻擋。"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:127
-msgid "Email Log Settings"
-msgstr "電子郵件記錄設定"
+#. Translators where %s is the name of the page
+#: Postman/Postman-Mail/PostmanMyMailConnector.php:202
+#: Postman/Postman-Mail/PostmanMyMailConnector.php:218
+msgid "Mailster: Change the delivery method in the %s!"
+msgstr "Mailster: 在 %s 中變更傳送方式！"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:116
-msgid "Validation"
-msgstr "驗證"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:108
-msgid "Custom Headers"
-msgstr "自訂標頭"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:103
-msgid "Additional Headers"
-msgstr "其他標頭"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:97
-msgid "Blind Carbon Copy Recipient(s)"
-msgstr "密件副本 (bcc) 收件者"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:92
-msgid "Carbon Copy Recipient(s)"
-msgstr "副本 (cc) 收件者"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:87
-msgid "To Recipient(s)"
-msgstr "收件者 (to)"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:82
-#: Postman/Postman-Email-Log/PostmanEmailLogController.php:309
-msgid "Reply-To"
-msgstr "回覆至"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:77
-msgid "Additional Email Addresses"
-msgstr "其他電子郵件地址"
-
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:51
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:53
 msgctxt "The Message Sender Email Address"
 msgid "From Address"
 msgstr "寄件者電子郵件地址"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:40
-msgctxt "(i.e.) What kind is it?"
-msgid "Type"
-msgstr "類型"
+#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:107
+#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:141
+msgid "Ajax Error"
+msgstr "AJAX 錯誤"
 
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:35
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
-msgid "Transport"
-msgstr "傳輸方式"
+#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:108
+#: Postman/Postman-Mail/PostmanTransportRegistry.php:253
+msgid "Postman is <em>not</em> configured and is mimicking out-of-the-box WordPress email delivery."
+msgstr "Post SMTP <strong>尚未</strong>進行設定，目前以模擬 WordPress 預設的電子郵件傳送機制進行運作"
+
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:600
+msgid "Enter the email address and name you'd like to send mail as."
+msgstr "請輸入用於寄件的電子郵件地址及顯示名稱。"
 
 #. translators: where %s is the URL to the Connectivity Test page
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:869
+#: Postman/Postman-Configuration/PostmanConfigurationController.php:1006
 msgid "Postman can't find any way to send mail on your system. Run a <a href=\"%s\">connectivity test</a>."
-msgstr "Post SMTP 無法透過目前設定的系統傳送郵件，請執行 [<a href=\"%s\">連線測試</a>] 進行檢查。"
+msgstr "Post SMTP 無法透過目前設定的系統傳送電子郵件，請執行 [<a href=\"%s\">連線測試</a>] 進行檢查。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:683
-msgid "Send yourself a Test Email to make sure everything is working!"
-msgstr "記得傳送一封測試用電子郵件，確認全部設定都能正確執行！"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:228
+msgid "Increase the timeouts if your host is intermittenly failing to send mail. Be careful, this also correlates to how long your user must wait if the mail server is unreachable."
+msgstr "如果主機會間歇性地無法傳送電子郵件，請增加逾時設定。請注意，這項變更也會在電子郵件伺服器無法連線時，增加使用者需要等待的時間。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:682
-msgid "Grant permission with the Email Provider for Postman to send email and"
-msgstr "電子郵件服務提供商授予 Post SMTP 權限以傳送電子郵件，然後..."
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:214
+msgid "This address, like the <b>letterhead</b> printed on a letter, identifies the sender to the recipient. Change this when you are sending on behalf of someone else, for example to use Google's <a href=\"%s\">Send Mail As</a> feature. Other plugins, especially Contact Forms, may override this field to be your visitor's address."
+msgstr "這個電子郵件地址就如同印在信紙上的<b>信頭</b>一樣，用於識別寄給收件者的是哪一位寄件者。當你需要代表其他人傳送電子郵件時，就必須變更這項設定，使用方式與 Google 的 [<a href=\"%s\" target=\"_blank\">以這個地址寄送郵件</a>] 功能相同。有些外掛 - 尤其是聯絡表單類外掛，有可能會以填表者的電子郵件地址覆寫這個欄位的設定。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:680
-msgid "Click Finish to save these settings, then:"
-msgstr "點擊 [完成] 以儲存設定，接下來:"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:254
+msgid "E-mail addresses can be validated before sending e-mail, however this may fail with some newer domains."
+msgstr "電子郵件地址會在傳送電子郵件前進行驗證，一些較新的網域可能會遇到驗證失敗的狀況。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:678
-msgctxt "Wizard Step Title"
-msgid "You're Done!"
-msgstr "大功告成！"
+#: Postman/Postman-Mail/PostmanElasticEmailTransport.php:303
+#: Postman/Postman-Mail/PostmanMailgunTransport.php:119
+#: Postman/Postman-Mail/PostmanMailjetTransport.php:326
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:155
+#: Postman/Postman-Mail/PostmanModuleTransport.php:619
+#: Postman/Postman-Mail/PostmanPostmarkTransport.php:262
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:109
+#: Postman/Postman-Mail/PostmanSendinblueTransport.php:303
+#: Postman/Postman-Mail/PostmanSendpulseTransport.php:344
+#: Postman/Postman-Mail/PostmanSmtp2GoTransport.php:82
+#: Postman/Postman-Mail/PostmanSparkPostTransport.php:284
+msgid "Message From Address can not be empty"
+msgstr "郵件的 [寄件者電子郵件地址] 不能留空"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:676
-msgctxt "The final step of the Wizard"
-msgid "Finish"
-msgstr "完成"
+#. translators: where (1) is the secure icon and (2) is the transport name
+#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:199
+#: Postman/Postman-Mail/PostmanMandrillTransport.php:139
+#: Postman/Postman-Mail/PostmanSendGridTransport.php:83
+#: Postman/Postman-Mail/PostmanSmtp2GoTransport.php:60
+msgid "Postman will send mail via the <b>%1$s %2$s</b>."
+msgstr "Post SMTP 會以 <b>%1$s %2$s</b> 傳送電子郵件。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:596
-msgid "How will you prove your identity to the mail server?"
-msgstr "如何向電子郵件伺服器證明網站管理員的使用權限？"
+#. translators: where (1) is the transport type, (2) is the host, and (3) is
+#. the Authentication Type (e.g. Postman will send mail via smtp.gmail.com:465
+#. using OAuth 2.0 authentication.)
+#: Postman/Postman-Mail/PostmanModuleTransport.php:547
+msgid "Postman will send mail via %1$s to %2$s using %3$s authentication."
+msgstr "Post SMTP 已通過主機 %2$s 的 \"%3$s\" 驗證，並會以 %1$s 通訊協定傳送電子郵件。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:585
-msgid "This configuration option will send your authorization credentials in the clear."
-msgstr "這項設定會以明文傳送授權憑證。"
+#. Translators: Where (%1$s) is the SPF-info URL and (%2$s) is the name of the
+#. web host
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:665
+msgid "If you own this domain, make sure it has an <a href=\"%1$s\">SPF record authorizing %2$s</a> as a relay, or you will have delivery problems."
+msgstr "如果網站管理員擁有這個網域管理權限，請確認已有一筆<a href=\"%1$s\" target=\"_blank\">授權 %2$s 進行轉送的 SPF 記錄</a>，否則傳送電子郵件會發生問題。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:582
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:594
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
-#: Postman/Postman-Mail/PostmanMailgunTransport.php:193
-#: Postman/Postman-Mail/PostmanMandrillTransport.php:229
-#: Postman/Postman-Mail/PostmanSendGridTransport.php:183
-#: Postman/Postman-Mail/PostmanSendinblueTransport.php:181
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:355
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:360
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:376
-msgid "Authentication"
-msgstr "驗證方式"
+#: Postman/PostmanConfigTextHelper.php:262
+msgid "Enter an Outgoing Mail Server with OAuth2 capabilities."
+msgstr "請輸入具備 OAuth 驗證功能的外寄郵件伺服器名稱。"
 
-#. Translators: Where %1$s is the socket identifier and %2$s is the
-#. authentication type
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:581
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:161
-msgctxt "A socket is the network term for host and port together"
-msgid "Socket"
-msgstr "通訊端"
+#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:204
+msgid "Choose SMTP or a vendor-specific API:"
+msgstr "請選取 SMTP 或特定電子郵件服務商的 API:"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:573
-msgctxt "TCP Port Test Status"
-msgid "Ready"
-msgstr "準備就緒"
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:98
+msgid "Outgoing Mail Server Hostname and Port can not be empty."
+msgstr "外寄郵件伺服器主機名稱及通訊埠號碼不能為空。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:572
-msgid "Your connection settings depend on what your email service provider offers, and what your WordPress host allows."
-msgstr "請以這個網站要使用的電子郵件服務提供商所提供的資訊進行連線設定，而且用於架設這個 WordPress 網站的主機也要對相關連線予以放行。"
+#: Postman/PostmanViewController.php:313
+msgid "Configuration"
+msgstr "組態"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:571
-msgid "How will the connection to the mail server be established?"
-msgstr "與電子郵件伺服器建立連線的方式？"
+#: Postman/PostmanViewController.php:701
+msgid "Paste data from another instance of Postman here to duplicate the configuration."
+msgstr "在這裡貼上從另一個 Post SMTP 執行個體取得的資料，便能以相同參數完成設定。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:569
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:573
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:148
-msgid "Connectivity Test"
-msgstr "連線測試"
+#: Postman/Postman-Mail/PostmanTransportRegistry.php:247
+msgid "Postman is configured."
+msgstr "Post SMTP 已完成組態"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:561
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:156
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:335
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:549
-msgid "Outgoing Mail Server Hostname"
-msgstr "外寄郵件伺服器主機名稱"
+#: Postman/Postman-Mail/PostmanGmailApiModuleTransport.php:270
+#: Postman/Postman-Mail/PostmanModuleTransport.php:766
+msgid "OAuth 2.0 (requires Client ID and Client Secret)"
+msgstr "OAuth 2.0 (需要用戶端 ID 及用戶端密鑰)"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:547
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:66
-msgid "Name"
-msgstr "顯示名稱"
+#. Translators: This description is specific to Google
+#. Translators: This description is specific to Microsoft
+#. Translators: This description is specific to Yahoo
+#: Postman/PostmanConfigTextHelper.php:85
+#: Postman/PostmanConfigTextHelper.php:147
+#: Postman/PostmanConfigTextHelper.php:209
+#: Postman/PostmanConfigTextHelper.php:275
+msgctxt "Name of the OAuth 2.0 Client Secret"
+msgid "Client Secret"
+msgstr "用戶端密鑰"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:552
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:56
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:121
-msgid "Email Address"
-msgstr "電子郵件地址"
+#: Postman/PostmanViewController.php:705
+msgid "Using the same OAuth 2.0 Client ID and Client Secret from this site at the same time as another site will cause failures."
+msgstr "在不同的網站間同時使用相同的 OAuth 2.0 用戶端 ID 及用戶端密鑰，會導致驗證失敗。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:538
-msgid "Enter the email address and name you'd like to send mail as."
-msgstr "請在這裡輸入要用來寄件的電子郵件地址及顯示名稱。"
+#: Postman/PostmanAdminController.php:405
+msgid "The OAuth 2.0 authorization was successful. Ready to send e-mail."
+msgstr "OAuth 2.0 驗證已成功完成 ，Post SMTP 已為傳送電子郵件準備就緒。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:537
-msgctxt "Wizard Step Title"
-msgid "Who is the mail coming from?"
-msgstr "要將哪個帳號設定為寄件者？"
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:470
+#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:694
+msgid "Enter the account credentials."
+msgstr "請輸入帳號授權憑證。"
 
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:535
-msgctxt "Wizard Step Title"
-msgid "Sender Details"
-msgstr "寄件者詳細資料"
-
-#: Postman/Extensions/Core/Notifications/PostmanNotify.php:133
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:318
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:500
-#: Postman/Postman-Mail/PostmanModuleTransport.php:767
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:429
-msgid "None"
-msgstr "無"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:466
-msgid "If you had a working configuration with another Plugin, the Setup Wizard can begin with those settings."
-msgstr "如果這個網站有一份來自其他外掛、且可正常執行的設定，[設定精靈] 可以從這份設定開始進行。"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:465
-msgctxt "Wizard Step Title"
-msgid "Import configuration from another plugin?"
-msgstr "從其他外掛匯入設定？"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:463
-msgctxt "Wizard Step Title"
-msgid "Import Configuration"
-msgstr "匯入設定"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:429
-msgid "Setup Wizard"
-msgstr "設定精靈"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:214
-msgid "Advanced"
-msgstr "進階設定"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:213
-msgid "Logging"
-msgstr "記錄"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:212
-msgid "Message"
-msgstr "訊息"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:210
-msgid "Account"
-msgstr "帳號"
-
-#. Translators where %s is the name of the page
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:133
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:207
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:85
-#: Postman/Postman-Mail/PostmanMyMailConnector.php:202
-#: Postman/Postman-Mail/PostmanMyMailConnector.php:218 Postman/Postman.php:405
-#: Postman/PostmanAdminController.php:305
-msgid "Settings"
-msgstr "設定"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:132
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:161
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:83
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:61
-#: Postman/Postman-Controller/PostmanDashboardWidgetController.php:74
-#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:83
-#: Postman/Postman-Mail/PostmanMyMailConnector.php:178
-#: Postman/Postman-Send-Test-Email/PostmanSendTestEmailController.php:104
-#: Postman/Postman.php:78
-msgid "Postman SMTP"
-msgstr "Post SMTP"
-
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:132
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:161
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:83
-#: Postman/Postman-Diagnostic-Test/PostmanDiagnosticTestController.php:83
-#: Postman/PostmanViewController.php:119 Postman/PostmanViewController.php:146
-#: Postman/PostmanViewController.php:609
-msgid "%s Setup"
-msgstr "%s 設定"
-
-#. translators: where %d is a port number
-#: Postman/Localize.php:8
-msgid "You are about to configure OAuth 2.0 with an IP address instead of a domain name. This is not permitted. Either assign a real domain name to your site or add a fake one in your local host file."
-msgstr "網站管理員使用了 IP 位址 (而非網域名稱) 為 OAuth 2.0 進行設定，這種設定方式並不正確。請為這個網站指派一個真實的網域名稱，或是在本地主機檔案中新增一筆該 IP 與「假」網域名稱的對應記錄，然後以假網域名稱進行設定。"
-
-#. translators: where %s is the name of the SMTP server
-#: Postman/Localize.php:6
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:124
-msgid "connected to %1$s instead of %2$s."
-msgstr "實際上是連線至 %1$s，而非 %2$s。"
-
-#: Postman/Localize.php:2
-#: Postman/Postman-Configuration/PostmanConfigurationController.php:584
-#: Postman/Postman-Configuration/PostmanRegisterConfigurationSettings.php:392
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:99
-#: Postman/Postman-Connectivity-Test/PostmanConnectivityTestController.php:124
-#: Postman/Postman-Email-Log/PostmanEmailLogService.php:104
-#: Postman/Postman-Mail/PostmanSmtpModuleTransport.php:552
-#: Postman/PostmanViewController.php:674
-msgid "Warning"
-msgstr "警告"
+#: Postman/PostmanViewController.php:727
+msgid "This will purge all of Postman's settings, including account credentials and the email log."
+msgstr "這項操作會清除全部 Post SMTP 的設定，包含帳號授權憑證及電子郵件記錄。"

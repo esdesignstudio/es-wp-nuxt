@@ -37,6 +37,8 @@
 
         private static $_upgrade_basename = null;
 
+        const UPDATES_CHECK_CACHE_EXPIRATION = ( WP_FS__TIME_24_HOURS_IN_SEC / 24 );
+
         #--------------------------------------------------------------------------------
         #region Singleton
         #--------------------------------------------------------------------------------
@@ -104,6 +106,8 @@
 
             if ( ! $this->_fs->has_any_active_valid_license() ) {
                 add_action( 'admin_head', array( &$this, 'catch_plugin_information_dialog_contents' ) );
+            } else {
+                add_action( 'admin_footer', array( &$this, '_add_fs_allow_updater_and_dialog_request_param' ) );
             }
 
             if ( ! WP_FS__IS_PRODUCTION_MODE ) {
@@ -129,13 +133,46 @@
 
         /**
          * @author Leo Fajardo (@leorw)
+         * @since 2.7.4
+         */
+        function _add_fs_allow_updater_and_dialog_request_param() {
+            if ( ! $this->is_plugin_information_dialog_for_plugin() ) {
+                return;
+            }
+            ?>
+            <script type="text/javascript">
+                if ( typeof jQuery !== 'undefined' ) {
+                    jQuery( document ).on( 'wp-plugin-updating', function( event, args ) {
+                        if ( typeof args === 'object' && args.slug && typeof args.slug === 'string' ) {
+                            if ( <?php echo json_encode( $this->_fs->get_slug() ) ?> === args.slug ) {
+                                args.fs_allow_updater_and_dialog = true;
+                            }
+                        }
+                    } );
+                }
+            </script>
+            <?php
+        }
+
+        /**
+         * @author Leo Fajardo (@leorw)
+         * @since 2.7.4
+         *
+         * @return bool
+         */
+        private function is_plugin_information_dialog_for_plugin() {
+            return (
+                'plugin-information' === fs_request_get( 'tab', false ) &&
+                $this->_fs->get_slug() === fs_request_get_raw( 'plugin', false )
+            );
+        }
+
+        /**
+         * @author Leo Fajardo (@leorw)
          * @since 2.1.4
          */
         function catch_plugin_information_dialog_contents() {
-            if (
-                'plugin-information' !== fs_request_get( 'tab', false ) ||
-                $this->_fs->get_slug() !== fs_request_get( 'plugin', false )
-            ) {
+            if ( ! $this->is_plugin_information_dialog_for_plugin() ) {
                 return;
             }
 
@@ -153,7 +190,7 @@
         function edit_and_echo_plugin_information_dialog_contents( $hook_suffix ) {
             if (
                 'plugin-information' !== fs_request_get( 'tab', false ) ||
-                $this->_fs->get_slug() !== fs_request_get( 'plugin', false )
+                $this->_fs->get_slug() !== fs_request_get_raw( 'plugin', false )
             ) {
                 return;
             }
@@ -166,15 +203,19 @@
 
             $contents = ob_get_clean();
 
-            $update_button_id_attribute_pos = strpos( $contents, 'id="plugin_update_from_iframe"' );
+            $install_or_update_button_id_attribute_pos = strpos( $contents, 'id="plugin_install_from_iframe"' );
 
-            if ( false !== $update_button_id_attribute_pos ) {
-                $update_button_start_pos = strrpos(
-                    substr( $contents, 0, $update_button_id_attribute_pos ),
+            if ( false === $install_or_update_button_id_attribute_pos ) {
+                $install_or_update_button_id_attribute_pos = strpos( $contents, 'id="plugin_update_from_iframe"' );
+            }
+
+            if ( false !== $install_or_update_button_id_attribute_pos ) {
+                $install_or_update_button_start_pos = strrpos(
+                    substr( $contents, 0, $install_or_update_button_id_attribute_pos ),
                     '<a'
                 );
 
-                $update_button_end_pos = ( strpos( $contents, '</a>', $update_button_id_attribute_pos ) + strlen( '</a>' ) );
+                $install_or_update_button_end_pos = ( strpos( $contents, '</a>', $install_or_update_button_id_attribute_pos ) + strlen( '</a>' ) );
 
                 /**
                  * The part of the contents without the update button.
@@ -182,20 +223,20 @@
                  * @author Leo Fajardo (@leorw)
                  * @since 2.2.5
                  */
-                $modified_contents = substr( $contents, 0, $update_button_start_pos );
+                $modified_contents = substr( $contents, 0, $install_or_update_button_start_pos );
 
-                $update_button = substr( $contents, $update_button_start_pos, ( $update_button_end_pos - $update_button_start_pos ) );
+                $install_or_update_button = substr( $contents, $install_or_update_button_start_pos, ( $install_or_update_button_end_pos - $install_or_update_button_start_pos ) );
 
                 /**
                  * Replace the plugin information dialog's "Install Update Now" button's text and URL. If there's a license,
                  * the text will be "Renew license" and will link to the checkout page with the license's billing cycle
                  * and quota. If there's no license, the text will be "Buy license" and will link to the pricing page.
                  */
-                $update_button = preg_replace(
-                    '/(\<a.+)(id="plugin_update_from_iframe")(.+href=")([^\s]+)(".*\>)(.+)(\<\/a>)/is',
+                $install_or_update_button = preg_replace(
+                    '/(\<a.+)(id="plugin_(install|update)_from_iframe")(.+href=")([^\s]+)(".*\>)(.+)(\<\/a>)/is',
                     is_object( $license ) ?
                         sprintf(
-                            '$1$3%s$5%s$7',
+                            '$1$4%s$6%s$8',
                             $this->_fs->checkout_url(
                                 is_object( $subscription ) ?
                                     ( 1 == $subscription->billing_cycle ? WP_FS__PERIOD_MONTHLY : WP_FS__PERIOD_ANNUALLY ) :
@@ -206,11 +247,11 @@
                             fs_text_inline( 'Renew license', 'renew-license', $this->_fs->get_slug() )
                         ) :
                         sprintf(
-                            '$1$3%s$5%s$7',
+                            '$1$4%s$6%s$8',
                             $this->_fs->pricing_url(),
                             fs_text_inline( 'Buy license', 'buy-license', $this->_fs->get_slug() )
                         ),
-                    $update_button
+                    $install_or_update_button
                 );
 
                 /**
@@ -219,7 +260,7 @@
                  * @author Leo Fajardo (@leorw)
                  * @since 2.2.5
                  */
-                $modified_contents .= $update_button;
+                $modified_contents .= $install_or_update_button;
 
                 /**
                  * Append the remaining part of the contents after the update button.
@@ -227,7 +268,7 @@
                  * @author Leo Fajardo (@leorw)
                  * @since 2.2.5
                  */
-                $modified_contents .= substr( $contents, $update_button_end_pos );
+                $modified_contents .= substr( $contents, $install_or_update_button_end_pos );
 
                 $contents = $modified_contents;
             }
@@ -243,7 +284,7 @@
             if (
                 $this->_fs->is_premium() &&
                 $this->_fs->is_registered() &&
-                ! $this->_fs->is_tracking_allowed()
+                ! FS_Permission_Manager::instance( $this->_fs )->is_essentials_tracking_allowed()
             ) {
                 $this->_logger->log( 'Opted out sites cannot receive automatic software updates.' );
 
@@ -417,7 +458,7 @@
 
             $themes_update = get_site_transient( 'update_themes' );
             if ( ! isset( $themes_update->response[ $theme_basename ] ) ||
-                empty( $themes_update->response[ $theme_basename ]['package'] )
+                 empty( $themes_update->response[ $theme_basename ]['package'] )
             ) {
                 return $prepared_themes;
             }
@@ -501,24 +542,8 @@
 
             global $wp_current_filter;
 
-            $current_plugin_version = $this->_fs->get_plugin_version();
-
-            if ( ! empty( $wp_current_filter ) && 'upgrader_process_complete' === $wp_current_filter[0] ) {
-                if (
-                    is_null( $this->_update_details ) ||
-                    ( is_object( $this->_update_details ) && $this->_update_details->new_version !== $current_plugin_version )
-                ) {
-                    /**
-                     * After an update, clear the stored update details and reparse the plugin's main file in order to get
-                     * the updated version's information and prevent the previous update information from showing up on the
-                     * updates page.
-                     *
-                     * @author Leo Fajardo (@leorw)
-                     * @since 2.3.1
-                     */
-                    $this->_update_details  = null;
-                    $current_plugin_version = $this->_fs->get_plugin_version( true );
-                }
+            if ( ! empty( $wp_current_filter ) && in_array( 'upgrader_process_complete', $wp_current_filter ) ) {
+                return $transient_data;
             }
 
             if ( ! isset( $this->_update_details ) ) {
@@ -526,8 +551,8 @@
                 $new_version = $this->_fs->get_update(
                     false,
                     fs_request_get_bool( 'force-check' ),
-                    WP_FS__TIME_24_HOURS_IN_SEC / 24,
-                    $current_plugin_version
+                    FS_Plugin_Updater::UPDATES_CHECK_CACHE_EXPIRATION,
+                    $this->_fs->get_plugin_version()
                 );
 
                 $this->_update_details = false;
@@ -610,7 +635,7 @@
 
             $slug = $this->_fs->get_slug();
 
-            if ( $this->_fs->is_org_repo_compliant() && $this->_fs->is_freemium() ) {
+            if ( $this->can_fetch_data_from_wp_org() ) {
                 if ( ! isset( $this->_translation_updates ) ) {
                     $this->_translation_updates = array();
 
@@ -636,7 +661,7 @@
                     foreach ( $this->_translation_updates as $translation_update ) {
                         $lang = $translation_update['language'];
                         if ( ! isset( $current_plugin_translation_updates_map[ $lang ] ) ||
-                            version_compare( $translation_update['version'], $current_plugin_translation_updates_map[ $lang ]['version'], '>' )
+                             version_compare( $translation_update['version'], $current_plugin_translation_updates_map[ $lang ]['version'], '>' )
                         ) {
                             $current_plugin_translation_updates_map[ $lang ] = $translation_update;
                         }
@@ -650,7 +675,7 @@
         }
 
         /**
-         * Get module's required data for the updates mechanism.
+         * Get module's required data for the updates' mechanism.
          *
          * @author Vova Feldman (@svovaf)
          * @since  2.0.0
@@ -660,13 +685,14 @@
          * @return object
          */
         function get_update_details( FS_Plugin_Tag $new_version ) {
-            $update              = new stdClass();
-            $update->slug        = $this->_fs->get_slug();
-            $update->new_version = $new_version->version;
-            $update->url         = WP_FS__ADDRESS;
-            $update->package     = $new_version->url;
-            $update->tested      = $new_version->tested_up_to_version;
-            $update->requires    = $new_version->requires_platform_version;
+            $update               = new stdClass();
+            $update->slug         = $this->_fs->get_slug();
+            $update->new_version  = $new_version->version;
+            $update->url          = WP_FS__ADDRESS;
+            $update->package      = $new_version->url;
+            $update->tested       = self::get_tested_wp_version( $new_version->tested_up_to_version );
+            $update->requires     = $new_version->requires_platform_version;
+            $update->requires_php = $new_version->requires_programming_language_version;
 
             $icon = $this->_fs->get_local_icon_url();
 
@@ -704,12 +730,7 @@
          * @return bool
          */
         private function is_new_version_premium( FS_Plugin_Tag $new_version ) {
-            $query_str = parse_url( $new_version->url, PHP_URL_QUERY );
-            if ( empty( $query_str ) ) {
-                return false;
-            }
-
-            parse_str( $query_str, $params );
+            $params = fs_parse_url_params( $new_version->url );
 
             return ( isset( $params['is_premium'] ) && 'true' == $params['is_premium'] );
         }
@@ -808,9 +829,9 @@
             $basename = $this->_fs->get_plugin_basename();
 
             if ( ! is_object( $transient_data ) ||
-                ! isset( $transient_data->response ) ||
+                 ! isset( $transient_data->response ) ||
                  ! is_array( $transient_data->response ) ||
-                empty( $transient_data->response[ $basename ] )
+                 empty( $transient_data->response[ $basename ] )
             ) {
                 return;
             }
@@ -837,32 +858,48 @@
          * @return bool|mixed
          */
         static function _fetch_plugin_info_from_repository( $action, $args ) {
-            $url = $http_url = 'http://api.wordpress.org/plugins/info/1.0/';
-            if ( $ssl = wp_http_supports( array( 'ssl' ) ) ) {
+            $url = $http_url = 'http://api.wordpress.org/plugins/info/1.2/';
+            $url = add_query_arg(
+                array(
+                    'action'  => $action,
+                    'request' => $args,
+                ),
+                $url
+            );
+
+            if ( wp_http_supports( array( 'ssl' ) ) ) {
                 $url = set_url_scheme( $url, 'https' );
             }
 
-            $args = array(
-                'timeout' => 15,
-                'body'    => array(
-                    'action'  => $action,
-                    'request' => serialize( $args )
-                )
-            );
-
-            $request = wp_remote_post( $url, $args );
+            // The new endpoint version serves only GET requests.
+            $request = wp_remote_get( $url, array( 'timeout' => 15 ) );
 
             if ( is_wp_error( $request ) ) {
                 return false;
             }
 
-            $res = maybe_unserialize( wp_remote_retrieve_body( $request ) );
+            $res = json_decode( wp_remote_retrieve_body( $request ), true );
 
-            if ( ! is_object( $res ) && ! is_array( $res ) ) {
+            if ( is_array( $res ) ) {
+                // Object casting is required in order to match the info/1.0 format. We are not decoding directly into an object as we need some fields to remain an array (e.g., $res->sections).
+                $res = (object) $res;
+            }
+
+            if ( ! is_object( $res ) || isset( $res->error ) ) {
                 return false;
             }
 
             return $res;
+        }
+
+        /**
+         * Returns true if the product can fetch data from WordPress.org.
+         *
+         * @author Leo Fajardo (@leorw)
+         * @since  2.7.4
+         */
+        private function can_fetch_data_from_wp_org() {
+            return ( $this->_fs->is_org_repo_compliant() && $this->_fs->is_freemium() );
         }
 
         /**
@@ -1049,7 +1086,7 @@
             }
 
             $plugin_in_repo = false;
-            if ( ! $is_addon ) {
+            if ( ! $is_addon && $this->can_fetch_data_from_wp_org() ) {
                 // Try to fetch info from .org repository.
                 $data = self::_fetch_plugin_info_from_repository( $action, $args );
 
@@ -1095,6 +1132,7 @@ if ( !isset($info->error) ) {
                 if ( ! $plugin_in_repo ) {
                     $data->last_updated = ! is_null( $new_version->updated ) ? $new_version->updated : $new_version->created;
                     $data->requires     = $new_version->requires_platform_version;
+                    $data->requires_php = $new_version->requires_programming_language_version;
                     $data->tested       = $new_version->tested_up_to_version;
                 }
 
@@ -1148,7 +1186,26 @@ if ( !isset($info->error) ) {
                 }
             }
 
+            if ( ! empty( $data->tested ) ) {
+                $data->tested = self::get_tested_wp_version( $data->tested );
+            }
+
             return $data;
+        }
+
+        /**
+         * @since 2.5.3 If the current WordPress version is a patch of the tested version (e.g., 6.1.2 is a patch of 6.1), then override the tested version with the patch so developers won't need to release a new version just to bump the latest supported WP version.
+         *
+         * @param string|null $tested_up_to
+         *
+         * @return string|null
+         */
+        private static function get_tested_wp_version( $tested_up_to ) {
+            $current_wp_version = get_bloginfo( 'version' );
+
+            return ( ! empty($tested_up_to) && fs_starts_with( $current_wp_version, $tested_up_to . '.' ) ) ?
+                $current_wp_version :
+                $tested_up_to;
         }
 
         /**
@@ -1162,7 +1219,7 @@ if ( !isset($info->error) ) {
          * @return object
          */
         private function get_latest_download_details( $addon_id = false, $newer_than = false, $fetch_readme = true ) {
-            return $this->_fs->_fetch_latest_version( $addon_id, true, WP_FS__TIME_24_HOURS_IN_SEC, $newer_than, $fetch_readme );
+            return $this->_fs->_fetch_latest_version( $addon_id, true, FS_Plugin_Updater::UPDATES_CHECK_CACHE_EXPIRATION, $newer_than, $fetch_readme );
         }
 
         /**

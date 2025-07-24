@@ -29,6 +29,24 @@ class acfe_field_flexible_content extends acfe_field_extend{
     
     
     /**
+     * input_admin_enqueue_scripts
+     */
+    function input_admin_enqueue_scripts(){
+        
+        // localize
+        acf_localize_text(array(
+            'Layout data has been copied to your clipboard.'                          => __('Layout data has been copied to your clipboard.', 'acfe'),
+            'Layouts data have been copied to your clipboard.'                        => __('Layouts data have been copied to your clipboard.', 'acfe'),
+            'Please copy the following data to your clipboard.'                       => __('Please copy the following data to your clipboard.', 'acfe'),
+            'Please paste previously copied layout data in the following field:'      => __('Please paste previously copied layout data in the following field:', 'acfe'),
+            'You can now paste it on another page, using the "Paste" button action.'  => __('You can now paste it on another page, using the "Paste" button action.', 'acfe'),
+            'You can then paste it on another page, using the "Paste" button action.' => __('You can then paste it on another page, using the "Paste" button action.', 'acfe'),
+        ));
+        
+    }
+    
+    
+    /**
      * field_group_admin_head
      */
     function field_group_admin_head(){
@@ -228,7 +246,7 @@ class acfe_field_flexible_content extends acfe_field_extend{
             $atts = apply_filters("acfe/flexible/layouts/label_atts/key={$key}&layout={$l_name}",   $atts, $layout, $field);
             
             // Label
-            $layout['label'] = $prepend . '<span ' . acf_esc_attrs($atts) . '>' . $layout['label'] . '</span>';
+            $layout['label'] = $prepend . '<span ' . acf_esc_atts($atts) . '>' . $layout['label'] . '</span>';
             
         }
         
@@ -334,7 +352,7 @@ class acfe_field_flexible_content extends acfe_field_extend{
         $values = apply_filters("acfe/flexible/div_values/key={$key}",      $values, $field);
 
     ?>
-    <div <?php echo acf_esc_attrs($div); ?>>
+    <div <?php echo acf_esc_atts($div); ?>>
 
         <?php acf_hidden_input(array('name' => $field['name'])); ?>
 
@@ -364,7 +382,7 @@ class acfe_field_flexible_content extends acfe_field_extend{
             endforeach; ?>
         </div>
 
-        <div <?php echo acf_esc_attrs($values); ?>>
+        <div <?php echo acf_esc_atts($values); ?>>
             <?php if(!empty($field['value'])): 
                 
                 foreach($field['value'] as $i => $value):
@@ -405,13 +423,13 @@ class acfe_field_flexible_content extends acfe_field_extend{
             $button = apply_filters('acfe/flexible/action_button', $button, $field);
             
             if(!empty($wrapper)){
-                echo '<div ' . acf_esc_attrs($wrapper) . '>';
+                echo '<div ' . acf_esc_atts($wrapper) . '>';
             }
             
             ?>
             
             <div class="acf-actions">
-                <a <?php echo acf_esc_attrs($button); ?>><?php echo $field['button_label']; ?></a>
+                <a <?php echo acf_esc_atts($button); ?>><?php echo $field['button_label']; ?></a>
                 
                 <?php
                 
@@ -432,7 +450,7 @@ class acfe_field_flexible_content extends acfe_field_extend{
                     $button_secondary = apply_filters('acfe/flexible/action_button_secondary', $button_secondary, $field);
                     ?>
                 
-                    <a <?php echo acf_esc_attrs($button_secondary); ?>>
+                    <a <?php echo acf_esc_atts($button_secondary); ?>>
                        <span class="dashicons dashicons-arrow-down-alt2" style="vertical-align:text-top;width:auto;height:auto;font-size:13px;line-height:20px;"></span>
                     </a>
                     
@@ -465,7 +483,7 @@ class acfe_field_flexible_content extends acfe_field_extend{
                         'data-max'      => $layout['max'],
                     );
                     
-                    ?><li><a <?php echo acf_esc_attrs($atts); ?>><?php echo $layout['label']; ?></a></li><?php
+                    ?><li><a <?php echo acf_esc_atts($atts); ?>><?php echo $layout['label']; ?></a></li><?php
                 
                 endforeach; ?>
                 </ul>
@@ -534,11 +552,11 @@ class acfe_field_flexible_content extends acfe_field_extend{
         //reset_rows();
         
         ?>
-        <div <?php echo acf_esc_attrs($div); ?>>
+        <div <?php echo acf_esc_atts($div); ?>>
                     
             <?php acf_hidden_input(array('name' => $prefix.'[acf_fc_layout]', 'value' => $layout['name'])); ?>
             
-            <div <?php echo acf_esc_attrs($handle); ?>>
+            <div <?php echo acf_esc_atts($handle); ?>>
                 <?php echo $this->get_layout_title($field, $layout, $i, $value); ?>
             </div>
             
@@ -686,7 +704,7 @@ class acfe_field_flexible_content extends acfe_field_extend{
         
         // prepend order
         $order = is_numeric($i) ? $i + 1 : 0;
-        $title = '<span class="acf-fc-layout-order">' . $order . '</span> <span ' . acf_esc_attrs($attrs). '>' . acf_esc_html($title) . '</span>';
+        $title = '<span class="acf-fc-layout-order">' . $order . '</span> <span ' . acf_esc_atts($attrs). '>' . acf_esc_html($title) . '</span>';
         
         // return
         return $title;
@@ -742,7 +760,7 @@ class acfe_field_flexible_content extends acfe_field_extend{
                         }
                         
                         ?>
-                        <th <?php echo acf_esc_attrs($atts); ?>>
+                        <th <?php echo acf_esc_atts($atts); ?>>
                             <?php echo acf_get_field_label($sub_field); ?>
                             <?php if($sub_field['instructions']): ?>
                                 <p class="description"><?php echo $sub_field['instructions']; ?></p>
@@ -817,6 +835,36 @@ class acfe_field_flexible_content extends acfe_field_extend{
         
         $field['delay'] = 1;
         $field['acfe_wysiwyg_auto_init'] = 1;
+        return $field;
+        
+    }
+    
+    
+    /**
+     * translate_field
+     *
+     * @param $field
+     */
+    function translate_field($field){
+        
+        if(isset($field['acfe_flexible_modal']['acfe_flexible_modal_title'])){
+            $field['acfe_flexible_modal']['acfe_flexible_modal_title'] = acf_translate($field['acfe_flexible_modal']['acfe_flexible_modal_title']);
+        }
+    
+        // loop
+        if(!empty($field['layouts'])){
+        
+            foreach($field['layouts'] as &$layout){
+            
+                if(isset($layout['acfe_flexible_category'])){
+                    $layout['acfe_flexible_category'] = acf_translate($layout['acfe_flexible_category']);
+                }
+            
+            }
+            
+        }
+    
+        // return
         return $field;
         
     }

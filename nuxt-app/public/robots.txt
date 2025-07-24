@@ -40,4 +40,4 @@ User-agent: Baiduspider
 Allow: /wp-content/
 Disallow: /wp-admin
 
-Sitemap: 這裡要換上客戶網址
+Sitemap: https://www.holoface.photos/sitemap.xml

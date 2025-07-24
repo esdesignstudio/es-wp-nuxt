@@ -8,56 +8,54 @@ if(!class_exists('ACFE_Field_Group')):
 
 class ACFE_Field_Group{
     
-    /*
-     * Construct
+    /**
+     * construct
      */
     function __construct(){
         
-        // Actions
-        add_action('acf/field_group/admin_head',    array($this, 'admin_head'));
-        add_filter('acf/validate_field_group',      array($this, 'validate_default_autosync'));
-        add_filter('acf/get_field_types',           array($this, 'reorder_field_types'));
-        
+        add_action('acf/field_group/admin_head', array($this, 'admin_head'));
+        add_filter('acf/validate_field_group',   array($this, 'validate_field_group'));
     }
     
-    /*
-     * Reorder Field Types
+    
+    /**
+     * has_enhanced_ui
+     *
+     * @return bool
      */
-    function reorder_field_types($groups){
-        
-        foreach($groups as $group => &$fields){
-            asort($fields);
-        }
-    
-        if(isset($groups['E-Commerce'])){
-            $groups = acfe_array_insert_after($groups, 'jQuery', 'E-Commerce', $groups['E-Commerce']);
-        }
-        
-        if(isset($groups['ACF'])){
-            $groups = acfe_array_insert_after($groups, 'jQuery', 'ACF', $groups['ACF']);
-        }
-    
-        if(isset($groups['WordPress'])){
-            $groups = acfe_array_insert_after($groups, 'jQuery', 'WordPress', $groups['WordPress']);
-        }
-    
-        return $groups;
-        
+    function has_enhanced_ui(){
+        return (bool) acfe_get_setting('modules/field_group_ui');
     }
     
-    /*
-     * Admin Head
+    
+    /**
+     * admin_head
      */
     function admin_head(){
-    
+        
+        global $field_group;
+        
+        // submitbox
         add_action('post_submitbox_misc_actions', array($this, 'submitbox'), 11);
-    
-        add_meta_box('acf-field-group-acfe-side', __('Advanced Settings', 'acfe'), array($this, 'render_sidebar_metabox'), 'acf-field-group', 'side');
+        
+        // condition vars
+        $has_enhanced_ui = $this->has_enhanced_ui();
+        $is_sync_available = acfe_is_sync_available($field_group);
+        $has_json = acf_get_setting('acfe/json');
+        $has_php = acf_get_setting('acfe/php');
+        
+        // sidebar metabox
+        if(!$has_enhanced_ui || $is_sync_available || $has_json || $has_php){
+            add_meta_box('acf-field-group-acfe-side', __('Advanced Settings', 'acfe'), array($this, 'render_sidebar_metabox'), 'acf-field-group', 'side');
+        }
         
     }
     
-    /*
-     * Submit Box
+    
+    /**
+     * submitbox
+     *
+     * @param $post
      */
     function submitbox($post){
         
@@ -83,22 +81,17 @@ class ACFE_Field_Group{
         
     }
     
-    /*
-     * Render Sidebar
+    
+    /**
+     * render_sidebar_metabox
      */
     function render_sidebar_metabox(){
         
-        // Global
+        // global
         global $field_group;
     
-        // Setting
-        $has_enhanced_ui = acfe_get_setting('modules/field_group_ui') ? true : false;
-    
-    
-        /*
-         * Display Title
-         */
-        if(!$has_enhanced_ui){
+        // display title
+        if(!$this->has_enhanced_ui()){
             
             acf_render_field_wrap(array(
                 'label'         => __('Display title', 'acfe'),
@@ -114,15 +107,14 @@ class ACFE_Field_Group{
             
         }
         
-        /*
-         * Sync available
-         */
+        // autosync available
         if(acfe_is_sync_available($field_group)){
             
             $json_already_active = 0;
             
-            if(in_array('json', acf_maybe_get($field_group, 'acfe_autosync', array())))
+            if(in_array('json', acf_get_array(acf_maybe_get($field_group, 'acfe_autosync', array())))){
                 $json_already_active = 1;
+            }
             
             ?>
             <div class="acf-field" data-name="acfe_sync_available">
@@ -161,112 +153,27 @@ class ACFE_Field_Group{
             
         }
         
-        /*
-         * AutoSync: Get Local
-         */
-        acf_enable_filter('local');
-    
-        $json_file = acfe_get_local_json_file($field_group);
-        $php_file = acfe_get_local_php_file($field_group);
-    
-        $data = array(
-            'php' => acf_get_instance('ACFE_Field_Groups')->get_php_data($field_group),
-            'json' => acf_get_instance('ACFE_Field_Groups')->get_json_data($field_group),
-        );
-    
-        acf_disable_filter('local');
-    
-        /*
-         * AutoSync: Values
-         */
-        $acfe_autosync = (array) acf_maybe_get($field_group, 'acfe_autosync');
-    
-        // Json
-        if($json_file){
         
-            if(!in_array('json', $acfe_autosync)){
-                $acfe_autosync[] = 'json';
-            }
+        $value = $this->get_autosync_value($field_group);
+        $choices = $this->get_autosync_choices($field_group);
         
+        if(!empty($choices)){
+            
+            // autosync
+            acf_render_field_wrap(array(
+                'label'         => __('Auto Sync'),
+                'instructions'  => '',
+                'type'          => 'checkbox',
+                'name'          => 'acfe_autosync',
+                'prefix'        => 'acf_field_group',
+                'value'         => $value,
+                'choices'       => $choices
+            ));
+            
         }
     
-        // PHP
-        if($php_file){
-        
-            if(!in_array('php', $acfe_autosync)){
-                $acfe_autosync[] = 'php';
-            }
-        
-        }
-    
-        /*
-         * AutoSync: Choices
-         */
-        $choices = array(
-            'php' => 'PHP',
-            'json' => 'JSON',
-        );
-        
-        global $pagenow;
-        
-        foreach($data as $type => $info){
-            
-            $wrapper = array(
-                'class' => 'acf-js-tooltip',
-                'title' => $info['file'],
-            );
-            
-            if($info['class']){
-                $wrapper['class'] .= ' ' . $info['class'];
-            }
-            
-            if($info['message']){
-                $wrapper['title'] = $info['message'];
-            }
-            
-            $icons = array();
-            
-            if($info['warning'] && $pagenow !== 'post-new.php')
-                $icons[] = '<span class="dashicons dashicons-warning"></span>';
-            
-            ob_start();
-            ?>
-            <span <?php echo acf_esc_attrs($wrapper); ?>>
-                
-                <?php echo $choices[$type]; ?>
-
-                <?php if(!empty($icons)){ ?>
-                    <?php echo implode('', $icons); ?>
-                <?php } ?>
-                
-            </span>
-            <?php
-            
-            $choices[$type] = ob_get_clean();
-            
-        }
-        
-        /*
-         * AutoSync
-         */
-        acf_render_field_wrap(array(
-            'label'         => __('Auto Sync'),
-            'instructions'  => '',
-            'type'          => 'checkbox',
-            'name'          => 'acfe_autosync',
-            'prefix'        => 'acf_field_group',
-            'value'         => $acfe_autosync,
-            'choices'       => array(
-                'php'   => $choices['php'],
-                'json'  => $choices['json'],
-            )
-        ));
-    
-    
-        /*
-         * Permissions
-         */
-        if(!$has_enhanced_ui){
+        // permissions
+        if(!$this->has_enhanced_ui()){
             
             if(acf_maybe_get($field_group, 'acfe_permissions') || acf_is_filter_enabled('acfe/field_group/advanced')){
     
@@ -301,26 +208,6 @@ class ACFE_Field_Group{
                 var $json = $('#acf_field_group-acfe_autosync-json');
                 var $php = $('#acf_field_group-acfe_autosync-php');
                 var $sync_available = $('[data-name=acfe_sync_available]');
-                
-                <?php if($json_file){ ?>
-
-                $json.prop('readonly', true).addClass('disabled').click(function(){
-                    return false;
-                });
-
-                $json.closest('label').css('color', '#999');
-                
-                <?php } ?>
-                
-                <?php if($php_file){ ?>
-
-                $php.prop('readonly', true).addClass('disabled').click(function(){
-                    return false;
-                });
-
-                $php.closest('label').css('color', '#999');
-                
-                <?php } ?>
 
                 if($sync_available.length){
 
@@ -392,21 +279,149 @@ class ACFE_Field_Group{
         <?php
     }
     
+    
     /**
-     * Default AutoSync
+     * get_autosync_value
+     *
+     * @param $field_group
+     *
+     * @return array
      */
-    function validate_default_autosync($field_group){
+    function get_autosync_value($field_group){
+        
+        // autosync: get local
+        acf_enable_filter('local');
+        
+        $json_file = acfe_get_local_json_file($field_group);
+        $php_file = acfe_get_local_php_file($field_group);
+        
+        acf_disable_filter('local');
+        
+        // autosync: values
+        $value = (array) acf_maybe_get($field_group, 'acfe_autosync');
+        
+        // selected value: json
+        if($json_file && !in_array('json', $value)){
+            $value[] = 'json';
+        }
+        
+        // selected value: php
+        if($php_file && !in_array('php', $value)){
+            $value[] = 'php';
+        }
+        
+        return $value;
+        
+    }
+    
+    
+    /**
+     * get_autosync_choices
+     *
+     * @param $field_group
+     *
+     * @return array
+     */
+    function get_autosync_choices($field_group){
+        
+        // global
+        global $pagenow;
+        
+        // default
+        $choices = array();
+        
+        // check php setting
+        if(acf_get_setting('acfe/php')){
+            $choices['php'] = 'PHP';
+        }
+        
+        // check json setting
+        if(acf_get_setting('acfe/json')){
+            $choices['json'] = 'JSON';
+        }
+        
+        foreach(array_keys($choices) as $type){
+            
+            // $instance->get_json_data() | $instance->get_php_data()
+            $method = "get_{$type}_data";
+            
+            // make sure method exists
+            if(!method_exists(acf_get_instance('ACFE_Field_Groups'), $method)){
+                continue;
+            }
+            
+            acf_enable_filter('local');
+            
+            // retrieve data
+            $data = acf_get_instance('ACFE_Field_Groups')->$method($field_group);
+            
+            acf_disable_filter('local');
+            
+            $wrapper = array(
+                'class' => 'acf-js-tooltip',
+                'title' => $data['file'],
+            );
+            
+            if($data['class']){
+                $wrapper['class'] .= ' ' . $data['class'];
+            }
+            
+            if($data['message']){
+                $wrapper['title'] = $data['message'];
+            }
+            
+            $icons = array();
+            
+            if($data['warning'] && $pagenow !== 'post-new.php'){
+                $icons[] = '<span class="dashicons dashicons-warning"></span>';
+            }
+            
+            ob_start();
+            ?>
+            <span <?php echo acf_esc_atts($wrapper); ?>>
+                
+                <?php echo $choices[ $type ]; ?>
+                
+                <?php if(!empty($icons)){ ?>
+                    <?php echo implode('', $icons); ?>
+                <?php } ?>
+                
+            </span>
+            <?php
+            
+            $choices[ $type ] = ob_get_clean();
+            
+        }
+        
+        return $choices;
+        
+    }
+    
+    
+    /**
+     * validate_field_group
+     *
+     * @param $field_group
+     *
+     * @return mixed
+     */
+    function validate_field_group($field_group){
         
         // validate screen
-        if(!acf_is_screen('acf-field-group')) return $field_group;
+        if(!acf_is_screen('acf-field-group')){
+            return $field_group;
+        }
         
-        // only new field groups (location is empty on new field groups)
-        if(acf_maybe_get($field_group, 'location')) return $field_group;
+        // only new field groups
+        // location is empty on new field groups
+        if(acf_maybe_get($field_group, 'location')){
+            return $field_group;
+        }
             
-        // Default label placement: Left
+        // default label placement
         $field_group['label_placement'] = 'left';
         
-        // AutoSync
+        // autoSync
         $acfe_autosync = array();
         
         if(acf_get_setting('acfe/json_found', false)){
@@ -420,6 +435,9 @@ class ACFE_Field_Group{
         if(!empty($acfe_autosync)){
             $field_group['acfe_autosync'] = $acfe_autosync;
         }
+        
+        // filter
+        $field_group = apply_filters('acfe/default_field_group', $field_group);
         
         return $field_group;
         

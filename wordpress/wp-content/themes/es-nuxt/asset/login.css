@@ -1,5 +1,10 @@
 
 #login > form{
     border-radius: 5px;
-    box-shadow: 0 0 20px rgb(0 0 0 / 15%);
+}
+.login .privacy-policy-page-link {
+    display: none;
+}
+body {
+    filter: invert(1) hue-rotate(180deg);
 }

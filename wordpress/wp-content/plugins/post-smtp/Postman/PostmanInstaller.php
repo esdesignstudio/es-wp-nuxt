@@ -28,8 +28,45 @@ class PostmanInstaller {
 	 * Handle activation of the plugin
 	 */
 	public function activatePostman() {
+		
         delete_option( 'postman_release_version' );
         delete_option( 'postman_dismiss_donation' );
+
+		$table_version = get_option( 'postman_db_version' );
+
+		//If no logs in _posts table
+		global $wpdb;
+
+        $have_old_logs = $wpdb->get_results(
+            "SELECT ID FROM {$wpdb->posts} WHERE post_type = 'postman_sent_mail' LIMIT 1;"
+        );
+
+		if( !class_exists( 'PostmanEmailLogs' ) ) {
+
+			require 'PostmanEmailLogs.php';
+
+		}
+
+		$email_logs = new PostmanEmailLogs();
+		$logs_table = $wpdb->prefix . $email_logs->db_name;
+		$meta_table = $wpdb->prefix . $email_logs->meta_table;
+		// Check if the table exists
+		$logs_table = $wpdb->get_var( "SHOW TABLES LIKE '$logs_table'" );
+		$meta_table = $wpdb->get_var( "SHOW TABLES LIKE '$meta_table'" );
+
+		//Lets Install New Fresh Logs Table
+		//Doesn't have table? but wp_options has postman_db_version
+		if( ( empty( $have_old_logs ) && !$table_version ) || ( !$logs_table || !$meta_table ) ) {
+
+			$email_logs->install_table();
+
+		}
+		//Need to Update Table?
+		elseif( $table_version && version_compare( POST_SMTP_DB_VERSION, $table_version, '>' ) ) {
+			
+			$email_logs->update_table();
+
+		}
 
 		$options = get_option( PostmanOptions::POSTMAN_OPTIONS );
 		$args = array(
@@ -47,6 +84,12 @@ class PostmanInstaller {
 		}
 
 		if ( function_exists( 'is_multisite' ) && is_multisite() ) {
+			
+			$network_options = get_site_option( PostmanOptions::POSTMAN_NETWORK_OPTIONS );
+
+			if( isset( $network_options['post_smtp_global_settings']) ) {
+				$options['post_smtp_global_settings'] = '1';	
+			}
 
             $options['post_smtp_allow_overwrite'] = '1';
             update_site_option( PostmanOptions::POSTMAN_NETWORK_OPTIONS, $options );
@@ -70,19 +113,8 @@ class PostmanInstaller {
 			$this->addCapability();
 		}
 
-		//$this->add_activation_redirect();
 	}
 
-	function add_activation_redirect() {
-
-		// Bail if activating from network, or bulk
-		if ( is_network_admin() || isset( $_GET['activate-multi'] ) ) {
-			return;
-		}
-
-		// Add the transient to redirect
-	    //set_transient( '_post_activation_redirect', true, 30 );
-	}
 
 	/**
 	 * Handle deactivation of the plugin
@@ -249,7 +281,12 @@ class PostmanInstaller {
 		$lockSuccess = PostmanUtils::createLockFile();
 		// &= does not work as expected in my PHP
 		$lockSuccess = $lockSuccess && PostmanUtils::deleteLockFile();
-		$postmanState ['locking_enabled'] = $lockSuccess;
+
+		if( $postmanState ) {
+
+			$postmanState ['locking_enabled'] = $lockSuccess;
+
+		}
 
 		// always update the version number
 		if ( ! isset( $postmanState ['install_date'] ) ) {
@@ -257,7 +294,13 @@ class PostmanInstaller {
 			$postmanState ['install_date'] = time();
 		}
 		$pluginData = apply_filters( 'postman_get_plugin_metadata', null );
-		$postmanState ['version'] = $pluginData ['version'];
+
+		if( $postmanState ) {
+
+			$postmanState ['version'] = $pluginData ['version'];
+
+		}
+
 		update_option( 'postman_state', $postmanState );
 				delete_option( 'postman_session' );
 
@@ -265,4 +308,5 @@ class PostmanInstaller {
 		PostmanState::getInstance()->reload();
 		PostmanOptions::getInstance()->reload();
 	}
+
 }

@@ -2,21 +2,23 @@
 # This file is distributed under the same license as the Themes - Twenty Twenty-Two package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2022-05-24 21:39:29+0000\n"
+"PO-Revision-Date: 2023-04-27 17:29:48+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/4.0.0-alpha.3\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: zh_TW\n"
 "Project-Id-Version: Themes - Twenty Twenty-Two\n"
 
 #. Description of the theme
+#: style.css
 #, gp-priority: high
-msgid "Built on a solidly designed foundation, Twenty Twenty-Two embraces the idea that everyone deserves a truly unique website. The theme’s subtle styles are inspired by the diversity and versatility of birds: its typography is lightweight yet strong, its color palette is drawn from nature, and its layout elements sit gently on the page. The true richness of Twenty Twenty-Two lies in its opportunity for customization. The theme is built to take advantage of the Full Site Editing features introduced in WordPress 5.9, which means that colors, typography, and the layout of every single page on your site can be customized to suit your vision. It also includes dozens of block patterns, opening the door to a wide range of professionally designed layouts in just a few clicks. Whether you’re building a single-page website, a blog, a business website, or a portfolio, Twenty Twenty-Two will help you create a site that is uniquely yours."
-msgstr "Twenty Twenty-Two 建立在堅實的設計基礎上，並具備讓每個人擁有高度獨特性網站的理想。這個佈景主題的精細樣式靈感來自於鳥類的多樣性及多變性，排版樣式輕巧卻穩重，調色盤借鑒大自然，版面配置元素恰如其份的分佈在頁面上。Twenty Twenty-Two 的豐富之處在於它的可自訂性。佈景主題得益於 WordPress 5.9 導入的全站編輯功能，這代表網站上個別頁面的色彩、排版樣式及版面配置均可依需求進行自訂。這個佈景主題同時內建了大量區塊版面配置，僅需幾個點擊便可使用各種專業設計的版面配置。無論是要建置一頁式網站、部落格、商務網站或作品集，Twenty Twenty-Two 都能協助使用者建立獨一無二的網站。"
+msgid "Built on a solidly designed foundation, Twenty Twenty-Two embraces the idea that everyone deserves a truly unique website. The theme’s subtle styles are inspired by the diversity and versatility of birds: its typography is lightweight yet strong, its color palette is drawn from nature, and its layout elements sit gently on the page. The true richness of Twenty Twenty-Two lies in its opportunity for customization. The theme is built to take advantage of the Site Editor features introduced in WordPress 5.9, which means that colors, typography, and the layout of every single page on your site can be customized to suit your vision. It also includes dozens of block patterns, opening the door to a wide range of professionally designed layouts in just a few clicks. Whether you’re building a single-page website, a blog, a business website, or a portfolio, Twenty Twenty-Two will help you create a site that is uniquely yours."
+msgstr "Twenty Twenty-Two 建立在堅實的設計基礎上，並具備讓每個人擁有高度獨特性網站的理想。這個佈景主題的精細樣式靈感來自於鳥類的多樣性及多變性，排版樣式輕巧卻穩重，調色盤借鑒大自然，版面配置元素恰如其份的分佈在頁面上。Twenty Twenty-Two 的豐富之處在於它的可自訂性。佈景主題得益於 WordPress 5.9 導入的網站編輯器功能，這代表網站上個別頁面的色彩、排版樣式及版面配置均可依需求進行自訂。這個佈景主題同時內建了大量區塊版面配置，僅需幾個點擊便可使用各種專業設計的版面配置。無論是要建置一頁式網站、部落格、商務網站或作品集，Twenty Twenty-Two 都能協助使用者建立獨一無二的網站。"
 
 #. Theme Name of the theme
+#: style.css
 #, gp-priority: high
 msgid "Twenty Twenty-Two"
 msgstr "Twenty Twenty-Two"
@@ -180,27 +182,27 @@ msgctxt "Gradient name"
 msgid "Vertical secondary to tertiary"
 msgstr "次要色彩垂直漸層至第三色彩"
 
-#: theme.json styles/blue.json styles/pink.json styles/swiss.json
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
 msgctxt "Color name"
 msgid "Tertiary"
 msgstr "第三色彩"
 
-#: theme.json styles/blue.json styles/pink.json styles/swiss.json
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
 msgctxt "Color name"
 msgid "Secondary"
 msgstr "次要色彩"
 
-#: theme.json styles/blue.json styles/pink.json styles/swiss.json
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
 msgctxt "Color name"
 msgid "Primary"
 msgstr "主要色彩"
 
-#: theme.json styles/blue.json styles/pink.json styles/swiss.json
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
 msgctxt "Color name"
 msgid "Background"
 msgstr "背景色彩"
 
-#: theme.json styles/blue.json styles/pink.json styles/swiss.json
+#: styles/blue.json styles/pink.json styles/swiss.json theme.json
 msgctxt "Color name"
 msgid "Foreground"
 msgstr "前景色彩"
@@ -502,16 +504,13 @@ msgid "Title and button header"
 msgstr "包含網站標題及按鈕的頁首"
 
 #: inc/patterns/header-text-only-with-tagline-black-background.php:6
-msgid "Text-only header with tagline and black background"
-msgstr "包含網站說明、僅顯示文字的黑色背景頁首"
-
-#: inc/patterns/header-text-only-salmon-background.php:6
-msgid "Text-only header with salmon background"
-msgstr "僅顯示文字的淡橙紅背景頁首"
+msgid "Text-only header with tagline and background"
+msgstr "包含網站說明及背景、僅顯示文字的頁首"
 
 #: inc/patterns/header-text-only-green-background.php:6
-msgid "Text-only header with green background"
-msgstr "僅顯示文字的綠色背景頁首"
+#: inc/patterns/header-text-only-salmon-background.php:6
+msgid "Text-only header with background"
+msgstr "包含背景、僅顯示文字的頁首"
 
 #: inc/patterns/header-stacked.php:6
 msgid "Logo and navigation header"
@@ -522,16 +521,16 @@ msgid "Small header with dark background"
 msgstr "小型深色背景頁首"
 
 #: inc/patterns/header-logo-navigation-social-black-background.php:6
-msgid "Logo, navigation, and social links header with black background"
-msgstr "包含網站標誌、導覽列及社交網路服務連結的黑色背景頁首"
+msgid "Logo, navigation, and social links header with background"
+msgstr "包含背景、網站標誌、導覽列及社交網路服務連結的頁首"
 
 #: inc/patterns/header-logo-navigation-offset-tagline.php:6
 msgid "Logo, navigation, and offset tagline Header"
 msgstr "包含網站標誌、導覽列及交錯網站說明的頁首"
 
 #: inc/patterns/header-logo-navigation-gray-background.php:6
-msgid "Logo and navigation header with gray background"
-msgstr "包含網站標誌及導覽列的灰色背景頁首"
+msgid "Logo and navigation header with background"
+msgstr "包含背景、網站標誌及導覽列的頁首"
 
 #: inc/patterns/header-large-dark.php:24
 #: inc/patterns/hidden-heading-and-bird.php:14
@@ -559,16 +558,16 @@ msgid "Default header"
 msgstr "預設頁首"
 
 #: inc/patterns/header-centered-title-navigation-social.php:6
-msgid "Centered header with navigation, social links, and salmon background"
-msgstr "包含導覽列、社交網路服務連結的淡橙紅背景置中頁首"
+msgid "Centered header with navigation, social links, and background"
+msgstr "包含導覽列、社交網路服務連結及背景的置中頁首"
 
 #: inc/patterns/header-centered-logo.php:6
 msgid "Header with centered logo"
 msgstr "網站標誌置中的頁首"
 
 #: inc/patterns/header-centered-logo-black-background.php:6
-msgid "Header with centered logo and black background"
-msgstr "網站標誌置中的黑色背景頁首"
+msgid "Header with centered logo and background"
+msgstr "網站標誌及背景置中的頁首"
 
 #: inc/patterns/general-wide-image-intro-buttons.php:31
 msgid "Learn More"
@@ -927,16 +926,19 @@ msgid "Featured"
 msgstr "精選"
 
 #. Theme URI of the theme
+#: style.css
 #, gp-priority: low
 msgid "https://wordpress.org/themes/twentytwentytwo/"
 msgstr "https://tw.wordpress.org/themes/twentytwentytwo/"
 
 #. Author URI of the theme
+#: style.css
 #, gp-priority: low
 msgid "https://wordpress.org/"
 msgstr "https://tw.wordpress.org/"
 
 #. Author of the theme
+#: style.css
 #, gp-priority: low
 msgid "the WordPress team"
 msgstr "WordPress 團隊"

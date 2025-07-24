@@ -13,16 +13,22 @@
 	// Configuration should be loaded first.
 	require_once dirname( __FILE__ ) . '/config.php';
 	require_once WP_FS__DIR_INCLUDES . '/fs-core-functions.php';
+	require_once WP_FS__DIR_INCLUDES . '/fs-html-escaping-functions.php';
 
 	// Logger must be loaded before any other.
 	require_once WP_FS__DIR_INCLUDES . '/class-fs-logger.php';
 	require_once WP_FS__DIR_INCLUDES . '/debug/debug-bar-start.php';
 
+	require_once WP_FS__DIR_INCLUDES . '/class-fs-garbage-collector.php';
+
 //		require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-abstract-manager.php';
 	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-option-manager.php';
 	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-gdpr-manager.php';
 	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-clone-manager.php';
+	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-permission-manager.php';
 	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-cache-manager.php';
+	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-checkout-manager.php';
+	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-contact-form-manager.php';
 	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-admin-notice-manager.php';
 	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-admin-menu-manager.php';
 	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-key-value-storage.php';
@@ -46,6 +52,7 @@
 	require_once WP_FS__DIR_INCLUDES . '/class-fs-api.php';
 	require_once WP_FS__DIR_INCLUDES . '/class-fs-plugin-updater.php';
 	require_once WP_FS__DIR_INCLUDES . '/class-fs-security.php';
+	require_once WP_FS__DIR_INCLUDES . '/managers/class-fs-debug-manager.php';
     require_once WP_FS__DIR_INCLUDES . '/class-fs-options.php';
     require_once WP_FS__DIR_INCLUDES . '/class-fs-storage.php';
     require_once WP_FS__DIR_INCLUDES . '/class-fs-admin-notices.php';

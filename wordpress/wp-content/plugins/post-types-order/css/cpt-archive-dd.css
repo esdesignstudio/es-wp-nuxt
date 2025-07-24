@@ -1,0 +1,14 @@
+#the-list.ui-sortable tr .check-column:hover { cursor: move;}
+#the-list.ui-sortable tr.alternate { background-color: #F9F9F9; }
+#the-list.ui-sortable tr.ui-sortable-helper { background-color: #ffffff;  outline: 1px solid #dfdfdf;} 
+#the-list.ui-sortable .ui-sortable-placeholder td{border-color:#bbb;background-color:#FCFCFC; height:32px; background-image: none; -moz-border-radius: 6px 6px 6px 6px; border: 3px dashed #E6E6E6; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; box-sizing: border-box;}
+
+
+#the-list.ui-sortable > tr > th:first-child:after {position: absolute; color: #959595;  content: "\f475"; transform: rotate(-90deg);    margin: 4px 0 0 6px;  display: block; font-family: dashicons;
+line-height: 1;
+font-weight: 400;
+font-style: normal;
+text-transform: none;
+text-rendering: auto;
+font-size: 20px;
+text-align: center;}

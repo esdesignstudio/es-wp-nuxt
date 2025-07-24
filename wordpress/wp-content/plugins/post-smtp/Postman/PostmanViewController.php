@@ -143,7 +143,7 @@ if ( ! class_exists( 'PostmanViewController' ) ) {
 		 * Register the Email Test screen
 		 */
 		public function addPurgeDataSubmenu() {
-			$page = add_submenu_page( null, sprintf( __( '%s Setup', 'post-smtp' ), __( 'Post SMTP', 'post-smtp' ) ), __( 'Post SMTP', 'post-smtp' ), Postman::MANAGE_POSTMAN_CAPABILITY_NAME, PostmanAdminController::MANAGE_OPTIONS_PAGE_SLUG, array(
+			$page = add_submenu_page( ' ', sprintf( __( '%s Setup', 'post-smtp' ), __( 'Post SMTP', 'post-smtp' ) ), __( 'Post SMTP', 'post-smtp' ), Postman::MANAGE_POSTMAN_CAPABILITY_NAME, PostmanAdminController::MANAGE_OPTIONS_PAGE_SLUG, array(
 					$this,
 					'outputPurgeDataContent',
 			) );
@@ -194,397 +194,427 @@ if ( ! class_exists( 'PostmanViewController' ) ) {
 		 * Options page callback
 		 */
 		public function outputDefaultContent() {
+            if ( apply_filters( 'post_smtp__new_dashboard', __return_false() ) ) {
+                do_action( 'post_smtp__new_dashboard_content' );
+            } else {
+	            // Set class property
+	            print '<div class="wrap">';
+	            print '<div class="ps-main-container-wrap">';
 
-			// Set class property
-			print '<div class="wrap">';
-			print '<div class="ps-main-container-wrap">';
+	            $version = PostmanState::getInstance()->getVersion();
 
-			$version = PostmanState::getInstance()->getVersion();
+	            printf(
+		            '<div class="ps-main-header post-smtp-welcome-panel"><h2>%s</h2></div>',
+		            esc_html__( 'Post SMTP Setup', 'post-smtp' )
+	            );
 
-			printf(
-				'<div class="ps-main-header post-smtp-welcome-panel"><h2>%s</h2></div>', 
-				esc_html__( 'Post SMTP Setup', 'post-smtp' )
-			);
+	            //Top Notification message
+	            if( !PostmanPreRequisitesCheck::isReady() ) {
 
-			//Top Notification message
-			if( !PostmanPreRequisitesCheck::isReady() ) {
+		            printf(
+			            '<div class="ps-config-bar"><span>%s</span><span style="color: red" class="dashicons dashicons-dismiss"></span></div>',
+			            esc_html__( 'Postman is unable to run. Email delivery is being handled by WordPress (or another plugin).', 'post-smtp' )
+		            );
 
-				printf( 
-					'<div class="ps-config-bar"><span>%s</span><span style="color: red" class="dashicons dashicons-dismiss"></span></div>', 
-					esc_html__( 'Postman is unable to run. Email delivery is being handled by WordPress (or another plugin).', 'post-smtp' ) 
-				);
+	            }
+	            else {
 
-			}
-			else {
+		            $ready_messsage = PostmanTransportRegistry::getInstance()->getReadyMessage();
+		            $statusMessage = $ready_messsage['message'];
 
-				$ready_messsage = PostmanTransportRegistry::getInstance()->getReadyMessage();
-				$statusMessage = $ready_messsage['message'];
+		            $transport = PostmanTransportRegistry::getInstance()->getSelectedTransport();
 
-				$transport = PostmanTransportRegistry::getInstance()->getSelectedTransport();
+		            if ( PostmanTransportRegistry::getInstance()->getActiveTransport()->isConfiguredAndReady() ) {
 
-				if ( PostmanTransportRegistry::getInstance()->getActiveTransport()->isConfiguredAndReady() ) {
-
-					if ( $this->options->getRunMode() != PostmanOptions::RUN_MODE_PRODUCTION ) {
-						printf( 
-							'<div class="ps-config-bar">
+			            if ( $this->options->getRunMode() != PostmanOptions::RUN_MODE_PRODUCTION ) {
+				            printf(
+					            '<div class="ps-config-bar">
 								<span>%s</span><span style="color: orange;" class="dashicons dashicons-yes-alt"></span>
-							</div>', 
-							wp_kses_post( $statusMessage ) 
-						);
-					} 
-					else {
-						printf( 
-							'<div class="ps-config-bar">
+							</div>',
+					            wp_kses_post( $statusMessage )
+				            );
+			            }
+			            else {
+				            printf(
+					            '<div class="ps-config-bar">
 								<span>%s</span><span style="color: green" class="dashicons dashicons-yes-alt"></span>
 								<div class="ps-right">
-									What\'s Next? Get Started by Sending a Test Email! <a href="%s" class="ps-btn-orange"> Send a Test Email</a>
+									What\'s Next? Get Started by Sending a Test Email! <a href="%s" class="button button-primary"> Send a Test Email</a>
 								</div>
 								<div class="clear"></div>
-							</div>', 
-							wp_kses_post( $statusMessage ),
-							esc_url( $this->getPageUrl( PostmanSendTestEmailController::EMAIL_TEST_SLUG ) )
-						);
-					}
-				}
-				elseif ( !$transport->has_granted() ) {
+							</div>',
+					            wp_kses_post( $statusMessage ),
+					            esc_url( $this->getPageUrl( PostmanSendTestEmailController::EMAIL_TEST_SLUG ) )
+				            );
+			            }
+		            }
+                    elseif ( !$transport->has_granted() ) {
 
-					$notice = $transport->get_not_granted_notice();
+			            $notice = $transport->get_not_granted_notice();
 
-					printf( 
-						'<div class="ps-config-bar">
+			            printf(
+				            '<div class="ps-config-bar">
 							<span >%s</span>
 							<div class="ps-right">
 								<img src="%s" style="vertical-align: middle;width: 30px;" />
-								<a href="%s" class="ps-btn-orange">%s</a>
+								<a href="%s" class="button button-primary">%s</a>
 							</div>
 						</div>',
-						esc_html( $notice['message'] ),
-						esc_url( POST_SMTP_ASSETS . 'images/icons/hand.png' ),
-						esc_attr( $notice['url'] ),
-						esc_html(  $notice['url_text'] )
-					);
+				            esc_html( $notice['message'] ),
+				            esc_url( POST_SMTP_ASSETS . 'images/icons/hand.png' ),
+				            esc_attr( $notice['url'] ),
+				            esc_html(  $notice['url_text'] )
+			            );
 
-				}
-				else {
-					printf( 
-						'<div class="ps-config-bar">
+		            }
+		            else {
+
+			            /**
+			             * Filter the URL of the Postman SMTP Wizard
+			             *
+			             * @param string $slug The URL page of the Postman SMTP Wizard
+			             *
+			             * @since 2.9.4
+			             */
+			            $slug = apply_filters( 'post_smtp_wizard_url_page', PostmanConfigurationController::CONFIGURATION_WIZARD_SLUG );
+
+			            printf(
+				            '<div class="ps-config-bar">
 							<span >%s</span>
 							<span style="color: red" class="dashicons dashicons-dismiss"></span>
 							<div class="ps-right">
-								%s <a href="%s" class="ps-btn-orange">%s</a>
+								%s <a href="%s" class="button button-primary">%s</a>
 							</div>
 						</div>',
-						wp_kses_post( $statusMessage ),
-						esc_html__( 'Get Started by Setup Wizard!', 'post-smtp' ),
-						esc_attr( $this->getPageUrl( PostmanConfigurationController::CONFIGURATION_WIZARD_SLUG ) ),
-						esc_html__( 'Start the Wizard', 'post-smtp' )
-					);
-				}
+				            wp_kses_post( $statusMessage ),
+				            esc_html__( 'Get Started by Setup Wizard!', 'post-smtp' ),
+				            esc_attr( $this->getPageUrl( $slug ) ),
+				            esc_html__( 'Start the Wizard', 'post-smtp' )
+			            );
+		            }
 
-			}
+	            }
 
-			//Main Content
-			?>
-			<div class="ps-flex ps-home-main">
-				<div class="ps-setting-box">
-					<div>
-						<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/configuration.png' ) ?>" />
-						<h3 class="ps-ib ps-vm"><?php esc_html_e( 'Configuration', 'post-smtp' ); ?></h3>
-					</div> 
-					<div class="ps-wizard">
-						<a href="<?php esc_attr_e( $this->getPageUrl( PostmanConfigurationController::CONFIGURATION_WIZARD_SLUG ) ) ?>" class="ps-btn-orange"><?php esc_html_e( 'Start the Wizard', 'post-smtp' ); ?></a>
-						<h4><?php esc_html_e( 'OR', 'post-smtp' ); ?></h4>
-						<div>
-							<a href="<?php echo esc_url( $this->getPageUrl( PostmanConfigurationController::CONFIGURATION_SLUG ) ) ?>">
-								<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
-								<?php esc_html_e( 'Show All Settings', 'post-smtp' ) ?>
-							</a>
-						</div>
-					</div>
-				</div>
-				<div class="ps-setting-box">
-					<img src="<?php echo esc_attr( POST_SMTP_ASSETS . 'images/icons/action.png' ) ?>" />
-					<h3 class="ps-ib ps-vm"><?php esc_html_e( 'Actions', 'post-smtp' ); ?></h3>
-					<div>
-						<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
-						<?php
-							// Grant permission with Google
-							ob_start();
-							PostmanTransportRegistry::getInstance()->getSelectedTransport()->printActionMenuItem();
-							$oauth_link = ob_get_clean();
-							$oauth_link = apply_filters( 'post_smtp_oauth_actions', $oauth_link ); 
-							echo wp_kses_post( $oauth_link );
-						?>
-					</div>
-					<div>
-						<?php
-							if ( PostmanWpMailBinder::getInstance()->isBound() ) {
+	            //Main Content
 
-								echo '
+	            /**
+	             * Filter the URL of the Postman SMTP Wizard
+	             *
+	             * @param string $slug The URL page of the Postman SMTP Wizard
+	             *
+	             * @since 2.9.4
+	             */
+	            $slug = apply_filters( 'post_smtp_wizard_url_page', PostmanConfigurationController::CONFIGURATION_WIZARD_SLUG );
+	            ?>
+                <div class="ps-flex ps-home-main">
+                    <div class="ps-setting-box">
+                        <div>
+                            <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/configuration.png' ) ?>" />
+                            <h3 class="ps-ib ps-vm"><?php esc_html_e( 'Configuration', 'post-smtp' ); ?></h3>
+                        </div>
+                        <div class="ps-wizard">
+                            <a href="<?php esc_attr_e( $this->getPageUrl( $slug ) ) ?>" class="button button-primary"><?php esc_html_e( 'Start the Wizard', 'post-smtp' ); ?></a>
+                            <h4><?php esc_html_e( 'OR', 'post-smtp' ); ?></h4>
+                            <div>
+                                <a href="<?php echo esc_url( $this->getPageUrl( PostmanConfigurationController::CONFIGURATION_SLUG ) ) ?>">
+                                    <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
+						            <?php esc_html_e( 'Show All Settings', 'post-smtp' ) ?>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ps-setting-box">
+                        <img src="<?php echo esc_attr( POST_SMTP_ASSETS . 'images/icons/action.png' ) ?>" />
+                        <h3 class="ps-ib ps-vm"><?php esc_html_e( 'Actions', 'post-smtp' ); ?></h3>
+			            <?php
+				            // Grant permission with Google
+				            ob_start();
+				            PostmanTransportRegistry::getInstance()->getSelectedTransport()->printActionMenuItem();
+				            $oauth_link = ob_get_clean();
+				            $oauth_link = apply_filters( 'post_smtp_oauth_actions', $oauth_link );
+				            $has_link =  preg_match('/<\s?[^\>]*\/?\s?>/i', $oauth_link );
+
+				            if( $has_link ): ?>
+                                <div>
+                                    <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
+						            <?php echo wp_kses_post( $oauth_link ); ?>
+                                </div>
+				            <?php endif; ?>
+                        <div>
+				            <?php
+					            if ( PostmanWpMailBinder::getInstance()->isBound() ) {
+
+						            echo '
 								<div>
 									<a href="'.esc_url( $this->getPageUrl( PostmanSendTestEmailController::EMAIL_TEST_SLUG ) ).'">
 										<img src="'.esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ).'" width="15" />
 										'.esc_html__( 'Send a Test Email', 'post-smtp' ).
-									'</a>
+						                 '</a>
 								</div>';
 
-							} else {
+					            } else {
 
-								echo '
+						            echo '
 								<div>
 									<img src="'.esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ).'" width="15" />
 									'.esc_html__( 'Send a Test Email', 'post-smtp' ) .'
 								</div>
 								';
 
-							}
-						?>
-					</div>
-					<div>
-						<?php
-							if ( ! $this->options->isNew() ) {
+					            }
+				            ?>
+                        </div>
+                        <div>
+				            <?php
 
-								$purgeLinkPattern = '
-								<a href="%1$s">
-									<img src="'.esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ).'" width="15" />
-									%2$s
-								</a>';
-							
-							} 
-							else {
-
-								$purgeLinkPattern = '
+					            $purgeLinkPattern = '
+							<a href="%1$s">
 								<img src="'.esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ).'" width="15" />
 								%2$s
-								';
+							</a>';
+							$tab_heading = postman_is_bfcm() ? __( 'Get More with Pro [24%OFF]', 'post-smtp' ) : __( 'Get More with Pro', 'post-smtp' );
 
-							}
+					            $importTitle = __( 'Import', 'post-smtp' );
+					            $exportTile = __( 'Export', 'post-smtp' );
+					            $resetTitle = __( 'Reset Plugin', 'post-smtp' );
+					            $importExportReset = sprintf( '%s/%s/%s', $importTitle, $exportTile, $resetTitle );
 
-							$importTitle = __( 'Import', 'post-smtp' );
-							$exportTile = __( 'Export', 'post-smtp' );
-							$resetTitle = __( 'Reset Plugin', 'post-smtp' );
-							$importExportReset = sprintf( '%s/%s/%s', $importTitle, $exportTile, $resetTitle );
-							
-							printf(
-								wp_kses_post( $purgeLinkPattern ), 
-								esc_url( $this->getPageUrl( PostmanAdminController::MANAGE_OPTIONS_PAGE_SLUG ) ), 
-								sprintf( '%s', esc_html( $importExportReset ) ) 
-							);
-			
-							do_action( 'post_smtp_extension_reset_link' );
-						?>
-					</div>
-				</div>
-				<div class="ps-setting-box">
-					<div>
-						<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/extentions.png' ) ?>" />
-						<h3 class="ps-ib ps-vm"><?php esc_html_e( 'Extensions', 'post-smtp' ); ?></h3>
-					</div> 
-					<div>
-						<a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/office-365-for-post-smtp-extension/' ); ?>" target="_blank">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
-							<?php echo esc_html( 'Office 365' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/post-smtp-extension-for-amazon-ses/' ); ?>" target="_blank">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Amazon SES' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/the-better-email/' ); ?>" target="_blank">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Better Email Logger' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/twilio-extension-pro/' ); ?>" target="_blank">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Twilio Notifications' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/post-smtp-mail-control/' ); ?>" target="_blank">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Mail Control' ); ?>
-						</a>
-					</div>
-				</div>
-				<div class="ps-setting-box">
-					<div>
-						<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/troubleshooting.png' ) ?>" />
-						<h3 class="ps-ib ps-vm"><?php esc_html_e( 'Troubleshooting', 'post-smtp' ); ?></h3>
-					</div> 
-					<div>
-						<a href="<?php echo esc_url( 'https://postmansmtp.com/help-configure-post-smtp/' ); ?>" target="_blank" >
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
-							<?php echo esc_html( 'Need help setup everything? (paid)' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="<?php echo $this->getPageUrl( PostmanConnectivityTestController::PORT_TEST_SLUG ); ?>">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Connectivity Test' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="<?php echo $this->getPageUrl( PostmanDiagnosticTestController::DIAGNOSTICS_SLUG ); ?>">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Diagnostic Test' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="#" class="release-lock-file" data-security="<?php esc_attr_e( wp_create_nonce( "postman" ) ); ?>" >
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Release Lock File Error' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="<?php echo esc_url( 'https://postmansmtp.com/forums/' ); ?>" target="_blank">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Online Support' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="<?php echo esc_url( 'https://www.facebook.com/groups/post.smtp' ); ?>" target="_blank">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Facebook Group' ); ?>
-						</a>
-					</div>
-					<div>
-						<a href="<?php echo esc_url( 'https://postmansmtp.com/category/guides/' ); ?>" target="_blank">
-							<img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />	
-							<?php echo esc_html( 'Guides' ); ?>
-						</a>
-					</div>
-				</div>
-				<div class="clear"></div>
-			</div>
-			<div class="ps-home-middle">
-				<?php
+					            printf(
+						            wp_kses_post( $purgeLinkPattern ),
+						            esc_url( $this->getPageUrl( PostmanAdminController::MANAGE_OPTIONS_PAGE_SLUG ) ),
+						            sprintf( '%s', esc_html( $importExportReset ) )
+					            );
 
-				if ( PostmanPreRequisitesCheck::isReady() ) {
-			
-					$this->printDeliveryDetails();
-					/* translators: where %d is the number of emails delivered */
-					print '<p><span>';
-					printf( 
-						wp_kses_post( _n( 
-							'Postman has delivered <span style="color:green">%d</span> email.', 
-							'Postman has delivered <span style="color:green">%d</span> emails.', 
-							esc_attr( PostmanState::getInstance()->getSuccessfulDeliveries() ) , 'post-smtp' 
-						) ), 
-						esc_attr( PostmanState::getInstance()->getSuccessfulDeliveries() ) 
-					);
-					if ( $this->options->isMailLoggingEnabled() ) {
-						print ' ';
-						printf( 
-							wp_kses_post( __( 
-								'The last %1$d email attempts are recorded <a href="%2$s">in the log</a>.', 'post-smtp' 
-							) ), 
-							esc_attr( PostmanOptions::getInstance()->getMailLoggingMaxEntries() ), 
-							esc_attr( PostmanUtils::getEmailLogPageUrl() ) 
-						);
-					}
-					print '</span></p>';
+					            do_action( 'post_smtp_extension_reset_link' );
 
-				}
+					            if( !post_smtp_has_pro() ) {
 
-				if ( $this->options->isNew() ) {
-					printf( 
-						'<h3 style="padding-top:10px">%s</h3>', 
-						esc_html( 'Thank-you for choosing Postman!', 'post-smtp' ) 
-					);
-					/* translators: where %s is the URL of the Setup Wizard */
-					printf( 
-						'<p><span>%s</span></p>', 
-						sprintf( 
-							wp_kses_post( 'Let\'s get started! All users are strongly encouraged to <a href="%s">run the Setup Wizard</a>.', 'post-smtp' ), 
-							esc_url( $this->getPageUrl( PostmanConfigurationController::CONFIGURATION_WIZARD_SLUG ) ) 
-						) 
-					);
-					printf( 
-						'<p><span>%s</span></p>', 
-						sprintf( 
-							wp_kses_post( 'Alternately, <a href="%s">manually configure</a> your own settings and/or modify advanced options.', 'post-smtp' ), 
-							esc_attr( $this->getPageUrl( PostmanConfigurationController::CONFIGURATION_SLUG ) ) 
-						) 
-					);
-				} else {
-					if ( PostmanState::getInstance()->isTimeToReviewPostman() && ! PostmanOptions::getInstance()->isNew() ) {
-						print '</br><hr width="70%"></br>';
-						/* translators: where %s is the URL to the WordPress.org review and ratings page */
-						printf( 
-							'<p>%s <a href="%s">%s</a>%s</p>',
-							esc_html__( 'Please consider', 'post-smtp' ),
-							esc_url( 'https://wordpress.org/support/plugin/post-smtp/reviews/?filter=5' ),
-							esc_html__( 'leaving a review', 'post-smtp' ),
-							esc_html( 'to help spread the word! :D', 'post-smtp' )
-						);
-					}
+						            $badgesDisplay = "ps-dashboard-pro";
 
-					printf( 
-						esc_html__( '%1$s Postman needs translators! Please take a moment to %2$s translate a few sentences on-line %3$s', 'post-smtp' ),
-						'<p><span>',
-						'<a href="https://translate.wordpress.org/projects/wp-plugins/post-smtp/stable">',
-						'</a> :-)</span></p>'
-					);
-				}
-				printf(
-					'<p><span><b style="
+					            }
+					            else{
+
+						            $badgesDisplay = "ps-dashboard-pro-hide";
+					            }
+				            ?>
+                        </div>
+                    </div>
+                    <div class="ps-setting-box">
+                        <div>
+                            <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/extentions.png' ) ?>" />
+                            <h3 class="ps-ib ps-vm"><?php esc_html_e( 'Extensions', 'post-smtp' ); ?></h3>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/office-365-extension-for-post-smtp/?utm_source=plugin&utm_medium=dashboard&utm_campaign=plugin' ); ?>" target="_blank"><img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" /><?php echo esc_html__( 'Microsoft 365/ Office 365', 'post-smtp' ); ?></a>
+                            <span class="<?php echo $badgesDisplay; ?>">Pro</span>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/post-smtp-extension-for-amazon-ses/?utm_source=plugin&utm_medium=dashboard&utm_campaign=plugin' ); ?>" target="_blank"><img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" ><?php echo esc_html__( 'Amazon SES', 'post-smtp' ); ?></a>
+                            <span class="<?php echo $badgesDisplay; ?>">Pro</span>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/email-log-attachment/?utm_source=plugin&utm_medium=dashboard&utm_campaign=plugin' ); ?>" target="_blank"><img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" ><?php echo esc_html__( 'Email Log attachment support', 'post-smtp' ); ?></a>
+                            <span class="<?php echo $badgesDisplay; ?>">Pro</span>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/reporting-and-tracking-extension/?utm_source=plugin&utm_medium=dashboard&utm_campaign=plugin' ); ?>" target="_blank"><img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" ><?php echo esc_html__( 'Report & Tracking', 'post-smtp' ); ?></a>
+                            <span class="<?php echo $badgesDisplay; ?>">Pro</span>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/advanced-email-delivery/?utm_source=plugin&utm_medium=dashboard&utm_campaign=plugin' ); ?>" target="_blank"><img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" ><?php echo esc_html__( 'Advanced Email Delivery & Logs', 'post-smtp' ); ?></a>
+                            <span class="<?php echo $badgesDisplay; ?>">Pro</span>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/twilio-extension-pro/?utm_source=plugin&utm_medium=dashboard&utm_campaign=plugin' ); ?>" target="_blank"><img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" ><?php echo esc_html__( 'Twilio', 'post-smtp' ); ?></a>
+                            <span class="<?php echo $badgesDisplay; ?>">Pro</span>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/extensions/zoho-mail-pro-extension/?utm_source=plugin&utm_medium=dashboard&utm_campaign=plugin' ); ?>" target="_blank"><img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" ><?php echo esc_html__( 'Zoho Mail', 'post-smtp' ); ?></a>
+                            <span class="<?php echo $badgesDisplay; ?>">Pro</span>
+                        </div>
+                    </div>
+                    <div class="ps-setting-box">
+                        <div>
+                            <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/troubleshooting.png' ) ?>" />
+                            <h3 class="ps-ib ps-vm"><?php esc_html_e( 'Troubleshooting', 'post-smtp' ); ?></h3>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/help-configure-post-smtp/' ); ?>" target="_blank" >
+                                <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
+					            <?php echo esc_html__( 'Need help setup everything? (paid)', 'post-smtp' ); ?>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="<?php echo $this->getPageUrl( PostmanConnectivityTestController::PORT_TEST_SLUG ); ?>">
+                                <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
+					            <?php echo esc_html__( 'Connectivity Test', 'post-smtp' ); ?>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="<?php echo $this->getPageUrl( PostmanDiagnosticTestController::DIAGNOSTICS_SLUG ); ?>">
+                                <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
+					            <?php echo esc_html__( 'Diagnostic Test', 'post-smtp' ); ?>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="#" class="release-lock-file" data-security="<?php esc_attr_e( wp_create_nonce( "postman" ) ); ?>" >
+                                <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
+					            <?php echo esc_html__( 'Release Lock File Error', 'post-smtp' ); ?>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/forums/' ); ?>" target="_blank">
+                                <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
+					            <?php echo esc_html__( 'Online Support', 'post-smtp' ); ?>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://www.facebook.com/groups/post.smtp' ); ?>" target="_blank">
+                                <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
+					            <?php echo esc_html__( 'Facebook Group', 'post-smtp' ); ?>
+                            </a>
+                        </div>
+                        <div>
+                            <a href="<?php echo esc_url( 'https://postmansmtp.com/category/guides/' ); ?>" target="_blank">
+                                <img src="<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/finger.png' ) ?>" width="15" />
+					            <?php echo esc_html__( 'Guides', 'post-smtp' ); ?>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+                <div class="ps-home-middle">
+                    <div class="ps-home-middle-left">
+			            <?php
+				            /**
+				             * Fires after the Postman SMTP dashboard configuration.
+				             *
+				             * @since 2.5.9.3
+				             */
+				            do_action( 'post_smtp_dashboard_after_config' );
+
+				            if ( PostmanPreRequisitesCheck::isReady() ) {
+
+					            $this->printDeliveryDetails();
+					            /* translators: where %d is the number of emails delivered */
+					            print '<p><span>';
+					            printf(
+						            wp_kses_post( _n(
+							            'Postman has delivered <span style="color:green">%d</span> email.',
+							            'Postman has delivered <span style="color:green">%d</span> emails.',
+							            esc_attr( PostmanState::getInstance()->getSuccessfulDeliveries() ) , 'post-smtp'
+						            ) ),
+						            esc_attr( PostmanState::getInstance()->getSuccessfulDeliveries() )
+					            );
+					            if ( $this->options->isMailLoggingEnabled() ) {
+						            print ' ';
+						            printf(
+							            wp_kses_post( __(
+								            'The last %1$d email attempts are recorded <a href="%2$s">in the log</a>.', 'post-smtp'
+							            ) ),
+							            esc_attr( PostmanOptions::getInstance()->getMailLoggingMaxEntries() ),
+							            esc_attr( PostmanUtils::getEmailLogPageUrl() )
+						            );
+					            }
+					            print '</span></p>';
+
+				            }
+
+				            if ( $this->options->isNew() ) {
+					            printf(
+						            '<h3 style="padding-top:10px">%s</h3>',
+						            esc_html__( 'Thank-you for choosing Postman!', 'post-smtp' )
+					            );
+					            /* translators: where %s is the URL of the Setup Wizard */
+					            printf(
+						            '<p><span>%s</span></p>',
+						            sprintf(
+							            wp_kses_post( 'Let\'s get started! All users are strongly encouraged to <a href="%s">run the Setup Wizard</a>.', 'post-smtp' ),
+							            esc_url( $this->getPageUrl( PostmanConfigurationController::CONFIGURATION_WIZARD_SLUG ) )
+						            )
+					            );
+					            printf(
+						            '<p><span>%s</span></p>',
+						            sprintf(
+							            wp_kses_post( 'Alternately, <a href="%s">manually configure</a> your own settings and/or modify advanced options.', 'post-smtp' ),
+							            esc_attr( $this->getPageUrl( PostmanConfigurationController::CONFIGURATION_SLUG ) )
+						            )
+					            );
+				            } else {
+					            if ( PostmanState::getInstance()->isTimeToReviewPostman() && ! PostmanOptions::getInstance()->isNew() ) {
+						            print '</br><hr width="70%"></br>';
+						            /* translators: where %s is the URL to the WordPress.org review and ratings page */
+						            printf(
+							            '<p>%s <a href="%s">%s</a>%s</p>',
+							            esc_html__( 'Please consider', 'post-smtp' ),
+							            esc_url( 'https://wordpress.org/support/plugin/post-smtp/reviews/?filter=5' ),
+							            esc_html__( 'leaving a review', 'post-smtp' ),
+							            __( 'to help spread the word! :D', 'post-smtp' )
+						            );
+					            }
+
+					            printf(
+						            esc_html__( '%1$s Postman needs translators! Please take a moment to %2$s translate a few sentences on-line %3$s', 'post-smtp' ),
+						            '<p><span>',
+						            '<a href="https://translate.wordpress.org/projects/wp-plugins/post-smtp/stable">',
+						            '</a> :-)</span></p>'
+					            );
+				            }
+				            printf(
+					            '<p><span><b style="
 					background-color:#2172b3; color: #fff;">%1$s</b>%2$s</span>&nbsp;<a target="_blank" href="%3$s">%4$s</a></p>',
-					esc_html__( 'New for v1.9.8!', 'post-smtp' ),
-					esc_html__( ' Fallback - setup a second delivery method when the first one is failing', 'post-smtp' ),
-					esc_url( 'https://postmansmtp.com/post-smtp-1-9-7-the-smtp-fallback/' ),
-					esc_html__( 'Check the detailes here', 'post-smtp')
-				);
-			
-			print '</div>';
+					            esc_html__( 'New for v1.9.8!', 'post-smtp' ),
+					            esc_html__( ' Fallback - setup a second delivery method when the first one is failing', 'post-smtp' ),
+					            esc_url( 'https://postmansmtp.com/post-smtp-1-9-7-the-smtp-fallback/' ),
+					            esc_html__( 'Check the detailes here', 'post-smtp')
+				            );
 
-			//Temporary disabled
+			            ?>
+                    </div>
 
-			// <div class="ps-home-bottom">
-			// 	<div class="ps-config-bar">
-			// 		<h1>Download Our Featured Plugins For Free</h1>
-			// 	</div>
-			// 	<div class="ps-flex">
-			// 		<div class="ps-email-templates">
-			// 			<h4>Create Fully Responsive Email Templates in Just a Few Minutes With Email Templates</h2>
-			// 			<ul>
-			// 				<li>A free WordPress email template plugin.</li>
-			// 				<li>Quickest way to design elegant responsive emails.</li>
-			// 				<li>Features fully compatible with Postnman SMTP.</li>
-			// 			</ul>
-			// 			<div class="ps-left">
-			// 				<a href="https://wordpress.org/plugins/email-templates/>" class="ps-btn-light-blue" target="_blank">Free Download</a>
-			// 			</div>
-			// 			<div class="ps-right">
-			// 				<img src="echo esc_url( POST_SMTP_ASSETS . 'images/logos/email-templates.jpg' )" />
-			// 			</div>
-			// 			<div class="clear"></div>
-			// 		</div>
-			// 		<div class="ps-login-designer">
-			// 			<h4>Upgrade Your Custom Login Styling Experience With Login Designer</h2>
-			// 			<ul>
-			// 				<li>A free Login customizer plugin for WordPress.</li>
-			// 				<li>Easiest way to customize your website's login page.</li>
-			// 				<li>Installation is free, fun quick, and easy.</li>
-			// 			</ul>
-			// 			<div class="ps-left">
-			// 				<a href="https://wordpress.org/plugins/login-designer/>" class="ps-btn-blue" target="_blank">Free Download</a>
-			// 			</div>
-			// 			<div class="ps-right">
-			// 				<img src="<?php esc_url( POST_SMTP_ASSETS . 'images/logos/login-designer.jpg' )" />
-			// 			</div>
-			// 			<div class="clear"></div>
-			// 		</div>
-			// 	</div>
-			// </div>
-			
-			print "</div>";
-			print "</div>";
+                    <div class="ps-home-middle-right" style="background-image: url(<?php echo esc_url( POST_SMTP_ASSETS . 'images/icons/mobile-banner.png' ) ?>)">
+                        <div class="ps-mobile-notice-content">
+                            <p><?php _e( 'Introducing NEW Post SMTP Mobile App' ); ?></p>
+                            <div class="ps-mobile-notice-features">
+                                <div class="ps-mobile-feature-left">
+                                    <span class="dashicons dashicons-yes-alt"></span>
+                                    Easy Email Tracking
+                                    <br>
+                                    <span class="dashicons dashicons-yes-alt"></span>
+                                    Quickly View Error Details
+                                    <br>
+                                    <span class="dashicons dashicons-yes-alt"></span>
+                                    Easy Email Tracking
+                                </div>
+                                <div class="ps-mobile-feature-right">
+                                    <span class="dashicons dashicons-yes-alt"></span>
+                                    Get Email Preview
+                                    <br>
+                                    <span class="dashicons dashicons-yes-alt"></span>
+                                    Resend Failed Emails
+                                    <br>
+                                    <span class="dashicons dashicons-yes-alt"></span>
+                                    Support multiple sites
+                                </div>
+                            </div>
+                            <div style="display: flex;">
+                                <div class="ps-app-download-button">
+                                    <a href="https://play.google.com/store/apps/details?id=com.postsmtp&referrer=utm_source%3Dplugin%26utm_medium%3Ddashboard%26utm_campaign%3Dplugin%26anid%3Dadmob" target="_blank">Download on Android</a>
+                                </div>
+                                <div class="ps-app-download-button">
+                                    <a href="https://apps.apple.com/us/app/post-smtp/id6473368559?utm_source=plugin&utm_medium=dashboard&utm_campaign=plugin" target="_blank">Download on iOS</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="clear: both"></div>
+                </div>
+                </div>
+                </div>
 
+	            <?php
+
+            }
 		}
 
 		/**
@@ -615,7 +645,7 @@ if ( ! class_exists( 'PostmanViewController' ) ) {
 							<div class='ps-left'>
 								<h1>{$title}<h1/>
 							</div>";
-			$content .= sprintf( '<div class="ps-right"><div class="back-to-menu-link"><a href="%s" class="ps-btn-orange" >%s</a></div></div>', PostmanUtils::getSettingsPageUrl(), _x( 'Back To Main Menu', 'Return to main menu link', 'post-smtp' ) );
+			$content .= sprintf( '<div class="ps-right"><div class="back-to-menu-link"><a href="%s" class="button button-primary" >%s</a></div></div>', PostmanUtils::getSettingsPageUrl(), _x( 'Back To Main Menu', 'Return to main menu link', 'post-smtp' ) );
 			$content .= '
 							<div class="clear"></div>
 						</div>
@@ -680,7 +710,7 @@ if ( ! class_exists( 'PostmanViewController' ) ) {
 				'<textarea cols="80" rows="10" class="ps-textarea" name="settings" %s></textarea>', 
 				esc_textarea( $extraDeleteButtonAttributes ) 
 			);
-			submit_button( __( 'Import', 'post-smtp' ), 'ps-btn-orange', 'import', true, $extraDeleteButtonAttributes );
+			submit_button( __( 'Import', 'post-smtp' ), 'button button-primary', 'import', true, $extraDeleteButtonAttributes );
 			print '</form>';
 			print '</section>';
 			print '<div class="clear"></div>';
@@ -698,7 +728,12 @@ if ( ! class_exists( 'PostmanViewController' ) ) {
 				esc_html__( 'Are you sure?', 'post-smtp' ) 
 			);
 
-			submit_button( $resetTitle, 'delete ps-btn-red', 'submit', true );
+			printf(
+				'<input type="checkbox" name="ps_preserve_email_logs" value="1" checked /> %s',
+				esc_html__( 'Preserve my email logs', 'post-smtp' )
+			);
+
+			submit_button( $resetTitle, 'delete button button-secondary', 'submit', true );
 			print '</form>';
 			print '</section>';
 			print '</div>';

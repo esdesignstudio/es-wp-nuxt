@@ -15,7 +15,7 @@ if(!defined('ABSPATH')){
  */
 function acfe_get_post_id_field_groups($post_id = 0){
     
-    /*
+    /**
      * @string  $post_id  12   | term_46 | user_22 | my-option | comment_89 | widget_56 | menu_74 | menu_item_96 | block_my-block | blog_55 | site_36 | attachment_24
      * @string  $id       12   | 46      | 22      | my-option | 89         | widget_56 | 74      | 96           | block_my-block | 55      | 36      | 24
      * @string  $type     post | term    | user    | option    | comment    | option    | term    | post         | block          | blog    | blog    | post
@@ -409,7 +409,7 @@ function acfe_get_locations_array($locations){
             
         }
         
-        $html = '<span ' . acf_esc_attrs($atts) . '></span>';
+        $html = '<span ' . acf_esc_atts($atts) . '></span>';
         
         $return[] = array(
             'html'      => $html,
@@ -459,7 +459,7 @@ function acfe_render_field_group_locations_html($field_group){
 /**
  * acfe_add_field_groups_metabox
  *
- * @param $field_groups
+ * @param array $args
  */
 function acfe_add_field_groups_metabox($args = array()){
     
@@ -474,79 +474,111 @@ function acfe_add_field_groups_metabox($args = array()){
     
     add_meta_box($args['id'], $args['title'], function($object, $data) use($args){
         
-        $data = $data['args'];
-    
-        foreach($data as $field_group){
-            
-            $fields = acf_get_fields($field_group);
-            $url = $field_group['ID'] ? admin_url("post.php?post={$field_group['ID']}&action=edit") : false;
-            $edit = $url ? '(<a href="' . $url . '">' .  __('edit'). '</a>)' : '';
-            ?>
+        $field_groups = $data['args'];
         
-            <div class="acf-field">
-            
-                <div class="acf-label">
-                    <label><?php echo $field_group['title']; ?> <?php echo $edit; ?></label>
-                    <p class="description"><code style="font-size:12px;"><?php echo $field_group['key']; ?></code></p>
-                </div>
-            
-                <div class="acf-input">
-                    <?php if(!empty($fields)){ ?>
-                        
-                        <?php $details = acfe_get_fields_details_recursive($fields); ?>
-                        
-                        <table class="acf-table">
-                            <thead>
-                                <th class="acf-th" width="25%"><strong>Label</strong></th>
-                                <th class="acf-th" width="25%"><strong>Name</strong></th>
-                                <th class="acf-th" width="25%"><strong>Key</strong></th>
-                                <th class="acf-th" width="25%"><strong>Type</strong></th>
-                            </thead>
-                        
-                            <tbody>
-                            <?php foreach($details as $field){ ?>
-                                
-                                <?php
-                                $field_name = $field['name'] ? '<code style="font-size:12px;">' . $field['name'] . '</code>' : '';
-                                $field_key = $field['key'] ? '<code style="font-size:12px;">' . $field['key'] . '</code>' : '';
-                                ?>
-                                
-                                <tr class="acf-row">
-                                    <td width="25%"><?php echo $field['label']; ?></td>
-                                    <td width="25%"><?php echo $field_name; ?></td>
-                                    <td width="25%"><?php echo $field_key; ?></td>
-                                    <td width="25%"><?php echo $field['type']; ?></td>
-                                </tr>
-                            <?php } ?>
-                            </tbody>
-                        </table>
-                
-                    <?php } ?>
-                </div>
-        
-            </div>
+        acfe_render_field_groups_details($field_groups);
     
-        <?php } ?>
-    
-        <script type="text/javascript">
+        ?><script type="text/javascript">
         (function($){
 
             if(typeof acf === 'undefined'){
                 return;
             }
     
-            acf.newPostbox(<?php echo wp_json_encode(array(
+            var metabox = acf.newPostbox(<?php echo wp_json_encode(array(
                 'id'    => $args['id'],
                 'key'   => '',
                 'style' => 'default',
                 'label' => 'left',
                 'edit'  => false
             )); ?>);
+            
+            <?php if(empty($field_groups)){ ?>
+                metabox.hide();
+            <?php } ?>
 
         })(jQuery);
         </script>
         <?php
         
     }, $args['screen'], $args['context'], $args['priority'], $args['field_groups']);
+    
+}
+
+
+/**
+ * acfe_render_field_groups_details
+ *
+ * @param $field_groups
+ *
+ * @return void
+ */
+function acfe_render_field_groups_details($field_groups){
+
+    foreach($field_groups as $field_group){
+        
+        // no field group ID found
+        if(empty($field_group['ID'])){
+            
+            // get raw field group from db
+            $raw_field_group = acf_get_raw_field_group($field_group['key']);
+            
+            // raw field group found
+            if($raw_field_group && !empty($raw_field_group['ID'])){
+                $field_group['ID'] = $raw_field_group['ID'];
+            }
+            
+        }
+        
+        // vars
+        $fields = acf_get_fields($field_group);
+        $url = $field_group['ID'] ? admin_url("post.php?post={$field_group['ID']}&action=edit") : false;
+        $edit = $url ? '(<a href="' . $url . '">' .  __('edit'). '</a>)' : '';
+        ?>
+    
+        <div class="acf-field">
+    
+            <div class="acf-label">
+                <label><?php echo $field_group['title']; ?> <?php echo $edit; ?></label>
+                <p class="description"><code style="font-size:12px;"><?php echo $field_group['key']; ?></code></p>
+            </div>
+    
+            <div class="acf-input">
+                <?php if(!empty($fields)){ ?>
+                    
+                    <?php $details = acfe_get_fields_details_recursive($fields); ?>
+    
+                    <table class="acf-table">
+                        <thead>
+                        <th class="acf-th" width="25%" style="background: #fcfcfc;"><strong><?php _e('Label', 'acfe'); ?></strong></th>
+                        <th class="acf-th" width="25%" style="background: #fcfcfc;"><strong><?php _e('Name', 'acfe'); ?></strong></th>
+                        <th class="acf-th" width="25%" style="background: #fcfcfc;"><strong><?php _e('Key', 'acfe'); ?></strong></th>
+                        <th class="acf-th" width="25%" style="background: #fcfcfc;"><strong><?php _e('Type', 'acfe'); ?></strong></th>
+                        </thead>
+    
+                        <tbody>
+                        <?php foreach($details as $field){ ?>
+                            
+                            <?php
+                            $field_name = $field['name'] ? '<code style="font-size:12px;">' . $field['name'] . '</code>' : '';
+                            $field_key = $field['key'] ? '<code style="font-size:12px;">' . $field['key'] . '</code>' : '';
+                            ?>
+    
+                            <tr class="acf-row">
+                                <td width="25%" style="border-color:#e1e1e1;"><?php echo $field['label']; ?></td>
+                                <td width="25%" style="border-color:#e1e1e1;"><?php echo $field_name; ?></td>
+                                <td width="25%" style="border-color:#e1e1e1;"><?php echo $field_key; ?></td>
+                                <td width="25%" style="border-color:#e1e1e1;"><?php echo $field['type']; ?></td>
+                            </tr>
+                        <?php } ?>
+                        </tbody>
+                    </table>
+                
+                <?php } ?>
+            </div>
+    
+        </div>
+
+    <?php }
     
 }

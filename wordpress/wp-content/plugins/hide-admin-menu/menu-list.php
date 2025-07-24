@@ -1,8 +1,10 @@
 <?php
+
 //add css
 add_action( 'admin_enqueue_scripts', 'bhm_load_admin_style' );  
 
 function bhm_load_admin_style() {
+  ob_start();
   wp_enqueue_style( 'admin_css', plugin_dir_url( __FILE__ ) . 'css/style-admin.css', false, '1.0.2' );
 }
 
@@ -13,6 +15,9 @@ function app_output_buffer() {
 //add_action('init', 'app_output_buffer');
 
 function bhm_get_menu_list(){
+
+  ob_start(null, 0, 0);
+
 
   global $wp_session;
   //get all roles of user

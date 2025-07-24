@@ -2,16 +2,16 @@
 # This file is distributed under the same license as the Plugins - Duplicate Page - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2021-12-09 18:14:11+0000\n"
+"PO-Revision-Date: 2025-05-07 09:51:35+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: GlotPress/3.0.0-alpha.2\n"
+"X-Generator: GlotPress/4.0.1\n"
 "Language: zh_TW\n"
 "Project-Id-Version: Plugins - Duplicate Page - Development (trunk)\n"
 
-#: duplicatepage.php:132
+#: duplicatepage.php:131
 msgid "Unauthorized Access."
 msgstr "未經授權的存取。"
 
@@ -23,47 +23,47 @@ msgstr "儲存設定"
 msgid "<div class=\"saving-txt\"><strong>Saving Please wait...</strong></div>"
 msgstr "<div class=\"saving-txt\"><strong>正在儲存，請稍候...</strong></div>"
 
-#: duplicatepage.php:341
+#: duplicatepage.php:357
 msgid "Never"
 msgstr "不進行評等"
 
-#: duplicatepage.php:341
+#: duplicatepage.php:357
 msgid "Not interested"
 msgstr "不感興趣"
 
-#: duplicatepage.php:341
+#: duplicatepage.php:357
 msgid "Rate Us"
-msgstr "請為我們進行評等"
+msgstr "為外掛進行評等"
 
-#: duplicatepage.php:341
+#: duplicatepage.php:357
 msgid "Rate us now"
-msgstr "請立即為我們進行評等"
+msgstr "立即為外掛進行評等"
 
-#: duplicatepage.php:341
+#: duplicatepage.php:357
 msgid "Later"
 msgstr "稍後提醒我"
 
-#: duplicatepage.php:341
+#: duplicatepage.php:357
 msgid "Remind me later"
 msgstr "稍後提醒我"
 
-#: duplicatepage.php:341
+#: duplicatepage.php:357
 msgid "We love and care about you. Our team is putting maximum efforts to provide you the best functionalities. It would be highly appreciable if you could spend a couple of seconds to give a Nice Review to the plugin to appreciate our efforts. So we can work hard to provide new features regularly :)"
 msgstr "我們愛護並關心使用者，並致力於提供最棒的功能。如果你願意花一點時間，給予我們良好的外掛評等並對我們的心力致上心意，我們會非常感激，並能讓我們努力定期提供新功能 :)"
 
-#: duplicatepage.php:341
+#: duplicatepage.php:357
 msgid "close"
 msgstr "關閉"
 
-#: duplicatepage.php:138
+#: duplicatepage.php:136
 msgid "Security check issue, Please try again."
 msgstr "安全性檢查問題，請再試一次。"
 
-#: duplicatepage.php:233
+#: duplicatepage.php:244
 msgid "Error! Post creation failed, could not find original post: "
 msgstr "發生錯誤，無法建立文章，找不到原始文章: "
 
-#: duplicatepage.php:157
+#: duplicatepage.php:155
 msgid "No post to duplicate has been supplied!"
 msgstr "請選取需要複製的內容！"
 
@@ -75,7 +75,7 @@ msgstr "立即贊助外掛開發工作"
 msgid "All Editors"
 msgstr "全部編輯器"
 
-#: duplicatepage.php:245 duplicatepage.php:261 duplicatepage.php:285
+#: duplicatepage.php:261 duplicatepage.php:277 duplicatepage.php:301
 msgid "Duplicate this as "
 msgstr "複製為"
 
@@ -95,7 +95,7 @@ msgstr "傳統編輯器"
 msgid "Choose Editor"
 msgstr "選取編輯器"
 
-#: duplicatepage.php:312
+#: duplicatepage.php:328
 msgid "Duplicate This as "
 msgstr "複製為"
 
@@ -116,27 +116,31 @@ msgid "Draft"
 msgstr "草稿"
 
 #. Author URI of the plugin
+#: duplicatepage.php
 msgid "https://profiles.wordpress.org/mndpsingh287/"
 msgstr "https://profiles.wordpress.org/mndpsingh287/"
 
 #. Author of the plugin
+#: duplicatepage.php
 msgid "mndpsingh287"
 msgstr "mndpsingh287"
 
 #. Description of the plugin
+#: duplicatepage.php
 msgid "Duplicate Posts, Pages and Custom Posts using single click."
 msgstr "一鍵複製文章、頁面及自訂內容。"
 
 #. Plugin URI of the plugin
+#: duplicatepage.php
 msgid "https://wordpress.org/plugins/duplicate-page/"
 msgstr "https://tw.wordpress.org/plugins/duplicate-page/"
 
-#: duplicatepage.php:245 duplicatepage.php:261 duplicatepage.php:284
+#: duplicatepage.php:261 duplicatepage.php:277 duplicatepage.php:300
 msgid "Duplicate This"
 msgstr "複製"
 
 #. Plugin Name of the plugin
-#: duplicatepage.php:91 duplicatepage.php:341
+#: duplicatepage.php duplicatepage.php:91 duplicatepage.php:357
 msgid "Duplicate Page"
 msgstr "Duplicate Page"
 

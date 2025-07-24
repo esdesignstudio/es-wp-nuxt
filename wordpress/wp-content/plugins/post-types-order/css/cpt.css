@@ -1,0 +1,40 @@
+#cpto h2.subtitle {font-size: 15px; font-style: italic; font-weight: bold; padding-left: 0px}
+.wrap .example { color: #666666; font-size: 11px; font-weight: bold}
+
+#order-objects img {vertical-align: middle}
+#order-objects #sortable { list-style-type: none; margin: 10px 0 0; padding: 0; width: 100%; }
+#order-objects ul {list-style: none;}
+#order-objects ul.children {margin-left: 25px} 
+
+#order-objects #sortable li:not(.ui-sortable-placeholder) { border: 1px solid #E6E6E6;height: auto;line-height: 27px; padding-left: 10px;position: relative; text-shadow: 0 1px 0 #FFFFFF;width: auto;word-wrap: break-word;cursor: move;background: url("../images/gray-grad.png") repeat-x scroll left top #DFDFDF;-webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px;}
+#order-objects #sortable li  span { display: inline-block; line-height: 20px; padding: 5px 0; white-space: nowrap; font-weight: bold; cursor: pointer;}
+#order-objects #sortable li  .options {float: right; padding: 0 10px 0 10px; }
+#order-objects #sortable li  .options a {text-decoration: none; color: #3c434a;}
+#order-objects #sortable li  .options a:hover {color: #2271b1;}
+#order-objects #sortable li  .options span {font-weight: normal}
+#order-objects .term_type_li ul {margin-top: 6px}
+
+#order-objects #nav-menu-header {background: url("../images/gray-grad.png") repeat-x scroll left top #DFDFDF; -moz-border-radius-topleft: 6px; -moz-border-radius-topright: 6px;border-width: 1px 1px 0;border-color: #CCCCCC;border-style: solid; margin-bottom: 0px}
+#order-objects #nav-menu-header .major-publishing-actions {clear: both;padding: 5px 0px;}
+#order-objects #nav-menu-header .actions, #order-objects #nav-menu-footer .actions {padding: 0px; margin: 2px 0px; position: relative}
+#order-objects #nav-menu-header .img_spacer {width: 18px; height: 18px;}
+#order-objects #nav-menu-footer {background: url("../images/gray-grad.png") repeat-x scroll left top #DFDFDF; -moz-border-radius-bottomleft: 6px; -moz-border-radius-bottomright: 6px;border-width: 0 1px 1px 1px;border-color: #CCCCCC;border-style: solid;}
+#order-objects #nav-menu-footer .major-publishing-actions {clear: both;padding: 5px 0px;} 
+#order-objects #nav-menu-footer .submit {padding: 0px;}
+
+#order-objects .ui-sortable-placeholder{border-color:#bbb;background-color:#FCFCFC; height:32px; background-image: none; -moz-border-radius: 6px 6px 6px 6px; border: 3px dashed #E6E6E6; -webkit-border-radius: 4px;-moz-border-radius: 4px;border-radius: 4px; box-sizing: border-box;}
+#order-objects .ui-sortable-helper{filter:alpha(opacity=75); /* for internet explorer */opacity: 0.75; /* CSS3 standard */-moz-opacity:0.75; /* for older gecko browsers */-khtml-opacity: 0.75; /* for older webkit browsers */}
+
+#order-objects #post-body {background: none repeat scroll 0 0 #FFFFFF;border-width: 0 1px 0 1px;border-color: #CCCCCC;border-style: solid; padding: 10px;}
+
+
+
+#cpto #cpt_info_box {padding: 0 10px; border: 1px dashed #6aadcc; background-color: #FFF; margin-top: 10px;-webkit-box-shadow: 1px 1px 7px rgba(50, 50, 50, 0.17);-moz-box-shadow:    1px 1px 7px rgba(50, 50, 50, 0.17);box-shadow:         1px 1px 7px rgba(50, 50, 50, 0.17);}
+#cpto #cpt_info_box a {text-decoration: none}
+#cpto #cpt_info_box #donate_form { padding: 20px 0 17px;    text-align: center;    width: 100%;}
+.menu_pto {margin-right: 4px; display: inline; vertical-align: middle; margin-top: -1px;}  
+
+#cpto #p_right {float: right; background-color:#f5f5f5; border: 1px dashed #6aadcc; padding: 0px 10px; margin-top: 10px}
+#cpto .p_s_item {float: right; padding: 0px 5px; margin-top: 10px; margin-bottom: 5px; }
+
+.clear {clear: both}

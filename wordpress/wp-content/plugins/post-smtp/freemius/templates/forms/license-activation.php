@@ -30,17 +30,10 @@
 	if ( $fs->is_registered() ) {
 		$activate_button_text = $header_title;
 	} else {
-		$freemius_site_url = $fs->has_paid_plan() ?
-			'https://freemius.com/' :
-			// Insights platform information.
-			$fs->get_usage_tracking_terms_url();
-
-		$freemius_link = '<a href="' . $freemius_site_url . '" target="_blank" rel="noopener" tabindex="0">freemius.com</a>';
-
 		$message_below_input_field = sprintf(
-			fs_text_inline( 'The %1$s will be periodically sending data to %2$s to check for security and feature updates, and verify the validity of your license.', 'license-sync-disclaimer', $slug ),
+			fs_text_inline( 'The %1$s will be periodically sending essential license data to %2$s to check for security and feature updates, and verify the validity of your license.', 'license-sync-disclaimer', $slug ),
 			$fs->get_module_label( true ),
-			$freemius_link
+			"<b>{$fs->get_plugin_title()}</b>"
 		);
 
 		$activate_button_text = fs_text_inline( 'Agree & Activate License', 'agree-activate-license', $slug );
@@ -59,8 +52,9 @@
     if ( $is_network_activation ) {
         $all_sites = Freemius::get_sites();
 
-        $subsite_data_by_install_id = array();
-        $install_url_by_install_id  = array();
+        $all_site_details          = array();
+        $subsite_url_by_install_id = array();
+        $install_url_by_install_id = array();
 
         foreach ( $all_sites as $site ) {
             $site_details = $fs->get_site_info( $site );
@@ -73,9 +67,9 @@
             $install = $fs->get_install_by_blog_id($blog_id);
 
             if ( is_object( $install ) ) {
-                if ( isset( $subsite_data_by_install_id[ $install->id ] ) ) {
-                    $clone_subsite_data = $subsite_data_by_install_id[ $install->id ];
-                    $clone_install_url  = $install_url_by_install_id[ $install->id ];
+                if ( isset( $subsite_url_by_install_id[ $install->id ] ) ) {
+                    $clone_subsite_url = $subsite_url_by_install_id[ $install->id ];
+                    $clone_install_url = $install_url_by_install_id[ $install->id ];
 
                     if (
                         /**
@@ -84,7 +78,7 @@
                          * @author Leo Fajardo (@leorw)
                          * @since 2.5.0
                          */
-                        fs_strip_url_protocol( untrailingslashit( $clone_install_url ) ) === fs_strip_url_protocol( untrailingslashit( $clone_subsite_data['url'] ) ) ||
+                        fs_strip_url_protocol( untrailingslashit( $clone_install_url ) ) === fs_strip_url_protocol( untrailingslashit( $clone_subsite_url ) ) ||
                         fs_strip_url_protocol( untrailingslashit( $install->url ) ) !== fs_strip_url_protocol( untrailingslashit( $site_details['url'] ) )
                     ) {
                         continue;
@@ -95,15 +89,17 @@
                     $site_details['license_id'] = $install->license_id;
                 }
 
-                $subsite_data_by_install_id[ $install->id ] = $site_details;
-                $install_url_by_install_id[ $install->id ]  = $install->url;
+                $subsite_url_by_install_id[ $install->id ] = $site_details['url'];
+                $install_url_by_install_id[ $install->id ] = $install->url;
             }
+
+            $all_site_details[] = $site_details;
         }
 
         if ( $is_network_activation ) {
             $vars = array(
                 'id'                  => $fs->get_id(),
-                'sites'               => array_values( $subsite_data_by_install_id ),
+                'sites'               => $all_site_details,
                 'require_license_key' => true
             );
 
@@ -155,7 +151,7 @@ HTML;
                     $license->get_html_escaped_masked_secret_key()
                 );
 
-                $license_input_html .= "<option data-id='{$license->id}' value='{$license->secret_key}' data-left='{$license->left()}'>{$label}</option>";
+                $license_input_html .= "<option data-id='{$license->id}' value='{$license->id}' data-left='{$license->left()}'>{$label}</option>";
             }
 
             $license_input_html .= '</select>';
@@ -182,7 +178,6 @@ HTML;
                     type="text"
                     value="{$value}"
                     data-id="{$available_license->id}"
-                    data-license-key="{$available_license->secret_key}"
                     data-left="{$available_license->left()}"
                     readonly />
 HTML;
@@ -369,7 +364,7 @@ HTML;
                 $activateLicenseButton.html( '<?php fs_esc_js_echo_inline( 'Please wait', 'please-wait', $slug ) ?>...' );
 
                 $.ajax( {
-                    url    : ajaxurl,
+                    url    : <?php echo Freemius::ajax_url() ?>,
                     method : 'POST',
                     data   : {
                         action     : '<?php echo $fs->get_ajax_action( 'fetch_is_marketing_required_flag_value' ) ?>',
@@ -566,17 +561,17 @@ HTML;
 					return;
 				}
 
-				var
-                    licenseKey = '';
+                var licenseKey = '',
+                    licenseID  = '';
 
 				if ( hasLicenseTypes ) {
 				    if ( isOtherLicenseKeySelected() ) {
 				        licenseKey = $otherLicenseKey.val();
                     } else {
 				        if ( ! hasLicensesDropdown ) {
-                            licenseKey = $availableLicenseKey.data( 'license-key' );
+                            licenseID = $availableLicenseKey.data( 'id' ).toString();
                         } else {
-                            licenseKey = $licensesDropdown.val();
+                            licenseID = $licensesDropdown.val();
                         }
                     }
                 } else {
@@ -585,16 +580,21 @@ HTML;
 
 				disableActivateLicenseButton();
 
-				if (0 === licenseKey.length) {
+				if ( 0 === licenseID.length && 0 === licenseKey.length ) {
 					return;
 				}
 
                 var data = {
                     action     : '<?php echo $fs->get_ajax_action( 'activate_license' ) ?>',
                     security   : '<?php echo $fs->get_ajax_security( 'activate_license' ) ?>',
-                    license_key: licenseKey,
                     module_id  : '<?php echo $fs->get_id() ?>'
                 };
+
+                if ( licenseID.length > 0 ) {
+                    data.license_id = licenseID;
+                } else {
+                    data.license_key = licenseKey;
+                }
 
                 if ( isNetworkActivation ) {
                     var
@@ -617,7 +617,6 @@ HTML;
                                 url     : $this.find( '.url' ).val(),
                                 title   : $this.find( '.title' ).val(),
                                 language: $this.find( '.language' ).val(),
-                                charset : $this.find( '.charset' ).val(),
                                 blog_id : $this.find( '.blog-id' ).find( 'span' ).text()
                             };
 
@@ -635,7 +634,7 @@ HTML;
                 }
 
 				$.ajax({
-					url: ajaxurl,
+					url: <?php echo Freemius::ajax_url() ?>,
 					method: 'POST',
                     data: data,
 					beforeSend: function () {
@@ -896,3 +895,5 @@ HTML;
 	});
 })( jQuery );
 </script>
+<?php
+    fs_require_once_template( 'api-connectivity-message-js.php' );

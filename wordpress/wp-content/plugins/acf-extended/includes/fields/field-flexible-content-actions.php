@@ -20,6 +20,7 @@ class acfe_field_flexible_content_actions{
         add_filter('acfe/flexible/validate_field',              array($this, 'validate_actions'));
         add_filter('acfe/flexible/wrapper_attributes',          array($this, 'wrapper_attributes'), 10, 2);
         add_filter('acfe/flexible/load_fields',                 array($this, 'load_fields'), 10, 2);
+        add_filter('acfe/flexible/layouts/div',                 array($this, 'layout_div'), 10, 6);
         add_filter('acfe/flexible/prepare_layout',              array($this, 'prepare_layout'), 10, 5);
         add_filter('acfe/flexible/layouts/icons',               array($this, 'layout_icons'), 11, 3);
         add_filter('acfe/flexible/secondary_actions',           array($this, 'secondary_actions'), 10, 2);
@@ -55,7 +56,7 @@ class acfe_field_flexible_content_actions{
      */
     function render_field_settings($field){
         
-        /*
+        /**
          * old settings:
          *
          * acfe_flexible_title_edition
@@ -68,15 +69,15 @@ class acfe_field_flexible_content_actions{
          */
         
         $choices = array(
-            'title'     => 'Inline Title Edit',
-            'toggle'    => 'Toggle Layout',
-            'copy'      => 'Copy/paste Layout',
-            'lock'      => 'Lock Layouts',
-            'close'     => 'Close Button',
+            'title'     => __('Inline Title Edit', 'acfe'),
+            'toggle'    => __('Toggle Layout', 'acfe'),
+            'copy'      => __('Copy/paste Layout', 'acfe'),
+            'lock'      => __('Lock Layouts', 'acfe'),
+            'close'     => __('Close Button', 'acfe'),
         );
     
         if(acf_version_compare(acf_get_setting('version'),  '<', '5.9')){
-            $choices['clone'] = 'Clone';
+            $choices['clone'] = __('Clone', 'acfe');
         }
     
         acf_render_field_setting($field, array(
@@ -228,9 +229,15 @@ class acfe_field_flexible_content_actions{
      */
     function load_fields($fields, $field){
         
-        // Actions
+        // check setting
+        if(!isset($field['acfe_flexible_add_actions'])){
+            return $fields;
+        }
+        
+        // actions
         $actions = $field['acfe_flexible_add_actions'];
         
+        // loop layouts
         foreach($field['layouts'] as $i => $layout){
             
             // Title
@@ -289,6 +296,31 @@ class acfe_field_flexible_content_actions{
         return $fields;
         
     }
+    
+    
+    /**
+     * layout_div
+     *
+     * @param $div
+     * @param $layout
+     * @param $field
+     *
+     * @return mixed
+     */
+    function layout_div($div, $layout, $field, $i, $value, $prefix){
+        
+        if(in_array('toggle', $field['acfe_flexible_add_actions'])){
+            
+            if(isset($value["field_{$layout['key']}_toggle"]) && !empty($value["field_{$layout['key']}_toggle"])){
+                $div['class'] .= ' acfe-flexible-layout-hidden';
+            }
+        
+        }
+        
+        return $div;
+        
+    }
+    
     
     /**
      * prepare_layout
@@ -396,7 +428,7 @@ class acfe_field_flexible_content_actions{
         if(in_array('toggle', $actions)){
     
             $icons = array_merge(array(
-                'toggle' => '<a class="acf-icon small light acf-js-tooltip acfe-flexible-icon dashicons dashicons-hidden" href="#" title="Toggle layout" data-acfe-flexible-control-toggle="' . $layout['name'] . '"></a>'
+                'toggle' => '<a class="acf-icon small light acf-js-tooltip acfe-flexible-icon dashicons dashicons-hidden" href="#" title="'. __('Toggle layout', 'acfe') . '" data-acfe-flexible-control-toggle="' . $layout['name'] . '"></a>'
             ), $icons);
             
         }
@@ -405,7 +437,7 @@ class acfe_field_flexible_content_actions{
         if(in_array('copy', $actions)){
     
             $icons = array_merge(array(
-                'copy' => '<a class="acf-icon small light acf-js-tooltip acfe-flexible-icon dashicons dashicons-category" href="#" title="Copy layout" data-acfe-flexible-control-copy="' . $layout['name'] . '"></a>'
+                'copy' => '<a class="acf-icon small light acf-js-tooltip acfe-flexible-icon dashicons dashicons-category" href="#" title="'. __('Copy layout', 'acfe') .'" data-acfe-flexible-control-copy="' . $layout['name'] . '"></a>'
             ), $icons);
         
         }
@@ -414,7 +446,7 @@ class acfe_field_flexible_content_actions{
         if(in_array('clone', $actions) && acf_version_compare(acf_get_setting('version'),  '<', '5.9')){
     
             $icons = array_merge($icons, array(
-                'clone' => '<a class="acf-icon small light acf-js-tooltip acfe-flexible-icon dashicons dashicons-admin-page" href="#" title="Clone layout" data-acfe-flexible-control-clone="' . $layout['name'] . '"></a>'
+                'clone' => '<a class="acf-icon small light acf-js-tooltip acfe-flexible-icon dashicons dashicons-admin-page" href="#" title="'. __('Clone layout', 'acfe'). '" data-acfe-flexible-control-clone="' . $layout['name'] . '"></a>'
             ));
             
         }
@@ -506,29 +538,46 @@ class acfe_field_flexible_content_actions{
         
         $models = array();
         
-        foreach($field['layouts'] as $layout_key => $layout){
+        foreach($field['layouts'] as $layout){
             
-            $models[$layout['name']] = array(
-                'key'       => $layout['key'],
-                'name'      => $layout['name'],
-                'toggle'    => "field_{$layout['key']}_toggle"
+            $models[ $layout['name'] ] = array(
+                'key'    => $layout['key'],
+                'name'   => $layout['name'],
+                'toggle' => "field_{$layout['key']}_toggle"
             );
             
         }
         
         $value = acf_get_array($value);
         
-        foreach($value as $k => $layout){
+        foreach($value as $k => $row){
             
-            if(!isset($models[$layout['acf_fc_layout']])){
+            if(!isset($models[ $row['acf_fc_layout'] ])){
                 continue;
             }
             
-            if(!acf_maybe_get($layout, $models[$layout['acf_fc_layout']]['toggle'])){
+            if(!acf_maybe_get($row, $models[ $row['acf_fc_layout'] ]['toggle'])){
                 continue;
             }
             
-            unset($value[$k]);
+            // vars
+            $layout = acf_get_field_type('flexible_content')->get_layout($row['acf_fc_layout'], $field);
+            $name = $field['_name'];
+            $key = $field['key'];
+            $l_name = $layout['name'];
+            
+            // filters
+            $toggle = true;
+            $toggle = apply_filters("acfe/flexible/toggle_hide",                               $toggle, $row, $layout, $field);
+            $toggle = apply_filters("acfe/flexible/toggle_hide/name={$name}",                  $toggle, $row, $layout, $field);
+            $toggle = apply_filters("acfe/flexible/toggle_hide/key={$key}",                    $toggle, $row, $layout, $field);
+            $toggle = apply_filters("acfe/flexible/toggle_hide/layout={$l_name}",              $toggle, $row, $layout, $field);
+            $toggle = apply_filters("acfe/flexible/toggle_hide/name={$name}&layout={$l_name}", $toggle, $row, $layout, $field);
+            $toggle = apply_filters("acfe/flexible/toggle_hide/key={$key}&layout={$l_name}",   $toggle, $row, $layout, $field);
+            
+            if($toggle){
+                unset($value[$k]);
+            }
             
         }
         

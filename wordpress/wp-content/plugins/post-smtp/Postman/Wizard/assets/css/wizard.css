@@ -1,0 +1,936 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.admin_page_postman-configuration_wizard {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+.admin_page_postman-configuration_wizard::-webkit-scrollbar { 
+  display: none;  /* Safari and Chrome */
+}
+
+.ps-logo {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.ps-wizard-outer {
+  border: 2px solid #375caf;
+  border-radius: 7px;
+  width: 875px;
+  margin: 0 auto;
+}
+
+.ps-wizard-nav {
+  width: 32%;
+  float: left;
+}
+
+.ps-wizard-pages {
+  width: 67%;
+  float: right;
+}
+
+.ps-wizard-section {
+  margin: 25px 0;
+}
+
+.ps-wizard-footer {
+  background: #f1f1f1;
+  padding: 17px 0;
+}
+
+.ps-wizard-nav {
+  border-right: 1px solid #d9d9d9;
+}
+
+.ps-wizard-section .ps-wizard-nav {
+  height: 484px;
+}
+
+.smtp-outer .ps-wizard-section .ps-wizard-nav {
+  height: 978px;
+}
+
+.gmail_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 1087px;
+}
+
+.mandrill_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 676px;
+}
+
+.sendgrid_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 676px;
+}
+
+.mailersend_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 676px;
+}
+
+.mailgun_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 904px;
+}
+
+.sendinblue_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 724px;
+}
+
+.postmark_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 676px;
+}
+
+.sparkpost_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 676px;
+}
+
+.elasticemail_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 676px;
+}
+
+.office365_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 978px;
+}
+
+.zohomail_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 1087px;
+}
+
+.aws_ses_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 887px;
+}
+
+.mailjet_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 778px;
+}
+
+.sendpulse_api-outer .ps-wizard-section .ps-wizard-nav {
+  height: 775px;
+}
+
+.ps-wizard-footer .ps-wizard-nav {
+  border-right: none;
+}
+
+.ps-wizard-nav table,
+.ps-wizard-footer table {
+  padding: 0 25px;
+}
+
+.ps-wizard-edit span {
+  color: #375caf;
+  font-size: 25px;
+}
+
+.ps-wizard-nav table td,
+.ps-wizard-footer table td {
+  padding: 12px 6px;
+  vertical-align: middle;
+}
+
+.ps-wizard-circle {
+  text-align: center;
+}
+
+.ps-active-nav .ps-wizard-circle span.ps-tick:before {
+  background-color: #375caf;
+}
+
+.ps-in-active-nav  .ps-wizard-circle span.ps-tick:before {
+  background-color: #d9d9d9;
+}
+
+.ps-active-nav .ps-wizard-circle span.ps-tick:before,
+.ps-in-active-nav .ps-wizard-circle span.ps-tick:before
+ {
+  content: '';
+  height: 35px;
+  width: 35px;
+  border-radius: 40px;
+  display: inline-block;
+  vertical-align: top;
+  line-height: 1;
+  margin: 4.4px 4.6px;
+}
+
+.ps-active-nav .ps-wizard-circle span.ps-tick,
+.ps-in-active-nav .ps-wizard-circle span.ps-tick
+ {
+  display: inline-table;
+  width: 48px;
+  height: 48px;
+}
+
+.ps-wizard-circle span.ps-tick {
+  font-size: 44px;
+  display: inline-table;
+  color: #375caf;
+}
+
+.ps-wizard-text {
+  font-weight: 600;
+}
+
+.ps-wizard-footer-left {
+  width: 32%;
+  float: left;
+}
+
+.ps-wizard-footer-right {
+  float: right;
+  width: 67%;
+}
+
+.ps-in-active-nav .ps-wizard-edit,
+.ps-active-nav .ps-wizard-edit,
+.ps-wizard-footer .ps-in-active-nav .ps-wizard-text {
+  display: none;
+}
+
+.ps-tick {
+  position: relative;
+  z-index: 8;
+}
+
+.ps-in-active-nav .ps-wizard-line:after,
+.ps-active-nav .ps-wizard-line:after {
+  content: '';
+  position: absolute;
+  width: 3px;
+  height: 39px;
+  left: 23px;
+  bottom: 41px;
+  z-index: -3;
+}
+
+.ps-in-active-nav .ps-wizard-line:after {
+  background: #d9d9d9;
+}
+
+.ps-active-nav .ps-wizard-line:after,
+.ps-wizard-line:after {
+  background: #375caf;
+}
+
+.ps-wizard-footer .ps-active-nav .ps-wizard-line:after {
+  height: 342px;
+}
+
+.ps-wizard-screens-container {
+  padding: 0 25px;
+}
+
+.ps-wizard-step {
+  display: none;
+}
+
+.ps-wizard-pages p {
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.ps-wizard-pages a {
+  color: #000;
+}
+
+.smtp-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 837px;
+}
+
+.gmail_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 1100px;
+}
+
+.mandrill_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 535px;
+}
+
+.sendgrid_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 608px;
+}
+
+.mailersend_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 608px;
+}
+
+.mailgun_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 763px;
+}
+
+.sendinblue_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 583px;
+}
+
+.postmark_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 535px;
+}
+
+.sparkpost_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 535px;
+}
+
+.elasticemail_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 535px;
+}
+
+.office365_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 837px;
+}
+
+.zohomail_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 946px;
+}
+
+.aws_ses_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 746px;
+}
+
+.mailjet_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 638px;
+}
+
+.sendpulse_api-outer .ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 635px;
+}
+
+.ps-wizard-footer-left .ps-in-active-nav .ps-wizard-line:after {
+  height: 343px;
+}
+
+.ps-wizard-footer-left .ps-in-active-nav .ps-email-tester-line.ps-wizard-line:after {
+  height: 417px;
+}
+
+.ps-wizard-sockets {
+  display: flex;
+  margin: 15px 0 15px 0;
+}
+
+.ps-wizard-socket-radio label {
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.ps-wizard-socket-radio img {
+  width: 31px;
+  cursor: pointer;
+  transition: transform 1s;
+  object-fit: cover;
+  padding: 8px 20px 3px 20px;
+}
+
+.ps-wizard-socket-tick-container {
+  transition: .5s ease;
+  opacity: 0;
+  position: absolute;
+  top: 29%;
+  left: 29%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.ps-wizard-socket-check:checked + label > .ps-wizard-socket-tick-container {
+  opacity: 1;
+}
+
+.ps-wizard-socket-radio {
+  border: 2px solid #000;
+  width: 100px;
+  height: 66px;
+  margin-right: 15px;
+}
+
+.ps-wizard-socket-radio input {
+  display: none!important;
+}
+
+.ps-wizard-socket-radio label {
+  margin: 0!important;
+  display: inline-block;
+}
+
+.ps-wizard-socket-tick span {
+  font-size: 15px;
+  background-color: #4caf50;
+  color: #fff;
+  border-radius: 100%;
+  height: 15px;
+  width: 15px;
+  border: 2px solid #fff;
+}
+
+.ps-wizard-socket-radio-outer {
+  text-align: center;
+}
+
+.ps-wizard-sockets h4 {
+  margin: 0;
+}
+
+.ps-wizard-socket-radio:has(.ps-wizard-socket-check:checked) {
+  border: 2px solid #4db556;
+}
+
+.button-primary.ps-blue-btn {
+  border: #485b87;
+  background: #375caf;
+  border-radius: 0px;
+  line-height: 40px;
+  width: 184px;
+}
+
+.button-primary.ps-blue-btn.focus, 
+.button-primary.ps-blue-btn.hover, 
+.button-primary.ps-blue-btn:focus, 
+.button-primary.ps-blue-btn:hover {
+  background: #4c6fbd;
+  border-color: #4c6fbd;
+}
+
+.button-primary.ps-yellow-btn {
+  border: #ff9900;
+  background: #fa8900;
+  border-radius: 50px;
+  line-height: 35px;
+  width: 170px;
+  color: #000 !important;
+}
+
+.button-primary.ps-yellow-btn.focus, 
+.button-primary.ps-yellow-btn.hover, 
+.button-primary.ps-yellow-btn:focus, 
+.button-primary.ps-yellow-btn:hover {
+  background: #ffac31;
+  border-color: #000000;
+}
+
+.button-primary.ps-blue-btn .dashicons, 
+.button-primary.ps-yellow-btn .dashicons {
+  vertical-align: middle;
+  font-size: 15px;
+}
+
+.button-primary {
+  text-align: center;
+}
+
+.ps-wizard-footer-right button {
+  float: right;
+}
+
+.ps-wizard-footer-right .ps-wizard-step-1,
+.ps-wizard-footer-right .ps-wizard-step-2, 
+.ps-wizard-footer-right .ps-wizard-step-3,
+.ps-wizard-footer-right .ps-wizard-step-4 {
+  padding: 15px 10px;
+}
+
+.ps-wizard-error {
+  color: red;
+}
+
+.ps-wizard-success {
+  color: green;
+}
+
+.ps-wizard-error,
+.ps-wizard-success {
+  display: inline-block;
+  font-weight: 600;;
+}
+
+.ps-loading-test-report {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ps-wizard-pages {
+  min-height: 351px;
+}
+
+.ps-wizard-edit .dashicons-edit {
+  cursor: pointer;
+}
+
+.ps-wizard-socket {
+  display: none;
+}
+
+.ps-wizard-back {
+  font-size: 12px;
+  text-decoration: none;
+  color: #375caf!important;
+}
+
+.ps-wizard-back span {
+  font-size: 13px;
+  vertical-align: sub;
+}
+
+.ps-wizard-socket h3 {
+  margin: 5px 0;
+}
+
+.ps-form-ui label {
+  font-weight: 600;
+}
+
+.ps-form-ui input[type="text"], 
+.ps-form-ui select {
+  width: 100%!important;
+  max-width: 100%!important;
+  height: 37px;
+  margin-top: 5px;
+  border: 1px solid #000;
+  border-radius: 0;
+}
+
+.ps-form-control {
+  margin-bottom: 25px;
+}
+
+.ps-form-control-info {
+  color: #979797;
+  font-size: 10px;
+}
+
+.ps-wizard-socket {
+  line-height: 22px;
+}
+
+.ps-form-switch-control {
+  display: inline-block;
+}
+
+.ps-form-switch-control .ps-switch-1 input:checked + .slider {
+  background-color: #375caf;
+}
+
+.ps-wizard-congrates {
+  float: left;
+}
+
+.ps-wizard-view-logs {
+  float: right;
+}
+
+.ps-wizard-pages .ps-wizard-step-4 a {
+  color: #375caf;
+}
+
+.ps-wizard-card {
+    background: whitesmoke;
+    padding: 8px 15px;
+}
+
+.ps-wizard-card p {
+  margin-bottom: 30px;
+}
+
+.ps-wizard-page-footer {
+  width: 875px;
+  text-align: center;
+  margin: 45px auto;
+}
+
+.ps-wizard-page-footer a {
+  margin: 0 25px;
+  color: #949494;
+}
+
+.ps-wizard-footer .ps-active-nav .ps-wizard-circle span.ps-tick:before {
+  content: "\f12a";
+  background-color: transparent;
+  margin: 0;
+  height: auto;
+  width: auto;
+}
+
+.ps-pro-extension-outer {
+  position: relative;
+}
+
+.ps-pro-extension-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #FF9900;
+  color: #ffffff;
+}
+
+.ps-pro-extension-tag {
+  position: absolute;
+  left: 1px;
+  top: 1px;
+  background: #FF9900;
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: bold;
+  font-family: sans-serif;
+  padding: 0px 3px;
+}
+
+.ps-pro-popup-overlay {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: #bfbfbfa1;
+  z-index: 9990;
+}
+
+.ps-pro-popup-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.ps-pro-popup-outer {
+  position: absolute;
+  width: 550px;
+  height: 400px;
+  background: #fff;
+  margin: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border-radius: 7px;
+}
+
+span.ps-pro-close-popup {
+  position: absolute;
+  right: 25px;
+  top: 25px;
+  color: #222222;
+  border: 1px solid #e2e4ea;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.ps-pro-popup-body {
+  position: relative;
+  line-height: 30px;
+}
+
+.ps-pro-popup-content {
+  width: 100%;
+  text-align: center;
+  padding: 30px 90px 24px;
+  box-sizing: border-box;
+}
+
+.ps-pro-popup-content h1 {
+  color: #214A72;
+  font-weight: 500;
+  font-size: 20px;
+  margin: 15px 0;
+  line-height: 26px;
+  padding: 0;
+}
+
+.ps-pro-popup-content p {
+  font-size: 11px;
+  color: #6A788B;
+  margin: 25px 0;
+  font-weight: 400;
+  width: 75%;
+  margin: 25px auto;
+}
+
+.ps-pro-promo-area {
+  margin: 10px 0;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.ps-pro-promo-area p {
+  color: #214a72;
+  font-size: 12px;
+  margin: 0 auto;
+}
+
+.ps-pro-promo-area b {
+  font-weight: bolder;
+}
+
+.ps-pro-coupon {
+  background: #5e7cbf;
+  display: inline-block;
+  padding: 0px 35px 0 14px;
+  border-radius: 7px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #5E7CBF;
+}
+
+.ps-pro-coupon b {
+  color: #fff;
+}
+
+.ps-pro-discount {
+  background: #121FCF;
+  background: linear-gradient(298.51deg, #8ED2F5 -7.43%, #46519E 78.45%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bolder;
+}
+#ps-pro-code-copy-notification .dashicons {
+  vertical-align: middle;
+}
+
+.ps-click-to-copy {
+  vertical-align: sub;
+}
+
+.ps-click-to-copy {
+  cursor: pointer;
+}
+
+.ps-wizard-connectivity-information {
+  border: 1px solid #EFB3B3;
+  padding: 8px;
+  background: #FFE4E4;
+  color: #000;
+  margin-top: 15px;
+}
+
+.ps-wizard-connectivity-information .dashicons {
+  color: #E57373;
+}
+
+.ps-wizard-outer.smtp2go_api-outer .ps-wizard-footer-left .ps-wizard-line::after {
+  height: 557px;
+}
+
+.ps-wizard-pro-tag {
+  background: #ffbf00;
+  color: #ffffff;
+  font-size: 11px;
+  padding: 0px 8px;
+  border-radius: 50px;
+}
+.ps-enable-gmail-one-click.disabled {
+  pointer-events: all;
+  opacity: 0;
+  cursor: not-allowed;
+}
+.ps-hidden {
+  display: none;
+}
+.ps-gmail-btn{
+  background-color: #4285f4 !important;
+  border-radius: 0px !important;
+  line-height: 40px !important;
+  font-size: 15px !important;
+  width: 184px;;
+  display: inline-flex !important;
+  align-items: center;
+  text-decoration: none;
+}
+
+.ps-gmail-btn::before {
+  content: '';
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  width: 35px;
+  height: 20px;
+  margin-right: 10px;
+  background-color: white;
+  padding-top: 5px;
+}
+.ps-remove-gmail-btn{
+  background-color: #d63638 !important;
+  border-color: #d63638 !important;
+  color: #fff !important;
+  font-size: 14px !important;
+  font-weight: 500;
+  padding: 5px 10px !important;
+}
+.ps-wizard-socket .ps-remove-gmail-btn{
+  margin-top:20px !important
+}
+.ps-disable-gmail-setup b{
+  display: inline-block;
+  margin-left: 5px;
+  margin-top: 30px !important;
+ color: green;
+}
+.ps-connect-with{
+	margin-left: 20px;
+}
+
+/* Lets make wiz3rd responsive */
+.ps-dns-results p {
+  margin: 0;  
+}
+
+.ps-dns-heading {
+  border-left: 2px solid #3a5eaf;
+  background: #d8e1e8;
+  color: #585858;
+  padding: 7px 15px;
+}
+
+.ps-dns-results {
+  width: 510px;
+}
+
+.ps-dns-record {
+  border-left: 2px solid #d9d9d9;
+  border-bottom: 2px solid #d9d9d9;
+  padding: 12px 13px;
+  position: relative;
+}
+
+.ps-dns-record p {
+  color: #6E6E6E;
+  font-size: 11px;
+  font-weight: 450;
+}
+
+.ps-dns-record b {
+  color: #6E6E6E;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+.ps-dns-footer {
+  font-size: 11px;
+  font-weight: bold;
+  color: #6E6E6E;
+  margin-top: 15px;
+  display: block;
+}
+
+.ps-dns-footer a {
+  color: #5171b9;
+  font-weight: bold;
+}
+
+.ps-dns-footer span {
+  font-size: 18px;
+  color: #375caf;
+  vertical-align: middle;
+}
+
+.ps-dns-pass {
+  color: #74B27B;
+}
+
+.ps-dns-fail {
+  color: #e57373;
+}
+
+.ps-dns-pass,
+.ps-dns-fail {
+  text-transform: capitalize;
+}
+
+.ps-dns-status-icon {
+  position: absolute;
+  left: -10px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  font-size: 17px;
+}
+.ps-pro-popup-body .ps-pro-popup-content *:not(.dashicons){
+  font-family: "Poppins", sans-serif;
+}
+.ps-pro-popup-content h4 {
+  font-weight: 400;
+  font-size: 14px;
+  color: #6A788B;
+  margin: 0;
+  line-height: 100%;
+}
+
+.ps-pro-popup-content .smily strong {
+  background: -webkit-linear-gradient(0deg, #46519E 50%, #8ED2F5 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 700;
+}
+
+.ps-pro-popup-content .smily {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.ps-pro-popup-body .ps-pro-popup-content strong {
+  font-weight: 700;
+}
+.ps-pro-coupon span.copy-icon {
+  position: absolute;
+  width: 25px;
+  height: 100%;
+  background: #D3E1FF;
+  right: 0;
+  display: flex;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  color: #5E7CBF;
+}
+.ps-pro-coupon span.copy-icon svg {
+  width: 15px;
+  height: 15px;
+}
+.ps-pro-popup-content a.button {
+  font-weight: 600;
+  color: #fff !important;
+  padding: 12px 28px;
+  width: auto;
+  line-height: normal;
+}
+div#ps-pro-code-copy-notification {
+  position: absolute;
+  color: rgb(179, 213, 182);
+  border-radius: 3px;
+  right: 0;
+  left: 85%;
+  bottom: 4px;
+  margin: auto;
+  width: 95px;
+  font-size: 11px;
+  border: 1px solid rgb(179, 213, 182);
+  line-height: 22px;
+  background: rgb(225, 253, 228);
+  display: none;
+}
+/* Lets make wizard responsive */
+
+.wizard-btn-css{
+	background: none !important;
+	color: red !important;
+    font-size: 10px !important;
+    margin-left: 100px; 
+}
+.wizard-btn{
+	margin-left: 0px !important;
+}
+.icon-circle {
+  width: 24px;
+  height: 24px;
+  background-color: #28a745;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.icon-check {
+  width: 6px;
+  height: 12px;
+  border: solid #fff;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  display: inline-block;
+}

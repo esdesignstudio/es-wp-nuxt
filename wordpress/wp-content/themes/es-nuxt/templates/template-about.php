@@ -1,1 +1,0 @@
-<?php /* Template Name: 關於我們 */?>

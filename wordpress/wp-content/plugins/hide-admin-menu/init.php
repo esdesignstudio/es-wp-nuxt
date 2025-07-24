@@ -4,7 +4,7 @@ Plugin Name: Hide admin menu
 Plugin URI: 
 Description: User can hide the admin menu of side bar and top bar that he want accoding user role.
 Author: Bhavin Thummar & Maulik Patel (BM Studio)
-Version: 1.1.1
+Version: 1.1.2
 Author URI: https://www.linkedin.com/in/bhavin-thummar
 */
 

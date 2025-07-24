@@ -57,7 +57,7 @@ class PostmanSmtpModuleTransport extends PostmanAbstractZendModuleTransport impl
 		return self::SLUG;
 	}
 	public function getName() {
-		return 'SMTP';
+		return 'Other SMTP';
 	}
 	public function getHostname() {
 		$this->options = $this->options;
@@ -325,7 +325,7 @@ class PostmanSmtpModuleTransport extends PostmanAbstractZendModuleTransport impl
 		$transport = $this;
 		$this->options = $this->options;
 		$oauthScribe = $transport->getScribe();
-
+		$gmail_oneclick_enabled = in_array( 'gmail-oneclick', get_option( 'post_smtp_pro', [] )['extensions'] ?? [] );
 		// Sanitize
 		add_settings_section( PostmanAdminController::SMTP_SECTION, __( 'Transport Settings', 'post-smtp' ), array(
 				$this,
@@ -378,6 +378,14 @@ class PostmanSmtpModuleTransport extends PostmanAbstractZendModuleTransport impl
 				'printOAuthSectionInfo',
 		), PostmanAdminController::OAUTH_AUTH_OPTIONS );
 
+		add_settings_field(
+			'enable_gmail_oneclick',
+			__( 'Enable One-Click Setup '.(post_smtp_has_pro() ? '': '<span class="ps-wizard-pro-tag">PRO</span>').'', 'post-smtp' ),
+			array( $this, 'renderGmailOneClickSwitch' ),
+			PostmanAdminController::OAUTH_AUTH_OPTIONS,
+			PostmanAdminController::OAUTH_SECTION
+		);
+
 		add_settings_field( 'callback_domain', sprintf( '<span id="callback_domain">%s</span>', $oauthScribe->getCallbackDomainLabel() ), array(
 				$this,
 				'callback_domain_callback',
@@ -397,6 +405,15 @@ class PostmanSmtpModuleTransport extends PostmanAbstractZendModuleTransport impl
 				$this,
 				'oauth_client_secret_callback',
 		), PostmanAdminController::OAUTH_AUTH_OPTIONS, PostmanAdminController::OAUTH_SECTION );
+		
+		$hide_style = $gmail_oneclick_enabled ? '' : 'style="display:none;"'; 
+		add_settings_field(
+			'gmail_auth_buttons',
+			'<span class="ps-disable-gmail-setup" '.  $hide_style .'  >' . __( 'Gmail Authorization', 'post-smtp' ) . '</span>',
+			array( $this, 'renderGmailAuthButtons' ),
+			PostmanAdminController::OAUTH_AUTH_OPTIONS,
+			PostmanAdminController::OAUTH_SECTION
+		);
 	}
 
 	/**
@@ -485,6 +502,96 @@ class PostmanSmtpModuleTransport extends PostmanAbstractZendModuleTransport impl
 	public function oauth_client_secret_callback() {
 		printf( '<input type="text" onClick="this.setSelectionRange(0, this.value.length)" autocomplete="off" id="oauth_client_secret" name="postman_options[oauth_client_secret]" value="%s" size="60" class="required ps-w-75" placeholder="%s"/>', null !== $this->options->getClientSecret() ? esc_attr( $this->options->getClientSecret() ) : '', __( 'Required', 'post-smtp' ) );
 	}
+
+	/**
+	 * Render the Gmail One-Click Setup switch.
+	 *
+	 * Displays a toggle switch for enabling or disabling the Gmail One-Click Setup feature.
+	 *
+	 * @since 3.1.0
+	 */
+	public function renderGmailOneClickSwitch() {
+		$url = POST_SMTP_URL . '/Postman/Wizard/assets/images/wizard-google.png';
+		$data = array(
+			'transport_name' => '<strong>1-Click</strong> Google Mailer Setup?',
+			'product_url'    => 'https://postmansmtp.com/pricing/?utm_source=plugin&utm_medium=wizard_gmail_one_click&utm_campaign=plugin',
+		);
+		$json_data   = htmlspecialchars( json_encode( $data ), ENT_QUOTES, 'UTF-8' );
+		$post_smtp_pro_options = get_option( 'post_smtp_pro', [] );
+		$bonus_extensions = isset( $post_smtp_pro_options['extensions'] ) ? $post_smtp_pro_options['extensions'] : array();
+    	$gmail_oneclick_enabled = in_array( 'gmail-oneclick', $bonus_extensions );
+		$is_checked  = $gmail_oneclick_enabled ? 'checked' : '';
+		$is_disabled = ! post_smtp_has_pro() ? 'disabled' : '';
+		$class       = 'ps-enable-gmail-one-click ' . ( ! post_smtp_has_pro() ? ' disabled' : '' );
+		
+		// Add popup trigger file
+		require_once POST_SMTP_PATH. '/Postman/Popup/popup.php';
+		
+		echo '<div class="ps-form-switch-control">
+			<label class="ps-switch-1 '.(!post_smtp_has_pro() ? 'ps-gmail-one-click' : '').'">
+				<input type="hidden" id="ps-one-click-data" value="' . esc_attr( $json_data ) . '">
+				<input type="checkbox" class="' . esc_attr( $class ) . '" name="enable_gmail_oneclick" ' . $is_checked .'>
+				<span class="slider round"></span>
+			</label> 
+			'.esc_html__('Enable the option for a quick and easy way to connect with Google without the need of manually creating an app.', 'post-smtp').'
+		</div>';
+	}
+
+	/**
+	 * Render Gmail OAuth buttons.
+	 *
+	 * Displays buttons to connect to or disconnect from Gmail using OAuth authentication.
+	 *
+	 * @since 3.1.0
+	 */
+	public function renderGmailAuthButtons() {
+		// Action URLs for buttons.
+		$nonce               = wp_create_nonce( 'remove_oauth_action' );
+		$postman_auth_token  = get_option( 'postman_auth_token' );
+		$auth_url = get_option( 'post_smtp_gmail_auth_url' );
+		$post_smtp_pro_options = get_option( 'post_smtp_pro', [] );
+		$bonus_extensions = isset( $post_smtp_pro_options['extensions'] ) ? $post_smtp_pro_options['extensions'] : array();
+		$gmail_oneclick_enabled = in_array( 'gmail-oneclick', $bonus_extensions );
+		$remove_auth_url     = esc_url( add_query_arg(
+			array(
+				'_wpnonce' => $nonce,
+				'action'   => 'remove_oauth_action',
+			),
+			admin_url( 'admin-post.php' )
+		) );
+
+		// Determine whether to hide the entire Gmail auth section
+		$hide_style = $gmail_oneclick_enabled ? '' : 'style="display:none;"';
+		
+		$helping_text =  "<p>By signing in with Google, you can send emails using different 'From' addresses. To do this, disable the 'Force From Email' setting and use your registered aliases as the 'From' address across your WordPress site.</p> <p>Removing the OAuth connection will give you the ability to redo the OAuth connection or link to another Google account.</p>";
+
+		echo '<div id="ps-gmail-auth-buttons" ' . $hide_style . '>';
+
+		if ( ! empty( $postman_auth_token ) && isset( $postman_auth_token['user_email'] ) ) {
+			// Show the "Remove Authorization" button if token exists
+			echo '<a href="' . esc_url( $remove_auth_url ) . '" class="button button-secondary ps-remove-gmail-btn ps-disable-gmail-setup">';
+			echo esc_html__( 'Remove Authorization', 'post-smtp' );
+			echo '</a>';
+
+			// Show connected email
+			if ( isset( $postman_auth_token['user_email'] ) ) {
+				echo '<b class="ps-connect-with ps-disable-gmail-setup" style="position: relative; top: 10px;">' .
+					 sprintf( esc_html__( 'Connected with: %s', 'post-smtp' ), esc_html( $postman_auth_token['user_email'] ) ) .
+					 '</b>';
+			}
+		} else {
+			// Show the "Sign in with Google" button
+			echo '<a href="' . esc_url( $auth_url ) . '" class="button button-primary ps-gmail-btn" id="ps-wizard-connect-gmail">';
+			echo esc_html__( 'Sign in with Google', 'post-smtp' );
+			echo '</a>';
+			echo $helping_text;
+		}
+
+		echo '</div>';
+
+
+	}
+	
 
 	/**
 	 * Print the Section text

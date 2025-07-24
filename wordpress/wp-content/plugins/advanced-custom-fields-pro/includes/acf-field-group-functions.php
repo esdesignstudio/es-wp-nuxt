@@ -916,7 +916,14 @@ function acf_get_field_group_style( $field_group ) {
 			}
 		}
 		$style = implode( ', ', $hide ) . ' {display: none;}';
-	}
+
+        if ( !in_array('page_attributes', $field_group['hide_on_screen']) ) {
+            $style .= ', #pageparentdiv {display: none;}';
+        }
+	} else {
+        // Ensure pageparentdiv is hidden if hide_on_screen is not an array.
+        $style = '#pageparentdiv {display: none;}';
+    }
 
 	/**
 	 * Filters the generated CSS styles.

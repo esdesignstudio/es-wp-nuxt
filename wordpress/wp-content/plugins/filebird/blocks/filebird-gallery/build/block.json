@@ -1,0 +1,83 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "filebird/block-filebird-gallery",
+  "version": "0.1.0",
+  "title": "FileBird Gallery",
+  "category": "common",
+  "icon": "images-alt2",
+  "description": "Display folder images in a rich gallery.",
+  "example": {},
+  "supports": {
+    "html": false,
+    "align": true
+  },
+  "keywords": [
+    "filebird",
+    "gallery"
+  ],
+  "attributes": {
+    "selectedFolder": {
+      "type": "array",
+      "default": []
+    },
+    "hasCaption": {
+      "type": "boolean",
+      "default": false
+    },
+    "hasLightbox": {
+      "type": "boolean",
+      "default": false
+    },
+    "captions": {
+      "type": "object",
+      "default": {}
+    },
+    "imagesRemoved": {
+      "type": "array",
+      "default": []
+    },
+    "images": {
+      "type": "array",
+      "default": []
+    },
+    "columns": {
+      "type": "integer",
+      "default": 3
+    },
+    "isCropped": {
+      "type": "boolean",
+      "default": true
+    },
+    "linkTo": {
+      "type": "string",
+      "default": "none"
+    },
+    "sortBy": {
+      "type": "string",
+      "default": "date"
+    },
+    "sortType": {
+      "type": "string",
+      "default": "DESC"
+    },
+    "layout": {
+      "type": "string",
+      "default": "flex"
+    },
+    "spaceAroundImage": {
+      "type": "integer",
+      "default": 0
+    },
+    "imgMinWidth": {
+      "type": "integer",
+      "default": 0
+    }
+  },
+  "textdomain": "filebird",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./index.css",
+  "style": "file:./style-index.css",
+  "render": "file:./render.php",
+  "viewStyle": "wp-block-gallery"
+}

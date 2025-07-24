@@ -194,8 +194,14 @@
          * @since  1.0.7
          */
         static function _add_sticky_dismiss_javascript() {
+            $sticky_admin_notice_js_template_name = 'sticky-admin-notice-js.php';
+
+            if ( ! file_exists( fs_get_template_path( $sticky_admin_notice_js_template_name ) ) ) {
+                return;
+            }
+
             $params = array();
-            fs_require_once_template( 'sticky-admin-notice-js.php', $params );
+            fs_require_once_template( $sticky_admin_notice_js_template_name, $params );
         }
 
         private static $_added_sticky_javascript = false;
@@ -501,9 +507,15 @@
          *
          * @author Vova Feldman (@svovaf)
          * @since  1.0.8
+         *
+         * @param bool $is_temporary @since 2.5.1
          */
-        function clear_all_sticky() {
-            $this->_sticky_storage->clear_all();
+        function clear_all_sticky( $is_temporary = false ) {
+            if ( $is_temporary ) {
+                $this->_notices = array();
+            } else {
+                $this->_sticky_storage->clear_all();
+            }
         }
 
         #--------------------------------------------------------------------------------

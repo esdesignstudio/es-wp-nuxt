@@ -1,5 +1,86 @@
 @CHARSET "UTF-8";
 
+/* Opt-in popup Styling Starts */
+
+.toplevel_page_postman #fs_connect .fs-actions .button.button-primary {
+    background-color: #66AF3A;
+    border: #66AF3A;
+    font-weight: bold;
+    width: 240px;
+}
+
+.toplevel_page_postman #fs_connect .fs-terms, 
+.toplevel_page_postman #fs_connect .fs-actions,
+.toplevel_page_postman #fs_connect .fs-visual {
+    background: #fff;
+}
+
+.toplevel_page_postman #fs_connect {
+    box-shadow: 1px 5px 10px #b5b598;
+}
+
+.ps-optin-popup h1 {
+    color: #3A5EAF;
+    font-weight: bold;
+}
+
+.toplevel_page_postman .fs-site-icon,
+.toplevel_page_postman .fs-first, 
+.toplevel_page_postman .fs-second,
+.toplevel_page_postman .fs-connect-logo {
+    display: none;
+}
+
+.toplevel_page_postman .fs-plugin-icon {
+    border: none!important;
+}
+
+.toplevel_page_postman #skip_activation {
+    background: #fff;
+    border: none;
+    font-size: 15px!important;
+    color: #999;
+}
+
+.toplevel_page_postman .fs-visual {
+    float: left;
+    vertical-align: middle;
+}
+
+.toplevel_page_postman .ps-optin-popup {
+    float: left;
+    width: 315px;
+}
+
+.toplevel_page_postman #fs_connect .fs-visual .fs-plugin-icon {
+    position: unset;
+    top: 0px;
+    left: unset;
+    margin-left: 0px;
+    padding: 15px 10px;
+    text-align: center;
+}
+
+.toplevel_page_postman #fs_connect .fs-visual {
+    padding: 12px;
+    line-height: 0;
+    background: #fff;
+    height: 0px;
+    position: unset;
+}
+
+.toplevel_page_postman #fs_connect .fs-actions {
+    padding: 15px 40px;
+}
+
+.toplevel_page_postman #fs_connect .fs-actions .button.button-secondary {
+    float: right;
+    width: 145px;
+}
+
+
+/* Opt-in popup Styling Ends */
+
 /* Post SMTP Global Classes Starts */
 
 body.admin_page_postman-configuration_wizard,
@@ -11,10 +92,10 @@ body.post-smtp_page_postman_email_log {
 }
 
 .ps-home-main a {
-    text-decoration: none;
+    font-size: 16px;
 }
 
-.ps-main-header.post-smtp-welcome-panel {
+.ps-main-header.post-smtp-welcome-panel h2 {
     padding: 0px 15px;
     font-size: 19px;
 }
@@ -25,6 +106,15 @@ body.post-smtp_page_postman_email_log {
     padding: 25px;
     font-size: 18px;
     font-weight: bold;
+    line-height: 30px;
+}
+
+.ps-config-bar span {
+    vertical-align: middle;
+}
+
+.ps-config-bar a {
+    margin-left: 15px!important;
 }
 
 .ps-left {
@@ -250,16 +340,8 @@ body.post-smtp_page_postman_email_log {
     margin: 25px auto;
 }
 
-.ps-wizard-socket-logo {
-    padding: 29px 0;
-}
-
 .ps-config-bar .ps-right {
     color: #817d7d;
-}
-
-.ps-config-bar a {
-    margin-left: 15px;
 }
 
 .ps-home-middle {
@@ -354,7 +436,7 @@ input.input_plugin_radio {
 }
 
 .wizard>.content {
-	min-height: 32em;
+    min-height: 1000px;
 }
 
 dt {
@@ -504,10 +586,6 @@ p#back_to_main_menu {
     padding: 12px;
 }
 
-.wizard > .actions a, .wizard > .actions a:hover, .wizard > .actions a:active {
-    background: #faaa39;
-}
-
 legend#wizard_recommendation span {
     color: #000!important;
 }
@@ -560,11 +638,12 @@ section#delete_settings {
 .ui-state-default, 
 .ui-widget-content .ui-state-default, 
 .ui-widget-header .ui-state-default {
-    background-color: #fff;
+    background-color: #f9f9fa;
 }
 
 .ui-tabs .ui-tabs-nav li {
-    border: 1px solid #e6e6e6;
+    border: none;
+    margin-top: 5px;
 }
 
 .ui-widget-content .ui-state-default a {
@@ -573,31 +652,21 @@ section#delete_settings {
 
 .ui-tabs .ui-tabs-nav li a {
     padding: 0.8em 1.8em;
-    font-size: 19px;
+    font-size: 15px;
     font-weight: bold;
 }
 
-.ui-tabs .ui-tabs-nav li:first-child {
-    border-top-left-radius: 17px;
-}
-
-.ui-tabs .ui-tabs-nav li:last-child {
-    border-top-right-radius: 17px;
-}
-
-.ui-tabs .ui-tabs-nav li.visited-config-ui-tab {
-    background-color: #4db556;
+.ui-tabs .ui-tabs-nav li a:focus {
+    box-shadow: none;
 }
 
 .ui-tabs .ui-tabs-active,
 .ui-tabs .ui-tabs-nav li.visited-config-ui-tab.ui-tabs-active {
-    background: #466cff;
+    background: #ffffff;
 }
 
-.ui-tabs .ui-tabs-active a,
-.ui-tabs .ui-tabs-nav li.visited-config-ui-tab.ui-tabs-active a,
-.ui-tabs .ui-tabs-nav li.visited-config-ui-tab a {
-    color: #fff;
+.ui-tabs .ui-tabs-active a {
+    color: #375caf;
 }
 .ps-less-secure {
     color: red;
@@ -1040,4 +1109,636 @@ th#date {
 .admin-color-bbp-mint .ui-datepicker td .ui-state-hover {
     background: #5fb37c;
     color: #fff;
+}
+
+#fs_connect .fs-box-container {
+    background: white !important;
+}
+
+.ps-chrome-download {
+    border: 1px solid #000;
+    padding: 5px 35px 9px 25px;
+    border-radius: 7px;
+    box-shadow: 1px 4px 10px #979797;
+    margin-right: 20px;
+    background-color: #f9f9f9;
+    text-decoration: none;
+    color: #000;
+}
+
+.ps-chrome-download img {
+    margin-right: 15px;
+    vertical-align: middle;
+}
+
+.ps-use-chrome-extension {
+    margin-top: 25px;
+    line-height: 40px;
+}
+
+.ps-notify-radios {
+    display: flex;
+    margin: 30px 0;
+}
+
+.ps-notify-radio label {
+    margin: 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.ps-notify-radio img {
+    width: 30px;
+    cursor: pointer;
+    transition: transform 1s;
+    object-fit: cover;
+    padding: 8px 20px 3px 20px;
+}
+
+.ps-notify-tick-container {
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 29%;
+    left: 29%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    cursor: pointer;
+}
+
+.input_notification_service:checked + label > .ps-notify-tick-container{
+    opacity: 1;
+}
+
+.ps-notify-radio {
+    margin: 0px 15px;
+    border: 1px solid #000;
+}
+
+.ps-notify-radio input {
+    display: none!important;
+}
+
+.ps-notify-radio label {
+    margin: 0!important;
+    display: inline-block;
+}
+
+.ps-notify-tick span {
+    font-size: 15px;
+    background-color: #4caf50;
+    color: #fff;
+    border-radius: 100%;
+    height: 15px;
+    width: 16px;
+    border: 2px solid #fff;
+}
+
+#postman_wizard-p-5 td {
+    padding: 5px;
+}
+
+.ps-notify-radio-outer {
+    text-align: center;
+}
+
+.ps-notify-radio-outer h4 {
+    margin: 10px;
+    font-weight: normal;
+}
+
+.pro-container {
+    position: relative;
+}
+
+.pro-icon {
+    position: absolute;
+    left: -4px;
+    top: 0;
+    padding: 0!important;
+}
+
+.pro-container label {
+    position: initial;
+}
+
+#use-chrome-extension table {
+    margin-top: 10px;
+}
+
+.ps-chrome-extension {
+    line-height: 50px;
+    margin: 30px 0 15px 0;
+}
+
+.ps-notify-radio:has(.input_notification_service:checked) {
+    border: 1px solid #4db556;
+}
+
+.ps-switch-1 {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 17px;
+}
+
+.ps-switch-1 input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.ps-switch-1 input:checked + .slider {
+    background-color: #4db556;
+}
+
+.ps-switch-1 .slider.round {
+    border-radius: 34px;
+}
+
+.ps-switch-1 .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+.ps-switch-1 input:checked + .slider:before {
+    -webkit-transform: translateX(13px);
+    -ms-transform: translateX(13px);
+    transform: translateX(13px);
+}
+
+.ps-switch-1 .slider.round:before {
+    
+    border-radius: 50%;
+}
+.ps-switch-1 .slider:before {
+    position: absolute;
+    content: "";
+    height: 13px;
+    width: 12px;
+    left: 2px;
+    bottom: 2px;
+    background-color: #fff;
+    -webkit-transition: 0.4s;
+    transition: 0.4s;
+}
+
+/*
+Sample Code
+<label class="ps-switch-1">
+    <input type="checkbox" name="" id="">
+    <span class="slider round"></span>
+</label> 
+*/
+
+.welcome-panel-last h1 {
+    line-height: 34px;
+}
+
+progress#ps-migration-progress::-moz-progress-bar {
+    background: #2271b1;
+}
+
+/* For Chrome or Safari */
+progress#ps-migration-progress::-webkit-progress-value {
+    background: #2271b1;
+}
+
+/* For IE10 */
+progress#ps-migration-progress {
+    background: #2271b1;
+}
+
+h5#ps-progress {
+    margin: 5px;
+}
+
+.ps-email-log-status-success span, 
+.ps-email-log-status-failed span,
+.ps-email-log-status-queued span {
+    color: #fff;
+    font-weight: 600;
+    border-radius: 25px;
+    display: inline-block;
+    margin-right: 5px;
+    cursor: pointer;
+    padding: 2px 10px;
+}
+
+.ps-email-log-status-success span {
+    background: #3FA500;
+}
+
+.ps-email-log-status-failed span {
+    background: #DC3545;
+}
+
+.ps-email-log-status-queued span {
+    background: #ffa500;
+}
+
+.ps-email-log-view,
+.ps-email-log-resend,
+.ps-email-log-transcript {
+    color: #0086FD;
+}
+
+.ps-email-log-delete {
+    color: #DC3545;
+}
+
+.dataTables_wrapper #ps-email-log_filter {
+    float: left;
+    text-align: initial;
+}
+
+div#ps-email-log_length{
+    margin-right: 25px;
+}
+
+#ps-email-log_filter input {
+    background: #F8F9FA;
+    border: none;
+    border-radius: 50px;
+    font-size: 13px;
+    padding-left: 12px;
+}
+
+#ps-email-log,
+#ps-email-reporting-logs {
+    padding-top: 15px;
+}
+
+.post-smtp_page_postman_email_log h1 {
+    margin-bottom: 15px;
+}
+
+.dataTables_wrapper #ps-email-log_length select, 
+.dataTables_wrapper #ps-email-reporting-logs_length select {
+    border: none;
+    padding: 0px 20px 0px 8px;
+    font-size: 13px;
+}
+
+.ps-email-log-date-filter {
+    float: left;
+}
+
+.ps-email-log-date-filter input {
+    border-radius: 50px;
+    border: none;
+    background: #f8f9fa;
+    padding: 5px;
+    padding-left: 12px;
+    font-size: 13px;
+}
+
+.ps-email-log-date-filter label {
+    margin-left: 20px;
+}
+
+.ps-email-log-top-buttons span {
+    vertical-align: middle;
+}
+
+.ps-email-log-top-buttons {
+    float: right;
+}
+
+.ps-email-log-export-btn {
+    background: #0086FD!important;
+    border: none!important;
+    border-radius: 50px!important;
+}
+
+.ps-email-log-delete-btn {
+    background: #DC3545!important;
+    border: none!important;
+    border-radius: 50px!important;
+}
+
+.ps-email-log-resend-to {
+    margin: 3px 0;
+}
+
+.ps-email-log-status-buttons {
+    margin-top: 15px;
+}
+
+/* View And Session Transcript Popup */
+.ps-popup-wrap {
+    width: 100%;
+    height: 100%;
+    display: none;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    bottom: 0;
+    right: 0;
+    content: '';
+}
+
+.ps-popup-box {
+    width: 700px;
+    height: 500px;
+    padding: 20px;
+    transform: translate(-50%, -50%) scale(0.5);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    box-shadow: 0px 2px 16px rgb(0 0 0 / 50%);
+    border-radius: 3px;
+    background: #fff;
+    overflow: auto;
+}
+  
+.ps-popup-close-btn, .ps-print-email {
+    text-align: center;
+    width: 19px;
+    height: 19px;
+    display: inline-block;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border-radius: 1000px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #000;
+    line-height: 190%;
+}
+
+.ps-popup-close-btn {
+    top: 6px;
+}
+
+.ps-popup-close-btn span {
+    font-size: 27px;
+}
+
+.ps-popup-close-btn:hover {
+    color: #000;
+}
+
+.ps-print-email {
+    right: 33px;
+    background: none;
+    color: #000;
+}
+
+.transform-in, .transform-out {
+    display:block;
+    -webkit-transition:all ease 0.5s;
+    transition:all ease 0.5s;
+}
+
+.transform-in {
+	-webkit-transform:translate(-50%, -50%) scale(1);
+	transform:translate(-50%, -50%) scale(1);
+}
+
+.transform-out {
+	-webkit-transform:translate(-50%, -50%) scale(0.5);
+	transform:translate(-50%, -50%) scale(0.5);
+}
+
+.ps-email-log-actions span{
+    vertical-align: middle;
+}
+
+.ps-email-resend-btn span {
+    vertical-align: middle;
+}
+
+.ps-broken-mail-notice {
+    margin: 20px 0;
+    padding: 10px;
+    border-radius: 3px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.04);
+    background: #cce5ff;
+    border: #b8daff;
+    color: #004085;
+    border-radius: 9px;
+}
+
+#ps-email-reporting-logs_wrapper {
+    padding-top: 15px;
+}
+
+#ps-email-log_paginate .paginate_button.current {
+    background: #dc3545;
+    color: #fff!important;
+    border-radius: 5px;
+}
+
+#ps-email-log_paginate .paginate_button:hover {
+    background: #0086fd;
+    border-radius: 5px;
+    border: none;
+}
+
+#ps-email-log_paginate .paginate_button {
+    border: none;
+}
+
+#ps-email-log_next,
+#ps-email-log_previous {
+    background: #dfdfdf;
+    color: #000;
+    border-radius: 5px;
+}
+
+#ps-email-log_paginate a {
+    margin: 0 4px;
+}
+
+.ps-status-log {
+    display: inline-block;
+    font-family: inherit;
+    margin-left: 5px;
+}
+
+.ps-refresh-logs span {
+    vertical-align: middle;
+    background: #f8f9fa;
+    padding: 6px;
+    border-radius: 50px;
+    color: #0086fd;
+}
+
+.ps-refresh-logs span:hover {
+    cursor: pointer;
+}
+#toplevel_page_postman ul li:nth-last-child(3) a {
+    color: #adff2f!important;
+}
+
+.ps-dashboard-pro {
+    background: #eef2f4;
+    color: #1d9ad2;
+    font-size: 11px;
+    padding: 0px 4px;
+    border-radius: 3px;
+    margin-left: 1px;
+}
+
+.ps-dashboard-pro-hide{
+    display: none;
+
+}
+
+.ps-home-middle-left {
+    float: left;
+}
+
+.ps-pro-icon {
+    color: #fed90f;
+}
+
+.button.ps-status-btn {
+    border-radius: 50px;
+}
+
+.ps-status-btn {
+    background-color: #ffffff!important;
+    color: #000000!important;
+    border: 1px solid #4578ea!important;
+}
+
+.ps-status-btn.active {
+    background-color: #4578ea!important;;
+    color: #ffffff!important;
+    border: none;
+}
+
+.ps-status-btn:focus {
+    box-shadow: none!important;
+}
+
+.post-smtp-remove-webhook-url {
+    vertical-align: text-top;
+}
+
+.post-smtp-remove-webhook-url {
+    color: #999999;
+    border-radius: 50px;
+    margin-left: 6px;
+    cursor: pointer;
+}
+
+.post-smtp-webhook-urls input {
+    width: 400px;
+}
+
+.post_smtp_diagnostic_container {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.post_smtp_diagnostic_container h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+#post_smtp_diagnostic_form .form-group {
+    margin-bottom: 15px;
+}
+
+#post_smtp_diagnostic_form .form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+#post_smtp_diagnostic_form .form-group input[type="text"], #post_smtp_diagnostic_form .form-group input[type="email"], #post_smtp_diagnostic_form .form-group select {
+    width: 100%;
+    padding: 5px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+#post_smtp_diagnostic_form .form-group .post-smtp-diagnostic-submit-btn {
+    background-color: #2271b1;
+    color: white;
+    padding: 8px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#post_smtp_diagnostic_form .form-group .post-smtp-diagnostic-submit-btn:hover {
+    background-color: #1a5a8f;
+}
+.report_sent_message{
+    display: none;
+    color: green;
+}
+.report_validation_error{
+    display: none;
+    color: red;
+}
+h3.diagnostic-report-heading {
+    align-items: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.copy_diagnostic_report{
+    background-color: #2271b1;
+    color: white;
+    padding: 5px 10px;
+    font-size: 14px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 5px;
+    font-weight: normal;
+}
+.copy_diagnostic_report:disabled{
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+.post-smtp-diagnostic-submit-btn:disabled{
+    background-color: #a0a0a0;
+    cursor: not-allowed;
+}
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 25px 0; /* Space between divs */
+}
+@media (min-width: 800px) {
+    #post_smtp_diagnostic_form .form-group input[type="text"], #post_smtp_diagnostic_form .form-group input[type="email"], #post_smtp_diagnostic_form .form-group select {
+        width: 30%;
+    }
+}
+label.ps-switch-1.ps-gmail-one-click {
+   position: relative;
+}
+label.ps-switch-1.ps-gmail-one-click:hover:before {
+    content: "";
+    position: absolute;
+    left: 160px;
+    right: 0;
+    width: 400px;
+    height: 288px;
+    background: url(images/gmail-once-click.gif) no-repeat #ffff;
+    box-shadow: 0px 3px 36px -7px #000;
+    border-radius: 5px;
+    z-index: 2;
+    top: -40px;
+    background-size: 100%;
+
 }

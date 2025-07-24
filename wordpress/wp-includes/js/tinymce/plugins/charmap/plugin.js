@@ -1113,7 +1113,7 @@ var charmap = (function () {
 
     var get = function (editor) {
       var getCharMap = function () {
-        return CharMap.getCharMap(editor);
+        return Charmap-getCharMap(editor);
       };
       var insertChar = function (chr) {
         Actions.insertChar(editor, chr);
@@ -1162,7 +1162,7 @@ var charmap = (function () {
       var win;
       var charMapPanel = {
         type: 'container',
-        html: GridHtml.getHtml(CharMap.getCharMap(editor)),
+        html: GridHtml.getHtml(Charmap-getCharMap(editor)),
         onclick: function (e) {
           var target = e.target;
           if (/^(TD|DIV)$/.test(target.nodeName)) {

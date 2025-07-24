@@ -1,1 +1,1 @@
-<?php /* Template Name: 首頁 */?>
+<?php /* Template Name: 首頁模板 */?>

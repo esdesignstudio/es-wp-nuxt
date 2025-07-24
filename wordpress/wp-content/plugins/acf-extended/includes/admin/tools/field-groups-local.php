@@ -7,7 +7,12 @@ if(!defined('ABSPATH')){
 if(!class_exists('acfe_field_groups_local_export')):
 
 class acfe_field_groups_local_export extends ACF_Admin_Tool{
-
+    
+    /**
+     * initialize
+     *
+     * @return void
+     */
     function initialize(){
         
         // vars
@@ -16,6 +21,12 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
         
     }
     
+    
+    /**
+     * load
+     *
+     * @return ACF_Admin_Notice|n|void
+     */
     function load(){
         
         if($ids = acf_maybe_get_GET('acfe-fg-local-sync')){
@@ -86,11 +97,18 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
                     // Search database for existing field group.
                     $post = acf_get_field_group_post($field_group['key']);
                     
-                    if($post)
+                    if($post){
                         $field_group['ID'] = $post->ID;
+                    }
+                    
+                    // remove inline callbacks
+                    add_filter('acf/prepare_field_for_import', array($this, 'prepare_field_for_import'), 20);
                     
                     // Import field group.
                     $field_group = acf_import_field_group($field_group);
+                    
+                    // reset filter
+                    remove_filter('acf/prepare_field_for_import', array($this, 'prepare_field_for_import'), 20);
                     
                     // append message
                     $ids[] = $field_group['ID'];
@@ -110,6 +128,35 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
         
     }
     
+    
+    /**
+     * prepare_field_for_import
+     *
+     * @param $field
+     *
+     * @return mixed
+     */
+    function prepare_field_for_import($field){
+        
+        // remove inline callback during import
+        unset($field['callback']);
+        
+        // dyanmic render
+        if(acf_maybe_get($field, 'type') === 'acfe_dynamic_render'){
+            unset($field['render']);
+        }
+        
+        // return
+        return $field;
+        
+    }
+    
+    
+    /**
+     * html
+     *
+     * @return void
+     */
     function html(){
         
         if($this->is_active()){
@@ -121,8 +168,6 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
                 <div class="acf-postbox-main">
                     
                     <?php
-                    
-                    acf_update_setting('l10n_var_export', true);
                     
                     $str_replace = array(
                         "  "            => "\t",
@@ -141,8 +186,12 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
                     <p><?php _e("The following code can be used to register a local version of the selected field group(s). A local field group can provide many benefits such as faster load times, version control & dynamic fields/settings. Simply copy and paste the following code to your theme's functions.php file or include it within an external file.", 'acf'); ?></p>
                     
                     <div id="acf-admin-tool-export">
+                        
+                        
                     
                         <textarea id="acf-export-textarea" readonly="true"><?php
+    
+                        acf_update_setting('l10n_var_export', true);
                         
                         echo "if( function_exists('acf_add_local_field_group') ):" . "\r\n" . "\r\n";
                         
@@ -166,6 +215,8 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
                         }
                         
                         echo "endif;";
+    
+                        acf_update_setting('l10n_var_export', false);
                         
                         ?></textarea>
                     
@@ -221,6 +272,12 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
         
     }
     
+    
+    /**
+     * get_data
+     *
+     * @return array
+     */
     function get_data(){
         
         // vars
@@ -250,8 +307,9 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
             $field_group = acf_get_field_group($field_group_key);
             
             // validate field group
-            if(empty($field_group))
+            if(empty($field_group)){
                 continue;
+            }
             
             // load fields
             $field_group['fields'] = acf_get_fields($field_group);
@@ -268,6 +326,12 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
         
     }
     
+    
+    /**
+     * get_keys
+     *
+     * @return array|false|string[]
+     */
     function get_keys(){
         
         // vars
@@ -277,9 +341,7 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
         
         // $_POST
         if($keys_post){
-            
             $keys = (array) $keys_post;
-            
         }
         
         // $_GET
@@ -294,6 +356,12 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
         
     }
     
+    
+    /**
+     * get_action
+     *
+     * @return mixed|string|null
+     */
     function get_action(){
     
         // vars
@@ -301,8 +369,9 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
         $action = acfe_maybe_get_REQUEST('action', $default);
     
         // check allowed
-        if(!in_array($action, array('json', 'php', 'sync')))
+        if(!in_array($action, array('json', 'php', 'sync'))){
             $action = $default;
+        }
     
         // return
         return $action;
@@ -311,6 +380,7 @@ class acfe_field_groups_local_export extends ACF_Admin_Tool{
     
 }
 
+// register tool
 acf_register_admin_tool('acfe_field_groups_local_export');
 
 endif;

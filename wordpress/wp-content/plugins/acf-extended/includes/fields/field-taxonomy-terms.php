@@ -228,8 +228,19 @@ class acfe_field_taxonomy_terms extends acf_field{
      */
     function ajax_query(){
         
+        // vars
+        $nonce        = acf_request_arg('nonce', '');
+        $key          = acf_request_arg('field_key', '');
+        $is_field_key = acf_is_field_key($key);
+        
+        // back-compat for field settings.
+        if(!$is_field_key){
+            $nonce = '';
+            $key   = '';
+        }
+        
         // validate
-        if(!acf_verify_ajax()){
+        if(!acf_verify_ajax($nonce, $key, $is_field_key)){
             die();
         }
         
@@ -905,6 +916,19 @@ class acfe_field_taxonomy_terms extends acf_field{
         
         }
         
+        // fix acf 6.3.10 verify ajax nonce
+        // pass custom 'nonce' as: 'acf_field_select_field_abcde12345'
+        if($field['field_type'] === 'select' && $field['ajax'] && empty($field['nonce']) && acf_is_field_key($field['key'])){
+            
+            // assign key
+            // handle case where field is a clone
+            $key = !empty($field['_clone']) && isset($field['__key']) ? $field['__key'] : $field['key'];
+            
+            // assign nonce
+            $field['nonce'] = wp_create_nonce('acf_field_' . $this->name . '_' . $key);
+            
+        }
+        
         return $field;
         
     }
@@ -920,6 +944,21 @@ class acfe_field_taxonomy_terms extends acf_field{
      * @return false|mixed|WP_Error|WP_Term
      */
     function load_value($value, $post_id, $field){
+    
+        // bail early if there is no post id
+        if(!$post_id){
+            return $value;
+        }
+    
+        // bail early when local meta
+        if(acfe_is_local_post_id($post_id)){
+            return $value;
+        }
+    
+        // bail early front-end form
+        if(acfe_starts_with($post_id, 'acfe_form')){
+            return $value;
+        }
         
         // load_terms
         if($field['load_terms']){
@@ -981,7 +1020,21 @@ class acfe_field_taxonomy_terms extends acf_field{
         if(is_array($value)){
             $value = array_filter($value);
         }
+    
+        // bail early if there is no post id
+        if(!$post_id){
+            return $value;
+        }
         
+        // bail early when local meta
+        if(acfe_is_local_post_id($post_id)){
+            return $value;
+        }
+    
+        // bail early front-end form
+        if(acfe_starts_with($post_id, 'acfe_form')){
+            return $value;
+        }
         
         // save_terms
         if($field['save_terms']){
@@ -1099,17 +1152,8 @@ class acfe_field_taxonomy_terms extends acf_field{
             return;
         }
     
-        // bail early when local meta
-        if(acfe_is_local_post_id($post_id)){
-            return;
-        }
-    
         // bail early if not post
         $data = acf_get_post_id_info($post_id);
-    
-        if($data['type'] !== 'post'){
-            return;
-        }
         
         // loop
         foreach($this->save_post_terms as $taxonomy => $term_ids){
@@ -1214,7 +1258,7 @@ class acfe_field_taxonomy_terms extends acf_field{
             
             $terms = $all_terms;
             
-            // Filter allowed terms
+        // Filter allowed terms
         }else{
             
             // Add term level
@@ -1423,6 +1467,45 @@ class acfe_field_taxonomy_terms extends acf_field{
         }
         
         return $choices;
+        
+    }
+    
+    
+    /**
+     * translate_field
+     *
+     * @param $field
+     *
+     * @return mixed
+     */
+    function translate_field($field){
+        
+        $field['placeholder'] = acf_translate($field['placeholder']);
+        $field['search_placeholder'] = acf_translate($field['search_placeholder']);
+        
+        return $field;
+        
+    }
+    
+    
+    /**
+     * get_rest_schema
+     *
+     * @param $field
+     *
+     * @return array
+     */
+    function get_rest_schema(array $field){
+        
+        $schema = array(
+            'type'     => array('string', 'array', 'null'),
+            'required' => isset($field['required']) && $field['required'],
+            'items'    => array(
+                'type' => 'string',
+            ),
+        );
+        
+        return $schema;
         
     }
 

@@ -410,8 +410,13 @@ body.acf-admin-5-3 .acf-field-setting-fc_layout .acf-input-wrap.select select {
     margin-top: 4px
 }
 
+.acf-admin-6.acf-admin-field-groups .subsubsub {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
 .acf-admin-6.acf-admin-single-field-group .wrap>#message.updated {
-    margin-bottom: 15px !important
+    margin-bottom: 16px !important
 }
 
 .acf-admin-6.acf-admin-single-field-group .acf-field-object .handle li.li-field-label::before {
@@ -434,6 +439,29 @@ body.acf-admin-5-3 .acf-field-setting-fc_layout .acf-input-wrap.select select {
     float: left
 }
 
+.acf-admin-6.acf-admin-single-field-group .acf-input .select2-container--default .select2-selection--single {
+    height: auto
+}
+
+.acf-admin-6.acf-admin-single-field-group .acf-input .select2-container--default .select2-selection--single .select2-selection__rendered {
+    padding: 0 6px
+}
+
+.acf-admin-6.acf-admin-single-field-group .acf-input .select2-container--default .select2-selection--single .select2-selection__rendered .acf-selection {
+    padding: 10px 5px;
+    display: block;
+    line-height: 1.5
+}
+
+.acf-admin-6.acf-admin-single-field-group .acf-input .select2-container--default .select2-selection--single .select2-selection__rendered .select2-selection__clear {
+    margin-top: 13px;
+    margin-right: 11px
+}
+
+.acf-admin-6.acf-admin-single-field-group .acf-input .select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 40px
+}
+
 .acf-admin-6.acf-admin-single-field-group #acf-field-group-options .acf-field .acf-table>tbody>tr>td,
 .acf-admin-6.acf-admin-single-field-group #acf-field-group-options .acf-field .acf-table>tbody>tr>th,
 .acf-admin-6.acf-admin-single-field-group #acf-field-group-options .acf-field .acf-table>thead>tr>td,
@@ -445,6 +473,16 @@ body.acf-admin-5-3 .acf-field-setting-fc_layout .acf-input-wrap.select select {
 .acf-admin-6.acf-admin-single-field-group #acf-field-group-options .acf-field .acf-table tr.acf-field {
     margin: 0;
     width: auto
+}
+
+.acf-admin-6.acf-admin-single-field-group #acf-field-group-options .acf-field[data-name=acfe_form] .acf-label {
+    display: -webkit-inline-box;
+    display: -ms-inline-flexbox;
+    display: inline-flex
+}
+
+.acf-admin-6.acf-admin-single-field-group #acf-field-group-acfe .acf-label {
+    display: block
 }
 
 .acf-admin-6.acf-admin-single-field-group .acf-field-settings .acf-field[data-setting].acf-field-flexible-content>.acf-input,
@@ -509,6 +547,10 @@ body.acf-admin-5-3 .acf-field-setting-fc_layout .acf-input-wrap.select select {
     max-width: 930px
 }
 
+.acf-admin-6.acf-admin-single-field-group .acf-field-settings .select2-container.-acf .select2-selection--multiple .select2-selection__rendered .select2-selection__choice {
+    margin-top: 5px
+}
+
 .acf-admin-6.acf-admin-single-field-group .acf-field-settings .select2-container.-acf .select2-selection--multiple .select2-selection__rendered .select2-selection__choice .acf-selection {
     line-height: 1.5
 }
@@ -564,6 +606,12 @@ body.acf-admin-5-3 .acf-field-setting-fc_layout .acf-input-wrap.select select {
     min-width: 50px
 }
 
+.acf-admin-6.acf-admin-single-field-group .acf-field-setting-fc_layout>.acf-input>.acf-fc-meta>.acf-fc-meta-name {
+    float: none;
+    margin-left: 0;
+    width: auto
+}
+
 .acf-admin-6.acf-admin-single-field-group .acf-field-setting-fc_layout>.acf-input>.acf-fc-meta .acf-field.acfe-flexible-field-setting {
     padding-left: 0;
     padding-right: 0
@@ -599,14 +647,57 @@ body.acf-admin-5-3 .acf-field-setting-fc_layout .acf-input-wrap.select select {
     padding-left: 0
 }
 
+.acf-admin-6.acf-admin-single-field-group .acf-field-setting-fc_layout>.acf-input>.acf-fc-meta .acf-fc-meta-max+li {
+    clear: both
+}
+
 .acf-admin-6.acf-admin-single-field-group .acf-field-setting-fc_layout>.acf-input>.acf-fc-meta .acf-field[data-name=acfe_flexible_category],
 .acf-admin-6.acf-admin-single-field-group .acf-field-setting-fc_layout>.acf-input>.acf-fc-meta .acf-field[data-name=acfe_flexible_settings_label] {
     padding-left: 0;
-    padding-right: 0
+    padding-right: 0;
+    width: 100%
+}
+
+.acf-admin-6.acf-admin-single-field-group .acf-field-setting-acfe_permissions>.acf-input>ul {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
 }
 
 .acf-admin-6.acf-admin-single-field-group .acf-field-setting-acfe_field_group_condition {
     padding-right: 72px;
     padding-left: 72px;
     margin-top: 32px
+}
+
+.acf-admin-6.acf-admin-single-field-group .acfe-modal>.acfe-modal-wrapper>.acfe-modal-title>.title {
+    min-height: unset;
+    display: block;
+    padding: 0
+}
+
+.acf-admin-6.acf-admin-single-field-group .acf-hl[data-cols="6"] {
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap
+}
+
+.acf-admin-6.acf-admin-single-field-group .acf-hl[data-cols="6"]>li {
+    width: 33.33%
+}
+
+.acf-admin-6.acf-admin-single-field-group .acf-hl[data-cols="6"]>li:nth-child(4),
+.acf-admin-6.acf-admin-single-field-group .acf-hl[data-cols="6"]>li:nth-child(5),
+.acf-admin-6.acf-admin-single-field-group .acf-hl[data-cols="6"]>li:nth-child(6) {
+    margin-top: 10px
+}
+
+.acf-admin-6.acf-admin-single-field-group .acf-field-type-settings .acf-field {
+    border-top-width: 0
+}
+
+.acf-admin-6.acf-admin-single-field-group #acf-field-group-fields.hide-tabs .acf-field-setting-fc_layout>.acf-input>.acf-fc-meta .acf-field.acfe-flexible-field-setting {
+    margin-bottom: 0
+}
+
+.acf-admin-6.acf-admin-single-field-group #acf-field-group-fields.hide-tabs .acf-field-setting-fc_layout>.acf-input>.acf-fc-meta .acf-field.acfe-flexible-field-setting+li>ul {
+    margin-bottom: 0
 }

@@ -15,7 +15,9 @@ class PostmanSettingsRegistry {
 	 * Fires on the admin_init method
 	 */
 	public function on_admin_init() {
-        $this->registerSettings();
+
+		$this->registerSettings();
+
 	}
 
 	/**
@@ -56,7 +58,7 @@ class PostmanSettingsRegistry {
 			add_settings_field( PostmanOptions::MESSAGE_SENDER_EMAIL, __( 'Email Address', 'post-smtp' ), array(
 					$this,
 					'from_email_callback',
-			), PostmanAdminController::MESSAGE_FROM_OPTIONS, PostmanAdminController::MESSAGE_FROM_SECTION );
+			), PostmanAdminController::MESSAGE_FROM_OPTIONS, PostmanAdminController::MESSAGE_FROM_SECTION, array( true ) );
 
 			add_settings_field( PostmanOptions::PREVENT_MESSAGE_SENDER_EMAIL_OVERRIDE, '', array(
 					$this,
@@ -66,7 +68,7 @@ class PostmanSettingsRegistry {
 			add_settings_field( PostmanOptions::MESSAGE_SENDER_NAME, __( 'Name', 'post-smtp' ), array(
 					$this,
 					'sender_name_callback',
-			), PostmanAdminController::MESSAGE_FROM_OPTIONS, PostmanAdminController::MESSAGE_FROM_SECTION );
+			), PostmanAdminController::MESSAGE_FROM_OPTIONS, PostmanAdminController::MESSAGE_FROM_SECTION, array( true ) );
 
 			add_settings_field( PostmanOptions::PREVENT_MESSAGE_SENDER_NAME_OVERRIDE, '', array(
 					$this,
@@ -186,6 +188,11 @@ class PostmanSettingsRegistry {
 					'temporaryDirectoryCallback',
 			), PostmanAdminController::ADVANCED_OPTIONS, PostmanAdminController::ADVANCED_SECTION );
 
+			add_settings_field( PostmanOptions::INCOMPATIBLE_PHP_VERSION, __( 'Broken Email Fix', 'post-smtp' ), array(
+					$this,
+					'incompatible_php_version_callback',
+			), PostmanAdminController::ADVANCED_OPTIONS, PostmanAdminController::ADVANCED_SECTION );
+
             do_action( 'post_smtp_settings_fields' );
 		}
 	}
@@ -278,8 +285,19 @@ class PostmanSettingsRegistry {
 	/**
 	 * Get the settings option array and print one of its values
 	 */
-	public function sender_name_callback() {
-		printf( '<input type="text" id="input_sender_name" class="ps-input ps-w-75" name="postman_options[sender_name]" value="%s" size="40" />', null !== $this->options->getMessageSenderName() ? esc_attr( $this->options->getMessageSenderName() ) : '' );
+	public function sender_name_callback( $_echo = true ) {
+
+		if( $_echo ) {
+
+			printf( '<input type="text" id="input_sender_name" class="ps-input ps-w-75" name="postman_options[sender_name]" value="%s" size="40" />', null !== $this->options->getMessageSenderName() ? esc_attr( $this->options->getMessageSenderName() ) : '' );
+
+		}
+		else {
+
+			return sprintf( '<input type="text" id="input_sender_name" class="ps-input ps-w-75" name="postman_options[sender_name]" value="%s" size="40" />', null !== $this->options->getMessageSenderName() ? esc_attr( $this->options->getMessageSenderName() ) : '' );
+			
+		}
+
 	}
 
 	/**
@@ -292,8 +310,19 @@ class PostmanSettingsRegistry {
 	/**
 	 * Get the settings option array and print one of its values
 	 */
-	public function from_email_callback() {
-		printf( '<input type="email" id="input_sender_email" class="ps-input ps-w-75" name="postman_options[sender_email]" value="%s" size="40" class="required" placeholder="%s"/>', null !== $this->options->getMessageSenderEmail() ? esc_attr( $this->options->getMessageSenderEmail() ) : '', __( 'Required', 'post-smtp' ) );
+	public function from_email_callback( $_echo = true ) {
+
+		if( $_echo ) {
+
+			printf( '<input type="email" id="input_sender_email" class="ps-input ps-w-75" name="postman_options[sender_email]" value="%s" size="40" class="required" placeholder="%s"/>', null !== $this->options->getMessageSenderEmail() ? esc_attr( $this->options->getMessageSenderEmail() ) : '', __( 'Required', 'post-smtp' ) );
+	
+		}
+		else {
+
+			return sprintf( '<input type="email" id="input_sender_email" class="ps-input ps-w-75" name="postman_options[sender_email]" value="%s" size="40" class="required" placeholder="%s"/>', null !== $this->options->getMessageSenderEmail() ? esc_attr( $this->options->getMessageSenderEmail() ) : '', __( 'Required', 'post-smtp' ) );
+
+		}
+
 	}
 
 	/**
@@ -403,8 +432,8 @@ class PostmanSettingsRegistry {
 		printf( '<select id="input_%2$s" class="input_%2$s" name="%1$s[%2$s]">', PostmanOptions::POSTMAN_OPTIONS, PostmanOptions::RUN_MODE );
 		$currentKey = $this->options->getRunMode();
 		$this->printSelectOption( _x( 'Log Email and Send', 'When the server is online to the public, this is "Production" mode', 'post-smtp' ), PostmanOptions::RUN_MODE_PRODUCTION, $currentKey );
-		$this->printSelectOption( __( 'Log Email and Delete', 'post-smtp' ), PostmanOptions::RUN_MODE_LOG_ONLY, $currentKey );
-		$this->printSelectOption( __( 'Delete All Emails', 'post-smtp' ), PostmanOptions::RUN_MODE_IGNORE, $currentKey );
+		$this->printSelectOption( __( 'Log only', 'post-smtp' ), PostmanOptions::RUN_MODE_LOG_ONLY, $currentKey );
+		$this->printSelectOption( __( 'No Action', 'post-smtp' ), PostmanOptions::RUN_MODE_IGNORE, $currentKey );
 		printf( '</select><br/><span class="postman_input_description">%s</span>', $inputDescription );
 	}
 
@@ -447,5 +476,18 @@ class PostmanSettingsRegistry {
 	 */
 	public function port_callback( $args ) {
 		printf( '<input type="text" id="input_port" name="postman_options[port]" value="%s" %s placeholder="%s"/>', null !== $this->options->getPort() ? esc_attr( $this->options->getPort() ) : '', isset( $args ['style'] ) ? $args ['style'] : '', __( 'Required', 'post-smtp' ) );
+	}
+
+
+	/**
+	 * Incompatible PHP Version Callback
+	 * 
+	 * @since 2.5.0
+	 * @version 1.0.0
+	 */
+	public function incompatible_php_version_callback() {
+
+		printf( '<input type="checkbox" id="input_%2$s" class="input_%2$s" name="%1$s[%2$s]" %3$s /> %4$s', PostmanOptions::POSTMAN_OPTIONS, PostmanOptions::INCOMPATIBLE_PHP_VERSION, $this->options->is_php_compatibility_enabled() ? 'checked="checked"' : '', __( 'Only enable this option, if the email\'s header or body seems broken.', 'post-smtp' ) );
+
 	}
 }

@@ -911,6 +911,10 @@ function acf_version_compare( $left = '', $compare = '>', $right = '' ) {
 		$left = $wp_version;
 	}
 
+	// Ensure $left and $right are strings.
+	$left = (string) $left;
+	$right = (string) $right;
+
 	// Return result.
 	return version_compare( $left, $right, $compare );
 }

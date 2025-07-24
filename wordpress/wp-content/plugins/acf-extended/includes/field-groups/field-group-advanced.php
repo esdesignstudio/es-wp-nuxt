@@ -4,37 +4,45 @@ if(!defined('ABSPATH')){
     exit;
 }
 
-// Check setting
-if(acfe_get_setting('modules/field_group_ui'))
+// check setting
+if(acfe_get_setting('modules/field_group_ui')){
     return;
+}
 
 if(!class_exists('acfe_field_group_advanced')):
 
 class acfe_field_group_advanced{
     
+    /**
+     * construct
+     */
     function __construct(){
     
-        add_action('acf/field_group/admin_head',        array($this, 'admin_head'), 5);
-        add_action('acf/render_field_group_settings',   array($this, 'render_settings'));
+        add_action('acf/field_group/admin_head',      array($this, 'admin_head'), 5);
+        add_action('acf/render_field_group_settings', array($this, 'render_settings'));
         
     }
     
-    /*
-     * Admin Head
+    
+    /**
+     * admin_head
      */
     function admin_head(){
         
         global $field_group;
         
-        if(!acf_maybe_get($field_group, 'acfe_form'))
-            return;
-        
-        acf_enable_filter('acfe/field_group/advanced');
+        // field group advanced settings
+        if(acf_maybe_get($field_group, 'acfe_form')){
+            acf_enable_filter('acfe/field_group/advanced');
+        }
         
     }
     
-    /*
-     * Advanced Settings
+    
+    /**
+     * render_settings
+     *
+     * @param $field_group
      */
     function render_settings($field_group){
         

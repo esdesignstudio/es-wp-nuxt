@@ -23,14 +23,24 @@ function wpex_wp_welcome_panel() { ?>
 
 	<div class="custom_welcome">
         <div class="custom_welcome__title">
-            <h2><?php _e( '歡迎來到 ES Design 客製化網站' ); ?></h2>
-            <p class="about-description"><?php _e( '此為 ES design 專為客戶客製化設計的主題，網站程式碼有需要更動建議請聯繫 <a href="https://e-s.tw">ES design</a> 設計團隊。<br>我們不負責未經過我們同意，擅自調整程式碼、擅自安裝有資安危險之外掛等等，所造成的損害。' ); ?></p>
+            <h2><?php _e( 'Hey! Welcome to ES WP CMS' ); ?></h2>
+            <p class="about-description"><?php _e( '此為 ES design 專為客戶客製化設計的主題，網站程式碼有需要更動建議請聯繫 <a href="https://e-s.tw">ES design</a> 設計團隊。我們不負責未經過我們同意，擅自調整程式碼、擅自安裝有資安危險之外掛等等，所造成的損害。' ); ?></p>
         </div>
 	<div>
 
     <style>
+        h1 {
+            display: none;
+        }
+        .custom_welcome {
+            width: 500px;
+            margin: 0 auto;
+        }
         .custom_welcome h2 {
             font-size: 50px;
+        }
+        .custom_welcome p {
+            color: #bcbcbc;
         }
         #wpwrap {
             position: relative;

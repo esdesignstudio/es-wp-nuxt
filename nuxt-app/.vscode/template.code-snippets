@@ -1,0 +1,191 @@
+{
+
+    // > ------ rwd -----
+    "SCSS RWD mixin large": {
+        "scope": "scss, vue",
+        "prefix": "xl",
+        "body": [
+            "@include media-breakpoint-down(large) {",
+            "$1",
+            "}"
+        ],
+        "description": "rwd large"
+    },
+    "SCSS RWD mixin desktop": {
+        "scope": "scss, vue",
+        "prefix": "lg",
+        "body": [
+            "@include media-breakpoint-down(desktop) {",
+            "$1",
+            "}"
+        ],
+        "description": "rwd desktop"
+    },
+    "SCSS RWD mixin medium": {
+        "scope": "scss, vue",
+        "prefix": "md",
+        "body": [
+            "@include media-breakpoint-down(medium) {",
+            "$1",
+            "}"
+        ],
+        "description": "rwd medium"
+    },
+    "SCSS RWD mixin tablet": {
+        "scope": "scss, vue",
+        "prefix": "mds",
+        "body": [
+            "@include media-breakpoint-down(tablet) {",
+            "$1",
+            "}"
+        ],
+        "description": "rwd tablet"
+    },
+    "SCSS RWD mixin mobile": {
+        "scope": "scss, vue",
+        "prefix": "xs",
+        "body": [
+            "@include media-breakpoint-down(mob) {",
+            "$1",
+            "}",
+        ],
+        "description": "rwd mobile"
+    },
+
+    // > ------ UI -----
+    "typography mixin": {
+        "scope": "scss, vue",
+        "prefix": "typo",
+        "body": [
+            "@include typo('$1', $2);"
+        ],
+        "description": "typography mixin"
+    },
+    "get font-weight": {
+        "scope": "scss, vue",
+        "prefix": "map:font-weight",
+        "body": [
+            "font-weight: map-get(\\$font-weight, $0);"
+        ],
+        "description": "font-weight mixin"
+    },
+    "get font-family": {
+        "scope": "scss, vue",
+        "prefix": "map:font-family",
+        "body": [
+            "font-family: map-get(\\$font-family, $0);"
+        ],
+        "description": "font-family mixin"
+    },
+    "get color": {
+        "scope": "scss, vue",
+        "prefix": "map:color",
+        "body": [
+            "map-get(\\$colors, $0)"
+        ],
+        "description": "flex align center"
+    },
+
+    // > ------ Mixin -----
+    "SCSS size mixin": {
+        "scope": "scss, vue",
+        "prefix": "size",
+        "body": [
+            "@include size($1);"
+        ],
+        "description": "size mixin"
+    },
+    "vue transition css": {
+        "scope": "scss, vue",
+        "prefix": "vue-transition",
+        "body": [
+            "$1 {",
+            "    &-enter {",
+            "        &-active {",
+            "        }",
+            "        &-to {",
+            "        }",
+            "    }",
+            "    &-leave {",
+            "        &-active {",
+            "        }",
+            "        &-to {",
+            "        }",
+            "    }",
+            "}"
+        ],
+        "description": "vue transition scss"
+    },
+
+    // > ------ Css -----
+    "flex center": {
+        "scope": "scss, vue",
+        "prefix": "flex-center",
+        "body": [
+            "display: flex;",
+            "align-items: center;",
+            "justify-content: center;",
+        ],
+        "description": "flex align center"
+    },
+    "SCSS bg-cover mixin": {
+        "scope": "scss, vue",
+        "prefix": "bg-cover",
+        "body": [
+            "background: url('$0') center center / cover no-repeat;"
+        ],
+        "description": "background cover mixin"
+    },
+    
+
+    // > ------ Html -----
+    "fakeImg": {
+        "prefix": "fakeimg",
+        "body": ["${1:https://source.unsplash.com/random/${2:1024}x${3:768}}"],
+        "description": "fakeImg"
+    },
+    "targetBlank": {
+        "prefix": "target-blank",
+        "body": ["target=\"_blank\" rel=\"noopener noreferer nofollow\""],
+        "description": "開啟新視窗"
+    },
+    "targetBlankInside": {
+        "prefix": "target-blank-inside",
+        "body": ["target=\"_blank\" rel=\"noopener\""],
+        "description": "開啟新視窗"
+    },
+    "v-for": {
+        "prefix": "for",
+        "body": [
+            "v-for=\"(item, key) in items\"",
+            ":key=\"key\""
+        ],
+        "description": "v-for"
+    },
+    "template": {
+        "prefix": "tem",
+        "body": [
+            "<template>",
+            "    <div class=\"page-template\">",
+            "",
+            "    </div>",
+            "</template>",
+            "<script setup>",
+            "    const props = defineProps({",
+            "        template: {",
+            "            type: Object,",
+            "            default: {},",
+            "        },",
+            "    })",
+            "</script>",
+            "<style lang=\"scss\">",
+            "    $$class-name: page-template;",
+            "    .#{$$class-name} {",
+            "",
+            "    }",
+            "</style>",
+        ],
+        "description": "template"
+    },
+    
+}

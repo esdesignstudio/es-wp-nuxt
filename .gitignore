@@ -1,5 +1,15 @@
 .DS_Store
 .DS_Store?
 
+node_modules
+!nuxt-app/.output/server/node_modules
+*.log*
+.nuxt
+.nitro
+.cache
+.yarn
+
 wordpress/wp-content/uploads
-wp-config.php
+
+# Nuxt Server Cache
+nuxt-app/server/cache/*.json

@@ -1,0 +1,90 @@
+.dpmrs {
+    width: 100%;
+    background: #f5f5f5;
+    border: 1px solid #cdcdcd;
+    border-left: 4px solid #0073aa;
+    display: none;
+    overflow: auto;
+}
+
+.dpmrs .l_dpmrs {
+    width: 200px;
+    float: left;
+}
+
+.dpmrs .l_dpmrs img {
+    float: left;
+    padding: 10px;
+}
+
+.dpmrs .r_dpmrs {
+    float: left;
+    padding: 15px 10px;
+}
+
+.close_dp_help {
+    text-decoration: none;
+    border-radius: 4px;
+    padding: 5px 15px;
+    color: #fff;
+    font-size: 16px;
+    margin: 10px;
+}
+
+.close_dp_help:hover {
+    color: #fff !important;
+}
+
+.close_dp_help.fm_close_btn {
+    float: right;
+    cursor: pointer;
+    text-decoration: none;
+    background: #e00e0e;
+    border-radius: 100%;
+    padding: 0px 6px;
+    display: block;
+    color: #fff;
+    font-size: 10px;
+    margin: 0px;
+}
+
+.close_dp_help.fm_close_btn_1 {
+    background: #fbc21c;
+    border-bottom: 3px solid #b18400;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+.close_dp_help.fm_close_btn_2 {
+    background: #239200;
+    border-bottom: 3px solid #155600;
+    margin-right: 0px;
+}
+
+.close_dp_help.fm_close_btn_3 {
+    background: #ff1105;
+    border-bottom: 3px solid #b30900;
+}
+
+.clear {
+    clear: both;
+}
+.duplicate_page_settings .saving-txt {
+    background: #fff;
+    padding: 10px 15px;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 4%);
+    margin-top: 20px;
+    border-radius: 3px;
+    border:1px solid #c3c4c7;
+    border-left: solid 4px #2271b1;
+}
+.duplicate_page_settings .settings-error{
+    margin-bottom: 0;
+}
+.duplicate_page_settings #poststuff{
+    padding-top: 0px;
+}
+.duplicate_page_settings .settings-error.notice{
+    margin-top: 20px;
+    margin-bottom: 0px;
+}

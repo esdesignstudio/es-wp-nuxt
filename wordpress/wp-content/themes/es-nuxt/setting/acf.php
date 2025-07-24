@@ -36,4 +36,19 @@ if( function_exists('acf_add_options_page') ) {
 	// 	'parent_slug'	=> 'theme-general-settings',
 	// ));
 	
+    // 添加保存後的動作
+	add_action('acf/save_post', 'notify_frontend_on_options_update', 20);
+}
+
+// 新增函數來處理選項更新
+function notify_frontend_on_options_update($post_id) {
+	// 檢查是否為選項頁面
+	if (strpos($post_id, 'options') !== false) {
+		// 調用更新快取的函數，並傳遞 post_type
+		if (function_exists('notify_frontend_on_update')) {
+			notify_frontend_on_update($post_id, null, null);
+		} else {
+			error_log('notify_frontend_on_update 函數不存在');
+		}
+	}
 }

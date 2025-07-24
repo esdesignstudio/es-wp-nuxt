@@ -1,0 +1,112 @@
+@import '../settings/_config';
+@import '../settings/_typography';
+
+@import "./reset";
+@import "./media";
+@import "./form";
+@import "./button";
+
+:root {
+    interpolate-size: allow-keywords;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+
+    // @include media-breakpoint-up(large) {
+    //     font-size: 0.6vw;
+    // }
+}
+
+
+// 矯正顯示 IE 10
+template,
+[hidden] {
+    display: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+address {
+    font-style: inherit;
+}
+
+dfn,
+cite,
+em,
+i {
+    font-style: italic;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    
+    &:hover,
+    &:active,
+    &:focus {
+        outline: 0;
+    }
+
+    svg {
+        pointer-events: none;
+    }
+}
+
+ul,
+ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+p,
+figure {
+    margin: 0;
+    padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+
+// 1. Single taps should be dispatched immediately on clickable elements
+
+a, area, button, input, label, select, textarea, [tabindex] {
+    -ms-touch-action: manipulation; // [1]
+    touch-action: manipulation;
+}
+
+[hreflang] > abbr[title] {
+    text-decoration: none;
+}
+
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+hr {
+    display: block;
+    margin: 1em 0;
+    padding: 0;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #CCCCCC;
+}
+
+pre {
+    font-size: 1.2rem;
+    line-height: 1.2;
+    color: #AD00FF;
+    white-space: pre-wrap;
+}

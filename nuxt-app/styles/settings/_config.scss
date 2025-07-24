@@ -1,0 +1,99 @@
+
+// > Color palette
+// > ------------------------------------------------------------------------
+
+:root {
+    --color-brand-1: #AD7B4C;
+    --color-brand-2: #DEB591;
+    --color-brand-3: #F6F2EB;
+    --color-brand-4: #73B4D3;
+    --color-brand-5: #F78181;
+    --color-brand-6: #76491F;
+    --color-black-1: #000000;
+    --color-black-2: #313032;
+    --color-gray-1: #DBDBDB;
+    --color-gray-2: #EFEFEF;
+    --color-gray-3: #7E7A7599;
+    --color-white-1: #FFFFFF;
+}
+
+// Colors map for Sass
+$colors: (
+    brand-1: #AD7B4C,
+    brand-2: #DEB591,
+    brand-3: #F6F2EB,
+    brand-4: #73B4D3,
+    brand-5: #F78181,
+    brand-6: #76491F,
+    black-1: #000000,
+    black-2: #313032,
+    gray-1: #DBDBDB,
+    gray-2: #EFEFEF,
+    gray-3: #7E7A7599,
+    white-1: #FFFFFF,
+    transparent: transparent,
+);
+
+::selection {
+    color: #fff;
+    background-color: #000;
+}
+
+// > Grid
+// > ------------------------------------------------------------------------
+
+$container-margin: (
+    mobile:   2.4rem,
+    tablet:   2.4rem,
+    medium:   0rem,
+    desktop:  0rem,
+    large:    0rem,
+);
+
+$gutter: (
+    mobile:   1.6rem,
+    tablet:   1.6rem,
+    desktop:  2.4rem,
+);
+
+$grid-columns: (
+    mobile:   4,
+    tablet:   8,
+    medium:   12,
+    desktop:  12,
+    large:    12,
+);
+
+$grid-row-columns:  6;
+$grid-gutter-width: 2.4rem;
+
+$container-max-widths: (
+    mobile:   100%,
+    tablet:   100%,
+    medium:   960px,
+    desktop:  1180px,
+    large:    1180px,
+);
+
+// > Transitions
+// > ------------------------------------------------------------------------
+
+$speed:     0.3s;
+
+// > Basic
+// > ------------------------------------------------------------------------
+
+$border-radius: 0.4rem;
+$border: 1px;
+
+
+// > rwd
+// > ------------------------------------------------------------------------
+
+$breakpoints: (
+    mobile:  0px,
+    tablet:  768px,
+    medium:  1024px,
+    desktop: 1280px,
+    large:   1441px,
+)
