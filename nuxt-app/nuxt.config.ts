@@ -38,6 +38,12 @@ export default defineNuxtConfig({
                 additionalData: '@use "@/assets/scss/mixins/mixin.scss" as *;'
             }
             }
+        },
+    
+        server: {
+            allowedHosts: [
+              'host.docker.internal'
+            ]
         }
     },
 

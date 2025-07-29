@@ -504,7 +504,7 @@ element.style {
 	color: #000;}
 .acf-fc-popup a:hover {
     background: var(--color-primary) !important;
-    color: #000 !important;
+    color: #fff !important;
 }
 .acf-tooltip {
 	background: #000;}

@@ -1,5 +1,18 @@
 <?php 
 
+// 替換入口 logo
+function new_login_logo() {                                                             /* 自訂登入畫面LOGO */ 
+    echo '<style type="text/css">
+    .login h1 a { display: none; } .login h1:before { content: "ES WP CMS"; font-size: 24px; font-weight: bold; color: #000; }
+    body {background-image:url('.get_template_directory_uri().'/screenshot.png); background-size: cover; background-position: center; background-repeat: no-repeat;}</style>';
+}
+add_action('login_head', 'new_login_logo' );
+
+// 移除控制台左上角WP-LOGO
+function remove_wp_logo( $wp_admin_bar ) { $wp_admin_bar->remove_node( 'wp-logo' ); } 
+add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
+
+
 // =====================================
 // 完全替換 wp-login 路徑 - 主題整合版
 // =====================================
