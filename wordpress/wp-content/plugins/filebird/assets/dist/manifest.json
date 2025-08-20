@@ -1,19 +1,19 @@
 {
-  "_ProBadge-60c93dc8.js": {
-    "file": "ProBadge-60c93dc8.js"
+  "_ProBadge-98ad12ff.js": {
+    "file": "ProBadge-98ad12ff.js"
   },
   "admin.tsx": {
-    "file": "admin.tsx-c5bc4255.js",
+    "file": "admin.tsx-5695c773.js",
     "imports": [
-      "_ProBadge-60c93dc8.js"
+      "_ProBadge-98ad12ff.js"
     ],
     "isEntry": true,
     "src": "admin.tsx"
   },
   "main.tsx": {
-    "file": "main.tsx-841f4732.js",
+    "file": "main.tsx-5db14a3a.js",
     "imports": [
-      "_ProBadge-60c93dc8.js"
+      "_ProBadge-98ad12ff.js"
     ],
     "isEntry": true,
     "src": "main.tsx"

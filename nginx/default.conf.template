@@ -1,0 +1,38 @@
+server {
+    listen 80;
+    server_name localhost;
+
+    root /var/www/html;
+    index index.php;
+
+    client_max_body_size 64M;
+
+    location ~ \.php$ {
+        try_files $uri =404;
+        fastcgi_split_path_info ^(.+\.php)(/.+)$;
+        fastcgi_pass wordpress:9000;
+        fastcgi_index index.php;
+        include fastcgi_params;
+        fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+        fastcgi_param PATH_INFO $fastcgi_path_info;
+        fastcgi_param PHP_VALUE "
+            upload_max_filesize=10M
+            post_max_size=10M
+        ";
+    }
+
+    location ~ ^/(en|zh)/wp-json {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ ^/(wp|bs)[a-z-_*] {
+        try_files $uri $uri/ /index.php?$args;
+    }
+    
+    location / {
+        proxy_pass                          ${NUXT_NGINX_URL};
+        proxy_set_header X-Real-IP          $remote_addr;
+        proxy_set_header X-Forwarded-For    $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto  $http_x_forwarded_proto;
+    }
+}

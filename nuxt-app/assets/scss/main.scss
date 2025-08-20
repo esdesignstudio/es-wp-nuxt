@@ -2,3 +2,27 @@
 @use './layout/grid.scss';
 @use './layout/container.scss';
 @use './animation.scss';
+@use './plugins/locomotive-scroll.scss';
+
+.title_deco {
+    background-color: var(--color-brand-1);
+    color: #fff;
+    font-size: 2rem;
+    padding: 0 2.4rem;
+    overflow: hidden;
+    border-radius: .4rem;
+
+    > span {
+        display: block;
+        padding: 1rem 0;
+    }
+
+    @include media-breakpoint-down(tablet) {
+        font-size: 1.6rem;
+        padding: 0 1.6rem;
+
+        > span {
+            padding: .8rem 0;
+        }
+    }
+}

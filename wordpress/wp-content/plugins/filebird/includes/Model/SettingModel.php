@@ -32,6 +32,10 @@ class SettingModel {
 				'get' => 'getFolderSearchMethod',
 				'set' => 'setFolderSearchMethod',
 			),
+			'enable_cache_optimization' => array(
+				'get' => 'getEnableCacheOptimization',
+				'set' => 'setEnableCacheOptimization',
+			),
 		);
 	}
 
@@ -85,5 +89,16 @@ class SettingModel {
 
 	public function setFolderSearchMethod( $value ) {
 		update_option( 'njt_fbv_is_search_using_api', $value );
+	}
+
+	public function getEnableCacheOptimization() {
+		$settings = (array) get_option( 'fbv_settings', array() );
+		return isset( $settings['enable_cache_optimization'] ) ? (string) $settings['enable_cache_optimization'] : "0";
+	}
+
+	public function setEnableCacheOptimization( $value ) {
+		$settings = (array) get_option( 'fbv_settings', array() );
+		$settings['enable_cache_optimization'] = $value;
+		update_option( 'fbv_settings', $settings );
 	}
 }

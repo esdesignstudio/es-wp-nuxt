@@ -1,3 +1,21 @@
+// 讀取根目錄的環境變數
+import { readFileSync } from 'fs'
+import { resolve, join } from 'path'
+
+// 使用根目錄的 .env 檔案寫進去 process.env
+const rootEnvPath = resolve(process.cwd(), '../.env')
+try {
+  const envContent = readFileSync(rootEnvPath, 'utf8')
+  envContent.split('\n').forEach(line => {
+    const [key, value] = line.split('=')
+    if (key && value && !process.env[key]) {
+      process.env[key] = value.replace(/^["']|["']$/g, '')
+    }
+  })
+} catch (error) {
+  console.warn('無法讀取根目錄的 .env 檔案:', error instanceof Error ? error.message : String(error))
+}
+
 export default defineNuxtConfig({
     app: {
         rootId: 'es-app',
@@ -10,6 +28,7 @@ export default defineNuxtConfig({
                 { name: 'author', content: 'Web developer ES Design' },
                 { property: 'og:type', content: 'website' },
                 { property: 'og:image', content: '/socialshare.jpg' },
+                { name: 'theme-color', content: '#672146' },
                 { name: 'robots', content: process.env.ENV === 'prod' ? 'index, follow' : 'noindex, nofollow' }
             ],
             link: [
@@ -40,26 +59,42 @@ export default defineNuxtConfig({
             }
         },
     
-        server: {
+        server: { // 解決開發時 websocket 問題
+            // hmr: {
+            //     protocol: 'ws',
+            //     host: 'localhost'
+            // },
             allowedHosts: [
               'host.docker.internal'
             ]
-        }
+        },
+        plugins: [
+            // 解決 nuxt-icons 圖示問題
+            {
+                name: 'vite-plugin-glob-transform',
+                transform(code: string, id: string) {
+                    if (id.includes('nuxt-icons')) {
+                    return code.replace(/as:\s*['"]raw['"]/g, 'query: "?raw", import: "default"');
+                    }
+                    return code;
+                }
+            }
+        ]
     },
 
     modules: [
         '@nuxt/devtools',
         '@nuxtjs/sitemap',
-        '@nuxt/image'
+        '@nuxt/image',
+        'nuxt-icons'
     ],
 
     runtimeConfig: {
         public: {
             env: process.env.ENV,
-            siteUrl: process.env.SITE_URL,
-            apiUrl: process.env.API_URL + '/wp-json/api',
-            apiWpUrl: process.env.API_URL + '/wp-json/wp/v2',
-            siteName: process.env.APP_NAME
+            siteUrl: process.env.NUXT_SITE_URL,
+            apiUrl: process.env.WP_URL + '/wp-json/api',
+            apiWpUrl: process.env.WP_URL + '/wp-json/wp/v2'
         },
     },
 
@@ -68,7 +103,7 @@ export default defineNuxtConfig({
     },
 
     sitemap: {
-        sources: [ `${process.env.API_URL}/wp-json/api/get_sitemap` ],
+        sources: [ `${process.env.WP_URL}/wp-json/api/get_sitemap` ],
         includeAppSources: true,
     }
 })

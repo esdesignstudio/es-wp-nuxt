@@ -13,3 +13,5 @@ wordpress/wp-content/uploads
 
 # Nuxt Server Cache
 nuxt-app/server/cache/*.json
+
+db/backup/

@@ -84,6 +84,7 @@ class Settings {
 					'wpml'               => array(
 						'display_sync' => ! empty( $wpmlActiveLanguages ),
 					),
+					'is_fbdl_activated' => class_exists( '\FileBird_Document_Library\\DocumentLibrary' )
 				)
 			);
 		}

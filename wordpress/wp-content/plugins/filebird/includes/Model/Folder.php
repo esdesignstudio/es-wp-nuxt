@@ -17,18 +17,32 @@ class Folder {
 		//TODO need to convert ord to number using +0
 		global $wpdb;
 
-		$conditions = array(
-			'1 = 1',
-			'created_by = ' . apply_filters( 'fbv_folder_created_by', 0 ),
-		);
-
-		if ( ! empty( $search ) ) {
-			$conditions[] = "name LIKE '%" . $wpdb->esc_like( $search ) . "%'";
+		$allowed_columns = array( '*', 'id', 'name', 'parent', 'type', 'created_by', 'ord' );
+		$select_parts = array_map( 'trim', explode( ',', $select ) );
+		foreach ( $select_parts as $part ) {
+			if ( ! in_array( $part, $allowed_columns, true ) ) {
+				$select = '*';
+				break;
+			}
 		}
-		$conditions = implode( ' AND ', $conditions );
-		$sql        = "SELECT $select FROM " . self::getTable( self::$folder_table ) . ' WHERE ' . $conditions . ' ORDER BY `ord` ASC';
 
-		// phpcs:disable WordPress.DB.PreparedSQL.NotPrepared
+		$created_by = apply_filters( 'fbv_folder_created_by', 0 );
+		
+		if ( ! empty( $search ) ) {
+			$sql = $wpdb->prepare(
+				"SELECT $select FROM " . self::getTable( self::$folder_table ) . 
+				" WHERE 1 = 1 AND created_by = %d AND name LIKE %s ORDER BY `ord` ASC",
+				$created_by,
+				'%' . $wpdb->esc_like( $search ) . '%'
+			);
+		} else {
+			$sql = $wpdb->prepare(
+				"SELECT $select FROM " . self::getTable( self::$folder_table ) . 
+				" WHERE 1 = 1 AND created_by = %d ORDER BY `ord` ASC",
+				$created_by
+			);
+		}
+
 		$folders = $wpdb->get_results( $sql );
 
 		if ( 'name' === $order_by && in_array( $order, array( 'asc', 'desc' ), true ) ) {

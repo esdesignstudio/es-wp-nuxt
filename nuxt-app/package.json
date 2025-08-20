@@ -1,24 +1,27 @@
 {
-  "private": true,
-  "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev --host",
-    "generate": "nuxt generate",
-    "preview": "nuxt preview"
-  },
-  "devDependencies": {
-    "@nuxt/devtools": "^1.0.6",
-    "@nuxtjs/sitemap": "^5.0.5",
-    "nuxt": "3.17.7",
-    "sass": "^1.52.1",
-    "sass-loader": "^13.0.0",
-    "stylelint": "^14.8.3"
-  },
-  "dependencies": {
-    "@gtm-support/vue-gtm": "^2.0.0",
-    "@nuxt/image": "^1.8.1",
-    "gsap": "^3.13.0",
-    "locomotive-scroll": "5.0.0-beta.8",
-    "swiper": "11.2.4"
+    "private": true,
+    "scripts": {
+      "build": "nuxt build",
+      "dev": "nuxt dev --host",
+      "generate": "nuxt generate",
+      "preview": "nuxt preview"
+    },
+    "devDependencies": {
+      "@nuxt/devtools": "^1.0.6",
+      "@nuxtjs/sitemap": "^5.0.5",
+      "nuxt": "3.17.7",
+      "sass": "^1.52.1",
+      "sass-loader": "^13.0.0",
+      "stylelint": "^14.8.3"
+    },
+    "dependencies": {
+      "@gtm-support/vue-gtm": "^2.0.0",
+      "@nuxt/image": "^1.8.1",
+      "chart.js": "^4.5.0",
+      "gsap": "^3.13.0",
+      "locomotive-scroll": "5.0.0-beta.12",
+      "nuxt-icons": "^3.2.1",
+      "swiper": "11.2.4"
+    }
   }
-}
+  

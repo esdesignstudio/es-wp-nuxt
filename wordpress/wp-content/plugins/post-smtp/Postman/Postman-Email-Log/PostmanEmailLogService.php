@@ -126,7 +126,7 @@ if ( ! class_exists( 'PostmanEmailLogService' ) ) {
 		 * @param mixed                $originalMessage
 		 * @param mixed                $originalHeaders
 		 */
-		public function writeFailureLog( PostmanEmailLog $log, PostmanMessage $message = null, $transcript, PostmanModuleTransport $transport, $statusMessage ) {
+		public function writeFailureLog( PostmanEmailLog $log, ?PostmanMessage $message, $transcript, PostmanModuleTransport $transport, $statusMessage ) {
 			if ( PostmanOptions::getInstance()->isMailLoggingEnabled() ) {
 				$this->createLog( $log, $message, $transcript, $statusMessage, false, $transport );
 				$this->writeToEmailLog( $log,$message );
@@ -323,7 +323,7 @@ if ( ! class_exists( 'PostmanEmailLogService' ) ) {
 		 * @param PostmanModuleTransport $transport
 		 * @return PostmanEmailLog
 		 */
-		private function createLog( PostmanEmailLog $log, PostmanMessage $message = null, $transcript, $statusMessage, $success, PostmanModuleTransport $transport ) {
+		private function createLog( PostmanEmailLog $log, ?PostmanMessage $message, $transcript, $statusMessage, $success, PostmanModuleTransport $transport ) {
 			if ( $message ) {
 				$log->sender = $message->getFromAddress()->format();
 				$log->toRecipients = $this->flattenEmails( $message->getToRecipients() );

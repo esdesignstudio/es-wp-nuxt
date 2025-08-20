@@ -36,13 +36,13 @@ $navigation = array(
         </div>
     </div>
     <div id="filebird-admin-actions">
-        <a href="https://ninjateam.gitbook.io/filebird/features/interface" target="_blank" rel="noopener noreferrer">
+        <a class="focus:fb-shadow-admin-button" href="https://ninjateam.gitbook.io/filebird/features/interface" target="_blank" tabindex="0" rel="noopener noreferrer">
             <?php esc_html_e( 'Docs', 'filebird' ); ?>
         </a>
-        <a href="https://ninjateam.org/support/" target="_blank" rel="noopener noreferrer">
+        <a class="focus:fb-shadow-admin-button" href="https://ninjateam.org/support/" target="_blank" tabindex="0" rel="noopener noreferrer">
             <?php esc_html_e( 'Support', 'filebird' ); ?>
         </a>
-        <a href="https://ninjateam.gitbook.io/filebird/other-links/changelog" target="_blank" rel="noopener noreferrer">
+        <a class="focus:fb-shadow-admin-button" href="https://ninjateam.gitbook.io/filebird/other-links/changelog" target="_blank" tabindex="0" rel="noopener noreferrer">
             <?php esc_html_e( 'Changelog', 'filebird' ); ?>
         </a>
     </div>

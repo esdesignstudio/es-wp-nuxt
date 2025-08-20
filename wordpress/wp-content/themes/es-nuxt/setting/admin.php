@@ -121,3 +121,11 @@ add_action('admin_menu', function() {
         remove_menu_page('mlang');
     }
 });
+
+
+// 停用預設文章 post type
+function disable_default_post_type() {
+    remove_menu_page('edit.php');
+}
+add_action('admin_menu', 'disable_default_post_type');
+

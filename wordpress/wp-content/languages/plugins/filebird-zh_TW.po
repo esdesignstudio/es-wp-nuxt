@@ -2,7 +2,7 @@
 # This file is distributed under the same license as the Plugins - FileBird &#8211; WordPress Media Library Folders &amp; File Manager - Development (trunk) package.
 msgid ""
 msgstr ""
-"PO-Revision-Date: 2025-05-04 09:06:13+0000\n"
+"PO-Revision-Date: 2025-08-04 23:30:23+0000\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -10,6 +10,14 @@ msgstr ""
 "X-Generator: GlotPress/4.0.1\n"
 "Language: zh_TW\n"
 "Project-Id-Version: Plugins - FileBird &#8211; WordPress Media Library Folders &amp; File Manager - Development (trunk)\n"
+
+#: includes/I18n.php:284
+msgid "Enable cache optimization"
+msgstr "啟用快取最佳化"
+
+#: includes/I18n.php:283
+msgid "Document Library"
+msgstr "文件庫"
 
 #: includes/Controller/FolderController.php:282
 msgid "Permisson Denied."
@@ -39,15 +47,15 @@ msgstr "FileBird 圖庫"
 msgid "Most recent folder"
 msgstr "最新的資料夾"
 
-#: includes/I18n.php:290
+#: includes/I18n.php:292
 msgid "Folders for post types"
 msgstr "內容類型的資料夾"
 
-#: includes/I18n.php:289
+#: includes/I18n.php:291
 msgid "Folders for media library"
 msgstr "媒體庫的資料夾"
 
-#: includes/I18n.php:288
+#: includes/I18n.php:290
 msgid "Switch from searching using JavaScript to using an API"
 msgstr "將搜尋功能從使用 JavaScript 切換至使用 API"
 
@@ -71,15 +79,15 @@ msgstr "版本:"
 msgid "Oops! Activation failed."
 msgstr "很抱歉！驗證失敗。"
 
-#: includes/I18n.php:287
+#: includes/I18n.php:289
 msgid "There are no folders to export."
 msgstr "沒有可供匯出的資料夾。"
 
-#: includes/I18n.php:284
+#: includes/I18n.php:286
 msgid "By"
 msgstr "開發者:"
 
-#: includes/I18n.php:283
+#: includes/I18n.php:285
 msgid "Select theme"
 msgstr "選取外觀樣式"
 
@@ -309,15 +317,15 @@ msgstr "確定要停用目前的授權金鑰？這樣會導致這個網站無法
 msgid "Deactivating license"
 msgstr "停用授權"
 
-#: includes/Admin/Settings.php:112
+#: includes/Admin/Settings.php:113
 msgid "Dismiss this notice."
 msgstr "關閉這項通知"
 
-#: includes/Admin/Settings.php:110 views/particle/activation_fail.php:10
+#: includes/Admin/Settings.php:111 views/particle/activation_fail.php:10
 msgid "This license was used with <i>%s</i>, please <a href=\"https://1.envato.market/Get-FileBird\" target=\"_blank\"><strong>purchase another license</strong></a>, or <a href=\"https://ninjateam.org/support\" target=\"_blank\"><strong>contact support</strong></a>"
 msgstr "這個授權已用於 <strong>%s</strong>，請<a href=\"https://1.envato.market/Get-FileBird\" target=\"_blank\"><strong>購買額外的授權</strong></a>或<a href=\"https://ninjateam.org/support\" target=\"_blank\"><strong>聯絡技術支援</strong></a>。"
 
-#: includes/Admin/Settings.php:108 views/particle/activation_fail.php:8
+#: includes/Admin/Settings.php:109 views/particle/activation_fail.php:8
 msgid "It seems you don't have any valid FileBird license. Please <a href=\"https://ninjateam.org/support\" target=\"_blank\"><strong>contact support</strong></a> to get help or <a href=\"https://1.envato.market/Get-FileBird\" target=\"_blank\"><strong>purchase a FileBird license</strong></a>"
 msgstr "這個網站沒有有效的 FileBird 授權，請<a href=\"https://ninjateam.org/support\" target=\"_blank\"><strong>聯絡技術支援</strong></a>以獲得協助或<a href=\"https://1.envato.market/Get-FileBird\" target=\"_blank\"><strong>購買 FileBird 授權</strong></a>。"
 
@@ -441,7 +449,7 @@ msgstr "提升第三方相容性"
 msgid "Download entire folders in ZIP"
 msgstr "將整個資料夾下載為 ZIP 檔案"
 
-#: includes/I18n.php:285
+#: includes/I18n.php:287
 msgid "Lifetime license"
 msgstr "永久授權"
 
@@ -457,7 +465,7 @@ msgstr "升級至 FileBird Pro"
 msgid "Change Color"
 msgstr "變更色彩"
 
-#: includes/I18n.php:286
+#: includes/I18n.php:288
 msgid "PRO"
 msgstr "Pro"
 
@@ -972,7 +980,7 @@ msgstr "剪下"
 msgid "Ok"
 msgstr "確定"
 
-#: includes/Admin/Settings.php:133
+#: includes/Admin/Settings.php:134
 msgid "Documentation"
 msgstr "使用說明"
 
@@ -1006,7 +1014,7 @@ msgstr "無法刪除資料夾，請稍後再試。"
 msgid "Validation failed"
 msgstr "驗證失敗。"
 
-#: includes/Classes/Core.php:156 includes/Model/Folder.php:41
+#: includes/Classes/Core.php:156 includes/Model/Folder.php:55
 msgid "All Folders"
 msgstr "全部資料夾"
 
@@ -1046,7 +1054,7 @@ msgstr "我們對這些好評永懷於心，在此先行致謝 ;)"
 
 #: includes/Classes/Review.php:63
 msgid "Thank you for choosing FileBird. We hope you love it. Could you take a couple of seconds posting a nice review to share your happy experience?"
-msgstr "感謝採用 FileBird，如果這個外掛對網站有所幫助，請花一點時間給予我們的外掛好評，將你的良好使用經驗分享給其他使用者。"
+msgstr "感謝採用 FileBird，如果這個外掛對網站確有幫助，請花一點時間給予我們的外掛好評，將你的良好使用經驗分享給其他使用者。"
 
 #: includes/Classes/Review.php:61
 msgid "Give FileBird a review"
@@ -1066,7 +1074,7 @@ msgstr "每位使用者均有專屬資料夾"
 msgid "Import"
 msgstr "匯入"
 
-#: includes/Admin/Settings.php:144 includes/I18n.php:133
+#: includes/Admin/Settings.php:145 includes/I18n.php:133
 #: views/settings/header.php:10
 msgid "Settings"
 msgstr "設定"
@@ -1075,7 +1083,7 @@ msgstr "設定"
 msgid "FileBird"
 msgstr "FileBird"
 
-#: includes/Admin/Settings.php:119 includes/I18n.php:134
+#: includes/Admin/Settings.php:120 includes/I18n.php:134
 msgid "FileBird Settings"
 msgstr "FileBird 設定"
 
@@ -1148,7 +1156,7 @@ msgid "Folder Limit Reached"
 msgstr "已達資料夾數量上限"
 
 #: includes/Classes/Core.php:160 includes/Classes/Core.php:250
-#: includes/I18n.php:61 includes/Model/Folder.php:45
+#: includes/I18n.php:61 includes/Model/Folder.php:59
 msgid "Uncategorized"
 msgstr "未分類"
 

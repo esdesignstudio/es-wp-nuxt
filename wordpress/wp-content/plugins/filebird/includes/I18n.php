@@ -280,6 +280,8 @@ class I18n {
 			'activation'                        => __( 'Activation', 'filebird' ),
 			'tools'                             => __( 'Tools', 'filebird' ),
 			'import_export'                     => __( 'Import/Export', 'filebird' ),
+			'document_library'                  => __( 'Document Library', 'filebird' ),
+			'enable_cache_optimization'         => __( 'Enable cache optimization', 'filebird' ),
 			'select_theme'                      => __( 'Select theme', 'filebird' ),
 			'by'                                => __( 'By', 'filebird' ),
 			'lifetime_license'                  => __( 'Lifetime license', 'filebird' ),

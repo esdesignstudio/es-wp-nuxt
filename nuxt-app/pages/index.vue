@@ -2,6 +2,9 @@
     <div class="page-index">
         <div class="container">
             HOME
+            <pre>
+                {{ pageData }}
+            </pre>
         </div>
         <Footer />
     </div>
@@ -10,7 +13,7 @@
     const pageloaded = usePageLoaded()
     const route = useRoute()
     const { global, page } = usePageData().value
-    // const pageData = page[26]
+    const pageData = page[23]
 
     // if (!pageData) {
     //     throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true })

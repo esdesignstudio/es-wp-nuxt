@@ -3,7 +3,7 @@
 namespace FileBird\Utils;
 
 class Vite {
-	const HOST                 = 'https://localhost:3000/';
+	const HOST                 = 'http://localhost:3000/';
 	const SCRIPT_HANDLE        = 'module/filebird/vite';
 	const CLIENT_SCRIPT_HANDLE = 'module/filebird/vite-client';
 

@@ -3,11 +3,11 @@
     "title": "網站設定",
     "fields": [
         {
-            "key": "field_67c82d055afda",
-            "label": "選單按鈕",
-            "name": "link",
-            "type": "repeater",
-            "instructions": "最多五個",
+            "key": "field_68a54458add5a",
+            "label": "Header設定",
+            "name": "header",
+            "type": "group",
+            "instructions": "",
             "required": 0,
             "conditional_logic": 0,
             "wrapper": {
@@ -15,19 +15,16 @@
                 "class": "",
                 "id": ""
             },
-            "acfe_repeater_stylised_button": 0,
-            "collapsed": "",
-            "min": 0,
-            "max": 5,
-            "layout": "table",
-            "button_label": "",
+            "layout": "block",
+            "acfe_seamless_style": 0,
+            "acfe_group_modal": 0,
             "sub_fields": [
                 {
-                    "key": "field_682ef211cff91",
-                    "label": "名稱",
-                    "name": "name",
-                    "type": "text",
-                    "instructions": "",
+                    "key": "field_67c82d055afda",
+                    "label": "選單按鈕",
+                    "name": "link",
+                    "type": "repeater",
+                    "instructions": "最多五個",
                     "required": 0,
                     "conditional_logic": 0,
                     "wrapper": {
@@ -35,32 +32,57 @@
                         "class": "",
                         "id": ""
                     },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
-                },
-                {
-                    "key": "field_682ef218cff92",
-                    "label": "網址",
-                    "name": "url",
-                    "type": "text",
-                    "instructions": "",
-                    "required": 0,
-                    "conditional_logic": 0,
-                    "wrapper": {
-                        "width": "",
-                        "class": "",
-                        "id": ""
-                    },
-                    "default_value": "",
-                    "placeholder": "",
-                    "prepend": "",
-                    "append": "",
-                    "maxlength": ""
+                    "acfe_repeater_stylised_button": 0,
+                    "collapsed": "",
+                    "min": 0,
+                    "max": 5,
+                    "layout": "table",
+                    "button_label": "",
+                    "sub_fields": [
+                        {
+                            "key": "field_682ef211cff91",
+                            "label": "名稱",
+                            "name": "name",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_682ef218cff92",
+                            "label": "網址",
+                            "name": "url",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ]
                 }
-            ]
+            ],
+            "acfe_group_modal_close": 0,
+            "acfe_group_modal_button": "",
+            "acfe_group_modal_size": "large"
         },
         {
             "key": "field_681dcc9d51572",
@@ -205,5 +227,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1750401543
+    "modified": 1755661425
 }

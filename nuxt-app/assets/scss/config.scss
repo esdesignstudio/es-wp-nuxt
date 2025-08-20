@@ -1,5 +1,62 @@
 // > Basic Settings
 // > ------------------------------------------------------------------------
+:root {
+    --color-brand-1: #90009e;
+    --color-black-1: #000000;
+    --color-black-2: #313032;
+    --color-gray-1: #DBDBDB;
+    --color-gray-2: #EFEFEF;
+    --color-gray-3: #7E7A7599;
+    --color-white-1: #FFFFFF;
+
+    --border-width: 1px;
+    --border-radius: 0.4rem;
+    --transition-speed: 0.2s;
+}
+
+
+// > Typography
+// > ------------------------------------------------------------------------
+// 特殊字體安裝
+// 如果可以的話，建議使用 @font-face 安裝，避免使用 @import 引入
+@font-face {
+    font-family: 'DINPro';
+    src: url('@/assets/fonts/dinpro.woff2') format('woff2'),
+         url('@/assets/fonts/dinpro.woff') format('woff'),
+         url('@/assets/fonts/dinpro.ttf') format('truetype'),
+         url('@/assets/fonts/dinpro.eot'); /* IE fallback */
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'DINPro';
+    src: url('@/assets/fonts/dinpro_light.woff2') format('woff2'),
+         url('@/assets/fonts/dinpro_light.woff') format('woff'),
+         url('@/assets/fonts/dinpro_light.ttf') format('truetype'),
+         url('@/assets/fonts/dinpro_light.eot'); /* IE fallback */
+    font-weight: 300; /* Light */
+    font-style: normal;
+    font-display: swap;
+}
+
+
+// 初始字體風格設定用 https://systemfontstack.com/
+// 黑體 TC
+$family-sans: 'DINPro', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+// 黑體 JP
+$family-display: 'DINPro', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
+// 英文字體
+$family-english: 'DINPro', 'Segoe UI', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+
+  
+
+
+// > HTML 結構設定
+// > ------------------------------------------------------------------------
+
 
 html {
     font-size: 62.5%; // 1rem = 10px
@@ -10,10 +67,29 @@ html {
     }
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
+    font-family: $family-sans;
+
+    @media (min-width: 1600px) {
+        font-size: 0.6vw;
+    }
+
+    @media (max-width: 1024px) {
+        font-size: 0.8vw;
+    }
+
+    @media (max-width: 768px) {
+        font-size: 62.5%;
+    }
+
+    // @media (max-width: 350px) {
+    //     font-size: 0.7vw;
+    // }
+
 }
 
 body {
     font-size: 1.6rem;
+    // background-color: var(--color-brand-1);
 }
 
 // 關閉 Nuxt 預設的 loading
@@ -27,45 +103,6 @@ body {
     background-color: #000;
 }
 
-:root {
-    --color-brand-1: #AD7B4C;
-    --color-brand-2: #DEB591;
-    --color-brand-3: #F6F2EB;
-    --color-brand-4: #73B4D3;
-    --color-brand-5: #F78181;
-    --color-brand-6: #76491F;
-    --color-black-1: #000000;
-    --color-black-2: #313032;
-    --color-gray-1: #DBDBDB;
-    --color-gray-2: #EFEFEF;
-    --color-gray-3: #7E7A7599;
-    --color-white-1: #FFFFFF;
-
-    --border-width: 1px;
-    --border-radius: 0.4rem;
-    --transition-speed: 0.2s;
-}
-
-// > Typography
-// > ------------------------------------------------------------------------
-
-// 初始字體風格設定用 https://systemfontstack.com/
-// 黑體 TC
-$family-sans:    'Noto Sans TC', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-// 黑體 JP
-$family-display:   'Noto Sans TC', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-// 英文字體
-$family-english: 'Avenir', 'Segoe UI', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-// 特殊字體安裝
-// 如果可以的話，建議使用 @font-face 安裝，避免使用 @import 引入
-// @font-face {
-//     font-family: 'ChiayiCityFont';
-//         src: url('@/assets/fonts/ChiayiCity.ttf') format('truetype');
-//     font-weight: normal;
-//     font-style: normal;
-// }
-
 
 
 // > Grid
@@ -76,9 +113,9 @@ $grid-gutter-width: 2.4rem; // _layout.scss 在使用
 $container-margin: (
     mobile:   2.4rem,
     tablet:   2.4rem,
-    medium:   2.4rem,
-    desktop:  2.4rem,
-    large:    2.4rem,
+    medium:   4.8rem,
+    desktop:  4.8rem,
+    large:    4.8rem,
 );
 
 $gutter: (
@@ -113,4 +150,4 @@ $breakpoints: (
     medium:  1024px,
     desktop: 1280px,
     large:   1441px,
-)
+);
