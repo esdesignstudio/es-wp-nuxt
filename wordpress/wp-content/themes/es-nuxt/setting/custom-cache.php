@@ -18,7 +18,8 @@ function add_refresh_button($wp_admin_bar) {
 }
 
 // 共用參數
-$ALLOWED_POST_TYPES = array('page', 'article', 'writer');
+$ALLOWED_POST_TYPES = array('page', 'works');
+
 // 取得 API_URL
 $API_URL = getenv('NUXT_API_URL') ?: 'http://nuxt-app:3000';
 $API_URL = $API_URL . '/api/revalidate';
