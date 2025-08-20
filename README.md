@@ -7,18 +7,17 @@ ES 開發的 Nuxt3 x WordPress 版本，專門使用在客製化專案客戶。
 免費商用，請隨意下載。
 
 ## 環境
-- Node -- v16.16.0
-- yarn -- 1.22.19
+- Node -- v23.6.0
+- pnpm -- v10.13.1
 
 ## 安裝步驟
 1. 安裝 Docker desktop
-2. 到 /.env 以及 nuxt-app/.env 檔設定基本環境
+2. 到 .env 定基本環境
 3. docker-compose up -d
-4. cd nuxt-app
-5. yarn && yarn dev
+4. cd nuxt-app && pnpm install && pnpm dev
 6. 專案啟動在
    nuxt localhost:3000,
-   wordpress localhost:9000/wp-admin
+   wordpress localhost:9000/wp-es-login
 
 ## WordPress 主題
 ```
@@ -29,13 +28,7 @@ ES 開發的 Nuxt3 x WordPress 版本，專門使用在客製化專案客戶。
  　└─ index.php 組裝 API
 ```
 資料庫輸出
-`sh dump.sh` 將 docker VM 的 DB 資料匯出至 `/db/default/wp.sql`
-
-## 其他相關文件
-- [Nuxt3](https://nuxt.com/)
-- [Nuxt Icons](https://github.com/gitFoxCode/nuxt-icons)
-- [Formkit](https://formkit.com/getting-started/what-is-formkit)
-- [Swiper](https://swiperjs.com/swiper-api)
+`sh shell/export_db.sh` 將 docker VM 的 DB 資料匯出至 `/db/wp.sql`
 
 ## Git Commit Type 規範
 
@@ -51,3 +44,6 @@ ES 開發的 Nuxt3 x WordPress 版本，專門使用在客製化專案客戶。
 | chore | 建構程序或輔助工具的變動 |
 | revert | 撤回先前的 |
 | deploy | 部署 |
+
+## 部署流程
+請參考 [ES 2025 部署流程 ↗︎](https://www.notion.so/esdesign/2025-2303733e083480bdb75cffdbf1514654)
