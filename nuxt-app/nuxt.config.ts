@@ -86,7 +86,8 @@ export default defineNuxtConfig({
         '@nuxt/devtools',
         '@nuxtjs/sitemap',
         '@nuxt/image',
-        'nuxt-icons'
+        'nuxt-icons',
+        process.env.I18N_ENABLED === 'true' ? 'nuxt-i18n' : null
     ],
 
     runtimeConfig: {
@@ -94,7 +95,9 @@ export default defineNuxtConfig({
             env: process.env.ENV,
             siteUrl: process.env.NUXT_SITE_URL,
             apiUrl: process.env.WP_URL + '/wp-json/api',
-            apiWpUrl: process.env.WP_URL + '/wp-json/wp/v2'
+            apiWpUrl: process.env.WP_URL + '/wp-json/wp/v2',
+            // 以環境變數控制是否啟用 i18n 功能（預設關閉）
+            i18nEnabled: process.env.I18N_ENABLED === 'true'
         },
     },
 

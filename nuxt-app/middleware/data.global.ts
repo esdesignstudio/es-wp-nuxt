@@ -1,14 +1,8 @@
 export default defineNuxtRouteMiddleware(async () => {
-    const pageData = usePageData()
-
-    const { data: cacheList } = await useFetch('/api/read/list')
-
-    if (cacheList.value.files) {
-        for (const cache of cacheList.value.files) {
-            if (!pageData.value[cache]) {
-                const { data: cacheData } = await useFetch(`/api/read/${cache}`)
-                pageData.value[cache] = cacheData.value
-            }
-        }
+    // 預先以 getPageData 載入 global 集合，供後續頁面使用
+    try {
+        await getPageData({ collection: 'global', whole: true, force: false })
+    } catch (error) {
+        console.error('Failed to load global via getPageData:', error)
     }
 })

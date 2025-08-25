@@ -1,6 +1,7 @@
 <?php
 require_once 'router/get_page_custom.php';
 require_once 'router/get_global.php';
+require_once 'router/get_collection_works.php';
 // sitemap
 require_once 'router/get_sitemap.php';
 
@@ -20,6 +21,11 @@ add_action('rest_api_init', function () {
     register_rest_route('api', '/get_page_custom', array(
         'methods' => 'GET',
         'callback' => 'get_page_custom'
+    ));
+
+    register_rest_route('api', '/get_collection_works', array(
+        'methods' => 'GET',
+        'callback' => 'get_collection_works'
     ));
 
     // sitemap

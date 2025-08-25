@@ -19,7 +19,8 @@
 <script setup>
     const pageloaded = usePageLoaded()
     const config = useRuntimeConfig().public
-    const { global } = usePageData().value
+    const global = await getPageData({ collection: 'global', whole: true })
+    useGlobal().value = global
 
     const props = defineProps({
         error: {

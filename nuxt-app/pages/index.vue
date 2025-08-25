@@ -12,8 +12,7 @@
 <script setup>
     const pageloaded = usePageLoaded()
     const route = useRoute()
-    const { global, page } = usePageData().value
-    const pageData = page[23]
+    const pageData = await getPageData({ collection: 'page', key: '23' })
 
     // if (!pageData) {
     //     throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true })

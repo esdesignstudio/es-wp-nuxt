@@ -6,7 +6,8 @@
     <Dev/>
 </template>
 <script setup>
-    const { global } = usePageData().value
+    const global = await getPageData({ collection: 'global', whole: true })
+    useGlobal().value = global
     
     onMounted(() => {
         ESinit()

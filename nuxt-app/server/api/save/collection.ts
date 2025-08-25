@@ -9,9 +9,9 @@ export default defineEventHandler(async (event) => {
         const response = await fetch(`${apiUrl}/get_collection_${type}?id=${id}`, {
             method: 'GET',
         })
-        const data = await response.json()
-        
-        return data.data
+        const json = await response.json()
+        const payload = (json && typeof json === 'object' && 'data' in json) ? (json as any).data : json
+        return payload
     } catch (error) {
         console.error('獲取Collection Data時出錯：', error)
         throw createError({
