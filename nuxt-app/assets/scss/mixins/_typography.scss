@@ -1,0 +1,28 @@
+@use "sass:list";
+@use 'sass:map';
+@use '../config' as *;
+
+@function rem($px) { @return calc($px / 10) * 1rem; }
+@mixin typo($key) {
+    @if map.has-key($typography, $key) {
+        $v: map.get($typography, $key);
+        $size: list.nth($v, 1);
+        $lh:   list.nth($v, 2);
+        $ls:   list.nth($v, 3);
+        $fw:   list.nth($v, 4);
+        $ff:   list.nth($v, 5);
+    
+        font-size: rem($size);
+        line-height: $lh; // unitless
+        letter-spacing: #{$ls}em;
+        font-weight: $fw;
+        font-family: $ff;
+          text-rendering: optimizeLegibility;
+        font-kerning: normal;
+        font-variant-numeric: tabular-nums;
+        font-synthesis-weight: none;
+        font-synthesis-style: none;
+    } @else {
+        @error '#{$key} 不在 $typography 設定中';
+    }
+}

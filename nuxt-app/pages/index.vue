@@ -1,7 +1,7 @@
 <template>
     <div class="page-index">
         <div class="container">
-            HOME
+            <h1>HOME</h1>
             <pre>
                 {{ pageData }}
             </pre>
@@ -40,6 +40,9 @@
 <style lang="scss">
     $class-name: page-index;
     .#{$class-name} {
-
+        h1 {
+            @include typo('display_40'); 
+            color: var(--color-brand-1);
+        }
     }
 </style>

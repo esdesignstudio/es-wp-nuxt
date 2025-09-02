@@ -1,7 +1,7 @@
 // > Basic Settings
 // > ------------------------------------------------------------------------
 :root {
-    --color-brand-1: #90009e;
+    --color-brand-1: #21B34B;
     --color-black-1: #000000;
     --color-black-2: #313032;
     --color-gray-1: #DBDBDB;
@@ -12,6 +12,7 @@
     --border-width: 1px;
     --border-radius: 0.4rem;
     --transition-speed: 0.2s;
+    
 }
 
 
@@ -19,39 +20,59 @@
 // > ------------------------------------------------------------------------
 // 特殊字體安裝
 // 如果可以的話，建議使用 @font-face 安裝，避免使用 @import 引入
-@font-face {
-    font-family: 'DINPro';
-    src: url('@/assets/fonts/dinpro.woff2') format('woff2'),
-         url('@/assets/fonts/dinpro.woff') format('woff'),
-         url('@/assets/fonts/dinpro.ttf') format('truetype'),
-         url('@/assets/fonts/dinpro.eot'); /* IE fallback */
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-}
+// @font-face {
+//     font-family: 'DINPro';
+//     src: url('@/assets/fonts/dinpro.woff2') format('woff2'),
+//          url('@/assets/fonts/dinpro.woff') format('woff'),
+//          url('@/assets/fonts/dinpro.ttf') format('truetype'),
+//          url('@/assets/fonts/dinpro.eot'); /* IE fallback */
+//     font-weight: normal;
+//     font-style: normal;
+//     font-display: swap;
+// }
 
-@font-face {
-    font-family: 'DINPro';
-    src: url('@/assets/fonts/dinpro_light.woff2') format('woff2'),
-         url('@/assets/fonts/dinpro_light.woff') format('woff'),
-         url('@/assets/fonts/dinpro_light.ttf') format('truetype'),
-         url('@/assets/fonts/dinpro_light.eot'); /* IE fallback */
-    font-weight: 300; /* Light */
-    font-style: normal;
-    font-display: swap;
-}
-
+$font-weight-black: 900;
+$font-weight-extrabold: 800;
+$font-weight-bold: 700;
+$font-weight-semibold: 600;
+$font-weight-medium: 500;
+$font-weight-regular: 400;
+$font-weight-light: 300;
 
 // 初始字體風格設定用 https://systemfontstack.com/
-// 黑體 TC
-$family-sans: 'DINPro', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-// 黑體 JP
-$family-display: 'DINPro', -apple-system, BlinkMacSystemFont, avenir next, avenir, segoe ui, helvetica neue, helvetica, Cantarell, Ubuntu, roboto, noto, arial, sans-serif;
-// 英文字體
-$family-english: 'DINPro', 'Segoe UI', 'Arial', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$font-sans-zh: 'Noto Sans TC', 'PingFang TC', 'Heiti TC', 'Microsoft JhengHei', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-sans-jp: 'Noto Sans JP', 'Hiragino Sans', 'Yu Gothic', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-sans-en: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+$font-display: 'Helvetica Neue', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
+
+:root { font-family: $font-sans-zh; }
+:lang(en) { font-family: $font-sans-en; }
+:lang(ja) { font-family: $font-sans-jp; }
 
 
-  
+$typography: (
+  // key            size lh  ls(em)  weight           family
+  'display_80':     (80, 1.3, 0,      $font-weight-extrabold, $font-display),
+  'display_44':     (44, 0.9, 0,      $font-weight-extrabold, $font-display),
+  'display_40':     (40, 1.2, 0,      $font-weight-medium,    $font-display),
+
+  'head_32':        (32, 1.6, 0.01,   $font-weight-bold,      $font-sans-zh),
+  'head_28':        (28, 1.6, 0.01,   $font-weight-bold,      $font-sans-zh),
+  'head_24':        (24, 1.6, 0,      $font-weight-bold,      $font-sans-zh),
+  'head_20':        (20, 1.6, 0,      $font-weight-bold,      $font-sans-zh),
+  'head_16':        (16, 1.4, 0,      $font-weight-bold,      $font-sans-zh),
+  'head_14':        (14, 1.4, 0,      $font-weight-bold,      $font-sans-zh),
+
+  'bold_16':        (16, 1.6, 0,      $font-weight-bold,      $font-sans-zh),
+  'bold_14':        (14, 1.6, 0,      $font-weight-semibold,  $font-sans-zh),
+
+  'enbold_16':      (16, 1,   0,      $font-weight-extrabold, $font-sans-en),
+  'enbold_14':      (14, 1,   0,      $font-weight-extrabold, $font-sans-en),
+
+  'body_16':        (16, 1.6, 0,      $font-weight-regular,   $font-sans-zh),
+  'body_14':        (14, 1.6, 0,      $font-weight-regular,   $font-sans-zh),
+  'body_12':        (12, 1.6, 0,      $font-weight-regular,   $font-sans-zh)
+);
 
 
 // > HTML 結構設定
@@ -67,7 +88,7 @@ html {
     }
     -ms-overflow-style: none;  /* IE and Edge */
     scrollbar-width: none;  /* Firefox */
-    font-family: $family-sans;
+
 
     @media (min-width: 1600px) {
         font-size: 0.6vw;

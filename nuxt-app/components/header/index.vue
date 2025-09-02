@@ -3,7 +3,7 @@
         <nav class="container">
             HEADER
             <ul>
-                <li v-for="(item, key) in global.header.link" :key="key">
+                <li v-for="(item, key) in global?.header?.link" :key="key">
                     <NuxtLink :to="item?.url">{{ item?.name }}</NuxtLink>
                 </li>
             </ul>
