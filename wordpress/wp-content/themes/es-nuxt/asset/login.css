@@ -1,10 +1,57 @@
 
+#login {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
 #login > form{
     border-radius: 5px;
+}
+#login h1:before {
+    content: '本站採用 WordPress Headless，前端採用 Nuxt.js 開發';
+    font-size: 14px;
+    color: rgba(255,255,255, .2);
+    font-weight: normal;
+    line-height: 1.4;
+    display: block;
+    max-width: 240px;
+    margin: 0 auto;
+}
+#login h1 a {
+    display: none;
 }
 .login .privacy-policy-page-link {
     display: none;
 }
-body {
-    filter: invert(1) hue-rotate(180deg);
+#loginform {
+    background-color: #000;
+    border-color: #333333;
+}
+#login label {
+    color: #fff;
+    margin-bottom: 1rem;
+}
+#language-switcher select {
+    color: #fff;
+}
+#language-switcher select,
+#login input {
+    color: #fff;
+    border-color: #333333;
+    background-color: #000;
+}
+#language-switcher input:focus,
+#login input:focus {
+    border-color: var(--color-primary);
+    background-color: #000;
+    color: var(--color-primary);
+}
+.login #backtoblog a:hover, .login #nav a:hover, .login h1 a:hover {
+    color: var(--color-primary);
+}
+.login .button.wp-hide-pw:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 1px var(--color-primary);
 }
