@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ $# -ne 3 ]; then
-    echo "nginx_setting.sh fail - 請提供3個參數：專案名稱、域名、port"
+    echo "✕ nginx_setting.sh fail - 請提供3個參數：專案名稱、域名、port"
     exit 1
 fi
 
@@ -30,9 +30,9 @@ if [ -w "/etc/nginx/sites-enabled/" ]; then
 
     # 將設定檔內容寫入指定路徑
     echo "$config_content" | sudo tee "$config_path" > /dev/null
-    echo "nginx設定檔已創建在 $config_path"
-    echo "重新啟動 nginx"
+    echo "✔ nginx設定檔已創建在 $config_path"
+    echo "> 重新啟動 nginx"
     sudo systemctl restart nginx
 else
-    echo "沒有權限寫入到 /etc/nginx/sites-enabled/，請確保你有足夠的權限執行此腳本"
+    echo "✕ 沒有權限寫入到 /etc/nginx/sites-enabled/，請確保你有足夠的權限執行此腳本"
 fi

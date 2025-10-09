@@ -116,11 +116,11 @@ else
 fi
 
 # 等待容器完全啟動
-echo "⏳ 等待容器完全啟動..."
+echo "> 等待容器完全啟動..."
 sleep 10
 
 # 修改容器內 wp-content/uploads 的資料夾權限
-echo "🔧 設定容器內 uploads 資料夾權限..."
+echo "> 設定容器內 uploads 資料夾權限..."
 if sh shell/install/wp_permission_setting.sh $COMPOSE_PROJECT_NAME; then
     echo "✔ 容器內資料夾權限設定成功"
 else
@@ -128,6 +128,6 @@ else
     exit 1
 fi
 
-echo "🎉 所有安裝步驟完成！"
-echo "🚀 Docker 容器已啟動並執行中"
-echo "🌐 請在安裝完SSL後連線： $WP_URL"
+echo "ℹ 所有安裝步驟完成！"
+echo "ℹ Docker 已啟動並執行中"
+echo "ℹ 請在安裝完SSL後連線： $WP_URL"

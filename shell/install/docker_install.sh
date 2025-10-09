@@ -1,6 +1,7 @@
 #!/bin/sh
 
 # 安裝docker
+echo "> 開始安裝 Docker..."
 sudo apt-get update
 sudo apt-get install -y ca-certificates curl gnupg
 

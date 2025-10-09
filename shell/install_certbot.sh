@@ -31,7 +31,7 @@ echo "🌐 目標域名: $DOMAIN"
 
 # 檢詢使用者確認
 echo ""
-echo "📋 即將執行以下操作:"
+echo "ℹ 即將執行以下操作:"
 echo "   1. 安裝/更新 Snapd 和 Certbot"
 echo "   2. 為域名 $DOMAIN 申請 SSL 憑證"
 echo "   3. 自動修改 Nginx 設定"
@@ -45,7 +45,7 @@ fi
 
 # 檢查 Nginx 是否正在執行
 if ! systemctl is-active --quiet nginx; then
-    echo "⚠️  Nginx 未執行，嘗試啟動..."
+    echo "ℹ Nginx 未執行，嘗試啟動..."
     if sudo systemctl start nginx; then
         echo "✔ Nginx 啟動成功"
     else
@@ -57,10 +57,10 @@ fi
 # 檢查設定檔衝突
 echo "🔧 檢查 Nginx 設定檔..."
 if [ -f "/etc/nginx/sites-enabled/default" ]; then
-    echo "⚠️  發現預設設定檔存在"
+    echo "ℹ 發現預設設定檔存在"
     # 檢查 default 檔案是否包含相同域名
     if sudo grep -q "server_name.*$DOMAIN" /etc/nginx/sites-enabled/default 2>/dev/null; then
-        echo "🚨 預設設定檔包含相同域名，建議移除避免衝突"
+        echo "ℹ 預設設定檔包含相同域名，建議移除避免衝突"
         read -p "是否移除預設設定檔？(y/N): " remove_default
         if [ "$remove_default" = "y" ] || [ "$remove_default" = "Y" ]; then
             sudo rm -f /etc/nginx/sites-enabled/default
@@ -101,7 +101,7 @@ fi
 
 # 步驟 4: 用 Certbot 申請憑證並修改 Nginx 設定
 echo "📜 申請 SSL 憑證並設定 Nginx..."
-echo "⚠️  接下來需要輸入 Email 並回答幾個問題"
+echo "ℹ 接下來需要輸入 Email 並回答幾個問題"
 echo ""
 
 # 確認專案的 Nginx 設定檔存在
@@ -154,6 +154,6 @@ echo "🎉 SSL 憑證安裝完成！"
 echo "🔒 您的網站現在可以透過 HTTPS 訪問: https://$DOMAIN"
 echo "📱 自動更新已設定，憑證將在每月 1 號自動更新"
 echo ""
-echo "📋 後續步驟："
+echo "ℹ 後續步驟："
 echo "   - 確認網站可以透過 HTTPS 正常訪問"
 echo "   - 如有需要，更新應用程式中的 URL 設定"
