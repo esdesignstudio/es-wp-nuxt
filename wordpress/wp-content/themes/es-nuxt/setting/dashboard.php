@@ -23,7 +23,7 @@ function wpex_wp_welcome_panel() { ?>
 
 	<div class="custom_welcome">
         <div class="custom_welcome__title">
-            <h2><?php _e( 'Hey! Welcome to ES WP CMS' ); ?></h2>
+            <h2>Hey! Welcome to ES WP CMS</h2>
             <p class="about-description"><?php _e( '此為 ES design 專為客戶客製化設計的主題，網站程式碼有需要更動建議請聯繫 <a href="https://e-s.tw">ES design</a> 設計團隊。我們不負責未經過我們同意，擅自調整程式碼、擅自安裝有資安危險之外掛等等，所造成的損害。' ); ?></p>
         </div>
 	<div>
@@ -48,6 +48,9 @@ function wpex_wp_welcome_panel() { ?>
             background-image: url(<?php echo get_template_directory_uri().'/asset/imgs/dash_bg.jpg'; ?>);
             background-size: 2500px 1471px;
             background-position: center;
+        }
+        #welcome-panel {
+            display: block !important;
         }
         #wpwrap:before {
             /* content: '';
