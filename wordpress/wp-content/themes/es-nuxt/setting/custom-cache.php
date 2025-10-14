@@ -224,10 +224,15 @@ function notify_frontend_on_update($post_id = null, $post = null, $update = null
 
     // 檢查是否為 post-type_options 格式
     if (is_string($post_id) && strpos($post_id, '_options') !== false) {
-        $type = str_replace('_options', '', $post_id);
+        // 處理可能包含語言代碼的選項ID (如 news_options_en_US)
+        $parts = explode('_options', $post_id);
+        $type = $parts[0]; // 獲取選項ID中的post type部分
+        
         if (in_array($type, $ALLOWED_POST_TYPES)) {
+            // 統一使用基本格式（不帶語言代碼）的選項ID
+            $clean_id = $type . '_options';
             $body = array(
-                'id' => $post_id,
+                'id' => $clean_id,
                 'type' => $type
             );
         }
