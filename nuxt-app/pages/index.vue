@@ -1,7 +1,13 @@
 <template>
     <div class="page-index">
         <div class="container">
-            <h1>HOME</h1>
+            <h1>
+                <span
+                    style="display: block;"
+                    data-scroll
+                    data-scroll-speed="-0.6"
+                >HOME</span>
+            </h1>
             <pre>
                 {{ pageData }}
             </pre>
@@ -43,6 +49,7 @@
         h1 {
             @include typo('display_40'); 
             color: var(--color-brand-1);
+            margin-bottom: 100vh;
         }
     }
 </style>

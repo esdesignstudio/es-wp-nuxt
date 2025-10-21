@@ -8,7 +8,7 @@ export default defineEventHandler(async () => {
         })
         const data = await response.json()
         
-        return data.data.data
+        return data.data
     } catch (error) {
         console.error('獲取Global Data時出錯：', error)
         throw createError({
