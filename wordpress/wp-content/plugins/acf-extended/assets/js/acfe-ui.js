@@ -80,7 +80,22 @@
 
         },
 
+        userEditLoad: function() {
+
+            // RankMath
+            // RankMath add a <h2> next to the Contact Info > Website, with new fields like twitter/facebook etc
+            // we want to remove that ugly <h2>
+            var $rankMath_title = this.$('.user-url-wrap').closest('table').find('h2:contains("Rank Math SEO")');
+            if ($rankMath_title.length) {
+                $rankMath_title.closest('tr').remove();
+            }
+
+
+        },
+
         userEdit: function() {
+
+            this.addAction('load', 'userEditLoad');
 
             // Vars
             var $main = this.$main;
@@ -135,15 +150,21 @@
 
             }
 
-            // Nickname Field
-            var $userNickname = $('input#nickname');
+            // Append profile URL
+            $('<div id="titlediv"></div>').insertBefore(this.$form);
+            $('#titlediv').append($('#edit-slug-box'));
 
-            if ($userNickname.length) {
+            // Input hidden are wrapper inside a <p> with margin which create unwanted space
+            var $from_hidden = $main.find('input[type="hidden"][name="from"]');
+            if ($from_hidden.length) {
+                $from_hidden.closest('p').css('margin', 0);
+            }
 
-                $userNickname.wrapAll('<div id="titlediv"><div id="titlewrap"></div></div>');
-                $('#titlediv').append($('#edit-slug-box')).prependTo($main);
-                $main.find('tr.user-nickname-wrap').remove();
+            // Reorder Nickname to first position in metabox
+            var $userNicknameWrap = $main.find('tr.user-nickname-wrap');
 
+            if ($userNicknameWrap.length) {
+                $userNicknameWrap.prependTo($userNicknameWrap.closest('tbody'));
             }
 
             // Reorder Name to first metabox

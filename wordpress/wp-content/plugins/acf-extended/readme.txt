@@ -3,9 +3,9 @@ Contributors: hwk-fr
 Donate link: https://www.acf-extended.com
 Tags: acf, custom fields, meta, admin, fields
 Requires at least: 4.9
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 5.6
-Stable tag: 0.9.1.1
+Stable tag: 0.9.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -464,6 +464,8 @@ Manage WordPress Options from the Settings > Options page. Options value (string
 4. Everything is ready!
 
 == Frequently Asked Questions ==
+= Where do I report security bugs found in this plugin? =
+Please report security bugs found in the source code of the ACF Extended plugin through the [Patchstack Vulnerability Disclosure Program](https://patchstack.com/database/vdp/85b883c0-0770-4686-b14b-d128226d3344). The Patchstack team will assist you with verification, CVE assignment, and notify the developers of this plugin.
 
 = Where can I find the documentation? =
 
@@ -493,6 +495,140 @@ The content of the upcoming patch and work in progress features are all listed o
 8. Enhanced WordPress UI
 
 == Changelog ==
+
+= 0.9.2.3 =
+
+**ACF Extended Pro 0.9.2.3:**
+
+* Field: Color Picker - Fixed "Color Palette" when copy/pasting with a Flexible Content
+* Field: Date Range Picker - Added "Return Type: Array (default) / String" setting
+* Field: Date Range Picker - Fixed popup priority when displayed inside a modal
+* Field: Flexible Content - Fixed "Search layouts" & "No layouts found" custom text display
+* Field: Flexible Content - Fixed render issue on multilingual setup with custom textdomain
+
+**ACF Extended Basic 0.9.2.3:**
+
+* Field: Flexible Content - Enhanced "Copy/Paste" feature to display a proper modal
+* Field: Repeater - Minor CSS tweaks to the "Stylised Button" setting
+* Field: Select - Fixed selected options when copy/pasting with a Flexible Content
+* Field: Select - Fixed Select2 becoming disabled when copy/pasting with a Flexible Content
+* Module: Enhanced UI - Fixed minor issue with Rankmath on the User Edit screen
+* Module: Forms - Enforced global reCaptcha validation if the field is present in a field group
+* Module: Forms - Added "Success message: Apply shortcodes" setting (enabled by default)
+* Module: Forms - Email - Shortcodes are now disabled by default in the email content
+* Module: Forms - Email - Added "Apply shortcodes" setting to enable shortcodes in the content
+
+= 0.9.2.2 =
+
+**ACF Extended Pro 0.9.2.2:**
+
+* Field: Fields - Added "Group by field group" setting
+* Field: Field Types - Added "Group by category" setting
+* Fields: Fixed missing "Add choice" button when using "Display: Checkbox" and "Allow Custom"
+
+**ACF Extended Basic 0.9.2.2:**
+
+* Module: Forms - Enforced front-end fields validation against their respective "Choices" settings
+* Module: Forms - Added security measure for forms allowing user role selection
+* Module: Forms - Added `acfe/form/validate_value` hook to validate fields individually on front
+* Module: Forms - Added `acfe/form/pre_validate_value` hook to bypass enforced validation
+* Module: Enhanced UI - Fixed missing metabox when visiting its own profile via `user-edit.php`
+* Field Group - Fixed "Display Title" not being displayed on screens with Enhanced UI (ACF 6.6+)
+
+= 0.9.2.1 =
+
+**ACF Extended Pro 0.9.2.1:**
+
+* Field: Flexible Content - Grid System - Fixed Copy/Paste "Secondary Button" in small columns
+* Field: Flexible Content - Grid System - Fixed multi-level Flexible Content icons in small columns
+* Field: Phone Number - Intl Tel Input JS library is now loaded on-demand
+* Field: Phone Number - Added initialization safe guard logic
+
+**ACF Extended Basic 0.9.2.1:**
+
+* Field: Flexible Content - Legacy Title/Toggle settings are now passed on Field Group update
+* Field: Flexible Content - Added `acfe/compatibility/legacy_title_toggle` to enforce migration
+* Field: Flexible Content - Added js action `acfe/fields/flexible_content/click_action_button`
+* Field: Flexible Content - Added js filter `acfe/fields/flexible_content/prevent_action_button`
+* Field: Flexible Content - Fixed `acf/fields/flexible_content/layout_title` `key` variation
+* Field: Flexible Content - Fixed "Copy/Paste" icon visibility in multi-level Flexible Content
+* Module: Performance Ultra - Fixed Post Revisions saving uncompressed meta with ACF 6.4+
+* Module: Form - Fixed Form render in the Flexible Content Dynamic Preview
+* Field Group: Fixed ACF popup box style on the Field Group screen
+* Global: Bump WP version up to 6.9
+
+= 0.9.2 =
+
+**Upgrade Notice:**
+
+This patch implements ACF 6.5+ Flexible Content render style. In case of customized WP Admin style with CSS rules overriding the Flexible Content style, please check your setup.
+
+**Security Notice:**
+
+This patch fixes a vulnerability affecting users running versions 0.9.0.5 through 0.9.1.1. Please update your plugin to ensure continued security and stability.
+
+**ACF Extended Pro 0.9.2:**
+
+* Field: Flexible Content - Select Modal - Added "Search Layouts" feature
+* Field: Flexible Content - Select Modal - Added "Search Layouts Input" setting
+* Field: Flexible Content - Select Modal - Added "Not Found Message" setting
+* Field: Flexible Content - Iframe Preview - Fixed responsive icons when duplicated
+* Field: Flexible Content - Iframe Preview - Fixed instruction tooltip with responsive
+* Field: Flexible Content - Grid System - Enhanced handle icons on small sized columns
+* Field: Flexible Content - Layouts Locations - Added compatibility with Advanced Locations
+* Field: Color Picker - Added "Advanced Settings" to use ACFE settings instead of ACF
+* Field: File Upload - Fixed minor CSS render issues
+* Module: Enhanced UI - Added "Enhanced Post UI" to improve "Save Draft/Preview" integration
+* Module: Enhanced UI - Added `acfe/modules/post_ui` setting
+* Fields: Countries/Languages/Currency - Fixed field initialization when duplicated
+* Global: Updates - Enhanced integration with ACF 6.3+ styles
+* Global: Updates - Fixed issue with slovak language on updates page
+
+**ACF Extended Basic 0.9.2:**
+
+* Field: Flexible Content - Implemented new ACF 6.5+ Flexible Content render style
+* Field: Flexible Content - Added Hide: "Disable", "Rename", "Top Actions" settings
+* Field: Flexible Content - Added Hide: "Expand All", "Collapse All", "Top Add Row" settings
+* Field: Flexible Content - Added "Close Button Label" setting to customize close button
+* Field: Flexible Content - Migrated ACFE "Edit Title" feature to new ACF 6.5+ logic
+* Field: Flexible Content - Migrated ACFE "Hide Layout" feature to new ACF 6.5+ logic
+* Field: Flexible Content - Adjusted ACF 6.5+ style to make it more consistent with WP style
+* Field: Flexible Content - Fixed various ACF 6.5+ style inconsistencies (border, spacing...)
+* Field: Flexible Content - Fixed various ACF 6.5+ bugs & added UX QOL
+* Field: Flexible Content - Unified Flexible Content markup across all ACF versions
+* Field: Flexible Content - Cleaned/renamed various ACFE Flexible Content class/markup
+* Field: Flexible Content - Enhanced settings integrations and fixed various visual issues
+* Field: Flexible Content - Fixed "Add Layout" button from layout actions
+* Field: Flexible Content - Fixed "Close Button" display when layout is displayed as "Table"
+* Field: Flexible Content - "Stylised Button" is now only available if "Add Row" isn't "Hidden"
+* Field: Flexible Content - Edit Modal - An "Edit" icon is now displayed by default
+* Field: Flexible Content - Edit Modal - This icon can be hidden using "Hide Collapse" setting
+* Field: Flexible Content - Select Modal - Modal "Title" now default to "Add Row" button label
+* Field: Flexible Content - Select Modal - Layouts are now displayed using grid css
+* Field: Flexible Content - Select Modal - Thumbnails are now displayed as `<img>`
+* Field: Flexible Content - Select Modal - Thumbnails are now displayed using a `2:1` ratio
+* Field: Flexible Content - Select Modal - Added `acfe/flexible/modal_select_categories` hook
+* Field: Flexible Content - Settings Modal - Added "Default Modal Size" setting
+* Field: Flexible Content - Settings Modal - Added "Close Button" & "Button Label" settings
+* Field: Repeater - Fixed ACF pagination feature with "Stylised Button" setting
+* Module: Enhanced UI - Added `acfe/modules/attachment_ui` setting
+* Module: Enhanced UI - Added `acfe/modules/term_ui` setting
+* Module: Enhanced UI - Added `acfe/modules/settings_ui` setting
+* Module: Enhanced UI - Added `acfe/modules/user_ui` setting
+* Module: Enhanced UI - Enhanced third party compatibility with `do_meta_boxes` on terms
+* Module: Enhanced UI - User Profile - Moved "Nickname" into its metabox to avoid confusion
+* Module: Forms - Enhanced Template Tags value escape logic
+* Module: Forms - Fixed Ajax Form security vulnerability
+* Module: Forms - Added Action types `title_alt` property for admin column display
+* Module: Forms - Added Actions admin column `acfe/form/admin_column/action_label` filters
+* Module: WP Options - Fixed "Edit Option" value type label
+* Module: WP Options - Added confirm tooltip when deleting an option
+* Field Group: Migrated ACFE "Display Title" setting to the native ACF logic (ACF 6.6+)
+* Field Group: Added "Display Title" in the Field Group List view (ACF 6.6+)
+* Field Settings: Instruction Tooltip - Fixed tooltip remaining visible indefinitely (ACF 6.5+)
+* Global: Plugins > ACF Tab - Fixed deprecated notice on PHP 8.1+
+* Global: Fixed HTML escape on various ACFE tooltips
+* Global: Updated build tools
 
 = 0.9.1.1 =
 
@@ -982,7 +1118,7 @@ The content of the upcoming patch and work in progress features are all listed o
 * Module: Scripts - Bumped "Clean Orphan Meta" script version to 1.1
 * Module: Scripts - Added "Script Launcher" to easily launch scripts using hooks
 * Module: Settings - Added `modules/scripts/demo` setting
-* General: ACF Updates screen has been uniformized accross 5.10.x to ACF 6.0.x versions
+* General: ACF Updates screen has been uniformized across 5.10.x to ACF 6.0.x versions
 
 **ACF Extended Basic 0.8.8.11:**
 

@@ -1,5 +1,17 @@
 <?php 
 
+// 替換入口 logo
+function new_login_logo() {                                                             /* 自訂登入畫面LOGO */ 
+    echo '<style type="text/css">
+    .login h1 a { background-image:url('.get_template_directory_uri().'/asset/imgs/company-logo.png) !important; background-size: 270px 110px!important; width:270px!important; height:110px !important; }
+    body {background-image:url('.get_template_directory_uri().'/screenshot.png); background-size: cover; background-position: center; background-repeat: no-repeat;}</style>';
+}
+add_action('login_head', 'new_login_logo' );
+
+// 移除控制台左上角WP-LOGO
+function remove_wp_logo( $wp_admin_bar ) { $wp_admin_bar->remove_node( 'wp-logo' ); } 
+add_action( 'admin_bar_menu', 'remove_wp_logo', 999 );
+
 // 修改後台底下的wordpress文字宣告
 function custom_dashboard_footer ($text) {
     // 確保返回非空字串，避免與其他插件衝突
@@ -121,11 +133,4 @@ add_action('admin_menu', function() {
         remove_menu_page('mlang');
     }
 });
-
-
-// 停用預設文章 post type
-function disable_default_post_type() {
-    remove_menu_page('edit.php');
-}
-add_action('admin_menu', 'disable_default_post_type');
 

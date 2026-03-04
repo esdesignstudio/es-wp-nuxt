@@ -2,11 +2,7 @@
     <div class="page-index">
         <div class="container">
             <h1>
-                <span
-                    style="display: block;"
-                    data-scroll
-                    data-scroll-speed="-0.6"
-                >HOME</span>
+                HOME
             </h1>
             <pre>
                 {{ pageData }}

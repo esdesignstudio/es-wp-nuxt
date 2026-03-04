@@ -26,10 +26,15 @@ class acfe_field_group_display_title{
      */
     function prepare_field_group($field_group){
         
-        if(!acf_maybe_get($field_group, 'acfe_display_title'))
-            return $field_group;
+        // legacy ACFE "acfe_display_title"
+        if(!empty($field_group['acfe_display_title']) && is_string($field_group['acfe_display_title'])){
+            $field_group['title'] = $field_group['acfe_display_title'];
+        }
         
-        $field_group['title'] = $field_group['acfe_display_title'];
+        // ACF 6.6+ native "display_title" takes priority
+        if(!empty($field_group['display_title']) && is_string($field_group['display_title'])){
+            $field_group['title'] = $field_group['display_title'];
+        }
         
         return $field_group;
         

@@ -75,13 +75,6 @@
                 "operator": "==",
                 "value": "all"
             }
-        ],
-        [
-            {
-                "param": "post_type_list",
-                "operator": "==",
-                "value": "works"
-            }
         ]
     ],
     "menu_order": 5,
@@ -100,5 +93,5 @@
     "acfe_form": 0,
     "acfe_meta": "",
     "acfe_note": "",
-    "modified": 1755853630
+    "modified": 1753346477
 }

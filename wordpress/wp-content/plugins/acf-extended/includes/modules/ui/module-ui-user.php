@@ -9,6 +9,11 @@ if(!acf_get_setting('acfe/modules/ui')){
     return;
 }
 
+// check setting
+if(!acf_get_setting('acfe/modules/user_ui')){
+    return;
+}
+
 if(!class_exists('acfe_enhanced_ui_user')):
     
 class acfe_enhanced_ui_user extends acfe_enhanced_ui{
@@ -132,7 +137,17 @@ class acfe_enhanced_ui_user extends acfe_enhanced_ui{
         $screen = 'user'; // new
         
         if($args['view'] == 'edit'){
+            
+            // define screen for metabox
             $screen = IS_PROFILE_PAGE ? 'profile' : 'user-edit';
+            
+            // if the screen is profile but we are on user-edit.php
+            // we need to set screen to user-edit
+            global $pagenow;
+            if($screen == 'profile' && $pagenow == 'user-edit.php'){
+                $screen = 'user-edit';
+            }
+            
         }
         
         // post id
@@ -176,7 +191,7 @@ class acfe_enhanced_ui_user extends acfe_enhanced_ui{
         global $user_id;
         
         ?>
-        <div id="edit-slug-box">
+        <div id="edit-slug-box" style="padding:0;">
             <strong>Permalink:</strong> <a href="<?php echo get_author_posts_url($user_id); ?>"><?php echo get_author_posts_url($user_id); ?></a>
         </div>
         <script type="text/javascript">

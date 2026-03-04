@@ -30,9 +30,26 @@ class acfe_module_form_front_render{
         
         // success message
         if($message){
-            
+
+            // flag
+            $shortcode_disabled = false;
+
+            // check if shortcodes should be disabled
+            // and check if acf_the_content has do_shortcode filter
+            if(empty($form['success']['shortcode']) && has_filter('acf_the_content', 'do_shortcode', 11)){
+
+                $shortcode_disabled = true; // set flag
+                remove_filter('acf_the_content', 'do_shortcode', 11);
+
+            }
+
             // apply the_content filters (autop, shortcode, etc.)
             $message = apply_filters('acf_the_content', $message);
+
+            // re-add shortcode filter
+            if($shortcode_disabled){
+                add_filter('acf_the_content', 'do_shortcode', 11);
+            }
             
             // html message
             if($form['success']['wrapper']){
@@ -143,17 +160,7 @@ class acfe_module_form_front_render{
             
                 // assign new render
                 $form['render'] = $html;
-            
-            // function render
-            }elseif(is_callable($form['render'])){
-            
-                ob_start();
-                    call_user_func_array($form['render'], array($form));
-                $html = ob_get_clean();
-            
-                // assign new render
-                $form['render'] = $html;
-            
+                
             }
         
             // check render
@@ -182,6 +189,11 @@ class acfe_module_form_front_render{
                 $form['attributes']['submit'] = false;
             }
         
+        }
+        
+        // flexible content dynamic preview
+        if(acfe_is_dynamic_preview()){
+            $form['attributes']['form']['element'] = 'div';
         }
         
         return $form;
@@ -213,13 +225,6 @@ class acfe_module_form_front_render{
         // form id
         if($form['attributes']['form']['id']){
             $atts['id'] = $form['attributes']['form']['id'];
-        }
-        
-        /**
-         * form wrapper open
-         */
-        if(acfe_is_dynamic_preview()){
-            $form['attributes']['form']['element'] = 'div';
         }
         
         $element = $form['attributes']['form']['element'];
