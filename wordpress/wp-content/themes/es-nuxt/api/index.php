@@ -1,8 +1,7 @@
 <?php
 require_once 'router/get_page_custom.php';
 require_once 'router/get_global.php';
-require_once 'router/get_collection_work.php';
-require_once 'router/get_collection_work_list.php';
+require_once 'router/get_collection_works.php';
 // sitemap
 require_once 'router/get_sitemap.php';
 
@@ -42,18 +41,10 @@ add_action('rest_api_init', function () {
     ));
 
 
-    register_rest_route('api', '/get_collection_work', array(
+    register_rest_route('api', '/get_collection_works', array(
         'methods' => 'GET',
-        'callback' => 'get_collection_work'
+        'callback' => 'get_collection_works'
     ));
-
-    register_rest_route('api', '/get_collection_work_list', array(
-        'methods' => 'GET',
-        'callback' => 'get_collection_work_list'
-    ));
-
-    
-
     // sitemap
     register_rest_route('api', '/get_sitemap', array(
         'methods' => 'GET',

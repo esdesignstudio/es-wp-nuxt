@@ -82,6 +82,22 @@ export default defineNuxtConfig({
         ]
     },
 
+    nitro: {
+        storage : {
+            cache: {
+                driver: 'fs',
+                base: './.cache'
+            }
+        },
+        routeRules: {
+            '/': { swr: true },
+            // '/works': { swr: true },
+            // '/works/**': { swr: true },
+            // '/about': { swr: true },
+            // '/contact': { swr: true },
+        }
+    },
+
     modules: [
         '@nuxt/devtools',
         '@nuxtjs/sitemap',

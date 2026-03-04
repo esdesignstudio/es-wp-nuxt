@@ -2,11 +2,8 @@
     <div class="page-index">
         <div class="container">
             <h1>
-                HOME
+                HOME {{ pageData.title }}
             </h1>
-            <pre>
-                {{ pageData }}
-            </pre>
         </div>
         <Footer />
     </div>
@@ -14,7 +11,19 @@
 <script setup>
     const pageloaded = usePageLoaded()
     const route = useRoute()
-    const pageData = await getPageData({ collection: 'page', key: '23' })
+    const config = useRuntimeConfig()
+    // 使用新的 cache/fetch API
+    const { data: pageData } = await useAsyncData('getHomePageData', async () => {
+        const res = await $fetch('/api/cache/fetch', {
+            method: 'POST',
+            body: {
+                apiUrl: `${config.public.apiUrl}/get_page_custom?slug=index`,
+                method: 'GET',
+                cache: true
+            }
+        })
+        return res.data
+    })
 
     // if (!pageData) {
     //     throw createError({ statusCode: 404, statusMessage: 'Page Not Found', fatal: true })
@@ -24,19 +33,13 @@
     // }
 
     useHead({
-        // title: pageData.meta_title ? pageData.meta_title : pageData.og_title,
+        title: pageData.value.meta_title,
         // meta: useMetaReturn({
-        //     title: pageData.meta_title ? pageData.meta_title : pageData.og_title,
-        //     description: pageData.meta_description,
-        //     image: pageData.og_image?.url,
+        //     title: pageData.value.meta_title ? pageData.value.meta_title : pageData.value.og_title,
+        //     description: pageData.value.meta_description,
+        //     image: pageData.value.og_image?.url,
         //     url: useRuntimeConfig().public.siteUrl + route.path
-        // }),
-        // script: [
-        //     {
-        //         type: 'application/ld+json',
-        //         children: useBreadcrumb()
-        //     }
-        // ]
+        // })
     })
 </script>
 <style lang="scss">

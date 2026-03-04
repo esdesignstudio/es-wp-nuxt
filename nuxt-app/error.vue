@@ -18,9 +18,12 @@
 </template>
 <script setup>
     const pageloaded = usePageLoaded()
-    const config = useRuntimeConfig().public
-    const global = await getPageData({ collection: 'global', whole: true })
-    useGlobal().value = global
+    const config = useRuntimeConfig()
+    const { data: global } = await useAsyncData('getGlobalData', async () => {
+        const res = await $fetch(`${config.public.apiUrl}/get_global`)
+        return res.data
+    })
+    useGlobal().value = global.value
 
     const props = defineProps({
         error: {
